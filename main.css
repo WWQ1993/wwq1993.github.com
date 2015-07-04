@@ -1,0 +1,28 @@
+.tools{
+    margin-left: 70%;
+    margin-right:10% ;
+    padding: inherit;
+    border-style: solid;
+    border-color: rgb(255, 254, 45);
+    border-bottom-left-radius: 1em;
+    /*background-color: orangered;*/
+    font-family: "Arial", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 150%;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and  (max-device-height: 400px){
+
+}
+
+@media screen and (min-height: 500px){
+    .input{
+        margin-left: 70px;
+    // margin-right: 30%;
+    }
+}
+.text{
+    width: 500px;
+    height:25px;
+}
