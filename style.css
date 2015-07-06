@@ -1,0 +1,27 @@
+body{
+    background:peachpuff;
+    font-family: cursive;;
+}
+#left{
+    display:table-cell;
+    background: url("27.jpg");
+
+}
+#right{
+    display:table-cell;
+    width: 300px;
+    background: #ffe8b4;
+    border-left:solid cornflowerblue thick;
+    padding-left: 10px;
+}
+#shooter{
+    clear: both;
+    background:chocolate;
+}
+
+#table{
+    display: table;
+}
+#row{
+    display: table-row;
+}
