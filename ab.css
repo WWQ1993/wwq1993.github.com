@@ -39,3 +39,40 @@ header img{
     margin: 0px 0px -18px -10px;
     padding: 0px;
 }
+
+#side {
+    display: table-cell;
+    width: 200px;
+    background-color: #ffe8b4;
+}
+#maintext{
+    display: table-cell;
+}
+#table{
+    display: table;
+    -webkit-border-horizontal-spacing: 10px;
+}
+#row{
+    display: table-row;
+}
+aside{
+    border-right: solid cornflowerblue medium;
+}
+  p{
+    margin: 15px;
+}
+aside ul{
+    list-style-type: circle;
+}
+aside li{
+    transition: 0.6s;
+}
+aside li:hover{
+    transform:translate(10px) ;
+}
+aside   a{
+    text-decoration: none;
+}
+footer{
+    border-top: medium black solid;
+}
