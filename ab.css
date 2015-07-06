@@ -59,7 +59,7 @@ header img{
 #table{
     display: table;
     border-spacing: 10px;
-
+    margin: -10px;
 }
 #row{
     display: table-row;
@@ -89,5 +89,8 @@ aside a{
 footer,#mainText, aside {
      background: cornsilk;
      /*padding:  0px;*/
+}
+footer{
+    vertical-align: bottom;
 }
 
