@@ -1,3 +1,6 @@
+body{
+    background: #cdcdcd;
+}
 nav ul li{
     font-size: 15px;
     font-family: cursive;
@@ -43,22 +46,32 @@ header img{
 #side {
     display: table-cell;
     width: 200px;
+
     background-color: #ffe8b4;
+
 }
-#maintext{
+#mainText{
     display: table-cell;
+    vertical-align: top;
+
+
 }
 #table{
     display: table;
-    -webkit-border-horizontal-spacing: 10px;
+    border-spacing: 10px;
+
 }
 #row{
     display: table-row;
 }
 aside{
-    border-right: solid cornflowerblue medium;
+   padding: 10px;
+
+    background: url("logo.png") no-repeat left top ;
+    vertical-align: top;
+
 }
-  p{
+p   {
     margin: 15px;
 }
 aside ul{
@@ -70,9 +83,11 @@ aside li{
 aside li:hover{
     transform:translate(10px) ;
 }
-aside   a{
+aside a{
     text-decoration: none;
 }
-footer{
-    border-top: medium black solid;
+footer,#mainText, aside {
+     background: cornsilk;
+     /*padding:  0px;*/
 }
+
