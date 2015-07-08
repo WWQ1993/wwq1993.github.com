@@ -1,5 +1,5 @@
 body{
-    background: #cdcdcd;
+    background: #efe4f0;
 }
 nav ul li{
     font-size: 15px;
@@ -13,7 +13,7 @@ nav ul li{
 nav a{
     text-decoration: none;
 }
-nav a:link,nav a:visited{
+nav a:link,nav a:visited, aside a{
     color: black;
 }
 nav li.select{
@@ -72,7 +72,7 @@ aside{
 
 }
 p   {
-    margin: 15px;
+    padding: 15px;
 }
 aside ul{
     list-style-type: circle;
