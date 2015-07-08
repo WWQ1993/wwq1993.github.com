@@ -45,7 +45,7 @@ header img{
 footer,article, aside {
     background: cornsilk;
     padding:  10px;
-    border:solid darkorchid thin;
+    border:solid #ffeba9 thick;
     border-radius: 15px;
     margin: 10px;
 }
@@ -69,11 +69,10 @@ article{
 p   {
     padding: 0px;
     margin: 10px;
+    line-height: 1.6em;
+    font-size: 0.9em;
 }
-@font-face {
-    font-family: "ºÚÌå";
 
-}
 aside ul{
     list-style-type: circle;
 }
