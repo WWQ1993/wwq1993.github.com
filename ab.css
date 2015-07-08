@@ -1,6 +1,17 @@
 body{
     background: #efe4f0;
 }
+
+.nav{
+    margin: -1px -10px;
+    background: #ff8261;
+}
+
+nav{
+    width: 372px;
+    margin:10px auto  0px auto  ;
+    background: #ff8261;
+}
 nav ul li{
     font-size: 15px;
     font-family: cursive;
@@ -27,11 +38,7 @@ nav ul{
 
     list-style-type: none;
 }
-nav{
-    width: 800px;
-    margin:10px auto  0px auto  ;
-    background: #ff8261;
-}
+
 header{
     width: 1000px;
     margin: -10px auto 0px auto;
@@ -89,4 +96,3 @@ aside a{
 footer{
     margin:0px 10px;
 }
-
