@@ -1,3 +1,4 @@
+
 var client = function(){
 
     //≥ œ÷“˝«Ê
@@ -147,7 +148,7 @@ var client = function(){
     if (system.win == "CE"){
         system.winMobile = system.win;
     } else if (system.win == "Ph"){
-        if(/Windows Phone OS (\d+.\d+)/.test(ua)){;
+        if(/Windows Phone OS (\d+.\d+)/.test(ua)){
             system.win = "Phone";
             system.winMobile = parseFloat(RegExp["$1"]);
         }
@@ -180,3 +181,5 @@ var client = function(){
     };
 
 }();
+
+
