@@ -179,7 +179,6 @@ var client = function(){
         browser:    browser,
         system:     system
     };
-
 }();
 
 
