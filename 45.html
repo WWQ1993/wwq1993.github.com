@@ -1,895 +1,449 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-
-   <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-
-   <style type="text/css">
-
-   /*
-
-CSS stylesheet is based on killwing's flavored markdown style:
-
-https://gist.github.com/2937864
-
-*/
-
-body{
-
-margin: 0 auto;
-
-font: 12px/1.5em Tahoma;
-
-letter-spacing:0.1em;
-
-color: #444444;
-
-line-height: 1;
-
-max-width: 960px;
-
-padding: 5px;
-
-}
-
-h1, h2, h3, h4 {
-
-color: #111111;
-
-font-weight: 400;
-
-}
-
-h1, h2, h3, h4, h5, p {
-
-margin-bottom: 16px;
-
-padding: 0;
-
-}
-
-h1 {
-
-margin: 15px auto;
-
-text-align: center;
-
-font-size: 28px;
-
-}
-
-h2 {
-
-font-size: 24px;
-
-
-
-}
-
-h3 {
-
-font-size: 20px;
-
-margin: 8px 16px ;
-
-}
-
-h4 {
-
-font-size: 16px;
-
-}
-
-h5 {
-
-font-size: 14px;
-
-}
-
-a {
-
-color: #0099ff;
-
-margin: 0;
-
-padding: 0;
-
-vertical-align: baseline;
-
-}
-
-a:link,a:visited{
-
-text-decoration:none;
-
-}
-
-a:hover{
-
-text-decoration:underline;
-
-}
-
-ul, ol {
-
-padding: 0;
-
-margin: 0;
-
-}
-
-li {
-
-line-height: 24px;
-
-margin-left: 44px;
-
-}
-
-li ul, li ol {
-
-margin-left: 24px;
-
-//margin-top:-15px;
-
-          color: #000080;
-
-
-
-}
-
-ul, ol {
-
-font-size: 14px;
-
-line-height: 20px;
-
-max-width: 540px;
-
-}
-
-
-
-p {
-
-font-size: 14px;
-
-line-height: 20px;
-
-max-width: 540px;
-
-margin-top: 3px;
-
-}
-
-
-
-pre {
-
-padding: 0px 4px;
-
-max-width: 800px;
-
-white-space: pre-wrap;
-
-font-family: Consolas, Monaco, Andale Mono, monospace;
-
-line-height: 1.5;
-
-font-size: 13px;
-
-border: 1px solid #ddd;
-
-background-color: #f7f7f7;
-
-border-radius: 3px;
-
-}
-
-code {
-
-font-family: Consolas, Monaco, Andale Mono, monospace;
-
-line-height: 1.5;
-
-font-size: 13px;
-
-border: 1px solid #ddd;
-
-background-color: #f7f7f7;
-
-border-radius: 3px;
-
-}
-
-pre code {
-
-border: 0px;
-
-}
-
-aside {
-
-display: block;
-
-float: right;
-
-width: 390px;
-
-}
-
-blockquote {
-
-border-left:.5em solid #40AA53;
-
-padding: 0 2em;
-
-margin-left:0;
-
-max-width: 476px;
-
-}
-
-blockquote  cite {
-
-font-size:14px;
-
-line-height:20px;
-
-color:#bfbfbf;
-
-}
-
-blockquote cite:before {
-
-content: '\2014 \00A0';
-
-}
-
-
-
-blockquote p {
-
-color: #666;
-
-max-width: 460px;
-
-}
-
-hr {
-
-height: 1px;
-
-border: none;
-
-border-top: 1px dashed #0066CC
-
-}
-
-
-
-button,
-
-input,
-
-select,
-
-textarea {
-
-font-size: 100%;
-
-margin: 0;
-
-vertical-align: baseline;
-
-*vertical-align: middle;
-
-}
-
-button, input {
-
-line-height: normal;
-
-*overflow: visible;
-
-}
-
-button::-moz-focus-inner, input::-moz-focus-inner {
-
-border: 0;
-
-padding: 0;
-
-}
-
-button,
-
-input[type="button"],
-
-input[type="reset"],
-
-input[type="submit"] {
-
-cursor: pointer;
-
--webkit-appearance: button;
-
-}
-
-input[type=checkbox], input[type=radio] {
-
-cursor: pointer;
-
-}
-
-/* override default chrome & firefox settings */
-
-input:not([type="image"]), textarea {
-
--webkit-box-sizing: content-box;
-
--moz-box-sizing: content-box;
-
-box-sizing: content-box;
-
-}
-
-
-
-input[type="search"] {
-
--webkit-appearance: textfield;
-
--webkit-box-sizing: content-box;
-
--moz-box-sizing: content-box;
-
-box-sizing: content-box;
-
-}
-
-input[type="search"]::-webkit-search-decoration {
-
--webkit-appearance: none;
-
-}
-
-label,
-
-input,
-
-select,
-
-textarea {
-
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-font-size: 13px;
-
-font-weight: normal;
-
-line-height: normal;
-
-margin-bottom: 18px;
-
-}
-
-input[type=checkbox], input[type=radio] {
-
-cursor: pointer;
-
-margin-bottom: 0;
-
-}
-
-input[type=text],
-
-input[type=password],
-
-textarea,
-
-select {
-
-display: inline-block;
-
-width: 210px;
-
-padding: 4px;
-
-font-size: 13px;
-
-font-weight: normal;
-
-line-height: 18px;
-
-height: 18px;
-
-color: #808080;
-
-border: 1px solid #ccc;
-
--webkit-border-radius: 3px;
-
--moz-border-radius: 3px;
-
-border-radius: 3px;
-
-}
-
-select, input[type=file] {
-
-height: 27px;
-
-line-height: 27px;
-
-}
-
-textarea {
-
-height: auto;
-
-}
-
-
-
-/* grey out placeholders */
-
-:-moz-placeholder {
-
-color: #bfbfbf;
-
-}
-
-::-webkit-input-placeholder {
-
-color: #bfbfbf;
-
-}
-
-
-
-input[type=text],
-
-input[type=password],
-
-select,
-
-textarea {
-
--webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-
--moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-
-transition: border linear 0.2s, box-shadow linear 0.2s;
-
--webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-
--moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-
-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-
-}
-
-input[type=text]:focus, input[type=password]:focus, textarea:focus {
-
-outline: none;
-
-border-color: rgba(82, 168, 236, 0.8);
-
--webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
-
--moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
-
-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
-
-}
-
-
-
-/* buttons */
-
-button {
-
-display: inline-block;
-
-padding: 4px 14px;
-
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-font-size: 13px;
-
-line-height: 18px;
-
--webkit-border-radius: 4px;
-
--moz-border-radius: 4px;
-
-border-radius: 4px;
-
--webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-
--moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-
-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-
-background-color: #0064cd;
-
-background-repeat: repeat-x;
-
-background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
-
-background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
-
-background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
-
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
-
-background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
-
-background-image: -o-linear-gradient(top, #049cdb, #0064cd);
-
-background-image: linear-gradient(top, #049cdb, #0064cd);
-
-color: #fff;
-
-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-
-border: 1px solid #004b9a;
-
-border-bottom-color: #003f81;
-
--webkit-transition: 0.1s linear all;
-
--moz-transition: 0.1s linear all;
-
-transition: 0.1s linear all;
-
-border-color: #0064cd #0064cd #003f81;
-
-border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-
-}
-
-button:hover {
-
-color: #fff;
-
-background-position: 0 -15px;
-
-text-decoration: none;
-
-}
-
-button:active {
-
--webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-
--moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-
-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-
-}
-
-button::-moz-focus-inner {
-
-padding: 0;
-
-border: 0;
-
-}
-
-/* table  */
-
-table {
-
-border-spacing: 0;
-
-border: 1px solid #ccc;
-
-}
-
-td, th{
-
-border: 1px solid #ccc;
-
-padding: 5px;
-
-}
-
-/* code syntax highlight.
-
-Documentation: http://www.mdcharm.com/documentation/code_syntax_highlighting.html#custom_your_own
-
-*/
-
-pre .literal,
-
-pre .comment,
-
-pre .template_comment,
-
-pre .diff .header,
-
-pre .javadoc {
-
-color: #008000;
-
-}
-
-
-
-pre .keyword,
-
-pre .css .rule .keyword,
-
-pre .winutils,
-
-pre .javascript .title,
-
-pre .nginx .title,
-
-pre .subst,
-
-pre .request,
-
-pre .status {
-
-color: #0000FF;
-
-font-weight: bold
-
-}
-
-
-
-pre .number,
-
-pre .hexcolor,
-
-pre .python .decorator,
-
-pre .ruby .constant {
-
-color: #0000FF;
-
-}
-
-
-
-pre .string,
-
-pre .tag .value,
-
-pre .phpdoc,
-
-pre .tex .formula {
-
-color: #D14
-
-}
-
-
-
-pre .title,
-
-pre .id {
-
-color: #900;
-
-font-weight: bold
-
-}
-
-
-
-pre .javascript .title,
-
-pre .lisp .title,
-
-pre .clojure .title,
-
-pre .subst {
-
-font-weight: normal
-
-}
-
-
-
-pre .class .title,
-
-pre .haskell .type,
-
-pre .vhdl .literal,
-
-pre .tex .command {
-
-color: #458;
-
-font-weight: bold
-
-}
-
-
-
-pre .tag,
-
-pre .tag .title,
-
-pre .rules .property,
-
-pre .django .tag .keyword {
-
-color: #000080;
-
-font-weight: normal
-
-}
-
-
-
-pre .attribute,
-
-pre .variable,
-
-pre .lisp .body {
-
-color: #008080
-
-}
-
-
-
-pre .regexp {
-
-color: #009926
-
-}
-
-
-
-pre .class {
-
-color: #458;
-
-font-weight: bold
-
-}
-
-
-
-pre .symbol,
-
-pre .ruby .symbol .string,
-
-pre .lisp .keyword,
-
-pre .tex .special,
-
-pre .prompt {
-
-color: #990073
-
-}
-
-
-
-pre .built_in,
-
-pre .lisp .title,
-
-pre .clojure .built_in {
-
-color: #0086b3
-
-}
-
-
-
-pre .preprocessor,
-
-pre .pi,
-
-pre .doctype,
-
-pre .shebang,
-
-pre .cdata {
-
-color: #999;
-
-font-weight: bold
-
-}
-
-
-
-pre .deletion {
-
-background: #fdd
-
-}
-
-
-
-pre .addition {
-
-background: #dfd
-
-}
-
-
-
-pre .diff .change {
-
-background: #0086b3
-
-}
-
-
-
-pre .chunk {
-
-color: #aaa
-
-}
-
-
-
-pre .markdown .header {
-
-color: #800;
-
-font-weight: bold;
-
-}
-
-
-
-pre .markdown .blockquote {
-
-color: #888;
-
-}
-
-
-
-pre .markdown .link_label {
-
-color: #88F;
-
-}
-
-
-
-pre .markdown .strong {
-
-font-weight: bold;
-
-}
-
-
-
-pre .markdown .emphasis {
-
-font-style: italic;
-
-}
-
-
-
-   </style>
-
-   
-
-   
-
-</head>
-
-<body>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+   <style type="text/css">
+   /*
+CSS stylesheet is based on killwing's flavored markdown style:
+https://gist.github.com/2937864
+*/
+body{
+margin: 0 auto;
+font: 12px/1.5em Tahoma;
+letter-spacing:0.1em;
+color: #444444;
+line-height: 1;
+max-width: 960px;
+padding: 5px;
+}
+h1, h2, h3, h4 {
+color: #111111;
+font-weight: 400;
+}
+h1, h2, h3, h4, h5, p {
+margin-bottom: 16px;
+padding: 0;
+}
+h1 {
+margin: 15px auto;
+text-align: center;
+font-size: 28px;
+}
+h2 {
+font-size: 24px;
+
+}
+h3 {
+font-size: 20px;
+margin: 8px 16px ;
+}
+h4 {
+font-size: 16px;
+}
+h5 {
+font-size: 14px;
+}
+a {
+color: #0099ff;
+margin: 0;
+padding: 0;
+vertical-align: baseline;
+}
+a:link,a:visited{
+text-decoration:none;
+}
+a:hover{
+text-decoration:underline;
+}
+ul, ol {
+padding: 0;
+margin: 0;
+}
+li {
+line-height: 24px;
+margin-left: 40px;
+}
+li ul, li ol {
+margin-left: -5px;
+//margin-top:-15px;
+          color: #000080;
+
+}
+ul, ol {
+font-size: 14px;
+line-height: 20px;
+max-width: 540px;
+}
+
+p {
+font-size: 14px;
+line-height: 20px;
+max-width: 540px;
+margin-top: 3px;
+}
+
+pre {
+padding: 0px 4px;
+max-width: 800px;
+white-space: pre-wrap;
+font-family: Consolas, Monaco, Andale Mono, monospace;
+line-height: 1.5;
+font-size: 13px;
+border: 1px solid #ddd;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+code {
+font-family: Consolas, Monaco, Andale Mono, monospace;
+line-height: 1.5;
+font-size: 13px;
+border: 1px solid #ddd;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+pre code {
+border: 0px;
+}
+aside {
+display: block;
+float: right;
+width: 390px;
+}
+blockquote {
+border-left:.5em solid #40AA53;
+padding: 0 2em;
+margin-left:0;
+max-width: 476px;
+}
+blockquote  cite {
+font-size:14px;
+line-height:20px;
+color:#bfbfbf;
+}
+blockquote cite:before {
+content: '\2014 \00A0';
+}
+
+blockquote p {
+color: #666;
+max-width: 460px;
+}
+hr {
+height: 1px;
+border: none;
+border-top: 1px dashed #0066CC
+}
+
+button,
+input,
+select,
+textarea {
+font-size: 100%;
+margin: 0;
+vertical-align: baseline;
+*vertical-align: middle;
+}
+button, input {
+line-height: normal;
+*overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+border: 0;
+padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+cursor: pointer;
+-webkit-appearance: button;
+}
+input[type=checkbox], input[type=radio] {
+cursor: pointer;
+}
+/* override default chrome & firefox settings */
+input:not([type="image"]), textarea {
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+box-sizing: content-box;
+}
+
+input[type="search"] {
+-webkit-appearance: textfield;
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+-webkit-appearance: none;
+}
+label,
+input,
+select,
+textarea {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: normal;
+line-height: normal;
+margin-bottom: 18px;
+}
+input[type=checkbox], input[type=radio] {
+cursor: pointer;
+margin-bottom: 0;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+display: inline-block;
+width: 210px;
+padding: 4px;
+font-size: 13px;
+font-weight: normal;
+line-height: 18px;
+height: 18px;
+color: #808080;
+border: 1px solid #ccc;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+select, input[type=file] {
+height: 27px;
+line-height: 27px;
+}
+textarea {
+height: auto;
+}
+
+/* grey out placeholders */
+:-moz-placeholder {
+color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+color: #bfbfbf;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+transition: border linear 0.2s, box-shadow linear 0.2s;
+-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+outline: none;
+border-color: rgba(82, 168, 236, 0.8);
+-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* buttons */
+button {
+display: inline-block;
+padding: 4px 14px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 13px;
+line-height: 18px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+background-color: #0064cd;
+background-repeat: repeat-x;
+background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+background-image: linear-gradient(top, #049cdb, #0064cd);
+color: #fff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+border: 1px solid #004b9a;
+border-bottom-color: #003f81;
+-webkit-transition: 0.1s linear all;
+-moz-transition: 0.1s linear all;
+transition: 0.1s linear all;
+border-color: #0064cd #0064cd #003f81;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+button:hover {
+color: #fff;
+background-position: 0 -15px;
+text-decoration: none;
+}
+button:active {
+-webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+button::-moz-focus-inner {
+padding: 0;
+border: 0;
+}
+/* table  */
+table {
+border-spacing: 0;
+border: 1px solid #ccc;
+}
+td, th{
+border: 1px solid #ccc;
+padding: 5px;
+}
+/* code syntax highlight.
+Documentation: http://www.mdcharm.com/documentation/code_syntax_highlighting.html#custom_your_own
+*/
+pre .literal,
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+color: #008000;
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+color: #0000FF;
+font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .python .decorator,
+pre .ruby .constant {
+color: #0000FF;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+color: #D14
+}
+
+pre .title,
+pre .id {
+color: #900;
+font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+color: #458;
+font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+color: #000080;
+font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+color: #008080
+}
+
+pre .regexp {
+color: #009926
+}
+
+pre .class {
+color: #458;
+font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+color: #999;
+font-weight: bold
+}
+
+pre .deletion {
+background: #fdd
+}
+
+pre .addition {
+background: #dfd
+}
+
+pre .diff .change {
+background: #0086b3
+}
+
+pre .chunk {
+color: #aaa
+}
+
+pre .markdown .header {
+color: #800;
+font-weight: bold;
+}
+
+pre .markdown .blockquote {
+color: #888;
+}
+
+pre .markdown .link_label {
+color: #88F;
+}
+
+pre .markdown .strong {
+font-weight: bold;
+}
+
+pre .markdown .emphasis {
+font-style: italic;
+}
+
+   </style>
+   
+   
+</head>
+<body>
     <h1 id="c4">第四章 变量、作用域和内存问题 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <h2>4.1基本类型和引用类型</h2>
@@ -913,9 +467,9 @@ font-style: italic;
 <h3>4.1.2复制变量值</h3>
 
 <ul>
+<li>从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本；</li>
 <li>复制基本类型时，会创建原位置里的<strong>数据</strong>的副本，并放置到为新变量分配的位置上。</li>
 <li>复制引用类型时，会创建原位置里的<strong>指针</strong>的副本，并放置的为新变量分配的位置上。两个指针都指向同一引用对象。</li>
-<li>从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本；</li>
 </ul>
 
 <h3>4.1.3传递参数</h3>
@@ -931,7 +485,7 @@ font-style: italic;
 <ul>
 <li>确定一个值是哪种基本类型可以使用typeof 操作符，而确定一个值是哪种引用类型可以使用instanceof 操作符。</li>
 <li><code>instancof()</code>：如果变量是给定引用类型（根据它的原型链来识别）的实例，那么instanceof 操作符就会返回true。</li>
-<li>如果使用instanceof 检测基本类型会始终返回false，因为基本类型不是对象。</li>
+<li>使用instanceof 检测基本类型会始终返回false，因为基本类型不是对象。</li>
 </ul>
 
 <h2>4.2执行环境及作用域</h2>
@@ -940,13 +494,13 @@ font-style: italic;
 <li>每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。我们无法用代码访问这个对象。</li>
 <li>执行环境有全局执行环境（也称为全局环境）和函数执行环境之分；</li>
 <li>在Web 浏览器中，全局执行环境被认为是window 对象。</li>
-<li>环境的消毁：该环境内所有代码执行完毕后，消耗一切变量和方法。全局环境再关闭网页时销毁</li>
-<li>每个函数都有自己的执行环境。执行流进入一个函数时，函数的环境就会被推入一个环境栈中。
+<li>环境的消毁：该环境内所有代码执行完毕后，消毁一切变量和方法。全局环境在关闭网页时销毁</li>
+<li>每个函数都有自己的执行环境。执行流进入一个函数时，函数环境变量对象会被创建（变量声明提升的原因）和被推入一个环境栈中。
 而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。</li>
 <li>作用域链
 
 <ul>
-<li>创建：每次进入一个新执行环境，都会创建一个用于搜索变量和函数的作用域链；</li>
+<li>创建：<strong>每次</strong>进入一个新执行环境（进入函数体），都会创建一个用于搜索变量和函数的作用域链；</li>
 <li>作用：保证环境对变量、方法的访问次序（先内后外）</li>
 <li>前端：是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象（临时创建的对象）作为变量对象。活动对象开始时包含arguements对象。</li>
 <li>前端后面是前端环境的外部环境变量对象。</li>
@@ -979,7 +533,7 @@ font-style: italic;
 <li>声明变量
 
 <ul>
-<li>使用 var 声明的变量会自动被添加到最接近的环境中。
+<li>使用 var 声明的变量会自动被添加到最接近的环境中。（注意变量声明提升）
 
 <ul>
 <li>在函数内部，最接近的环境就是函数的局部环境 </li>
@@ -1114,7 +668,7 @@ var colors = [&quot;red&quot;, &quot;blue&quot;,&quot;green&quot;];
 <li>length属性
 
 <ul>
-<li>可读可设置。通过设置这个属性，可以从数组的尾部移除项或向数组中添加新项。</li>
+<li>可读可设置。通过设置这个属性，可以从数组的尾部移除项或向数组中添加新项。将length增大则新增项，减小则删除尾部至指定长度。</li>
 <li>利用 length 属性也可以方便地在数组末尾添加新项：<code>arr[arr.length]=someValue</code> //设置末尾后一位的值，同时增加了长度。</li>
 </ul></li>
 </ul>
@@ -1159,8 +713,8 @@ alert(colors); <span class="comment">// red,blue,green</span>
 
 <ul>
 <li>ECMAScript 为数组专门提供了<code>push()</code>和<code>pop()</code>方法，以便实现类似栈的行为。</li>
-<li><code>push()</code>：接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度。</li>
-<li><code>pop()</code>：从数组末尾移除最后一项，减少数组的length 值，然后返回移除的项。</li>
+<li><code>push()</code>：接收任意数量的参数，把它们逐个添加到数组末尾，并<strong>返回</strong>修改后数组的<strong>长度</strong>。</li>
+<li><code>pop()</code>：从数组末尾移除最后一项，减少数组的length 值，然后<strong>返回移除的项</strong>。</li>
 </ul>
 
 <h3>5.2.4队列方法</h3>
@@ -1170,6 +724,7 @@ alert(colors); <span class="comment">// red,blue,green</span>
 用队列一样使用数组。</li>
 <li><code>shift()</code>：移除数组中的第一个项并返回该项，同时将数组长度减1</li>
 <li><code>unshift()</code>：与shift()的用途相反，与push相对，它能在数组前端添加任意个项并返回新数组的长度。（先推后面的参数）</li>
+<li>栈方法和队列方法都是：增加项返回数值长度；删除项返回该项。</li>
 </ul>
 
 <h3>5.2.5重排序方法</h3>
@@ -1190,7 +745,7 @@ sort()方法会调用每个数组项的toString()转型方法，然后比较得�
 <ul>
 <li><code>concat()</code>：先创建当前数组一个副本，然后将接收到的参数添加到这个副本的末尾，最后返回新构建的数组。如果传递给concat()方法的是一或多个数组，则该方法会将这些数组中的每一项都添加到结果数组中。如果传递的值不是数组，这些值就会被简单地添加到结果数组的末尾。</li>
 <li><code>slice()</code>：slice()方法可以接受一或两个参数，即要返回项的起始和结束位置。在只有一个参数的情况下，slice()方法返回从该参数指定位置开始到当前数组末尾的所有项。如果有两个参数，该方法返回起始和结束位置之间的项——但不包括结束位置的项(有首无尾)。</li>
-<li><code>splice()</code>的主要用途是向数组的中部插入项。接受2个或更多参数。前两个参数表示要删除的位置和项数。后面的参数表示要在该位置（后）插入的项。splice()方法始终都会返回一个数组，该数组中包含从原始数组中删除的项（如果没有删除任何项，则返回一个<strong>空数组</strong>）。例子：
+<li><code>splice()</code>的主要用途是向数组的中部插入项。接受2个或更多参数。前两个参数表示要删除的位置和项数。后面的参数表示要在该位置（后）插入的项（可以是数值）。splice()方法始终都会返回一个数组，该数组中包含从原始数组中删除的项（如果没有删除任何项，则返回一个<strong>空数组</strong>）。例子：
 
 <ul>
 <li>splice(0,2)会删除数组中的前两项。</li>
@@ -1199,16 +754,17 @@ sort()方法会调用每个数组项的toString()转型方法，然后比较得�
 </ul></li>
 </ul>
 
-<h3>5.2.7位置方法</h3>
+<h3 id="com1">5.2.7位置方法</h3>
 
 <ul>
 <li>indexOf()和lastIndexOf()。
 
 <ul>
-<li>这两个方法都接收两个参数：要查找的项和（可选的）表示查找起点位置的索引。</li>
+<li>这两个方法都接收两个参数：要查找的项和表示查找起点位置的索引（可选的）。</li>
 <li>都返回要查找的项在数组中的位置，或者在没找到的情况下返回-1。</li>
 <li>在比较第一个参数与数组中的每一项时，会使用全等操作符。</li>
 <li>其中，indexOf()方法从数组的开头（位置0）开始向后查找，lastIndexOf()方法则从数组的末尾开始向前查找（接受的和返回的索引都是正常计数方式）。</li>
+<li>可以通过循环调用indexOf()或lastIndexOf()来找到所有匹配的子字符串。M <sup>P125</sup></li>
 </ul></li>
 </ul>
 
@@ -1342,7 +898,7 @@ sort()方法会调用每个数组项的toString()转型方法，然后比较得�
 <li><code>exec()</code>
 
 <ul>
-<li>接受一个参数，即要应用模式的字符串，然后返回包含第一个匹配项信息的数组；或者在没有匹配项的情况下返回null。</li>
+<li>接受一个参数，即要应用模式的字符串，然后返回包含<strong>第一个</strong>匹配项信息的数组；或者在没有匹配项的情况下返回null。</li>
 <li>返回的数组虽然是Array 的实例，但包含两个额外的属性：index 和input。其中，index 表示匹配项在字符串中的位置，而input 表示应用正则表达式的字符串。在数组中，第一项是与整个模式匹配的字符串，其他项是与模式中的捕获组匹配的字符串（如果模式中没有捕获组，则该数组只包含一项；字符串不匹配模式，则该数组为null）。</li>
 <li>即使在模式中设置了全局标志（g），它每次也只会返回一个匹配项。多次调用exec()则都会在字符串中继续查找新匹配项。<sup>P106</sup></li>
 </ul></li>
@@ -1456,25 +1012,257 @@ sort()方法会调用每个数组项的toString()转型方法，然后比较得�
 <h3>5.5.3 作为值的函数</h3>
 
 <ul>
-<li>函数名本身就是变量，所以函数也可以作为值来使用。
+<li><p>函数名本身就是变量，所以函数也可以作为值来使用。</p>
 
 <ul>
 <li> 可以像传递参数一样把一个函数传递给另一个函数</li>
 <li>也可以将一个函数作为另一个函数的结果返回。</li>
 </ul></li>
+<li><p>要访问函数的指针而不执行函数的话，必须去掉函数名后
+面的那对圆括号。</p></li>
 </ul>
-
-<p>*要访问函数的指针而不执行函数的话，必须去掉函数名后
-面的那对圆括号。</p>
 
 <h3>5.5.4 函数内部属性</h3>
 
 <ul>
 <li>在函数内部，有两个特殊的对象：arguments 和this。</li>
-<li><a href="123.html#arguments">arguments</a></li>
+<li>arguments：<a href="123.html#arguments">见第三章</a></li>
+<li>this属性：引用函数<strong>据以执行</strong>的环境对象。当在网页的全局作用域中调用函数时，
+this 对象引用的就是window</li>
+<li>caller属性：这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null。</li>
 </ul>
 
+<h3>5.5.5函数属性和方法</h3>
 
-</body>
+<ul>
+<li>每个函数都包含两个属性：length 和prototype。</li>
+<li>length 属性表示函数希望接收的命名参数的个数</li>
+<li>对原生引用类型而言：prototype 是保存它们所有实例方法的真正所在。prototype 属性是不可枚举的，因此使用for-in 无法发现。</li>
+<li>每个函数都包含两个非继承而来的方法：apply()和call()。用途都是在特定的作用域中调用函数，实际上等于设置函数体内this 对象的值。
 
+<ul>
+<li>apply()方法接收两个参数：一个
+是在其中运行函数的作用域，另一个是参数数组。其中，第二个参数可以是Array 的实例，也可以是
+arguments 对象。</li>
+<li>call()方法，第一个参数是this 值没有变化，变化的是其余参数都直接传递给函数。</li>
+</ul></li>
+<li>bind()方法：这个方法会创建一个函数的实例，其this 值会被绑定到传给bind()函数的值。<sup>优点参考第22章。</sup></li>
+<li>每个函数继承的valueOf()、toLocaleString()和toString()方法始终都返回函数的代码。返回代码的格
+式则因浏览器而异</li>
+</ul>
+
+<h2>5.6 基本包装类型</h2>
+
+<ul>
+<li>3个特殊的引用类型：Boolean、Number 和String。这些类型与本章介绍的其他引用类型相似，但同时也具有与各自的基本类型相应的特殊行为。</li>
+<li>每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而让我们能够调用一些方法来操作这些数据。</li>
+<li>而在读取模式中访问基本包装类型时，后台都会自动完成下列处理。
+
+<ol>
+<li>创建该类型的一个实例；</li>
+<li>在实例上调用指定的方法；</li>
+<li>销毁这个实例。</li>
+</ol></li>
+<li>使用new 操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。这意味着我们不能在运行时为基本类型值添加属性和方法。</li>
+<li>可以显式地调用Boolean、Number 和String 来创建基本包装类型的对象（不建议）。<strong>该对象返回object。</strong><sup>P119</sup></li>
+<li>把字符串传给Object 构造函数，就会创建String 的实例；而传入数值参数会得到Number 的实例，传入布尔值参数就会得到Boolean 的实例。</li>
+</ul>
+
+<h3>5.6.1 Boolean类型</h3>
+
+<h3>5.6.2 Number类型</h3>
+
+<ul>
+<li>valueOf()方法返回对象表示的基本类型的数值</li>
+<li>toFixed()方法会按照指定的小数位返回数值的字符串表示。如果数值本身包含的小数位比指定的还多，那么接近指定的最大小数位的值就会舍入</li>
+<li>toExponential()，该方法返回以指数表示法（也称e 表示法）
+表示的数值的字符串形式。与toFixed()一样，toExponential()也接收一个参数，而且该参数同样也是指定输出结果中的小数位数。</li>
+<li>toPrecision()方法可能会返回固定大小（fixed）格式，也可能返回指数
+（exponential）格式；具体规则是看哪种格式最合适。这个方法接收一个参数，即表示数值的所有数字的位数（不包括指数部分）。</li>
+</ul>
+
+<h3>5.6.3 String类型</h3>
+
+<ul>
+<li>valueOf()、toLocaleString()和toString()方法，都返回对象所表示的基本字符串值。</li>
+<li>length 属性，表示字符串中包含多个字符。</li>
+<li>字符方法 
+
+<ul>
+<li>charAt()和charCodeAt()。都接收一个参数，即字符位置。charAt()返回给定位置的那个字符；charCodeAt返回该位置字符编码。</li>
+<li>还可以使用方括号加数字索引来访问字符串中的特定字符。</li>
+</ul></li>
+<li>字符串操作方法
+
+<ul>
+<li>concat()，用于将一或多个字符串拼接起来，
+返回拼接得到的新字符串。（实践中使用更多的还是加号操作符）</li>
+<li>slice()、substr()和substring()。
+都返回一个子字符串，都接受一或两个参数。第一个指定子字符串的开始位置，第二个参数（在指定的情况下）表示子字符串到哪里结束。如果没有给这些方法传递第二个参数，则将字符串的长度作为结束位置。
+
+<ul>
+<li>slice()和substring()的第二个参数指定的是子字符串最后一个字符后面的位置。有首无尾</li>
+<li>substr()的第二个参数指定的则是返回的字符个数</li>
+<li>substring()会将较小的数作为开始位置，将较大的数作为结束位置。slice不会</li>
+<li>参数传入负数的情况。<sup>P124</sup></li>
+</ul></li>
+</ul></li>
+<li>字符串位置方法
+
+<ul>
+<li>indexOf()和lastIndexOf()。(<a href="#com1">详见5.2.7</a>):
+
+<ul>
+<li>唯一区别：接受子字符串和数组单项的区别。</li>
+</ul></li>
+</ul></li>
+<li> trim()方法
+
+<ul>
+<li>创建一个字符串的副本，删除前置及后缀的所有空格，然后返回结果</li>
+</ul></li>
+<li> 字符串大小写转换方法<br>
+
+<ul>
+<li>toLowerCase()、toUpperCase()、toLocaleLowerCase()、toLocaleUpperCase()：转换每一个字符到对应的大小写。</li>
+<li>而toLocaleLowerCase()和toLocaleUpperCase()方法则是针对特定地区的实现。对有些地区来说，针对地区的方法与其通用方法得到的结果相同，但少数语言（如土耳其语）会为Unicode 大小写转换应用特殊的规则，这时候就必须使用针对地区的方法来保证实现正确的转换。</li>
+<li>一般来说，在不知道自己的
+代码将在哪种语言环境中运行的情况下，还是使用针对地区的方法更稳妥一些。</li>
+</ul></li>
+<li>字符串的模式匹配方法
+
+<ul>
+<li>match()，在字符串上调用这个方法，本质上与调用RegExp 的exec()方法相同。match()方法只接受一个参数，要么是一个正则表达式，要么是一个RegExp 对象。返回和exec()一致。</li>
+<li>search()。这个方法的唯一参数与match()方法的参数相同。search()方法返回字符串中第一个匹配项的索引；如果没有找到匹配项，则返回-1。而且，search()方法始终是从字符串开头向后查找模式。</li>
+<li>replace()方法。这个方法接受两个参数：第一个参数可以是一个RegExp 对象或者一个字符串（这个字符串不会被转换成正则表达式），第二个参数可以是一个字符串或者一个函数。如果第一个参数是字符串，那么只会替换第一个子字符串。要想替换所有子字符串，唯一的办法就是提供一个正则表达式，而且要指定全局（g）标志<sup>P127</sup>
+
+<ul>
+<li>如果第二个参数是字符串，那么还可以使用一些特殊的字符序列，将正则表达式操作得到的值插入到结果字符串中。<sup>P127</sup></li>
+<li>第二个参数也可以是一个函数。在只有一个匹配项（即与模式匹配的字符串）的情况下，会向这个函数传递3 个参数：模式的匹配项、模式匹配项在字符串中的位置和原始字符串（即调用该函数的字符串）。在正则表达式中定义了多个捕获组的情况下，传递给函数的参数依次是模式的匹配项、第一个捕获组的匹配项、第二个捕获组的匹配项……，但最后两个参数仍然分别是模式的匹配项在字符串中的位置和原始。这个函数应该返回一个字符串，表示应该被替换的匹配项使用函数作为replace()方法的第二个参数可以实现更加精细的替换操作
+字符串。</li>
+</ul></li>
+<li>split()，这个方法可以基于指定的分隔符将一个字符串分割成多个子字符串，并将结果放在一个数组中。分隔符可以是字符串，也可以是一个RegExp 对象（这个方法不会将字符串看成正则表达式）。可以接受可选的第二个参数，用于指定数组的大小，以便确保返回的数组不会超过既定大小。对 split()中正则表达式的支持因浏览器而异。尽管对于简单的模式没有什么差别，但对于未发现匹配项以及带有捕获组的模式，匹配的行为就不大相同了</li>
+</ul></li>
+<li>localeCompare()方法
+
+<ul>
+<li>比较两个字符串</li>
+<li>调用字符串小于参数字符串，返回负数（-1）</li>
+<li>调用字符串大于参数字符串，返回整数（1）</li>
+<li>字符串等于字符串参数，则返回0；</li>
+</ul></li>
+<li>fromCharCode()方法：接收一或多个字符<strong>编码</strong>，然后将它们转换成一个字符串。</li>
+<li>HTML 方法。应该尽量不使用这些方法，因为它们创建的标记通常无法表达语义。</li>
+</ul>
+
+<h2>5.7 单体内置对象</h2>
+
+<ul>
+<li>不依赖于宿主环境的对象，已经实例化。</li>
+<li>Object、Array 、String、Boolean、Global 和Math。<br></li>
+</ul>
+
+<h3>5.7.1Global对象</h3>
+
+<ul>
+<li>不属于任何其他对象的属性和方法，最终都是它的属性和方法。所有在全局作用域中定义的属性和函数，都是Global 对象的属性，诸如isNaN()、isFinite()、parseInt()以及parseFloat()。</li>
+<li>Global 对象还包含其他一些方法。
+
+<ol>
+<li> URI 编码方法 
+
+<ul>
+<li>调用格式：fun(string)</li>
+<li>encodeURI()和encodeURIComponent()： 对URI进行编码，以便发送给浏览器。
+
+<ul>
+<li>它们的主要区别在于，encodeURI()不会对本身属于URI 的特殊字符进行编码，只替换空格；而encodeURIComponent()则会对它发现的任何非标准字符进行编码。使用encodeURIComponent() 方法的时候要比使用encodeURI()更多。</li>
+</ul></li>
+<li>decodeURI()和decodeURIComponent()。
+
+<ul>
+<li>decodeURI()只能对使用encodeURI()替换的字符进行解码</li>
+<li>decodeURIComponent()能够解码encodeURI()和encodeURIComponent()。<br></li>
+</ul></li>
+</ul></li>
+<li>eval()方法
+
+<ul>
+<li>只接受一个参数，即要执行的字符串。 将传入的参数当作实际的ECMAScript 语句来解析，然后把执行结果插入到原位置。（被替换成了一行真正的代码）</li>
+<li>被执行的代码具有与该执行环境相同的作用域链。这意味着通过eval()执行的代码可以引用在包含环境中定义的变量</li>
+<li>在 eval()中创建的任何变量或函数都不会被提升，因为在解析代码的时候，它们被包含在一个字符串中；它们只在eval()执行的时候创建。</li>
+</ul></li>
+<li>Global 对象的属性：特殊的值undefined、NaN 以及Infinity 都是Global 对象的属性。此外，所有原生引用类型的构造函数，像Object 和Function，也都是Global 对象的属性。Global 对象的所有属性：<sup>P133</sup></li>
+<li> window 对象
+
+<ul>
+<li>但Web 浏览器都是将Global 对象作为window 对象的一部分加以实现的。因此，在全局作用域中声明的所有变量和函数，就都成为了window对象的属性 </li>
+<li>在没有给函数明确指定this 值的情况下，this值等于Global 对象。</li>
+</ul></li>
+</ol></li>
+</ul>
+
+<h3>5.7.2 Math对象</h3>
+
+<ol>
+<li>Math 对象的属性.<sup>P134</sup></li>
+<li><p>min()和max()方法</p>
+
+<ul>
+<li>常用于避免多余的循环和在if 语句中确定一组数的最大值。</li>
+<li>接受一组数值，返回最大或者最小值。</li>
+</ul></li>
+<li><p>舍入方法</p>
+
+<ol>
+<li>Math.ceil()执行向上舍入，即它总是将数值向上舍入为最接近的整数；</li>
+<li>Math.floor()执行向下舍入，即它总是将数值向下舍入为最接近的整数；</li>
+<li>Math.round()执行标准舍入，即它总是将数值四舍五入为最接近的整数</li>
+</ol></li>
+<li><p>random()方法</p>
+
+<ul>
+<li>返回大于等于0 小于1 的一个随机数。</li>
+<li><p>从某个整数范围内随机选择一个值: </p>
+
+<pre><code class="javascript">值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)
+</code></pre></li>
+<li><p>拓展：(利用这个函数，可以方便地从数组中随机取出一项)</p>
+
+<pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">selectFrom</span><span class="params">(lowerValue, upperValue)</span> {</span>
+<span class="keyword">var</span> choices = upperValue - lowerValue + <span class="number">1</span>;
+<span class="keyword">return</span> Math.floor(Math.random() * choices + lowerValue);
+}
+</code></pre></li>
+</ul></li>
+<li><p>其他方法</p>
+
+<ul>
+<li>Math对象的方法。<sup>P136</sup></li>
+</ul></li>
+</ol>
+
+<h2>复习题</h2>
+
+<ul>
+<li>写出colors1、colors2、colors3的值。答案<sup>P128</sup></li>
+</ul>
+
+<pre><code class="javascript"><span class="keyword">var</span> colorText = <span class="string">"red,blue,green,yellow"</span>;
+<span class="keyword">var</span> colors1 = colorText.split(<span class="string">","</span>); 
+<span class="keyword">var</span> colors2 = colorText.split(<span class="string">","</span>, <span class="number">2</span>); 
+<span class="keyword">var</span> colors3 = colorText.split(<span class="regexp">/[^\,]+/</span>); 
+</code></pre>
+
+<ul>
+<li>理解下列语法：</li>
+</ul>
+
+<pre><code class="javascript"><span class="keyword">var</span> values = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>];
+<span class="keyword">var</span> max = Math.max.apply(Math, values);
+</code></pre>
+
+<h2><a href="0.html#catalogue">回目录</a></h2>
+
+</body>
 </html>

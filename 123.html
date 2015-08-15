@@ -61,10 +61,10 @@ margin: 0;
 }
 li {
 line-height: 24px;
-margin-left: 44px;
+margin-left: 40px;
 }
 li ul, li ol {
-margin-left: 24px;
+margin-left: -5px;
 //margin-top:-15px;
           color: #000080;
 
@@ -1026,16 +1026,18 @@ font-style: italic;
 <li>与 &amp;&amp;
 
 <ul>
-<li> 规则：a&amp;&amp;b：若a为真返回b，否则返回a。</li>
-<li>短路操作。</li>
+<li> 规则：a&amp;&amp;b：短路则返回短路值，否则返回后一值。</li>
 </ul></li>
 <li>或||
 
 <ul>
-<li>规则：a||b：若a为真返回a，否则返回b</li>
-<li>优先级：与&gt;或。示例：a||b&amp;&amp;c，先算b&amp;&amp;c，因此，a为真，直接返回a。分析：a&amp;&amp;b||c</li>
+<li>短路则返回短路值，否则返回后一值。</li>
 </ul></li>
 </ol>
+
+<ul>
+<li>优先级：与&gt;或。示例：a||b&amp;&amp;c，先算b&amp;&amp;c，因此，a为真，直接返回a。分析：a&amp;&amp;b||c</li>
+</ul>
 
 <h3>3.5.4乘性操作符  乘、除、模</h3>
 
