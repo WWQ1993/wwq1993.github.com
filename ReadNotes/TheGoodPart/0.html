@@ -514,10 +514,13 @@ font-style: italic;
 <ul>
 <li>属性名可以是包括空字符串在内的任意字符串。属性值可以是任意非undefined值。</li>
 <li>对于属性名是保留字或者非法标识符，需要用“”。</li>
-<li>检索一个并不存在的成员属性的值会返回undefined，因此可以用||连接一个默认值。如：<code>var a=ob.a||&quot;defautValue&quot;</code>。</li>
-<li>尝试从值为undefined的属性中取值会导致TypeError异常。此时可以通过&amp;&amp;避免错误：<code>var a = ob.ob2 &amp;&amp; ob.ob2.a;</code></li>
-<li>delete无法删除原型链中的属性</li>
-<li>减小全局污染的 一种方法：创建一个对象，将所有属性方法都建立在该对象内。</li>
+<li>检索一个并不存在的成员属性的值会返回undefined，因此可以用||连接一个默认值。如：<br>
+<code>var a=ob.a||&quot;defautValue&quot;</code>。</li>
+<li><p>尝试从值为undefined的属性中取值会导致TypeError异常。此时可以通过&amp;&amp;避免错误：        </p>
+
+<p><code>var a = ob.ob2 &amp;&amp; ob.ob2.a;</code></p></li>
+<li><p>delete无法删除原型链中的属性</p></li>
+<li><p>减小全局污染的 一种方法：创建一个对象，将所有属性方法都建立在该对象内。</p></li>
 </ul>
 
 <hr>
@@ -615,7 +618,7 @@ font-style: italic;
 
 <ul>
 <li>.会匹配除行结束符以外的任何字符</li>
-<li><sup>匹配文本的开始（指定多行属性m时，也能匹配行结束符）</sup></li>
+<li>^匹配文本的开始（指定多行属性m时，也能匹配行结束符）</li>
 <li>$匹配文本的结束（指定m时也匹配行结束符）</li>
 </ul></li>
 <li><p>转义符含义：</p>

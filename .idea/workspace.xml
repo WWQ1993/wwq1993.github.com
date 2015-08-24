@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/0.html" afterPath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/0.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/TheGoodPart/0.html" afterPath="$PROJECT_DIR$/ReadNotes/TheGoodPart/0.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/123.html" afterPath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/123.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/45.html" afterPath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/45.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/6.html" afterPath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/6.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -383,7 +379,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440402627787</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="new&#10;">
+      <created>1440403320259</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1440403320259</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -399,7 +401,7 @@
     <frame x="285" y="17" width="1075" height="721" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12716763" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12716763" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288364" sideWeight="0.49614644" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.49651048" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3248731" sideWeight="0.5077071" order="5" side_tool="true" content_ui="tabs" />
@@ -435,7 +437,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
     <MESSAGE value="fg" />
     <MESSAGE value="fgdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="fgdf" />
+    <MESSAGE value="new&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="new&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
