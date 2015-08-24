@@ -512,15 +512,14 @@ font-style: italic;
 <h1 id="c3">第三章 对象 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
-<li>属性名可以是包括空字符串在内的任意字符串。属性值可以是任意非undefined值。</li>
+<li>属性名可以是包括空字符串在内的任意字符串。属性值可以是任意非undefined值。<br></li>
 <li>对于属性名是保留字或者非法标识符，需要用“”。</li>
 <li>检索一个并不存在的成员属性的值会返回undefined，因此可以用||连接一个默认值。如：<br>
 <code>var a=ob.a||&quot;defautValue&quot;</code>。</li>
-<li><p>尝试从值为undefined的属性中取值会导致TypeError异常。此时可以通过&amp;&amp;避免错误：        </p>
-
-<p><code>var a = ob.ob2 &amp;&amp; ob.ob2.a;</code></p></li>
-<li><p>delete无法删除原型链中的属性</p></li>
-<li><p>减小全局污染的 一种方法：创建一个对象，将所有属性方法都建立在该对象内。</p></li>
+<li>尝试从值为undefined的属性中取值会导致TypeError异常。此时可以通过&amp;&amp;避免错误：<br>
+<code>var a = ob.ob2 &amp;&amp; ob.ob2.a;</code></li>
+<li>delete无法删除原型链中的属性</li>
+<li>减小全局污染的 一种方法：创建一个对象，将所有属性方法都建立在该对象内。</li>
 </ul>
 
 <hr>
@@ -538,20 +537,20 @@ font-style: italic;
 <li>apply调用模式</li>
 </ul></li>
 <li>如果构造函数的返回值不是一个对象，则返回this（新建的对象）。</li>
-<li><p>异常：    </p>
+<li>异常：<br>
 
 <ul>
 <li>throw语句中断函数的执行，跳到包含该语句的try对应的catch语句。throw后可接对象字面量。异常的默认属性为name和message。</li>
 </ul></li>
-<li><p>扩充类型功能<sup>P32。例子：</sup></p>
+<li>扩充类型功能<sup>P32。例子：</sup>
 
 <ul>
 <li>Function是一切函数的构造函数</li>
 <li>String()、Number()、Boolean()是基本类型的构造函数。当读取基本类型时，先调用其构造函数，再调用对应方法。</li>
 </ul></li>
-<li><p>内部函数能访问外部函数的参数（除了this和arguments。外部形式参数可以访问，）</p></li>
-<li><p>级联<sup>P42</sup> :方法的返回值为调用该方法的对象（即返回this）。产生极富表现力的接口。</p></li>
-<li><p>函数柯里化：把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。见《JavaScript高级程序设计》P605</p></li>
+<li>内部函数能访问外部函数的参数（除了this和arguments。外部形式参数可以访问，）</li>
+<li>级联<sup>P42</sup> :方法的返回值为调用该方法的对象（即返回this）。产生极富表现力的接口。</li>
+<li>函数柯里化：把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。见《JavaScript高级程序设计》P605</li>
 </ul>
 
 <hr>
@@ -559,12 +558,12 @@ font-style: italic;
 <h1 id="c5">第五章 继承 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
-<li><p>伪类模式：通过原型继承。</p>
+<li>伪类模式：通过原型继承。
 
 <ul>
 <li>缺陷：构造函数调用忘用new的问题-&gt;构造函数命名必须首字母大写；隐藏了该语言的真实本质，误导程序员编写过于深入复杂的层次结构。</li>
 </ul></li>
-<li><p>对象说明符：将对象字面量传入函数参数。</p>
+<li>对象说明符：将对象字面量传入函数参数。
 
 <ul>
 <li>好处：
@@ -594,7 +593,7 @@ font-style: italic;
 <h1 id="c7">第七章 正则表达式 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
-<li><p>可处理正则表达式的方法有：</p>
+<li>可处理正则表达式的方法有：
 
 <ul>
 <li>regexp.exec()</li>
@@ -604,24 +603,24 @@ font-style: italic;
 <li>string.search()</li>
 <li>string.split()</li>
 </ul></li>
-<li><p>正则表达式相较于一般的字符串处理有着显著的性能优势。</p></li>
-<li><p>正则表达式必须写在一行。</p></li>
-<li><p>优先考虑使用正则表达式字面量方式创建regexp对象。该方法创建的RegExp对象共享同一个单例。</p></li>
-<li><p>正则表达式序列包括一个或者多个正则表达式因子，每个因子可以选择是否跟一个两次。</p>
+<li>正则表达式相较于一般的字符串处理有着显著的性能优势。</li>
+<li>正则表达式必须写在一行。</li>
+<li>优先考虑使用正则表达式字面量方式创建regexp对象。该方法创建的RegExp对象共享同一个单例。</li>
+<li>正则表达式序列包括一个或者多个正则表达式因子，每个因子可以选择是否跟一个两次。
 
 <ul>
 <li> 因子可以是一个字符、一个圆括号包围的组、一个字符类、或者一个转义序列(\d 表示数字)。</li>
 <li>量词：{3,6}  + * ？</li>
 </ul></li>
-<li><p>可以给任何特殊字符都加上转义符使其字面化。需要被转义的如下：- / [ \ ] ^ </p></li>
-<li><p>一个未被转义的：</p>
+<li>可以给任何特殊字符都加上转义符使其字面化。需要被转义的如下：- / [ \ ] ^ </li>
+<li>一个未被转义的：
 
 <ul>
 <li>.会匹配除行结束符以外的任何字符</li>
 <li>^匹配文本的开始（指定多行属性m时，也能匹配行结束符）</li>
 <li>$匹配文本的结束（指定m时也匹配行结束符）</li>
 </ul></li>
-<li><p>转义符含义：</p>
+<li>转义符含义：
 
 <ul>
 <li>\f换页符   \n换行符   \r回车符   \t制表符   \u接Unicode字符表示十六进制常量</li>
@@ -631,17 +630,17 @@ font-style: italic;
 <li>\b匹配字边界（使用\w去寻找字边界）</li>
 <li>\1对分组1所捕获的<strong>文本</strong>的一个引用</li>
 </ul></li>
-<li><p>正则表达式分组：第一个(是分组一，第二个(是分组二。（因此括号内包含一个括号，外面是1里面是2。）</p>
+<li>正则表达式分组：第一个(是分组一，第二个(是分组二。（因此括号内包含一个括号，外面是1里面是2。）
 
 <ul>
 <li>非捕获型：(:?作前缀，此括号不算作捕获组。<br></li>
 <li>向前捕获组：不建议</li>
 <li>向后捕获组：不建议</li>
 </ul></li>
-<li><p>[^。。]会捕获排除括号内字符外的其他字符。</p></li>
-<li><p>如果只有一个量词，表示趋向贪婪型匹配，如果这个量词后加一个？表示非贪婪型匹配。一般情况下最好坚持贪婪型匹配。</p></li>
-<li><p>exec()是最慢的方法</p></li>
-<li><p>test()是最快的方法。不要对它使用g标识符。</p></li>
+<li>[^。。]会捕获排除括号内字符外的其他字符。</li>
+<li>如果只有一个量词，表示趋向贪婪型匹配，如果这个量词后加一个？表示非贪婪型匹配。一般情况下最好坚持贪婪型匹配。</li>
+<li>exec()是最慢的方法</li>
+<li>test()是最快的方法。不要对它使用g标识符。</li>
 </ul>
 
 <hr>
@@ -665,39 +664,18 @@ font-style: italic;
 
 <ul>
 <li>searchValue是字符串或不带g的正则表达式时，只替换第一个匹配项；唯有是带g的正则表达式时，替换所有符合项。</li>
-<li><p>replaceValue：可以是字符串或者一个函数。</p>
+<li>replaceValue：可以是字符串或者一个函数。
 
 <ul>
-<li><p>如果是一个$开头的字符串，可以有特殊含义。</p>
-
-<table><thead>
-<tr>
-<th>美元符序列</th>
-<th>替换对象</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$$</td>
-<td>$</td>
-</tr>
-<tr>
-<td>$&amp;</td>
-<td>匹配的文本</td>
-</tr>
-<tr>
-<td>$number</td>
-<td>分组捕获文本</td>
-</tr>
-<tr>
-<td>$`</td>
-<td>匹配之前所有文本</td>
-</tr>
-<tr>
-<td>$&#39;</td>
-<td>匹配之后所有文本</td>
-</tr>
-</tbody></table></li>
-<li><p>如果是函数，则每遇到一次匹配项就会调用一次该函数，该函数返回的字符串会被用作替换文本。传递给函数的第一个参数是匹配的文本，第二个是捕获组1...</p></li>
+<li>如果是一个$开头的字符串，可以有特殊含义。<br>
+美元符序列|替换对象
+------|----
+$$|$
+$&amp;|匹配的文本
+$number|分组捕获文本
+$`|匹配之前所有文本
+$&#39;|匹配之后所有文本</li>
+<li>如果是函数，则每遇到一次匹配项就会调用一次该函数，该函数返回的字符串会被用作替换文本。传递给函数的第一个参数是匹配的文本，第二个是捕获组1...<br></li>
 </ul></li>
 </ul></li>
 <li><p>string.search(regexp)： 只接受正则表达式作参数，如果找到匹配，返回第一匹配的首字符位置，没有找到则返回-1。</p></li>
@@ -763,45 +741,37 @@ font-style: italic;
 <li>自动插入分号。</li>
 <li>保留字。不能命名参数或变量。作对象属性时，必须用中括号法，用引号包含保留字。</li>
 <li>Unicode。js的字符是16位，只能覆盖Unicode原有的65536个字符，对Unicode后期增加的一百多万个字符无法正常兼容。</li>
-<li>typeof对null返回object。最好使用如下判断对象：</li>
-</ul>
+<li><p>typeof对null返回object。最好使用如下判断对象：</p>
 
 <pre><code class="javascript"><span class="keyword">if</span> (myobject &amp;&amp; <span class="keyword">typeof</span> myobject===<span class="string">"object"</span>)
 </code></pre>
 
-<pre><code>* 对正则表达式执行typeof时，主流浏览器返回’object‘
-</code></pre>
-
 <ul>
-<li>parseInt。建议总是加上进制基数。</li>
-<li>+。会将字符+数值转为字符相连接。</li>
-<li>浮点数。二进制的浮点数无法正确处理十进制的小数。精度问题。可以指定精度来避免。先乘上倍数转化为整数，再将结果除以倍数。</li>
-<li>NaN。不是数值，但typeof返回&#39;number&#39;。
-
-<ul>
-<li>isFinite()函数。除去NaN和Infinity数值返回true。有类型转换问题，如<code>isFinite(&quot;456&quot;)</code>为true。检测数值的最好方法：</li>
+<li>对正则表达式执行typeof时，主流浏览器返回’object‘</li>
 </ul></li>
-</ul>
+<li><p>parseInt。建议总是加上进制基数。</p></li>
+<li><p>+。会将字符+数值转为字符相连接。</p></li>
+<li><p>浮点数。二进制的浮点数无法正确处理十进制的小数。精度问题。可以指定精度来避免。先乘上倍数转化为整数，再将结果除以倍数。</p></li>
+<li><p>NaN。不是数值，但typeof返回&#39;number&#39;。</p>
+
+<ul>
+<li><p>isFinite()函数。除去NaN和Infinity数值返回true。有类型转换问题，如<code>isFinite(&quot;456&quot;)</code>为true。检测数值的最好方法：</p>
 
 <pre><code class="javascript"><span class="keyword">typeof</span> value===<span class="string">'number'</span>&amp;&amp;isFinite(value)
-</code></pre>
-
-<ul>
-<li>伪数组。JavaScript的数组为伪数组：
+</code></pre></li>
+</ul></li>
+<li><p>伪数组。JavaScript的数组为伪数组：</p>
 
 <ul>
 <li>容易设定维数。</li>
 <li>不会越界。</li>
 <li>性能比真正数值差。</li>
-<li>最佳检测方法：</li>
-</ul></li>
-</ul>
+<li><p>最佳检测方法：</p>
 
 <pre><code class="javascript">Object.prototype.toString.apply(value)===<span class="string">'[object Array]'</span>
-</code></pre>
-
-<ul>
-<li>对象。对象原生属性对自定义的同名属性的干扰<sup>P108</sup></li>
+</code></pre></li>
+</ul></li>
+<li><p>对象。对象原生属性对自定义的同名属性的干扰<sup>P108</sup></p></li>
 </ul>
 
 <hr>
