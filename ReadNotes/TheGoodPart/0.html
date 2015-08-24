@@ -13,7 +13,7 @@ font: 12px/1.5em Tahoma;
 letter-spacing:0.1em;
 color: #444444;
 line-height: 1;
-max-width: 960px;
+width: 840px;
 padding: 5px;
 }
 h1, h2, h3, h4 {
@@ -72,13 +72,13 @@ margin-left: -5px;
 ul, ol {
 font-size: 14px;
 line-height: 20px;
-max-width: 540px;
+max-width: 840px;
 }
 
 p {
 font-size: 14px;
 line-height: 20px;
-max-width: 540px;
+max-width: 840px;
 margin-top: 3px;
 }
 
@@ -107,13 +107,13 @@ border: 0px;
 aside {
 display: block;
 float: right;
-width: 390px;
+width: 800px;
 }
 blockquote {
 border-left:.5em solid #40AA53;
 padding: 0 2em;
 margin-left:0;
-max-width: 476px;
+max-width: 800px;
 }
 blockquote  cite {
 font-size:14px;
@@ -126,7 +126,7 @@ content: '\2014 \00A0';
 
 blockquote p {
 color: #666;
-max-width: 460px;
+max-width: 760px;
 }
 hr {
 height: 1px;
@@ -482,8 +482,10 @@ font-style: italic;
 <h1>书评</h1>
 
 <blockquote>
-<h2>* 这是一本介绍JavaScript语言本质的权威书籍，值得任何正在或准备从事JavaScript开发的人阅读，并且需要反复阅读。学习、理解、实践大师的思想，我们才能站在巨人的肩膀上，才有机会超越大师，本书就是开始。</h2>
+<p>这是一本介绍JavaScript语言本质的权威书籍，值得任何正在或准备从事JavaScript开发的人阅读，并且需要反复阅读。学习、理解、实践大师的思想，我们才能站在巨人的肩膀上，才有机会超越大师，本书就是开始。</p>
 </blockquote>
+
+<hr>
 
 <h1 id="c1">第一章 精华 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
@@ -491,6 +493,8 @@ font-style: italic;
 <li>优点：弱类型、字面量表示对象</li>
 <li>缺点：原型链继承、全局变量</li>
 </ul>
+
+<hr>
 
 <h1 id="c2">第二章 语法 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
@@ -503,6 +507,8 @@ font-style: italic;
 <li>运算符优先级表<sup>P16</sup></li>
 </ul>
 
+<hr>
+
 <h1 id="c3">第三章 对象 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
@@ -513,6 +519,8 @@ font-style: italic;
 <li>delete无法删除原型链中的属性</li>
 <li>减小全局污染的 一种方法：创建一个对象，将所有属性方法都建立在该对象内。</li>
 </ul>
+
+<hr>
 
 <h1 id="c4">第四章 函数 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
@@ -543,6 +551,8 @@ font-style: italic;
 <li><p>函数柯里化：把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。见《JavaScript高级程序设计》P605</p></li>
 </ul>
 
+<hr>
+
 <h1 id="c5">第五章 继承 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
@@ -564,6 +574,8 @@ font-style: italic;
 </ul></li>
 </ul>
 
+<hr>
+
 <h1 id="c6">第六章 数组 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
@@ -573,6 +585,8 @@ font-style: italic;
 <li>for-in语句不保证顺序，所以不用来遍历数组。</li>
 <li>检测数组的另一个方法：<code>return Object.prototype.toString.apply(val)===&quot;[object Array]&quot;;</code></li>
 </ul>
+
+<hr>
 
 <h1 id="c7">第七章 正则表达式 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
@@ -624,12 +638,17 @@ font-style: italic;
 <li><p>[^。。]会捕获排除括号内字符外的其他字符。</p></li>
 <li><p>如果只有一个量词，表示趋向贪婪型匹配，如果这个量词后加一个？表示非贪婪型匹配。一般情况下最好坚持贪婪型匹配。</p></li>
 <li><p>exec()是最慢的方法</p></li>
-<li><p>test()是最快的方法。不要对它使用g标识符。</p>
+<li><p>test()是最快的方法。不要对它使用g标识符。</p></li>
+</ul>
 
-<h1 id="c8">第八章 方法 <sup><a href="0.html#catalogue">回目录</a></sup></h1></li>
-<li><p>array.shift()通常比pop()慢得多。</p></li>
-<li><p>array.join()把数组连接成字符串，默认连接符为逗号，传入空字符串时无连接符。</p></li>
-<li><p>连接字符串用+比array.join()快。</p></li>
+<hr>
+
+<h1 id="c8">第八章 方法 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
+
+<ul>
+<li> array.shift()通常比pop()慢得多。</li>
+<li>array.join()把数组连接成字符串，默认连接符为逗号，传入空字符串时无连接符。</li>
+<li>连接字符串用+比array.join()快。</li>
 <li><p>用sort实现对数值型数组排序：</p>
 
 <pre><code class="javascript">n.sort(<span class="keyword">function</span>(a-b){
@@ -692,6 +711,8 @@ font-style: italic;
 <li><p>String.fromCharCode(编码，编码)：将一组编号转换为对应的字符串。</p></li>
 </ul>
 
+<hr>
+
 <h1 id="c9">第九章 代码风格 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
@@ -719,6 +740,8 @@ font-style: italic;
 </ul></li>
 </ul>
 
+<hr>
+
 <h1 id="c10">第十章 优美的特性 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
@@ -726,6 +749,8 @@ font-style: italic;
 <li>基于原型继承的动态对象。容易给对象实时添加属性，可以继承另一个对象的属性。</li>
 <li>对象字面量和数组字面量。方便创建，json结合。</li>
 </ul>
+
+<hr>
 
 <h1 id="c11">附录A 毒瘤 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
@@ -776,6 +801,8 @@ font-style: italic;
 <li>对象。对象原生属性对自定义的同名属性的干扰<sup>P108</sup></li>
 </ul>
 
+<hr>
+
 <h1 id="c12">附录B 糟粕 <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
@@ -801,6 +828,8 @@ font-style: italic;
 <li><p>void。避免使用。</p></li>
 </ul>
 
+<hr>
+
 <h1 id="c13">附录C JSLint <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 
 <ul>
@@ -810,7 +839,11 @@ font-style: italic;
 <li>将（foo！=0）替换为（foo）</li>
 </ul>
 
+<hr>
+
 <h1 id="c14">附录D 语法图（略） <sup><a href="0.html#catalogue">回目录</a></sup></h1>
+
+<hr>
 
 <h1 id="c15">附录E JSON <sup><a href="0.html#catalogue">回目录</a></sup></h1>
 

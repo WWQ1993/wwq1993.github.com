@@ -13,7 +13,7 @@ font: 12px/1.5em Tahoma;
 letter-spacing:0.1em;
 color: #444444;
 line-height: 1;
-max-width: 960px;
+width: 840px;
 padding: 5px;
 }
 h1, h2, h3, h4 {
@@ -72,13 +72,13 @@ margin-left: -5px;
 ul, ol {
 font-size: 14px;
 line-height: 20px;
-max-width: 540px;
+max-width: 840px;
 }
 
 p {
 font-size: 14px;
 line-height: 20px;
-max-width: 540px;
+max-width: 840px;
 margin-top: 3px;
 }
 
@@ -107,13 +107,13 @@ border: 0px;
 aside {
 display: block;
 float: right;
-width: 390px;
+width: 800px;
 }
 blockquote {
 border-left:.5em solid #40AA53;
 padding: 0 2em;
 margin-left:0;
-max-width: 476px;
+max-width: 800px;
 }
 blockquote  cite {
 font-size:14px;
@@ -126,7 +126,7 @@ content: '\2014 \00A0';
 
 blockquote p {
 color: #666;
-max-width: 460px;
+max-width: 760px;
 }
 hr {
 height: 1px;
@@ -474,7 +474,7 @@ font-style: italic;
 <h3>1.2.2DOM</h3>
 
 <ul>
-<li>解释：HTML的应用编程接口</li>
+<li>解释：HTML的应用编程接口（API）</li>
 <li>实现：把整个页面映射成多层次结点结构</li>
 <li>意义：控制页面内容、结构<sup>P5</sup></li>
 <li>DOM分级<sup>P6</sup></li>
@@ -917,7 +917,7 @@ font-style: italic;
 <li>数值：可有一个基数参数。将可识别的浮点数、十六进制、八进制转换为对应基数数值的字符串形式。</li>
 <li>布尔值：&quot;true&quot;、&quot;false&quot;</li>
 <li>字符串：返回该字符串的一个副本</li>
-<li>对象：调用对象的<code>toString()</code>方法</li>
+<li>对象：调用对象的<code>toString()</code>方法，默认返回 &quot;[object objectname]&quot; </li>
 </ul></li>
 </ul></li>
 <li><code>String()</code>
@@ -1271,7 +1271,7 @@ font-style: italic;
 <h2>小结</h2>
 
 <ul>
-<li><p>对象的类型转换一般都调用一般规则。如果转换为字符串时则调用toString方法（除去字符串拼接操作，此时调用一般规则。因为操作符运算都有一个getValue操作），toString为null则（默认不会）调valueOf方法。如：</p>
+<li><p>对象的类型转换一般都调用一般规则。如果转换为字符串时则调用toString方法（除去字符串拼接操作（因为操作符运算都有一个getValue操作），此时调用一般规则。），toString为null则（默认不会）调valueOf方法。如：</p>
 
 <pre><code class="javascript"> alert(object); <span class="comment">//toString;</span>
  console.log(obj + <span class="string">'123'</span>); <span class="comment">//valueOf</span>
