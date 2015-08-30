@@ -5,18 +5,16 @@
 
 var WWQ = {};     //保护全局变量
 
-WWQ.document = window.document;
-
 WWQ.index = {};   //保存变量名的后缀数目。如：img保存为：WWQ.index.img，为一个数值，读取该值可知之前命名的img，避免冲突。
 
 WWQ.outputStr = ""; //保存输出dom字符串。
 
-WWQ.button1 = WWQ.document.getElementsByTagName("Button")[0];
-WWQ.button2 = WWQ.document.getElementsByTagName("Button")[1];
-WWQ.inputArea = WWQ.document.getElementById("inputArea");
-WWQ.outputArea = WWQ.document.getElementById("outputArea");
-WWQ.inputFrame = WWQ.document.getElementById("iIframe");
-WWQ.outputFrame = WWQ.document.getElementById("oIframe");
+WWQ.button1 = document.getElementsByTagName("Button")[0];
+WWQ.button2 = document.getElementsByTagName("Button")[1];
+WWQ.inputArea = document.getElementById("inputArea");
+WWQ.outputArea = document.getElementById("outputArea");
+WWQ.inputFrame = document.getElementById("iIframe");
+WWQ.outputFrame = document.getElementById("oIframe");
 
 
 WWQ.button1.onclick = function () {     //点击提交html代码触发的事件
@@ -48,7 +46,11 @@ WWQ.button2.onclick = function () {    //点击提交DOM代码触发的事件
 
 };
 
-window.onload = WWQ.button1.onclick;      //页面加载完毕时，自动提交初始html代码。
+window.onload = function(){//页面加载完毕时，自动提交初始html代码。
+    document.execCommand('selectAll');
+    WWQ.button1.onclick();
+
+}
 
 
 /*功    能：将传入字符串分割为标签前的文本字符和标签之后的所有字符。将标签前的文本字符设置为传入节点的子节点；将标签包含的字符（指
