@@ -1,0 +1,29 @@
+body{
+    width: 830px;
+    margin: auto;
+    font: 12px/1.5em Tahoma;
+}
+TextArea{
+    font: 12px/1.5em Tahoma;
+
+    width: 400px;
+    height: 300px;
+    display: block;
+    /*border: red solid thick;*/
+    margin: 5px 0px;
+
+}
+#LeftArea{
+    float: left;
+}
+iframe{
+    margin: 5px;
+    width: 400px;
+    height: 311px;
+
+}
+h1,h4{
+    text-align: center;
+    margin: 0.1em;
+    padding: 0.1em;
+}
