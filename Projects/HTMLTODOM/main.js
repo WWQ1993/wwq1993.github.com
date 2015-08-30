@@ -80,6 +80,11 @@ WWQ.deal = function (str, fatherNode) {
 
             lastIndex += exResult[1].length;  //下次匹配从其后开始。
 
+            if(!exResult[1].match(/[^\s\n]+/))
+            {
+                continue;
+            }
+
             exResult[1] = exResult[1].replace(/\n+/g, "\\n") || exResult[1];    //将换行符替换为\n。（js不允许一条语句多行书写）
 
             WWQ.createNode("text", exResult[1], fatherNode);  //在传入父亲节下建立文本节点
