@@ -1,0 +1,170 @@
+body{
+    font: 12px/1.5em Tahoma;
+    line-height: 2em;
+}
+
+
+#tools{
+    position: fixed;
+    top: 0px;
+    left:0px;
+    right:0px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+    height: 50px;
+    box-sizing: border-box;
+    /*border: solid medium #61bdfa;*/
+    background: #EEF1F2;
+    border:6px #e0e0e0 solid;
+
+}
+
+#content{
+    width: 80%;
+    min-height: 500px;
+    margin: 50px auto 200px auto;
+    border:6px #e0e0e0 solid;
+    border-top: none;
+    padding: 0px 0px 100px 0px;
+
+    /*box-sizing: border-box;*/
+    background: ghostwhite;
+}
+#content p{
+    margin: 0px 10px;
+}
+
+B{
+    /*color: red;*/
+}
+
+#toolBar{
+    position: fixed;
+    top: 100px;
+    width: auto;
+    height: auto;
+    display: none;
+}
+#mainButton, #chooseColor{
+
+    background-color: rgb(232, 232, 232);
+    border-radius: 4px;
+}
+
+#inlineTool div,#blockTool div{
+    display: inline-block;
+    margin: 2px 1px;
+    width: 25px;
+    padding: 0px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 4px;
+    background-color: rgba(191, 191, 191, 0.41);
+    border: outset thin rgba(135, 135, 135, 0.41);
+    cursor: pointer ;
+}
+
+#chooseColor{
+    width: 28px;
+    margin: -2px 0px auto auto;
+    display: none;
+}
+#chooseColor div{
+    cursor: pointer ;
+
+    width:26px ;
+    height:25px ;
+    /*background-color: rgba(191, 191, 191, 0.41);*/
+    /*border: outset thin rgba(135, 135, 135, 0.41);*/
+    border-radius: 4px;
+    margin: 2px 1px;
+    box-sizing: border-box;
+
+}
+#toolBar_I{
+    font-style: oblique;
+}
+#yellow{
+    background-color: rgba(255, 255, 0, 1);
+}
+#blue{
+    background-color: rgba(0, 0, 255,1);
+}
+#pink{
+    background-color: rgba(255, 0, 255,1);
+}
+#orange{
+    background-color: rgba(255, 120, 0,1);
+}
+.blackBorder{
+    border: solid black 2px;
+    background-color: black;
+}
+
+#chooseLevel{
+    display: inline-block;
+    margin: auto 3px;
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    background: #ced3d7 url("ico.gif") no-repeat 7px 10px;
+    border-radius: 3px;
+    border: outset thin rgba(212, 212, 212, 0.41);
+    cursor: pointer ;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+#numbers{
+    margin: 0px 0px 0px 42px;
+    display: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    width:24px ;
+
+}
+#numbers div{
+    cursor: pointer ;
+
+    width:24px ;
+    height:24px ;
+    background-color: #ced3d7;
+    border: outset thin rgba(135, 135, 135, 0.41);
+    border-radius: 4px;
+    margin: 2px 1px;
+    box-sizing: border-box;
+}
+#levelDetail span{
+    /*display: none;*/
+    cursor: pointer ;
+    display: inline-block;
+    width:24px ;
+    height:24px ;
+    background-color: #ced3d7;
+    border: outset thin rgba(135, 135, 135, 0.41);
+    border-radius: 4px;
+    margin: 2px 1px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+}
+#symbols{
+    position: relative;
+    display: none;
+    
+}
+#symbols div{
+    cursor: pointer ;
+    display: block;
+    width:24px ;
+    height:24px ;
+    background-color: #ced3d7;
+    border: outset thin rgba(135, 135, 135, 0.41);
+    border-radius: 4px;
+    margin: 1px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+}
