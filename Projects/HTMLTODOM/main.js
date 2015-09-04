@@ -1,13 +1,13 @@
 
 /**
- * Created by ÍòÇ¿ on 2015/8/28 0028.
+ * Created by ä¸‡å¼º on 2015/8/28 0028.
  */
 
-var WWQ = {};     //±£»¤È«¾Ö±äÁ¿
+var WWQ = {};     //ä¿æŠ¤å…¨å±€å˜é‡
 
-WWQ.index = {};   //±£´æ±äÁ¿ÃûµÄºó×ºÊıÄ¿¡£Èç£ºimg±£´æÎª£ºWWQ.index.img£¬ÎªÒ»¸öÊıÖµ£¬¶ÁÈ¡¸ÃÖµ¿ÉÖªÖ®Ç°ÃüÃûµÄimg£¬±ÜÃâ³åÍ»¡£
+WWQ.index = {};   //ä¿å­˜å˜é‡åçš„åç¼€æ•°ç›®ã€‚å¦‚ï¼šimgä¿å­˜ä¸ºï¼šWWQ.index.imgï¼Œä¸ºä¸€ä¸ªæ•°å€¼ï¼Œè¯»å–è¯¥å€¼å¯çŸ¥ä¹‹å‰å‘½åçš„imgï¼Œé¿å…å†²çªã€‚
 
-WWQ.outputStr = ""; //±£´æÊä³ödom×Ö·û´®¡£
+WWQ.outputStr = ""; //ä¿å­˜è¾“å‡ºdomå­—ç¬¦ä¸²ã€‚
 
 WWQ.button1 = document.getElementsByTagName("Button")[0];
 WWQ.button2 = document.getElementsByTagName("Button")[1];
@@ -17,169 +17,169 @@ WWQ.inputFrame = document.getElementById("iIframe");
 WWQ.outputFrame = document.getElementById("oIframe");
 
 
-WWQ.button1.onclick = function () {     //µã»÷Ìá½»html´úÂë´¥·¢µÄÊÂ¼ş
+WWQ.button1.onclick = function () {     //ç‚¹å‡»æäº¤htmlä»£ç è§¦å‘çš„äº‹ä»¶
 
     'use strict';
 
-    WWQ.index = {};   //ÖØÖÃÃüÃû
+    WWQ.index = {};   //é‡ç½®å‘½å
 
-    WWQ.inputStr = WWQ.inputArea.value;   //»ñÈ¡ÊäÈëµÄhtml´úÂë
+    WWQ.inputStr = WWQ.inputArea.value;   //è·å–è¾“å…¥çš„htmlä»£ç 
 
-    WWQ.inputFrame.contentDocument.getElementsByTagName("p")[0].innerHTML = WWQ.inputStr;    //ÔÚÓÒÉÏÇøÓò£¨iframe£©Õ¹Ê¾ÊäÈëµÄhtml´úÂë¡£
+    WWQ.inputFrame.contentDocument.getElementsByTagName("p")[0].innerHTML = WWQ.inputStr;    //åœ¨å³ä¸ŠåŒºåŸŸï¼ˆiframeï¼‰å±•ç¤ºè¾“å…¥çš„htmlä»£ç ã€‚
 
-    WWQ.outputStr = "";   //ÖØÖÃÊä³öµÄdom×Ö·û´®¡£
+    WWQ.outputStr = "";   //é‡ç½®è¾“å‡ºçš„domå­—ç¬¦ä¸²ã€‚
 
-    WWQ.deal(WWQ.inputStr, 'document.body');     //¸ù¾İÊäÈëµÄhtml£¬´¦Àí½«Êä³öµÄdom×Ö·û´®¡£
+    WWQ.deal(WWQ.inputStr, 'document.body');     //æ ¹æ®è¾“å…¥çš„htmlï¼Œå¤„ç†å°†è¾“å‡ºçš„domå­—ç¬¦ä¸²ã€‚
 
-    WWQ.outputArea.value = WWQ.outputStr;     //½«Êä³ö×Ö·û´®ÏÔÊ¾µ½×óÏÂÇøÓò£¨TextArea£©¡£
+    WWQ.outputArea.value = WWQ.outputStr;     //å°†è¾“å‡ºå­—ç¬¦ä¸²æ˜¾ç¤ºåˆ°å·¦ä¸‹åŒºåŸŸï¼ˆTextAreaï¼‰ã€‚
 
-    WWQ.outputFrame.contentWindow.set();    //ÔËĞĞDOM×Ö·û´®£¬½«Ğ§¹ûÕ¹Ê¾µ½ÓÒÏÂÇøÓò£¨iframe£©£ºÉ¾³ıbodyËùÓĞ½Úµã£¬È»ºóeval×Ö·û´®¡£
+    WWQ.outputFrame.contentWindow.set();    //è¿è¡ŒDOMå­—ç¬¦ä¸²ï¼Œå°†æ•ˆæœå±•ç¤ºåˆ°å³ä¸‹åŒºåŸŸï¼ˆiframeï¼‰ï¼šåˆ é™¤bodyæ‰€æœ‰èŠ‚ç‚¹ï¼Œç„¶åevalå­—ç¬¦ä¸²ã€‚
 };
 
-WWQ.button2.onclick = function () {    //µã»÷Ìá½»DOM´úÂë´¥·¢µÄÊÂ¼ş
+WWQ.button2.onclick = function () {    //ç‚¹å‡»æäº¤DOMä»£ç è§¦å‘çš„äº‹ä»¶
 
     'use strict';
 
-    WWQ.outputStr = WWQ.outputArea.value;     //´Ó×óÏÂÇøÓò£¨TextArea£©¶ÁÈ¡×Ö·û´®¡£
+    WWQ.outputStr = WWQ.outputArea.value;     //ä»å·¦ä¸‹åŒºåŸŸï¼ˆTextAreaï¼‰è¯»å–å­—ç¬¦ä¸²ã€‚
 
-    WWQ.outputFrame.contentWindow.set();    //ÔËĞĞDOM×Ö·û´®£¬½«Ğ§¹ûÕ¹Ê¾µ½ÓÒÏÂÇøÓò£¨iframe£©¡£
+    WWQ.outputFrame.contentWindow.set();    //è¿è¡ŒDOMå­—ç¬¦ä¸²ï¼Œå°†æ•ˆæœå±•ç¤ºåˆ°å³ä¸‹åŒºåŸŸï¼ˆiframeï¼‰ã€‚
 
 };
 
-window.onload = function(){//Ò³Ãæ¼ÓÔØÍê±ÏÊ±£¬×Ô¶¯Ìá½»³õÊ¼html´úÂë¡£
+window.onload = function(){//é¡µé¢åŠ è½½å®Œæ¯•æ—¶ï¼Œè‡ªåŠ¨æäº¤åˆå§‹htmlä»£ç ã€‚
     document.execCommand('selectAll');
     WWQ.button1.onclick();
 
 }
 
 
-/*¹¦    ÄÜ£º½«´«Èë×Ö·û´®·Ö¸îÎª±êÇ©Ç°µÄÎÄ±¾×Ö·ûºÍ±êÇ©Ö®ºóµÄËùÓĞ×Ö·û¡£½«±êÇ©Ç°µÄÎÄ±¾×Ö·ûÉèÖÃÎª´«Èë½ÚµãµÄ×Ó½Úµã£»½«±êÇ©°üº¬µÄ×Ö·û£¨Ö¸
- *         ¿ªÊ¼±êÇ©µ½¶ÔÓ¦µÄ½áÊø±êÇ©Ö®¼äµÄ×Ö·û£¬²»º¬½áÊø±êÇ©£©´«ÈëWWQ.dealStr()º¯Êı£¬ÒÔ½øĞĞ½øÒ»²½´¦Àí¡£
- *´«Èë²ÎÊı£º×Ö·û´®£¬×÷Îª¸¸½ÚµãµÄ×Ö·û´®¡£×Ö·û´®Îª¼´½«½øĞĞÆ¥Åä´¦ÀíµÄhtml´úÂë£»½Úµã½«×÷Îª¸¸½Úµã£¨³õÊ¼´«Èëdocument.body£©£¬×Ö·û´®ÖĞµÄÎÄ±¾»ò±êÇ©½«Ìí¼Ó
- *        µ½´Ë½Úµã³ÉÎªÆä×Ó½Úµã¡£*/
+/*åŠŸ    èƒ½ï¼šå°†ä¼ å…¥å­—ç¬¦ä¸²åˆ†å‰²ä¸ºæ ‡ç­¾å‰çš„æ–‡æœ¬å­—ç¬¦å’Œæ ‡ç­¾ä¹‹åçš„æ‰€æœ‰å­—ç¬¦ã€‚å°†æ ‡ç­¾å‰çš„æ–‡æœ¬å­—ç¬¦è®¾ç½®ä¸ºä¼ å…¥èŠ‚ç‚¹çš„å­èŠ‚ç‚¹ï¼›å°†æ ‡ç­¾åŒ…å«çš„å­—ç¬¦ï¼ˆæŒ‡
+ *         å¼€å§‹æ ‡ç­¾åˆ°å¯¹åº”çš„ç»“æŸæ ‡ç­¾ä¹‹é—´çš„å­—ç¬¦ï¼Œä¸å«ç»“æŸæ ‡ç­¾ï¼‰ä¼ å…¥WWQ.dealStr()å‡½æ•°ï¼Œä»¥è¿›è¡Œè¿›ä¸€æ­¥å¤„ç†ã€‚
+ *ä¼ å…¥å‚æ•°ï¼šå­—ç¬¦ä¸²ï¼Œä½œä¸ºçˆ¶èŠ‚ç‚¹çš„å­—ç¬¦ä¸²ã€‚å­—ç¬¦ä¸²ä¸ºå³å°†è¿›è¡ŒåŒ¹é…å¤„ç†çš„htmlä»£ç ï¼›èŠ‚ç‚¹å°†ä½œä¸ºçˆ¶èŠ‚ç‚¹ï¼ˆåˆå§‹ä¼ å…¥document.bodyï¼‰ï¼Œå­—ç¬¦ä¸²ä¸­çš„æ–‡æœ¬æˆ–æ ‡ç­¾å°†æ·»åŠ 
+ *        åˆ°æ­¤èŠ‚ç‚¹æˆä¸ºå…¶å­èŠ‚ç‚¹ã€‚*/
 WWQ.deal = function (str, fatherNode) {
 
     'use strict';
 
-    var lastIndex = 0,    //È«¾ÖÆ¥ÅäÊ±£¬ÏÂ´ÎÆ¥Åä¿ªÊ¼µÄÎ»ÖÃ¡£
-        regexp = /([^<>]+)|(<(?:(\w+)([^>]*)*)>[\S\s]*)/g,  //È«¾ÖÆ¥Åä·Ç<>µÄ×Ö·û´®»òÕßhtml±êÇ©¼°ÆäºóËùÓĞ×Ö·û´®
+    var lastIndex = 0,    //å…¨å±€åŒ¹é…æ—¶ï¼Œä¸‹æ¬¡åŒ¹é…å¼€å§‹çš„ä½ç½®ã€‚
+        regexp = /([^<>]+)|(<(?:(\w+)([^>]*)*)>[\S\s]*)/g,  //å…¨å±€åŒ¹é…é<>çš„å­—ç¬¦ä¸²æˆ–è€…htmlæ ‡ç­¾åŠå…¶åæ‰€æœ‰å­—ç¬¦ä¸²
         exResult,
         obj,
         tagStr;
 
     while (true) {
 
-        exResult = regexp.exec(str);   //Ö´ĞĞÆ¥Åä
+        exResult = regexp.exec(str);   //æ‰§è¡ŒåŒ¹é…
 
-        if (exResult === null) {   //È«¾ÖÆ¥Åä½áÊø
+        if (exResult === null) {   //å…¨å±€åŒ¹é…ç»“æŸ
 
             break;
 
         }
-        if (exResult[1]) {   //Æ¥Åäµ½·Ç<>µÄ×Ö·û´®¡£
+        if (exResult[1]) {   //åŒ¹é…åˆ°é<>çš„å­—ç¬¦ä¸²ã€‚
 
-            lastIndex += exResult[1].length;  //ÏÂ´ÎÆ¥Åä´ÓÆäºó¿ªÊ¼¡£
+            lastIndex += exResult[1].length;  //ä¸‹æ¬¡åŒ¹é…ä»å…¶åå¼€å§‹ã€‚
 
             if(!exResult[1].match(/[^\s\n]+/))
             {
                 continue;
             }
 
-            exResult[1] = exResult[1].replace(/\n+/g, "\\n") || exResult[1];    //½«»»ĞĞ·ûÌæ»»Îª\n¡££¨js²»ÔÊĞíÒ»ÌõÓï¾ä¶àĞĞÊéĞ´£©
+            exResult[1] = exResult[1].replace(/\n+/g, "\\n") || exResult[1];    //å°†æ¢è¡Œç¬¦æ›¿æ¢ä¸º\nã€‚ï¼ˆjsä¸å…è®¸ä¸€æ¡è¯­å¥å¤šè¡Œä¹¦å†™ï¼‰
 
-            WWQ.createNode("text", exResult[1], fatherNode);  //ÔÚ´«Èë¸¸Ç×½ÚÏÂ½¨Á¢ÎÄ±¾½Úµã
-        } else {   //Æ¥Åäµ½html±êÇ©¡£
+            WWQ.createNode("text", exResult[1], fatherNode);  //åœ¨ä¼ å…¥çˆ¶äº²èŠ‚ä¸‹å»ºç«‹æ–‡æœ¬èŠ‚ç‚¹
+        } else {   //åŒ¹é…åˆ°htmlæ ‡ç­¾ã€‚
 
-            obj = WWQ.dealNest(exResult[2]);  //Ö´ĞĞWWQ.dealNest£¨´«Èë±êÇ©¼°ÆäºóËùÓĞ×Ö·û£©
+            obj = WWQ.dealNest(exResult[2]);  //æ‰§è¡ŒWWQ.dealNestï¼ˆä¼ å…¥æ ‡ç­¾åŠå…¶åæ‰€æœ‰å­—ç¬¦ï¼‰
 
-            tagStr = obj.str;     //WWQ.dealNest()·µ»ØµÄ¶ÔÏóÖĞ±£´æ×Å±¾±êÇ©¼°Æä×Ó±êÇ©£¨³ıºÍ¿ªÊ¼±êÇ©ÅäÌ×µÄ½áÊø±êÇ©Íâ£©¡£
+            tagStr = obj.str;     //WWQ.dealNest()è¿”å›çš„å¯¹è±¡ä¸­ä¿å­˜ç€æœ¬æ ‡ç­¾åŠå…¶å­æ ‡ç­¾ï¼ˆé™¤å’Œå¼€å§‹æ ‡ç­¾é…å¥—çš„ç»“æŸæ ‡ç­¾å¤–ï¼‰ã€‚
 
-            lastIndex += obj.index;   //ÏÂ´ÎÆ¥Åä¿ªÊ¼Î»ÖÃÉèÎª½áÊø±êÇ©Ö®ºó£¨Ã»ÓĞ½áÊø±êÇ©µÄÔòÎª>Ö®ºó£©
+            lastIndex += obj.index;   //ä¸‹æ¬¡åŒ¹é…å¼€å§‹ä½ç½®è®¾ä¸ºç»“æŸæ ‡ç­¾ä¹‹åï¼ˆæ²¡æœ‰ç»“æŸæ ‡ç­¾çš„åˆ™ä¸º>ä¹‹åï¼‰
 
             regexp.lastIndex = lastIndex;
 
-            WWQ.dealStr(tagStr, fatherNode);    //Ö´ĞĞWWQ.dealStr£¨£©£¬¶Ô±êÇ©½øĞĞ½âÎö¡£
+            WWQ.dealStr(tagStr, fatherNode);    //æ‰§è¡ŒWWQ.dealStrï¼ˆï¼‰ï¼Œå¯¹æ ‡ç­¾è¿›è¡Œè§£æã€‚
         }
     }
 };
 
-/*¹¦ÄÜ£º¶Ô´«Èë±êÇ©¼°ÆäÄÚÈİ½øĞĞ½âÎö£º½«±êÇ©ÉèÖÃÎª´«ÈëµÄ½ÚµãµÄ×Ó½Úµã£¨Í¬Ê±ÉèÖÃÊôĞÔ£©£»½«ÄÚÈİ£¨Ö¸±êÇ©µÄÇ¶Ì×±êÇ©£©´«¸øWWQ.deal()½øĞĞÔÙ´Îµü´ú¡£
- * ²ÎÊı£º»¹ÓĞ±êÇ©¼°ÆäÄÚÈİ×Ö·û´®£¬×÷Îª¸¸½ÚµãµÄ×Ö·û´®¡£*/
+/*åŠŸèƒ½ï¼šå¯¹ä¼ å…¥æ ‡ç­¾åŠå…¶å†…å®¹è¿›è¡Œè§£æï¼šå°†æ ‡ç­¾è®¾ç½®ä¸ºä¼ å…¥çš„èŠ‚ç‚¹çš„å­èŠ‚ç‚¹ï¼ˆåŒæ—¶è®¾ç½®å±æ€§ï¼‰ï¼›å°†å†…å®¹ï¼ˆæŒ‡æ ‡ç­¾çš„åµŒå¥—æ ‡ç­¾ï¼‰ä¼ ç»™WWQ.deal()è¿›è¡Œå†æ¬¡è¿­ä»£ã€‚
+ * å‚æ•°ï¼šè¿˜æœ‰æ ‡ç­¾åŠå…¶å†…å®¹å­—ç¬¦ä¸²ï¼Œä½œä¸ºçˆ¶èŠ‚ç‚¹çš„å­—ç¬¦ä¸²ã€‚*/
 WWQ.dealStr = function (str, fatherNode) {
 
     'use strict';
 
     var index,
-        regexp = /\n*<(\w+)([^>]*)*>\n*([\s\S]*)/, //½«×Ö·û´®²ğ·ÖÎª£º»»ĞĞ·û¡¢¿ªÊ¼±êÇ©¡¢»»ĞĞ·û¡¢±êÇ©ÄÚÈİ
+        regexp = /\n*<(\w+)([^>]*)*>\n*([\s\S]*)/, //å°†å­—ç¬¦ä¸²æ‹†åˆ†ä¸ºï¼šæ¢è¡Œç¬¦ã€å¼€å§‹æ ‡ç­¾ã€æ¢è¡Œç¬¦ã€æ ‡ç­¾å†…å®¹
         result = regexp.exec(str),
         attrResult;
 
-    if (result === null) {   //Ã»ÓĞÆ¥Åäµ½±êÇ©
+    if (result === null) {   //æ²¡æœ‰åŒ¹é…åˆ°æ ‡ç­¾
 
         WWQ.createNode("text", str, fatherNode);
 
         return;
     }
 
-    for (index = 0; result !== null && index < result.length; index = index + 1) {    //¶ÔÃ¿¸ö²¶»ñ×é½øĞĞµü´ú
+    for (index = 0; result !== null && index < result.length; index = index + 1) {    //å¯¹æ¯ä¸ªæ•è·ç»„è¿›è¡Œè¿­ä»£
 
-        if (result[index]) {    //²¶»ñ×é²»Îª¿Õ
+        if (result[index]) {    //æ•è·ç»„ä¸ä¸ºç©º
 
-            if (index === 1) {    //²¶»ñµ½±êÇ©Ãû
+            if (index === 1) {    //æ•è·åˆ°æ ‡ç­¾å
 
-                WWQ.createNode(result[index], 0, fatherNode); //´´½¨DOM±êÇ©ÔªËØ
+                WWQ.createNode(result[index], 0, fatherNode); //åˆ›å»ºDOMæ ‡ç­¾å…ƒç´ 
 
-            } else if (index === 2) {   //²¶»ñµ½±êÇ©ÊôĞÔ
+            } else if (index === 2) {   //æ•è·åˆ°æ ‡ç­¾å±æ€§
 
-                WWQ.regAttr = /\s*(\w+)=(["'])?([^'"]+)/g;    //»®·ÖÎª¿Õ¸ñ¡¢×ÖÄ¸¡¢=£¨Æ¥ÅäÒ»ÏîÊôĞÔ£©
+                WWQ.regAttr = /\s*(\w+)=(["'])?([^'"]+)/g;    //åˆ’åˆ†ä¸ºç©ºæ ¼ã€å­—æ¯ã€=ï¼ˆåŒ¹é…ä¸€é¡¹å±æ€§ï¼‰
 
                 while (true) {
 
-                    attrResult = WWQ.regAttr.exec(result[index]); //ÔÙ´ÎÆ¥Åä
+                    attrResult = WWQ.regAttr.exec(result[index]); //å†æ¬¡åŒ¹é…
 
                     if (attrResult === null) {
                         break;
                     }
-                    WWQ.createAttr(result[1], attrResult[1], attrResult[3]);  //´´½¨ÊôĞÔ£¨´«Èë½Úµã¡¢ÊôĞÔÃû¡¢ÊôĞÔÖµ£©
+                    WWQ.createAttr(result[1], attrResult[1], attrResult[3]);  //åˆ›å»ºå±æ€§ï¼ˆä¼ å…¥èŠ‚ç‚¹ã€å±æ€§åã€å±æ€§å€¼ï¼‰
                 }
-            } else if (index === 3) {   //²¶»ñµ½±êÇ©ÄÚÈİ
+            } else if (index === 3) {   //æ•è·åˆ°æ ‡ç­¾å†…å®¹
 
-                WWQ.deal(result[3], result[1] + WWQ.index[result[1]]); //´«¸øWWQ.deal()½øĞĞÔÙ´Îµü´ú
+                WWQ.deal(result[3], result[1] + WWQ.index[result[1]]); //ä¼ ç»™WWQ.deal()è¿›è¡Œå†æ¬¡è¿­ä»£
 
             }
         }
     }
 };
 
-/*¹¦ÄÜ£º´¦Àíµü´úÎÊÌâ£ºÕÒµ½½áÊø±êÇ©£¬²¢·µ»Ø±êÇ©µÄÄÚÈİ¡£Ã»ÓĞ½áÊø±êÇ©Ôò·µ»Ø±¾±êÇ©£¨ÎŞÄÚÈİ£©¡£
- * ²ÎÊı£º×Ö·û´®
- * ·µ»Ø£º±êÇ©¼°ÆäÄÚÈİ£¨È¥³ı½áÊø±êÇ©£©£¬»ò±¾±êÇ©£¨ÎŞ½áÊø±êÇ©µÄÇé¿ö£©*/
+/*åŠŸèƒ½ï¼šå¤„ç†è¿­ä»£é—®é¢˜ï¼šæ‰¾åˆ°ç»“æŸæ ‡ç­¾ï¼Œå¹¶è¿”å›æ ‡ç­¾çš„å†…å®¹ã€‚æ²¡æœ‰ç»“æŸæ ‡ç­¾åˆ™è¿”å›æœ¬æ ‡ç­¾ï¼ˆæ— å†…å®¹ï¼‰ã€‚
+ * å‚æ•°ï¼šå­—ç¬¦ä¸²
+ * è¿”å›ï¼šæ ‡ç­¾åŠå…¶å†…å®¹ï¼ˆå»é™¤ç»“æŸæ ‡ç­¾ï¼‰ï¼Œæˆ–æœ¬æ ‡ç­¾ï¼ˆæ— ç»“æŸæ ‡ç­¾çš„æƒ…å†µï¼‰*/
 WWQ.dealNest = function (str) {
 
-    //ÕÒµ½±êÇ©Ãû³Æ£¬²¢´æÈëtag¡£
+    //æ‰¾åˆ°æ ‡ç­¾åç§°ï¼Œå¹¶å­˜å…¥tagã€‚
     var regTag = /<(\w+)[\S\s]*>[\s\n]*/g,
         re = regTag.exec(str),
         tag = re[1],
 
-        reg = /<(\/)?(\w+)[^>]*>[\s\n]*/g,    //Æ¥ÅäÍ¬Ò»±êÇ©
-        nestDeep = 0, //µü´úÉî¶È¡£Æ¥Åäµ½Í¬Ò»±êÇ©£º¿ªÊ¼±êÇ©Ôò¼ÓÒ»£¬Æ¥Åäµ½½áÊø±êÇ©Ôò¼õÒ»¡£Îª0ÕâËµÃ÷Æ¥Åäµ½¶ÔÓ¦µÄ½áÊø±êÇ©¡£
+        reg = /<(\/)?(\w+)[^>]*>[\s\n]*/g,    //åŒ¹é…åŒä¸€æ ‡ç­¾
+        nestDeep = 0, //è¿­ä»£æ·±åº¦ã€‚åŒ¹é…åˆ°åŒä¸€æ ‡ç­¾ï¼šå¼€å§‹æ ‡ç­¾åˆ™åŠ ä¸€ï¼ŒåŒ¹é…åˆ°ç»“æŸæ ‡ç­¾åˆ™å‡ä¸€ã€‚ä¸º0è¿™è¯´æ˜åŒ¹é…åˆ°å¯¹åº”çš„ç»“æŸæ ‡ç­¾ã€‚
         Result,
-        obj = {};    //·µ»ØµÄ¶ÔÏó
+        obj = {};    //è¿”å›çš„å¯¹è±¡
 
     while (true) {
 
         Result = reg.exec(str);
 
-        if (Result === null) {      //ÕÒ²»µ½½áÊø±êÇ©
+        if (Result === null) {      //æ‰¾ä¸åˆ°ç»“æŸæ ‡ç­¾
             break;
         }
-        if (Result[2] === tag) {   //ÕÒµ½ÆäËû±êÇ©
-            if (!Result[1]) {  //ÕÒµ½ÁËÍ¬Ò»±êÇ©µÄ¿ªÊ¼±êÇ©
+        if (Result[2] === tag) {   //æ‰¾åˆ°å…¶ä»–æ ‡ç­¾
+            if (!Result[1]) {  //æ‰¾åˆ°äº†åŒä¸€æ ‡ç­¾çš„å¼€å§‹æ ‡ç­¾
                 nestDeep += 1;
-            } else {  //ÕÒµ½ÁËÍ¬Ò»±êÇ©µÄ½áÊø±êÇ©
+            } else {  //æ‰¾åˆ°äº†åŒä¸€æ ‡ç­¾çš„ç»“æŸæ ‡ç­¾
 
                 nestDeep = nestDeep - 1;
-                if (nestDeep === 0) {   //·µ»ØÒ»¸ö¶ÔÏó¡£
+                if (nestDeep === 0) {   //è¿”å›ä¸€ä¸ªå¯¹è±¡ã€‚
                     obj.str = str.slice(0, Result.index);
                     obj.index = reg.lastIndex;
                     return obj;
@@ -187,37 +187,37 @@ WWQ.dealNest = function (str) {
             }
         }
     }
-    //Ã»ÓĞÆ¥Åäµ½½áÊø±êÇ©¡£
+    //æ²¡æœ‰åŒ¹é…åˆ°ç»“æŸæ ‡ç­¾ã€‚
 
-    regTag = /<(\w+)[^>]*>[\s\n]*/g;  //Æ¥Åä¶ÀÁ¢±êÇ©¡£
+    regTag = /<(\w+)[^>]*>[\s\n]*/g;  //åŒ¹é…ç‹¬ç«‹æ ‡ç­¾ã€‚
     res = regTag.exec(str);
 
-    //·µ»Ø¶ÔÏó¡£
+    //è¿”å›å¯¹è±¡ã€‚
     obj.str = str.slice(0, regTag.lastIndex);
     obj.index = regTag.lastIndex;
     return obj;
 };
 
-WWQ.createNode = function (type, value, fatherNode) {   //´´½¨½Úµã
+WWQ.createNode = function (type, value, fatherNode) {   //åˆ›å»ºèŠ‚ç‚¹
 
-    if (type === "text") {   //´´½¨ÎÄ±¾½Úµã
+    if (type === "text") {   //åˆ›å»ºæ–‡æœ¬èŠ‚ç‚¹
         WWQ.index.text = (WWQ.index.text || 0) + 1;
         WWQ.outputStr += "var text" + WWQ.index.text + "= document.createTextNode('" + value + "');\n";
         WWQ.appendChild("text"   + WWQ.index.text, fatherNode);
-    } else {  //´´½¨ÆäËû½Úµã
+    } else {  //åˆ›å»ºå…¶ä»–èŠ‚ç‚¹
         WWQ.index[type] = (WWQ.index[type] || 0) + 1;
         WWQ.outputStr += "var " + type + WWQ.index[type] + "= document.createElement('" + type + "');\n";
         WWQ.appendChild(type + WWQ.index[type], fatherNode);
     }
 };
 
-WWQ.appendChild = function (newNode, fatherNode) {   //Ìí¼Ó½Úµãµ½¸¸½Úµã
+WWQ.appendChild = function (newNode, fatherNode) {   //æ·»åŠ èŠ‚ç‚¹åˆ°çˆ¶èŠ‚ç‚¹
 
     WWQ.outputStr += fatherNode + ".appendChild(" + newNode + ");\n";
 
 };
 
-WWQ.createAttr = function (node, name, value) {   //´´½¨½ÚµãÊôĞÔ
+WWQ.createAttr = function (node, name, value) {   //åˆ›å»ºèŠ‚ç‚¹å±æ€§
 
     if (name === "class") {
         WWQ.outputStr += node + WWQ.index[node] + ".className = '" + value + "';\n";
