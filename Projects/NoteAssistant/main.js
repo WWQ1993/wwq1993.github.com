@@ -19,8 +19,9 @@ WWQ.test1=$('test');
 WWQ.test2=$('test2');
 WWQ.levelNum = 5;
 WWQ.symbolList = $('symbols');
-WWQ.symbols=[];
-WWQ.symbolsArr = ['一','1','(1)','○','■','□','○','■'];
+WWQ.symbolsLevel=[];
+WWQ.symbolsOneArr = ['一.','1.','(1)','○','■','□','○','■'];
+WWQ.symbolsArr = [];
 WWQ.choosedLevelListNum = 0;
 WWQ.color={
     yellow:'rgba(255, 255, 0, 0.8)',
@@ -28,6 +29,10 @@ WWQ.color={
     pink:'rgba(255, 0, 255,0.4)',
     orange:'rgba(255, 120, 0,0.6)'
 };
+//TODO
+(function(){
+    WWQ.symbolsArr.push([]);
+}());
 WWQ.mouseDown={};
 WWQ.seletedText = "";
 
@@ -52,7 +57,13 @@ WWQ.chooseNumfunc = function(event){
     }
     $('chooseLevel').style.backgroundPositionY = $('chooseLevel').style.backgroundPositionY=="-18px"?"10px":"-18px"
 
-    $('numbers').style.display = "block";
+    $('numberList').style.display = "block";
+    $('numberList').style.left=(WWQ.chooseLevel.offsetLeft )+'px';
+    //TODO
+    if (navigator.userAgent.indexOf('Firefox') >= 0){
+        $('numberList').style.left=(WWQ.chooseLevel.offsetLeft-5) +'px';
+
+    }
 
     this.style.border = 'outset thin rgba(212, 212, 212, 0.41)';
 };
@@ -63,7 +74,7 @@ WWQ.chooseNumfunc = function(event){
         j,
         childNodes = $('levelDetail').childNodes;
 
-    $('numbers').style.display = "none";
+    $('numberList').style.display = "none";
     $('chooseLevel').style.backgroundPositionY = "10px"
     WWQ.symbolList.style.display = "none";
 
@@ -78,7 +89,7 @@ WWQ.chooseNumfunc = function(event){
         if (childNodes[i].nodeType === 1 && j<WWQ.levelNum) {
             j++;
             childNodes[i].style.display="inline-block";
-            childNodes[i].innerHTML=WWQ.symbolsArr[j-1];
+            childNodes[i].innerHTML=WWQ.symbolsOneArr[j-1];
             childNodes[i].addEventListener('mousedown',WWQ.toolsBtnMouseDown);
             childNodes[i].addEventListener('mouseout',WWQ.toolsBtnMouseOut);
 
@@ -88,12 +99,17 @@ WWQ.chooseNumfunc = function(event){
 
                 this.style.background="#ced3d7";
                 WWQ.symbolList.style.display = "block";
-                WWQ.symbolList.style.left=(this.offsetLeft-1  )+'px';
+
+                WWQ.symbolList.style.left=this.offsetLeft +'px';
+                if (navigator.userAgent.indexOf('Firefox') >= 0){
+                    WWQ.symbolList.style.left=(this.offsetLeft-5) +'px';
+
+                }
+
             });
         }
     }
 })();
-
 //符号竖条
 (function(){
     var i,
@@ -101,7 +117,7 @@ WWQ.chooseNumfunc = function(event){
         childNodes = WWQ.symbolList.childNodes;
     for(i = 0, j = 0; i < childNodes.length; i++) {
         if (childNodes[i].nodeType === 1 ) {
-            WWQ.symbols.push(childNodes[i].innerHTML);
+            WWQ.symbolsLevel.push(childNodes[i].innerHTML);
             childNodes[i].addEventListener('mousedown', function (event) {
                 WWQ.underChooseS=true;
                 this.style.background="darkgrey";
@@ -113,8 +129,7 @@ WWQ.chooseNumfunc = function(event){
                 this.style.background="#ced3d7";
                 WWQ.underChooseS=false;
                 //console.log(this.ind)
-                console.log(WWQ.choosedLevelListNum )
-                WWQ.symbolsArr[WWQ.choosedLevelListNum] = WWQ.symbols[this.ind];
+                WWQ.symbolsOneArr[WWQ.choosedLevelListNum] = WWQ.symbolsLevel[this.ind];
                 WWQ.updateLevelDisplay();
             });
             j++;
@@ -232,11 +247,9 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         }
         WWQ.mouseDown.clientY=event.clientY;
 
-        //TODO
-        console.log();
         if(!WWQ.underChooseN&&!WWQ.underChooseS&&
             (
-            $('numbers').style.display === "block"||
+            $('numberList').style.display === "block"||
             WWQ.symbolList.style.display === "block")){ //没点数字条或者符号竖条
 
             WWQ.updateLevelDisplay();
@@ -269,7 +282,8 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         {
             WWQ.toolBar.style.display="none";
             WWQ.chooseColor.style.display="none";
-            var lastY=WWQ.content.lastElementChild.offsetTop - document.body.scrollTop; //lastchild距离浏览器顶部距离。
+            var lastY=WWQ.content.lastElementChild.offsetTop + WWQ.content.lastElementChild.offsetHeight
+                - document.body.scrollTop; //lastchild距离浏览器顶部距离。
 
             if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //新建段落
 
@@ -336,7 +350,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
 
 //数字条事件
 (function () {
-    var childNodes = $('numbers').childNodes,
+    var childNodes = $('numberList').childNodes,
         arr = [],
         i,
         j;
@@ -344,7 +358,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         if(childNodes[i].nodeType === 1){
             j++;
             childNodes[i].ind = j;
-            childNodes[i].addEventListener('mousedown',function(e){
+            childNodes[i].addEventListener('mousedown',function(event){
                 this.style.background="darkgrey";
                 event.preventDefault();
                 WWQ.underChooseN=true;

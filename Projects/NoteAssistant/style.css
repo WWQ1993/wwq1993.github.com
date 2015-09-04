@@ -116,16 +116,17 @@ B{
     vertical-align: middle;
     box-sizing: border-box;
 }
-#numbers{
-    margin: 0px 0px 0px 42px;
+#numberList{
+    position: relative;
     display: none;
     text-align: center;
     font-size: 15px;
     font-weight: 700;
     width:24px ;
-
+    margin: 0px;
+    /*-moz-margin-start: 5px;*/
 }
-#numbers div{
+#numberList div{
     cursor: pointer ;
 
     width:24px ;
@@ -133,7 +134,7 @@ B{
     background-color: #ced3d7;
     border: outset thin rgba(135, 135, 135, 0.41);
     border-radius: 4px;
-    margin: 2px 1px;
+    margin: 2px 0px;
     box-sizing: border-box;
 }
 #levelDetail span{
@@ -163,7 +164,7 @@ B{
     background-color: #ced3d7;
     border: outset thin rgba(135, 135, 135, 0.41);
     border-radius: 4px;
-    margin: 1px;
+    margin: 1px 0px;
     box-sizing: border-box;
     vertical-align: middle;
     text-align: center;
