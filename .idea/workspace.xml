@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html" afterPath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -635,7 +636,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441379229387</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="101112">
+      <created>1441379326122</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1441379326122</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView">
@@ -695,7 +702,8 @@
     <MESSAGE value="ok" />
     <MESSAGE value="gbk" />
     <MESSAGE value="utf-8" />
-    <option name="LAST_COMMIT_MESSAGE" value="utf-8" />
+    <MESSAGE value="101112" />
+    <option name="LAST_COMMIT_MESSAGE" value="101112" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
