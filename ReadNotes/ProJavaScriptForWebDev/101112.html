@@ -1196,14 +1196,17 @@ CSSStyleSheet 对象的属性，名叫sheet；（IE：styleSheet 属性）。<su
 <li><p>CSS 规则</p>
 
 <ul>
-<li><p>CSSRule：CSSRule 对象表示样式表中的每一条规则。cssRules的子类CSSStyleRule 对象包含下列属性。
-    * cssText：返回整条规则对应的文本。
-    * parentRule：如果当前规则是导入的规则，这个属性引用的就是导入规则；否则，这个值为
-null。IE 不支持这个属性。
-    * parentStyleSheet：当前规则所属的样式表。IE 不支持这个属性。
-    * selectorText：返回当前规则的选择符文本。
-    * <strong>style</strong>：一个CSSStyleDeclaration 对象，可以通过它设置和取得规则中特定的样式值。
-    * type：表示规则类型的常量值。对于样式规则，这个值是1。IE 不支持这个属性。</p>
+<li><p>CSSRule：CSSRule 对象表示样式表中的每一条规则。cssRules的子类CSSStyleRule 对象包含下列属性。</p>
+
+<ul>
+<li>cssText：返回整条规则对应的文本。</li>
+<li>parentRule：如果当前规则是导入的规则，这个属性引用的就是导入规则；否则，这个值为
+null。IE 不支持这个属性。</li>
+<li>parentStyleSheet：当前规则所属的样式表。IE 不支持这个属性。</li>
+<li>selectorText：返回当前规则的选择符文本。</li>
+<li>style：一个CSSStyleDeclaration 对象，可以通过它设置和取得规则中特定的样式值。</li>
+<li>type：表示规则类型的常量值。对于样式规则，这个值是1。IE 不支持这个属性。</li>
+</ul>
 
 <pre><code class="javascript">div.box {
 background-color: blue;
