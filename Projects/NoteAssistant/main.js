@@ -20,7 +20,7 @@ WWQ.test2=$('test2');
 WWQ.levelNum = 5;
 WWQ.symbolList = $('symbols');
 WWQ.symbols=[];
-WWQ.symbolsArr = ['Ò»','1','(1)','¡ğ','¡ö','¡õ','¡ğ','¡ö'];
+WWQ.symbolsArr = ['ä¸€','1','(1)','â—‹','â– ','â–¡','â—‹','â– '];
 WWQ.choosedLevelListNum = 0;
 WWQ.color={
     yellow:'rgba(255, 255, 0, 0.8)',
@@ -57,7 +57,7 @@ WWQ.chooseNumfunc = function(event){
     this.style.border = 'outset thin rgba(212, 212, 212, 0.41)';
 };
 
-//·ûºÅºáÌõ¸üĞÂ
+//ç¬¦å·æ¨ªæ¡æ›´æ–°
 (WWQ.updateLevelDisplay=function(){
     var i,
         j,
@@ -94,7 +94,7 @@ WWQ.chooseNumfunc = function(event){
     }
 })();
 
-//·ûºÅÊúÌõ
+//ç¬¦å·ç«–æ¡
 (function(){
     var i,
         j,
@@ -128,14 +128,14 @@ WWQ.chooseNumfunc = function(event){
 WWQ.test1.addEventListener('click', WWQ.stopPro);
 WWQ.test2.addEventListener('click', WWQ.stopPro);
 
-//barµã»÷Ïà¹Ø
+//barç‚¹å‡»ç›¸å…³
 (function(){
     WWQ.toolBarMouseDown = function(event) {
         if(event.button === 0){
             this.style.backgroundColor="grey";
             WWQ.chooseColor.style.display="none";
         }
-        event.preventDefault(); //Ê¹°´Å¥ÎÄ×Ö²»¿ÉÑ¡,ÒÑÑ¡µÄÎÄ±¾²»Ê§½¹
+        event.preventDefault(); //ä½¿æŒ‰é’®æ–‡å­—ä¸å¯é€‰,å·²é€‰çš„æ–‡æœ¬ä¸å¤±ç„¦
 
     };
     WWQ.toolBarMouseUp = function(event){
@@ -160,7 +160,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
                     break;
             }
         }
-        event.stopPropagation(); //±ÜÃâÒş²Øbar¡£
+        event.stopPropagation(); //é¿å…éšè—barã€‚
 
         this.style.backgroundColor="rgba(212, 212, 212, 0.41)";
     };
@@ -175,7 +175,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         document.execCommand('backcolor',false,WWQ.choosedColor);
 
 
-        event.stopPropagation(); //±ÜÃâÒş²Øbar¡£
+        event.stopPropagation(); //é¿å…éšè—barã€‚
 
     };
     WWQ.chooseColorDown=function(event){
@@ -223,7 +223,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
 
 }());
 
-//ÎÄµµµã»÷ÊÂ¼ş
+//æ–‡æ¡£ç‚¹å‡»äº‹ä»¶
 (function () {
     //mousedown
     document.addEventListener('mousedown',function(event){
@@ -237,7 +237,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         if(!WWQ.underChooseN&&!WWQ.underChooseS&&
             (
             $('numbers').style.display === "block"||
-            WWQ.symbolList.style.display === "block")){ //Ã»µãÊı×ÖÌõ»òÕß·ûºÅÊúÌõ
+            WWQ.symbolList.style.display === "block")){ //æ²¡ç‚¹æ•°å­—æ¡æˆ–è€…ç¬¦å·ç«–æ¡
 
             WWQ.updateLevelDisplay();
             event.preventDefault()
@@ -252,11 +252,11 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
 
         WWQ.seletedText = "";
 
-        if(event.button!==0){   //ºöÂÔ·Ç×ó»÷²Ù×÷
+        if(event.button!==0){   //å¿½ç•¥éå·¦å‡»æ“ä½œ
             return;
         }
 
-        //»ñÈ¡Ñ¡ÔñµÄÎÄ±¾
+        //è·å–é€‰æ‹©çš„æ–‡æœ¬
         if(window.getSelection)
         {
             WWQ.seletedText=window.getSelection().toString();
@@ -265,20 +265,20 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         {
             WWQ.seletedText=document.selection.createRange().text.toString();
         }
-        if (!WWQ.seletedText || WWQ.mouseDown.clientY < WWQ.content.offsetTop)    //Î´Ñ¡È¡ÎÄ×ÖÊ±Òş²Ø
+        if (!WWQ.seletedText || WWQ.mouseDown.clientY < WWQ.content.offsetTop)    //æœªé€‰å–æ–‡å­—æ—¶éšè—
         {
             WWQ.toolBar.style.display="none";
             WWQ.chooseColor.style.display="none";
-            var lastY=WWQ.content.lastElementChild.offsetTop - document.body.scrollTop; //lastchild¾àÀëä¯ÀÀÆ÷¶¥²¿¾àÀë¡£
+            var lastY=WWQ.content.lastElementChild.offsetTop - document.body.scrollTop; //lastchildè·ç¦»æµè§ˆå™¨é¡¶éƒ¨è·ç¦»ã€‚
 
-            if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //ĞÂ½¨¶ÎÂä
+            if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //æ–°å»ºæ®µè½
 
                 var paragraph,
                     i,
                     childNodes = WWQ.content.childNodes;
 
                 for (i = 0; i < childNodes.length; i++){
-                    if (childNodes[i].nodeType===1 &&¡¡!childNodes[i].innerHTML){
+                    if (childNodes[i].nodeType===1 &&ã€€!childNodes[i].innerHTML){
                         WWQ.content.removeChild(childNodes[i]);
                     }
                 }
@@ -292,7 +292,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
             return;
         }
         WWQ.toolBar.style.display="block";
-        //ĞŞÕıbarÎ»ÖÃ
+        //ä¿®æ­£barä½ç½®
         if(event.clientY>=0) {
             if(event.clientY + WWQ.toolBar.offsetHeight >=document.documentElement.clientHeight)
             {
@@ -314,13 +314,13 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         }
     });
 
-    //ÆÁ±ÎÓÒ»÷
+    //å±è”½å³å‡»
     WWQ.content.oncontextmenu = function(event){
         return false;
     };
 })();
 
-//Ñ¡Êı°´Å¥
+//é€‰æ•°æŒ‰é’®
 (function(){
     WWQ.chooseLevel.addEventListener('mousedown',function(e){
         this.style.border = 'outset thin black';
@@ -334,7 +334,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
 
 }());
 
-//Êı×ÖÌõÊÂ¼ş
+//æ•°å­—æ¡äº‹ä»¶
 (function () {
     var childNodes = $('numbers').childNodes,
         arr = [],
@@ -350,7 +350,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
                 WWQ.underChooseN=true;
             });
             childNodes[i].addEventListener('mouseout',WWQ.toolsBtnMouseOut);
-            childNodes[i].addEventListener('click',function(event ){    //Ñ¡ºÃµÈ¼¶Êı
+            childNodes[i].addEventListener('click',function(event ){    //é€‰å¥½ç­‰çº§æ•°
                 WWQ.levelNum=this.ind;
                 WWQ.updateLevelDisplay();
                 WWQ.underChooseN=false;
