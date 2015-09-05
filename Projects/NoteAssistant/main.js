@@ -2,55 +2,199 @@
  * Created by WWQ on 2015/9/1 0001.
  */
 var WWQ={};
+var Component = {}; //GUI控件命名空间
+var Handle ={}; //事件处理函数命名空间
 
-WWQ.toolBar_B = $("toolBar_B");
-WWQ.toolBar_I = $("toolBar_I");
-WWQ.toolBar_U=$("toolBar_U");
-WWQ.toolBar_C=$("toolBar_C");
-WWQ.toolBar=$('toolBar');
-WWQ.content=$('content');
-WWQ.chooseColor=$('chooseColor');
-WWQ.yellowColorBtn=$('yellow');
-WWQ.blueColorBtn=$('blue');
-WWQ.pinkColorBtn=$('pink');
-WWQ.orangeColorBtn=$('orange');
-WWQ.chooseLevel = $('chooseLevel');
-WWQ.test1=$('test');
-WWQ.test2=$('test2');
+Component.toolBar=$('toolBar');
+Component.content=$('content');
+Component.toolBar_B = $("toolBar_B");
+Component.toolBar_I = $("toolBar_I");
+Component.toolBar_U=$("toolBar_U");
+Component.toolBar_C=$("toolBar_C");
+Component.toolBar_E=$("toolBar_E");
+Component.toolBar_L=$("toolBar_L");
+Component.toolBar_R=$("toolBar_R");
+Component.toolBar_N=$("toolBar_N");
+
+Component.chooseColor=$('chooseColor');
+Component.yellowColorBtn=$('yellow');
+Component.blueColorBtn=$('blue');
+Component.pinkColorBtn=$('pink');
+Component.orangeColorBtn=$('orange');
+Component.chooseLevelNum = $('chooseLevel');
+Component.test1=$('test');
+Component.test2=$('test2');
+Component.symbolList = $('symbols');//符号竖条控件
 WWQ.levelNum = 5;
-WWQ.symbolList = $('symbols');
-WWQ.symbolsLevel=[];
-WWQ.symbolsOneArr = ['一.','1.','(1)','○','■','□','○','■'];
-WWQ.symbolsArr = [];
-WWQ.choosedLevelListNum = 0;
+WWQ.symbolsLevel=[]; //符号竖条字符
+WWQ.symbolsOneArr = ['一.','1.','(1)','○','■','□','○','■']; //显示符号横栏字符
+WWQ.allSymbolsArr = []; //按符号竖条顺序保存每个符号所有项数组
+WWQ.choosedLevel = 0;  //选中的等级
+WWQ.currentSymbolsArr=[]; //当前所需级别符号数组。按符号横栏顺序排。
 WWQ.color={
     yellow:'rgba(255, 255, 0, 0.8)',
     blue:'rgba(0, 0, 255,0.4)',
     pink:'rgba(255, 0, 255,0.4)',
     orange:'rgba(255, 120, 0,0.6)'
 };
-//TODO
+
+//分级符号初始化
 (function(){
-    WWQ.symbolsArr.push([]);
+    var i,
+        str0,
+        str1,
+        str2,
+        str,
+        str4,
+        str5,
+        str6,
+        str7,
+        str8,
+        str9,
+        str10
+
+    for(i = 0; i < 9; i++){
+        WWQ.allSymbolsArr[i]=[];
+    }
+    for(i = 1; i < 100; i++){
+        str = i;
+        str2 = str0 = i.toString();
+
+        if(str0 > 9)
+        {
+            str0=str0.split("");
+            str0.splice(1,0,"A")
+            str0=str0.join("");
+        }
+        str0 = str0.replace(/1/g,'一')
+            .replace(/2/g,'二')
+            .replace(/3/g,'三')
+            .replace(/4/g,'四')
+            .replace(/5/g,'五')
+            .replace(/6/g,'六')
+            .replace(/7/g,'七')
+            .replace(/8/g,'八')
+            .replace(/9/g,'九')
+            .replace(/A0/g,'十')
+            .replace(/A/g,'十')
+            .replace('一十','十');
+        WWQ.allSymbolsArr[0].push(str0);
+
+        str1 = str2 + '.';
+        WWQ.allSymbolsArr[1].push(str1);
+
+        str2 ="(" + str2 + ')';
+        WWQ.allSymbolsArr[2].push(str2);
+
+        var str30=parseInt(str /10, 10), //十位
+            str31= str % 10;
+        switch (str30){
+            case 0:str30 = '';break;
+            case 1:str30 = 'X';break;
+            case 2:str30 = 'XX';break;
+            case 3:str30 = 'XXX';break;
+            case 4:str30 = 'XL';break;
+            case 5:str30 = 'L';break;
+            case 6:str30 = 'LX';break;
+            case 7:str30 = 'LXX';break;
+            case 8:str30 = 'LXX';break;
+            case 9:str30 = 'XC';break;
+        }
+        switch (str31){
+            case 0:str31 = '';break;
+            case 1:str31 = 'I';break;
+            case 2:str31 = 'II';break;
+            case 3:str31 = 'III';break;
+            case 4:str31 = 'IV';break;
+            case 5:str31 = 'V';break;
+            case 6:str31 = 'VI';break;
+            case 7:str31 = 'VII';break;
+            case 8:str31 = 'VIII';break;
+            case 9:str31 = 'IX';break;
+        }
+        WWQ.allSymbolsArr[3].push(str30 + str31);
+
+        var str40,  //左位
+            str41;
+        if (str<27){
+            str40 = '';
+            str41 = String.fromCharCode(64 + str);
+        } else{
+            str40 = parseInt(str /26, 10);
+            str41= (str) % 26;
+            if(str41===0) {
+                str40--;
+                str41=26;
+            }
+            str40 = String.fromCharCode(64 + str40);
+            str41 = String.fromCharCode(64 + str41);
+        }
+
+        WWQ.allSymbolsArr[4].push(str40 + str41);
+
+        var str50,  //左位
+            str51;
+        if (str<27){
+            str50 = '';
+            str51 = String.fromCharCode(96 + str);
+        } else{
+            str50 = parseInt(str /26, 10);
+            str51= str % 26;
+            if(str51===0) {
+                str50--;
+                str51=26;
+            }
+            str50 = String.fromCharCode(96 + str50);
+            str51 = String.fromCharCode(96 + str51);
+        }
+        WWQ.allSymbolsArr[5].push(str50 + str51);
+    }
+    WWQ.allSymbolsArr[6]='○';
+    WWQ.allSymbolsArr[7]='●';
+    WWQ.allSymbolsArr[8]='□';
+    WWQ.allSymbolsArr[9]='■';
+    WWQ.allSymbolsArr[10]='';
+
+    //按照横栏初始值初始化符号等级
+    WWQ.currentSymbolsArr[0] = WWQ.allSymbolsArr[0];
+    WWQ.currentSymbolsArr[1] = WWQ.allSymbolsArr[1];
+    WWQ.currentSymbolsArr[2] = WWQ.allSymbolsArr[2];
+    WWQ.currentSymbolsArr[3] = WWQ.allSymbolsArr[6];
+    WWQ.currentSymbolsArr[4] = WWQ.allSymbolsArr[9];
+    WWQ.currentSymbolsArr[5] = WWQ.allSymbolsArr[8];
+    WWQ.currentSymbolsArr[6] = WWQ.allSymbolsArr[6];
+    WWQ.currentSymbolsArr[7] = WWQ.allSymbolsArr[9];
 }());
 WWQ.mouseDown={};
 WWQ.seletedText = "";
 
-WWQ.stopPro = function(e){//TODO delete
+Handle.levelList = function(event ){
+    WWQ.choosedLevel = this.j;
+
+    this.style.background="#ced3d7";
+    Component.symbolList.style.display = "block";
+
+    Component.symbolList.style.left=this.offsetLeft +'px';
+    if (navigator.userAgent.indexOf('Firefox') >= 0){
+        Component.symbolList.style.left=(this.offsetLeft-5) +'px';
+    }
+};
+
+Handle.stopPro = function(e){//TODO delete
     e.stopPropagation();
 };
 
-WWQ.toolsBtnMouseDown = function(event ){
+Handle.toolsBtnMouseDown = function(event ){
     this.style.background="darkgrey";
     event.preventDefault();
 };
-WWQ.toolsBtnMouseOut = function( ){
+Handle.toolsBtnMouseOut = function( ){
     this.style.background="#ced3d7";
 };
+//点击选择分级数目按钮时调用
+Handle.chooseNumfunc = function(event){
 
-WWQ.chooseNumfunc = function(event){
-
-    if(this === WWQ.chooseLevel &&$('chooseLevel').style.backgroundPositionY==='-18px'){
+    if(this === Component.chooseLevelNum &&$('chooseLevel').style.backgroundPositionY==='-18px'){
         $('chooseLevel').style.backgroundPositionY = $('chooseLevel').style.backgroundPositionY=="-18px"?"10px":"-18px"
 
         return;
@@ -58,63 +202,52 @@ WWQ.chooseNumfunc = function(event){
     $('chooseLevel').style.backgroundPositionY = $('chooseLevel').style.backgroundPositionY=="-18px"?"10px":"-18px"
 
     $('numberList').style.display = "block";
-    $('numberList').style.left=(WWQ.chooseLevel.offsetLeft )+'px';
+    $('numberList').style.left=(Component.chooseLevelNum.offsetLeft )+'px';
     //TODO
     if (navigator.userAgent.indexOf('Firefox') >= 0){
-        $('numberList').style.left=(WWQ.chooseLevel.offsetLeft-5) +'px';
+        $('numberList').style.left=(Component.chooseLevelNum.offsetLeft-5) +'px';
 
     }
-
     this.style.border = 'outset thin rgba(212, 212, 212, 0.41)';
 };
 
 //符号横条更新
-(WWQ.updateLevelDisplay=function(){
+(Handle.updateLevelDisplay=function(){
     var i,
         j,
         childNodes = $('levelDetail').childNodes;
 
     $('numberList').style.display = "none";
     $('chooseLevel').style.backgroundPositionY = "10px"
-    WWQ.symbolList.style.display = "none";
-
+    Component.symbolList.style.display = "none";
 
     for(i = 0, j = 0; i < childNodes.length; i++) {
         if (childNodes[i].nodeType === 1 ) {
-
             childNodes[i].style.display="none";
         }
     }
     for(i = 0, j = 0; i < childNodes.length; i++) {
         if (childNodes[i].nodeType === 1 && j<WWQ.levelNum) {
-            j++;
             childNodes[i].style.display="inline-block";
-            childNodes[i].innerHTML=WWQ.symbolsOneArr[j-1];
-            childNodes[i].addEventListener('mousedown',WWQ.toolsBtnMouseDown);
-            childNodes[i].addEventListener('mouseout',WWQ.toolsBtnMouseOut);
+            childNodes[i].innerHTML=WWQ.symbolsOneArr[j];
+            childNodes[i].addEventListener('mousedown',Handle.toolsBtnMouseDown);
+            childNodes[i].addEventListener('mouseout',Handle.toolsBtnMouseOut);
 
-            childNodes[i].j = j-1;
-            childNodes[i].addEventListener('click',function(event ){
-                WWQ.choosedLevelListNum = this.j;
+            childNodes[i].j = j;
+            childNodes[i].addEventListener('click', Handle.levelList);
+            j++;
 
-                this.style.background="#ced3d7";
-                WWQ.symbolList.style.display = "block";
-
-                WWQ.symbolList.style.left=this.offsetLeft +'px';
-                if (navigator.userAgent.indexOf('Firefox') >= 0){
-                    WWQ.symbolList.style.left=(this.offsetLeft-5) +'px';
-
-                }
-
-            });
         }
     }
 })();
+
+
+
 //符号竖条
 (function(){
     var i,
         j,
-        childNodes = WWQ.symbolList.childNodes;
+        childNodes = Component.symbolList.childNodes;
     for(i = 0, j = 0; i < childNodes.length; i++) {
         if (childNodes[i].nodeType === 1 ) {
             WWQ.symbolsLevel.push(childNodes[i].innerHTML);
@@ -123,14 +256,24 @@ WWQ.chooseNumfunc = function(event){
                 this.style.background="darkgrey";
                 event.preventDefault();
             });
-            childNodes[i].addEventListener('mouseout',WWQ.toolsBtnMouseOut);
+            childNodes[i].addEventListener('mouseout',Handle.toolsBtnMouseOut);
             childNodes[i].ind= j;
             childNodes[i].addEventListener('click',function(event ){
                 this.style.background="#ced3d7";
                 WWQ.underChooseS=false;
-                //console.log(this.ind)
-                WWQ.symbolsOneArr[WWQ.choosedLevelListNum] = WWQ.symbolsLevel[this.ind];
-                WWQ.updateLevelDisplay();
+
+                WWQ.symbolsOneArr[WWQ.choosedLevel] = WWQ.symbolsLevel[this.ind];
+                Handle.updateLevelDisplay();
+                WWQ.currentSymbolsArr[WWQ.choosedLevel] = WWQ.allSymbolsArr[this.ind];
+
+                for (var index = 0; index < WWQ.levelNum; index++){
+                    if(Array.isArray(WWQ.currentSymbolsArr[index])){
+                        console.log(WWQ.currentSymbolsArr[index][10]);
+                    }
+                    else{
+                        console.log(WWQ.currentSymbolsArr[index])
+                    }
+                }
             });
             j++;
 
@@ -140,20 +283,22 @@ WWQ.chooseNumfunc = function(event){
 })();
 
 //TODO
-WWQ.test1.addEventListener('click', WWQ.stopPro);
-WWQ.test2.addEventListener('click', WWQ.stopPro);
+Component.test1.addEventListener('click', Handle.stopPro);
+Component.test2.addEventListener('click', Handle.stopPro);
+
 
 //bar点击相关
 (function(){
-    WWQ.toolBarMouseDown = function(event) {
+
+    Component.toolBarMouseDown = function(event) {
         if(event.button === 0){
             this.style.backgroundColor="grey";
-            WWQ.chooseColor.style.display="none";
+            Component.chooseColor.style.display="none";
         }
         event.preventDefault(); //使按钮文字不可选,已选的文本不失焦
 
     };
-    WWQ.toolBarMouseUp = function(event){
+    Component.toolBarMouseUp = function(event){
         if(event.button === 0){
             switch (this.id){
                 case 'toolBar_B':
@@ -165,13 +310,94 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
                 case 'toolBar_U':
                     document.execCommand('underline',false,null);
                     break;
-                case 'toolBar_C':
-                    WWQ.chooseColor.style.display="block";
-                    if(parseInt(WWQ.toolBar.style.top,10) + WWQ.toolBar.offsetHeight >=document.documentElement.clientHeight)
+                case 'toolBar_C':  //弹出选色菜单
+                    Component.chooseColor.style.display="block";
+                    if(parseInt(Component.toolBar.style.top,10) + Component.toolBar.offsetHeight >=document.documentElement.clientHeight)
                     {
-                        WWQ.toolBar.style.top=(document.documentElement.clientHeight-WWQ.toolBar.offsetHeight)+ "px";
+                        Component.toolBar.style.top=(document.documentElement.clientHeight-Component.toolBar.offsetHeight)+ "px";
                     }
+                    break;
+                case 'toolBar_E':
+                    document.execCommand('createlink',false,"mark");
+                    var thisP = document.activeElement;
+                    var newString = thisP.innerHTML.replace('<a href="mark">','<#>');
+                    newString = newString.replace('<a href="mark">','');
+                    newString= newString.replace(/<\/a>/g,'');
+                    newString= newString.split('<#>');
+                    //解决切割后的特效消失问题
+                    (function dealTheString(){
+                        var bString = newString[0],
+                            aString = newString[1],
+                            Reg = /<(\/)?([^\s>]+)[^>]*>/g,
+                            resultArrB = [],
+                            resultArrA = [],
+                            tag = {},
+                            i = 0,
+                            pushToAfter = [],
+                            pushToBefore = [],
+                            regResult
 
+                        //before
+                        while (regResult = Reg.exec(bString)){
+                            resultArrB.unshift(regResult);
+                        }
+                        for(i = 0; i < resultArrB.length; i++){
+                            tag[resultArrB[i][2]] = tag[resultArrB[i][2]] || 0;
+                            if (resultArrB[i][1]==="/"){
+                                tag[resultArrB[i][2]]--;
+                            } else{
+                                tag[resultArrB[i][2]]++;
+                            }
+                            if(tag[resultArrB[i][2]]===1){
+                                tag[resultArrB[i][2]]=0;
+
+                                pushToAfter.unshift(resultArrB[i][0]);
+                            }
+                        }
+                        pushToAfter=pushToAfter.join('');
+
+                        //after
+                        tag = {};
+                        while (regResult = Reg.exec(aString)){
+                            resultArrA.push(regResult);
+                        }
+                        for(i = 0; i < resultArrA.length; i++){
+                            tag[resultArrA[i][2]] = tag[resultArrA[i][2]] || 0;
+
+                            if (resultArrA[i][1]==="/"){
+                                tag[resultArrA[i][2]]--;
+                            } else{
+                                tag[resultArrA[i][2]]++;
+                            }
+                            if(tag[resultArrA[i][2]]===-1){
+                                tag[resultArrA[i][2]]=0;
+                                pushToBefore.push(resultArrA[i][0]);
+                            }
+                        }
+                        pushToBefore=pushToBefore.join('');
+
+                        newString[0]= newString[0] + pushToBefore ;
+                        newString[1]=pushToAfter+ newString[1] ;
+                    }());
+                    thisP.innerHTML = newString[0];
+
+                    var newP = document.createElement('p');
+                    newP.innerHTML=newString[1] ;
+                    newP.setAttribute('contenteditable','true');
+                    Component.content.insertBefore(newP, thisP.nextElementSibling);
+                    newP.focus();
+                    newP.addEventListener('click', Handle.stopPro);
+                    newP.style.marginLeft="50px";
+                    var span = document.createElement('span');
+                    span.innerHTML="A";
+                    newP.insertBefore(span,newP.firstChild);
+                    span.classList.add('spanLevel');
+                    break;
+                case 'toolBar_L':
+                    break;
+                case 'toolBar_R':
+                    break;
+                case 'toolBar_N':
                     break;
             }
         }
@@ -179,52 +405,51 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
 
         this.style.backgroundColor="rgba(212, 212, 212, 0.41)";
     };
-    WWQ.toolBarMouseout=function(){
+    Component.toolBarMouseout=function(){
         this.style.backgroundColor="rgba(212, 212, 212, 0.41)";
     };
 
-    WWQ.chooseColorUp=function(event){
+    function addListener(target){
+        target.addEventListener("mousedown",Component.toolBarMouseDown);
+        target.addEventListener("mouseup",Component.toolBarMouseUp);;
+        target.addEventListener("mouseout",Component.toolBarMouseout);
+    };
+    addListener(Component.toolBar_B);
+    addListener(Component.toolBar_I);
+    addListener(Component.toolBar_U);
+    addListener(Component.toolBar_C);
+    addListener(Component.toolBar_E);
+    addListener(Component.toolBar_L);
+    addListener(Component.toolBar_R);
+    addListener(Component.toolBar_N);
+
+
+    Component.chooseColorUp=function(event){
         var i = 0;
         WWQ.choosedColor=WWQ.color[this.id];
-        WWQ.chooseColor.style.display="none";
+        Component.chooseColor.style.display="none";
         document.execCommand('backcolor',false,WWQ.choosedColor);
-
 
         event.stopPropagation(); //避免隐藏bar。
 
     };
-    WWQ.chooseColorDown=function(event){
+    Component.chooseColorDown=function(event){
         this.classList.add('blackBorder');
 
         event.preventDefault();
     };
-    WWQ.toolBar_B.addEventListener("mousedown",WWQ.toolBarMouseDown);
-    WWQ.toolBar_B.addEventListener("mouseup",WWQ.toolBarMouseUp);
-    WWQ.toolBar_B.addEventListener("mouseout",WWQ.toolBarMouseout);
 
-    WWQ.toolBar_I.addEventListener("mousedown",WWQ.toolBarMouseDown);
-    WWQ.toolBar_I.addEventListener("mouseup",WWQ.toolBarMouseUp);
-    WWQ.toolBar_I.addEventListener("mouseout",WWQ.toolBarMouseout);
+    Component.blueColorBtn.addEventListener('mouseup',Component.chooseColorUp);
+    Component.yellowColorBtn.addEventListener('mouseup',Component.chooseColorUp);
+    Component.pinkColorBtn.addEventListener('mouseup',Component.chooseColorUp);
+    Component.orangeColorBtn.addEventListener('mouseup',Component.chooseColorUp);
 
-    WWQ.toolBar_U.addEventListener("mousedown",WWQ.toolBarMouseDown);
-    WWQ.toolBar_U.addEventListener("mouseup",WWQ.toolBarMouseUp);
-    WWQ.toolBar_U.addEventListener("mouseout",WWQ.toolBarMouseout);
+    Component.blueColorBtn.addEventListener('mousedown',Component.chooseColorDown);
+    Component.yellowColorBtn.addEventListener('mousedown',Component.chooseColorDown);
+    Component.pinkColorBtn.addEventListener('mousedown',Component.chooseColorDown);
+    Component.orangeColorBtn.addEventListener('mousedown',Component.chooseColorDown);
 
-    WWQ.toolBar_C.addEventListener("mousedown",WWQ.toolBarMouseDown);
-    WWQ.toolBar_C.addEventListener("mouseup",WWQ.toolBarMouseUp);
-    WWQ.toolBar_C.addEventListener("mouseout",WWQ.toolBarMouseout);
-
-    WWQ.blueColorBtn.addEventListener('mouseup',WWQ.chooseColorUp);
-    WWQ.yellowColorBtn.addEventListener('mouseup',WWQ.chooseColorUp);
-    WWQ.pinkColorBtn.addEventListener('mouseup',WWQ.chooseColorUp);
-    WWQ.orangeColorBtn.addEventListener('mouseup',WWQ.chooseColorUp);
-
-    WWQ.blueColorBtn.addEventListener('mousedown',WWQ.chooseColorDown);
-    WWQ.yellowColorBtn.addEventListener('mousedown',WWQ.chooseColorDown);
-    WWQ.pinkColorBtn.addEventListener('mousedown',WWQ.chooseColorDown);
-    WWQ.orangeColorBtn.addEventListener('mousedown',WWQ.chooseColorDown);
-
-    WWQ.chooseColor.addEventListener('mouseout',function(event){
+    Component.chooseColor.addEventListener('mouseout',function(event){
         var nodes=this.childNodes,
             i = 0;
         for (i; i < nodes.length; i++ ){
@@ -233,9 +458,7 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
                 nodes[i].classList.remove('blackBorder');
             }
         }
-
     });
-
 }());
 
 //文档点击事件
@@ -250,12 +473,10 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         if(!WWQ.underChooseN&&!WWQ.underChooseS&&
             (
             $('numberList').style.display === "block"||
-            WWQ.symbolList.style.display === "block")){ //没点数字条或者符号竖条
-
-            WWQ.updateLevelDisplay();
+            Component.symbolList.style.display === "block")){ //没点数字条或者符号竖条
+            Handle.updateLevelDisplay();
             event.preventDefault()
         }
-
     });
 
     //mouseup
@@ -264,7 +485,6 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         event.preventDefault();
 
         WWQ.seletedText = "";
-
         if(event.button!==0){   //忽略非左击操作
             return;
         }
@@ -278,73 +498,71 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
         {
             WWQ.seletedText=document.selection.createRange().text.toString();
         }
-        if (!WWQ.seletedText || WWQ.mouseDown.clientY < WWQ.content.offsetTop)    //未选取文字时隐藏
+
+        if (!WWQ.seletedText || WWQ.mouseDown.clientY < Component.content.offsetTop)    //未选取文字时隐藏
         {
-            WWQ.toolBar.style.display="none";
-            WWQ.chooseColor.style.display="none";
-            var lastY=WWQ.content.lastElementChild.offsetTop + WWQ.content.lastElementChild.offsetHeight
-                - document.body.scrollTop; //lastchild距离浏览器顶部距离。
+            Component.toolBar.style.display="none";
+            Component.chooseColor.style.display="none";
+            //lastchild距离浏览器顶部距离。
+            var lastY=Component.content.lastElementChild.offsetTop + Component.content.lastElementChild.offsetHeight
+                - document.body.scrollTop;
 
             if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //新建段落
 
                 var paragraph,
                     i,
-                    childNodes = WWQ.content.childNodes;
+                    childNodes = Component.content.childNodes;
 
                 for (i = 0; i < childNodes.length; i++){
                     if (childNodes[i].nodeType===1 &&　!childNodes[i].innerHTML){
-                        WWQ.content.removeChild(childNodes[i]);
+                        Component.content.removeChild(childNodes[i]);
                     }
                 }
                 paragraph = document.createElement("p");
                 paragraph.setAttribute('contenteditable','true');
-                WWQ.content.appendChild(paragraph);
+                Component.content.appendChild(paragraph);
                 paragraph.focus();
-                paragraph.addEventListener('click', WWQ.stopPro);
+                paragraph.addEventListener('click', Handle.stopPro);
             }
 
             return;
         }
-        WWQ.toolBar.style.display="block";
+        Component.toolBar.style.display="block";
         //修正bar位置
         if(event.clientY>=0) {
-            if(event.clientY + WWQ.toolBar.offsetHeight >=document.documentElement.clientHeight)
+            if(event.clientY + Component.toolBar.offsetHeight >=document.documentElement.clientHeight)
             {
-                WWQ.toolBar.style.top=(document.documentElement.clientHeight-WWQ.toolBar.offsetHeight)+ "px";
+                Component.toolBar.style.top=(document.documentElement.clientHeight-Component.toolBar.offsetHeight)+ "px";
             }
             else
-                WWQ.toolBar.style.top = (event.clientY + 3)+ "px";
+                Component.toolBar.style.top = (event.clientY + 3)+ "px";
         } else{
-            WWQ.toolBar.style.top = "0px";
+            Component.toolBar.style.top = "0px";
         }
-        if(event.clientX-WWQ.toolBar.offsetWidth/2>0){
-            if(event.clientX+WWQ.toolBar.offsetWidth< document.documentElement.clientWidth){
-                WWQ.toolBar.style.left=(event.clientX-WWQ.toolBar.offsetWidth/2)+ "px";
+        if(event.clientX-Component.toolBar.offsetWidth/2>0){
+            if(event.clientX+Component.toolBar.offsetWidth< document.documentElement.clientWidth){
+                Component.toolBar.style.left=(event.clientX-Component.toolBar.offsetWidth/2)+ "px";
             } else{
-                WWQ.toolBar.style.left=document.documentElement.clientWidth-WWQ.toolBar.offsetWidth+"px";
+                Component.toolBar.style.left=document.documentElement.clientWidth-Component.toolBar.offsetWidth+"px";
             }
         } else{
-            WWQ.toolBar.style.left="0px";
+            Component.toolBar.style.left="0px";
         }
     });
 
     //屏蔽右击
-    WWQ.content.oncontextmenu = function(event){
+    Component.content.oncontextmenu = function(event){
         return false;
     };
 })();
 
 //选数按钮
 (function(){
-    WWQ.chooseLevel.addEventListener('mousedown',function(e){
+    Component.chooseLevelNum.addEventListener('mousedown',function(e){
         this.style.border = 'outset thin black';
     });
 
-    //WWQ.chooseLevel.addEventListener('mouseup',function(e){
-    //    this.style.border = 'outset thin rgba(212, 212, 212, 0.41)';
-    //
-    //});
-    WWQ.chooseLevel.addEventListener('click',WWQ.chooseNumfunc);
+    Component.chooseLevelNum.addEventListener('click',Handle.chooseNumfunc);
 
 }());
 
@@ -363,10 +581,10 @@ WWQ.test2.addEventListener('click', WWQ.stopPro);
                 event.preventDefault();
                 WWQ.underChooseN=true;
             });
-            childNodes[i].addEventListener('mouseout',WWQ.toolsBtnMouseOut);
+            childNodes[i].addEventListener('mouseout',Handle.toolsBtnMouseOut);
             childNodes[i].addEventListener('click',function(event ){    //选好等级数
                 WWQ.levelNum=this.ind;
-                WWQ.updateLevelDisplay();
+                Handle.updateLevelDisplay();
                 WWQ.underChooseN=false;
                 this.style.background="#ced3d7";
             });

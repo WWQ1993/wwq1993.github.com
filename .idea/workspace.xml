@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
+    <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="分段后特效问题">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html" afterPath="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/index.html" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/style.css" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
@@ -34,24 +35,29 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.39411765">
+    <splitter split-orientation="horizontal" split-proportion="0.8597914">
       <split-first>
         <leaf>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.15609756">
-                  <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-                  <folding />
+                <state vertical-scroll-proportion="-9.6">
+                  <caret line="85" column="142" selection-start-line="85" selection-start-column="142" selection-end-line="85" selection-end-column="142" />
+                  <folding>
+                    <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#0;n#span#0;n#p#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#span#0;n#span#0;n#p#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#span#1;n#span#0;n#p#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.6122448">
-                  <caret line="122" column="20" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="20" />
+                <state vertical-scroll-proportion="0.6502732">
+                  <caret line="172" column="17" selection-start-line="172" selection-start-column="17" selection-end-line="172" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -64,9 +70,13 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.77011496">
-                  <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-                  <folding />
+                <state vertical-scroll-proportion="0.50765306">
+                  <caret line="350" column="0" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#6262#7178#0" expanded="false" />
+                    <element signature="e#19222#19432#0" expanded="false" />
+                    <element signature="e#19459#20278#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -93,6 +103,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ReadNotes/TheGoodPart/0.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/main.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
@@ -115,8 +126,9 @@
         <option value="$PROJECT_DIR$/Projects/HTMLTODOM/index.html" />
         <option value="$PROJECT_DIR$/Projects/HTMLTODOM/main.js" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
-        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
+        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
+        <option value="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html" />
       </list>
     </option>
   </component>
@@ -338,12 +350,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00001" summary="daili">
-      <created>1437119434053</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1437119434054</updated>
     </task>
     <task id="LOCAL-00002" summary="daili">
       <created>1437119471126</created>
@@ -633,7 +639,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441379723575</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="101112">
+      <created>1441387107443</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1441387107452</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView">
@@ -649,9 +661,9 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11524164" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11706948" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288364" sideWeight="0.49614644" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.49651048" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32852563" sideWeight="0.49651048" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31570512" sideWeight="0.52565056" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -660,7 +672,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288364" sideWeight="0.49229288" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2596154" sideWeight="0.47434944" order="10" side_tool="false" content_ui="tabs" x="0" y="-5" width="310" height="461" />
+      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23111783" sideWeight="0.47434944" order="4" side_tool="false" content_ui="tabs" x="0" y="-5" width="310" height="461" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -694,22 +706,16 @@
     <MESSAGE value="gbk" />
     <MESSAGE value="utf-8" />
     <MESSAGE value="101112" />
-    <option name="LAST_COMMIT_MESSAGE" value="101112" />
+    <MESSAGE value="分段后特效问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="分段后特效问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ab.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="19" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1053,26 +1059,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
+    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6122448">
-          <caret line="122" column="20" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.50765306">
+          <caret line="350" column="0" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
+          <folding>
+            <element signature="e#6262#7178#0" expanded="false" />
+            <element signature="e#19222#19432#0" expanded="false" />
+            <element signature="e#19459#20278#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15609756">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        <state vertical-scroll-proportion="-9.6">
+          <caret line="85" column="142" selection-start-line="85" selection-start-column="142" selection-end-line="85" selection-end-column="142" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#p#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#p#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#p#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48773843">
+          <caret line="1141" column="35" selection-start-line="1141" selection-start-column="35" selection-end-line="1141" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
+    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.77011496">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.6502732">
+          <caret line="172" column="17" selection-start-line="172" selection-start-column="17" selection-end-line="172" selection-end-column="17" />
           <folding />
         </state>
       </provider>
