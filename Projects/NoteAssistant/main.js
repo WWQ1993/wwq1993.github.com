@@ -230,32 +230,36 @@ Paragraph={};   //段落相关
         //遍历传入id
         paragraph.traversal =function(refId, arr){
 
-            if(!arr){ //第二个参数为空时，默认为根节点
+            if(!arr){  //第二个参数为空时，默认为根节点
                 arr=rootNode;
-                //paragraph.result={};
+                paragraph.result={};
             }
-            paragraph.result.deepthbuf = paragraph.result.deepthbuf||0;
-            paragraph.result.deepthbuf++;
+            paragraph.result.deepthbuf = 0;
 
-            for(var i = 0; i < arr.length; i++){
-                if(Array.isArray(arr[i])){
+            (function innerFunction(){
+                paragraph.result.deepthbuf++;
 
-                    arguments.callee(refId,arr[i]);
+                for(var i = 0; i < arr.length; i++){
+                    if(Array.isArray(arr[i])){
 
-                }
-                else if(typeof arr[i]==="object"){
+                        arguments.callee(refId,arr[i]);
 
-                    if(arr[i].id===refId){
-//                    console.log("ok  "+ arr[i].value+" "+i);
-                        paragraph.result.arr=arr;
-                        paragraph.result.index = i;
-                        paragraph.result.deepth=paragraph.result.deepthbuf;
-                        return;
                     }
-                }
+                    else if(typeof arr[i]==="object"){
 
-            }
-            paragraph. result.deepthbuf--;
+                        if(arr[i].id===refId){
+                            paragraph.result.arr=arr;
+                            paragraph.result.index = i;
+                            paragraph.result.deepth=paragraph.result.deepthbuf;
+                            console.log("find")
+                            return true;
+                        }
+                    }
+
+                }
+                paragraph. result.deepthbuf--;
+            }());
+
         }
         //在节点后建立兄弟节点
         paragraph.createNode = function(refId,value,lowerLevel){
@@ -267,7 +271,7 @@ Paragraph={};   //段落相关
                 paragraph.traversal(refId);
                 paragraph.result.arr.splice(paragraph.result.index+1,0,[new paragraph.CreateOb(value)]);
             } else{
-                console.log(refId);
+                //console.log(paragraph.result.index);
                 paragraph.traversal(refId);
                 paragraph.result.arr.splice(paragraph.result.index+1,0,new paragraph.CreateOb(value));
             }
@@ -320,25 +324,19 @@ Paragraph={};   //段落相关
             span.classList.add('spanLevel');
 
             if (Component.content.lastElementChild.firstElementChild.id) {
-                var refId = Component.content.lastElementChild.firstElementChild.id;
-                paragraph.traversal(refId);
+                var ref =Number(Component.content.lastElementChild.firstElementChild.id) ;
+                paragraph.traversal(ref);
+
                  span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.result.deepth);
 
-                paragraph.createNode(refId,span.innerHTML);
+                paragraph.createNode(ref,span.innerHTML);
 
             } else{
                 span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.currentLevel);
                 paragraph.createNode(null,span.innerHTML);
             }
-            span.id=id;
+            span.id=id-1;
 
-            paragraph.traversal(id-1);
-            paragraph.traversal(id-1);
-            paragraph.traversal(id-1);
-            paragraph.traversal(id-1);
-
-            console.log(paragraph.result.arr[paragraph.result.index].value +" "+
-                paragraph.result.deepth + " "+id);
 
             newParagraph.appendChild(span);
             newParagraph.appendChild(textArea);
