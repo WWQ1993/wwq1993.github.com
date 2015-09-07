@@ -285,7 +285,8 @@ Paragraph={};   //段落相关
 
    paragraph.deleteNode = function(id){
             var result= paragraph.getNodeData(id);
-            var deletedArr = result.arr.splice(result.index,1);
+            return result.arr.splice(result.index,1);
+
         };
 
         //合并下个兄弟节点
@@ -304,6 +305,8 @@ Paragraph={};   //段落相关
 
         //"点击文末下方"
         paragraph.createParagraph=function(){
+            paragraph.removeNullParagraph(); //点击文本下方也能移除空行
+
             var newParagraph = document.createElement("p"),
                 i,
                 span,
@@ -332,6 +335,11 @@ Paragraph={};   //段落相关
             newParagraph.appendChild(textArea);
             Component.content.appendChild(newParagraph);
             textArea.focus();
+            //获取焦点时移除空行
+            textArea.onfocus=function(){
+                Paragraph.removeNullParagraph();
+            }
+
         };
 
         //"↓"
@@ -426,9 +434,16 @@ Paragraph={};   //段落相关
             Paragraph.updateThisLevelSymbols(ref);
 
         };
-        //TODO 删除节点，更新标号，更新树
+        // 删除空段落，更新标号，更新树
         paragraph.removeNullParagraph =function(){    //移除空段
-
+            var textArea = document.querySelectorAll('#content>p>p');
+            for(var i = 0; i < textArea.length; i++){
+                if(textArea[i].innerHTML===''){
+                    var id = textArea[i].previousElementSibling.id;
+                    Component.content.removeChild(textArea[i].parentNode);
+                    Paragraph.updateThisLevelSymbols(id,true)
+                }
+            }
         };
         paragraph.mergeNextParagraph = function(){
             var thisParagraph = document.activeElement;
@@ -448,11 +463,15 @@ Paragraph={};   //段落相关
         paragraph.levelDown = function () {
 
         };
+
         //修改本级所有分段符号，并更新文本所有分段符号
-        paragraph.updateThisLevelSymbols = function(id){
+        paragraph.updateThisLevelSymbols = function(id,removeNullP){
             var thisLevelarr =Paragraph.getNodeData(id).arr,
                 currentLevel = Paragraph.getNodeData(id).deepth;
 
+            if(removeNullP){
+                Paragraph.deleteNode(id);
+            }
             WWQ.levelSymbolsControl.resetSymbols(currentLevel );
 
             for(var i = 0; i < thisLevelarr.length; i++){
@@ -738,8 +757,7 @@ Handle.chooseNumfunc = function(event){
             if(Component.content.lastElementChild){
                 lastY=Component.content.lastElementChild.offsetTop + Component.content.lastElementChild.offsetHeight
                     - (document.body.scrollTop||document.documentElement.scrollTop);
-            }
-            else{
+            } else{
                 lastY=$('tools').offsetHeight;
             }
 
