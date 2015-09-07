@@ -309,7 +309,6 @@ Paragraph={};   //段落相关
                 span,
                 textArea;
 
-            paragraph.removeNullParagraph();
             newParagraph.style.marginLeft="50px";
             newParagraph.classList.add('h'+paragraph.currentLevel);
 
@@ -318,6 +317,7 @@ Paragraph={};   //段落相关
             span = document.createElement('span');
             span.classList.add('spanLevel');
 
+            console.log(Component.content.lastElementChild)
             if (Component.content.lastElementChild) {
                 var ref =Number(Component.content.lastElementChild.firstElementChild.id) ;
                 span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
@@ -400,8 +400,6 @@ Paragraph={};   //段落相关
             }());
             thisTextArea.innerHTML = newString[0];
 
-            paragraph.removeNullParagraph();
-
             var newParagraph = document.createElement("p"),
                 i,
                 span,
@@ -430,13 +428,7 @@ Paragraph={};   //段落相关
         };
         //TODO 删除节点，更新标号，更新树
         paragraph.removeNullParagraph =function(){    //移除空段
-            var index,
-                childNodes = Component.content.childNodes;
-            for (index = 0; index < childNodes.length; index++){
-                if (childNodes[index].nodeType===1 &&　!childNodes[index] .innerHTML){
-                    Component.content.removeChild(childNodes[index]);
-                }
-            }
+
         };
         paragraph.mergeNextParagraph = function(){
             var thisParagraph = document.activeElement;
@@ -449,8 +441,6 @@ Paragraph={};   //段落相关
             thisParagraph.innerHTML += nextP.innerHTML;
 
             nextP.innerHTML='';
-
-            Paragraph.removeNullParagraph();
         };
         paragraph.levelUp=function(){
 
@@ -744,8 +734,14 @@ Handle.chooseNumfunc = function(event){
             Component.toolBar.style.display="none";
             Component.chooseColor.style.display="none";
             //lastchild距离浏览器顶部距离。
-            var lastY=Component.content.lastElementChild.offsetTop + Component.content.lastElementChild.offsetHeight
-                - (document.body.scrollTop||document.documentElement.scrollTop);
+            var lastY = 0;
+            if(Component.content.lastElementChild){
+                lastY=Component.content.lastElementChild.offsetTop + Component.content.lastElementChild.offsetHeight
+                    - (document.body.scrollTop||document.documentElement.scrollTop);
+            }
+            else{
+                lastY=$('tools').offsetHeight;
+            }
 
             //新建段落
             if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //新建段落
