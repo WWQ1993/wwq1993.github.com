@@ -228,6 +228,7 @@ Paragraph={};   //段落相关
         paragraph.getNodeData =function(refId, arr){
             var result = {},
                 deepthbuf=0
+
             if(!arr){  //第二个参数为空时，默认为根节点
                 arr=rootNode;
             }
@@ -253,7 +254,7 @@ Paragraph={};   //段落相关
                     }
 
                 }
-                paragraph. result.deepthbuf--;
+                deepthbuf--;
             }());
 
             return result;
@@ -337,8 +338,6 @@ Paragraph={};   //段落相关
             newParagraph.appendChild(textArea);
             Component.content.appendChild(newParagraph);
             textArea.focus();
-            newParagraph.addEventListener('click', Handle.stopPro);
-
         };
 
         paragraph.newline=function(){
@@ -469,10 +468,6 @@ Handle.levelList = function(event ){
     }
 };
 
-Handle.stopPro = function(e){//TODO delete
-    e.stopPropagation();
-};
-
 Handle.toolsBtnMouseDown = function(event ){
     this.style.background="darkgrey";
     event.preventDefault();
@@ -569,12 +564,6 @@ Handle.chooseNumfunc = function(event){
     }
 
 })();
-
-//TODO
-Component.test1.addEventListener('click', Handle.stopPro);
-Component.test2.addEventListener('click', Handle.stopPro);
-
-
 
 //bar点击相关
 (function(){
