@@ -1,9 +1,30 @@
 /**
  * Created by WWQ on 2015/9/1 0001.
+ * TODO: firefox and IE can't get focus of new paragraph;
+ *
+ * //
+ //(function(){
+        //    rootNode[0]=[];
+        //    rootNode[0][0]=new paragraph.CreateOb("00");
+        //    rootNode[0][1]=[];
+        //    rootNode[0][1][0]=new paragraph.CreateOb("010");
+        //    rootNode[0][1][1]=new paragraph.CreateOb("011");
+        //    rootNode[1]=new paragraph.CreateOb("1");
+        //    rootNode[2]=[];
+        //    rootNode[2][0]=new paragraph.CreateOb("20");
+        //    rootNode[2][1]=[];
+        //    rootNode[2][1][0]=new paragraph.CreateOb("210");
+        //    rootNode[2][1][1]=new paragraph.CreateOb("211");
+        //
+        //}());
+ *
+ *
  */
+
 var WWQ={};
 var Component = {}; //GUI控件命名空间
 var Handle ={}; //事件处理函数命名空间
+var Paragraph = {}; //段落相关命名空间
 
 Component.toolBar=$('toolBar');
 Component.content=$('content');
@@ -31,12 +52,18 @@ WWQ.symbolsOneArr = ['一.','1.','(1)','○','■','□','○','■']; //显示�
 WWQ.allSymbolsArr = []; //按符号竖条顺序保存每个符号所有项数组
 WWQ.choosedLevel = 0;  //选中的等级
 WWQ.currentSymbolsArr=[]; //当前所需级别符号数组。按符号横栏顺序排。
+WWQ.mouseDown={};
+WWQ.seletedText = "";
 WWQ.color={
     yellow:'rgba(255, 255, 0, 0.8)',
     blue:'rgba(0, 0, 255,0.4)',
     pink:'rgba(255, 0, 255,0.4)',
     orange:'rgba(255, 120, 0,0.6)'
 };
+Paragraph={};   //段落相关
+
+
+
 
 //分级符号初始化
 (function(){
@@ -55,7 +82,9 @@ WWQ.color={
 
     for(i = 0; i < 9; i++){
         WWQ.allSymbolsArr[i]=[];
+
     }
+
     for(i = 1; i < 100; i++){
         str = i;
         str2 = str0 = i.toString();
@@ -134,9 +163,11 @@ WWQ.color={
 
         var str50,  //左位
             str51;
+
         if (str<27){
             str50 = '';
             str51 = String.fromCharCode(96 + str);
+
         } else{
             str50 = parseInt(str /26, 10);
             str51= str % 26;
@@ -164,10 +195,275 @@ WWQ.color={
     WWQ.currentSymbolsArr[5] = WWQ.allSymbolsArr[8];
     WWQ.currentSymbolsArr[6] = WWQ.allSymbolsArr[6];
     WWQ.currentSymbolsArr[7] = WWQ.allSymbolsArr[9];
-}());
-WWQ.mouseDown={};
-WWQ.seletedText = "";
 
+    WWQ.levelSymbolsControl={};
+    WWQ.levelSymbolsControl.getSymbol=function(currentlevel){
+        var arr = WWQ.currentSymbolsArr[currentlevel-1];
+        if(Array.isArray(arr)){
+            arr.index=arr.index||0;
+            arr.index++;
+            return arr[arr.index-1];
+        }
+        return arr;
+    }
+}());
+
+//段落相关方法初始化
+(function(){
+    var paragraph={};
+
+//样式树
+    (function(){
+        rootNode = [], //根节点
+            id = 0;
+        paragraph.result = {};
+        paragraph.result.arr=null; //保存节点的数组
+        paragraph.result.index=0; //节点在数组中的下标
+        paragraph.result.deepth=0;//节点的深度（等级）。
+
+        paragraph.CreateOb = function(value){
+            this.id = id;
+            id++;
+            this.value = value;
+        };
+
+        //遍历传入id
+        paragraph.traversal =function(refId, arr){
+
+            if(!arr){ //第二个参数为空时，默认为根节点
+                arr=rootNode;
+                //paragraph.result={};
+            }
+            paragraph.result.deepthbuf = paragraph.result.deepthbuf||0;
+            paragraph.result.deepthbuf++;
+
+            for(var i = 0; i < arr.length; i++){
+                if(Array.isArray(arr[i])){
+
+                    arguments.callee(refId,arr[i]);
+
+                }
+                else if(typeof arr[i]==="object"){
+
+                    if(arr[i].id===refId){
+//                    console.log("ok  "+ arr[i].value+" "+i);
+                        paragraph.result.arr=arr;
+                        paragraph.result.index = i;
+                        paragraph.result.deepth=paragraph.result.deepthbuf;
+                        return;
+                    }
+                }
+
+            }
+            paragraph. result.deepthbuf--;
+        }
+        //在节点后建立兄弟节点
+        paragraph.createNode = function(refId,value,lowerLevel){
+            if(!refId){
+                rootNode[0]=new paragraph.CreateOb(value);
+                return;
+            }
+            if (lowerLevel){
+                paragraph.traversal(refId);
+                paragraph.result.arr.splice(paragraph.result.index+1,0,[new paragraph.CreateOb(value)]);
+            } else{
+                console.log(refId);
+                paragraph.traversal(refId);
+                paragraph.result.arr.splice(paragraph.result.index+1,0,new paragraph.CreateOb(value));
+            }
+            paragraph.result={};
+        };
+
+        //paragraph.createNode(5,"999",true);
+        //paragraph.createNode(7,"9990");
+
+        paragraph.deleteNode = function(id){
+            paragraph.traversal(id);
+            var deletedArr = paragraph.result.arr.splice(paragraph.result.index,1);
+            paragraph.result={};
+        };
+
+        //合并下个兄弟节点
+        paragraph.mergeNextNode=function(id){
+            paragraph.traversal(id);
+            if(Array.isArray(paragraph.result.arr[paragraph.result.index+1]) ){
+                console.log("illage");
+            } else{
+                paragraph.result.arr.splice(paragraph.result.index+1,1);
+            }
+            paragraph.result={};
+        }
+        //paragraph.mergeNextNode(5);
+        //paragraph.traversal(8);
+        //console.log(paragraph.result.arr[paragraph.result.index].value +" "+ paragraph.result.deepth);
+
+    })();
+    //段落方法
+    (function(){
+        paragraph.currentLevel=1;
+
+        paragraph.createParagraph=function(){
+            var newParagraph = document.createElement("p"),
+                i,
+                span,
+                textArea;
+            childNodes = Component.content.childNodes;
+
+            paragraph.removeNullParagraph();
+            //newParagraph.setAttribute('contenteditable','true');
+            newParagraph.style.marginLeft="50px";
+            newParagraph.classList.add('h'+paragraph.currentLevel);
+
+            textArea= document.createElement('span');
+            textArea.setAttribute('contenteditable','true');
+            span = document.createElement('span');
+            span.classList.add('spanLevel');
+
+            if (Component.content.lastElementChild.firstElementChild.id) {
+                var refId = Component.content.lastElementChild.firstElementChild.id;
+                paragraph.traversal(refId);
+                 span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.result.deepth);
+
+                paragraph.createNode(refId,span.innerHTML);
+
+            } else{
+                span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.currentLevel);
+                paragraph.createNode(null,span.innerHTML);
+            }
+            span.id=id;
+
+            paragraph.traversal(id-1);
+            paragraph.traversal(id-1);
+            paragraph.traversal(id-1);
+            paragraph.traversal(id-1);
+
+            console.log(paragraph.result.arr[paragraph.result.index].value +" "+
+                paragraph.result.deepth + " "+id);
+
+            newParagraph.appendChild(span);
+            newParagraph.appendChild(textArea);
+            Component.content.appendChild(newParagraph);
+            textArea.focus();
+            newParagraph.addEventListener('click', Handle.stopPro);
+
+        };
+
+        paragraph.newline=function(){
+            document.execCommand('createlink',false,"mark");
+            var thisParagraph = document.activeElement;
+            var newString = thisParagraph.innerHTML.replace('<a href="mark">','<#>');
+            newString = newString.replace(/<a href="mark">/g,'');   //清除富文本自动<a>嵌套
+            newString= newString.replace(/<\/a>/g,'');
+            newString= newString.split('<#>');
+
+            //解决切割后的特效消失问题
+            (function dealTheString(){
+                var bString = newString[0],
+                    aString = newString[1],
+                    Reg = /<(\/)?([^\s>]+)[^>]*>/g,
+                    resultArrB = [],
+                    resultArrA = [],
+                    tag = {},
+                    i = 0,
+                    pushToAfter = [],
+                    pushToBefore = [],
+                    regResult
+
+                //before
+                while (regResult = Reg.exec(bString)){
+                    resultArrB.unshift(regResult);
+                }
+                for(i = 0; i < resultArrB.length; i++){
+                    tag[resultArrB[i][2]] = tag[resultArrB[i][2]] || 0;
+                    if (resultArrB[i][1]==="/"){
+                        tag[resultArrB[i][2]]--;
+                    } else{
+                        tag[resultArrB[i][2]]++;
+                    }
+                    if(tag[resultArrB[i][2]]===1){
+                        tag[resultArrB[i][2]]=0;
+
+                        pushToAfter.unshift(resultArrB[i][0]);
+                    }
+                }
+                pushToAfter=pushToAfter.join('');
+
+                //after
+                tag = {};
+                while (regResult = Reg.exec(aString)){
+                    resultArrA.push(regResult);
+                }
+                for(i = 0; i < resultArrA.length; i++){
+                    tag[resultArrA[i][2]] = tag[resultArrA[i][2]] || 0;
+
+                    if (resultArrA[i][1]==="/"){
+                        tag[resultArrA[i][2]]--;
+                    } else{
+                        tag[resultArrA[i][2]]++;
+                    }
+                    if(tag[resultArrA[i][2]]===-1){
+                        tag[resultArrA[i][2]]=0;
+                        pushToBefore.push(resultArrA[i][0]);
+                    }
+                }
+                pushToBefore=pushToBefore.join('');
+
+                newString[0]= newString[0] + pushToBefore ;
+                newString[1]=pushToAfter+ newString[1] ;
+            }());
+            thisParagraph.innerHTML = newString[0];
+
+
+            var newParagraph = document.createElement('p');
+            newParagraph.innerHTML=newString[1] ;
+            newParagraph.setAttribute('contenteditable','true');
+            newParagraph.focus();
+            newParagraph.addEventListener('click', Handle.stopPro);
+            newParagraph.style.marginLeft="50px";
+            var span = document.createElement('span');
+            span.innerHTML="A";
+            newParagraph.insertBefore(span,newParagraph.firstChild);
+            span.classList.add('spanLevel');
+
+            Component.content.insertBefore(newParagraph, thisParagraph.nextElementSibling);
+
+            paragraph.removeNullParagraph();
+        };
+        paragraph.removeNullParagraph =function(){    //移除空段
+            var index,
+                childNodes = Component.content.childNodes;
+            for (index = 0; index < childNodes.length; index++){
+                if (childNodes[index].nodeType===1 &&　!childNodes[index].innerHTML){
+                    Component.content.removeChild(childNodes[index]);
+                }
+            }
+        };
+        paragraph.mergeNextParagraph = function(){
+            var thisParagraph = document.activeElement;
+            var nextP = thisParagraph.nextElementSibling;
+            //for(var m = 0; m < thisParagraph.childNodes.length; m++){
+            //    console.log(thisParagraph.childNodes[m].nodeName)
+            //}
+            nextP.removeChild(nextP.firstElementChild);
+
+            thisParagraph.innerHTML += nextP.innerHTML;
+
+            nextP.innerHTML='';
+
+            Paragraph.removeNullParagraph();
+        };
+        paragraph.levelUp=function(){
+
+        };
+        paragraph.levelDown = function () {
+
+        };
+
+    })();
+
+
+    Paragraph=paragraph;
+}());
 Handle.levelList = function(event ){
     WWQ.choosedLevel = this.j;
 
@@ -203,7 +499,6 @@ Handle.chooseNumfunc = function(event){
 
     $('numberList').style.display = "block";
     $('numberList').style.left=(Component.chooseLevelNum.offsetLeft )+'px';
-    //TODO
     if (navigator.userAgent.indexOf('Firefox') >= 0){
         $('numberList').style.left=(Component.chooseLevelNum.offsetLeft-5) +'px';
 
@@ -268,7 +563,7 @@ Handle.chooseNumfunc = function(event){
 
                 for (var index = 0; index < WWQ.levelNum; index++){
                     if(Array.isArray(WWQ.currentSymbolsArr[index])){
-                        console.log(WWQ.currentSymbolsArr[index][10]);
+                        console.log(WWQ.currentSymbolsArr[index][0]);
                     }
                     else{
                         console.log(WWQ.currentSymbolsArr[index])
@@ -287,8 +582,10 @@ Component.test1.addEventListener('click', Handle.stopPro);
 Component.test2.addEventListener('click', Handle.stopPro);
 
 
+
 //bar点击相关
 (function(){
+
 
     Component.toolBarMouseDown = function(event) {
         if(event.button === 0){
@@ -318,82 +615,12 @@ Component.test2.addEventListener('click', Handle.stopPro);
                     }
                     break;
                 case 'toolBar_E':
-                    document.execCommand('createlink',false,"mark");
-                    var thisP = document.activeElement;
-                    var newString = thisP.innerHTML.replace('<a href="mark">','<#>');
-                    newString = newString.replace('<a href="mark">','');
-                    newString= newString.replace(/<\/a>/g,'');
-                    newString= newString.split('<#>');
-                    //解决切割后的特效消失问题
-                    (function dealTheString(){
-                        var bString = newString[0],
-                            aString = newString[1],
-                            Reg = /<(\/)?([^\s>]+)[^>]*>/g,
-                            resultArrB = [],
-                            resultArrA = [],
-                            tag = {},
-                            i = 0,
-                            pushToAfter = [],
-                            pushToBefore = [],
-                            regResult
+                    Paragraph.newline();
 
-                        //before
-                        while (regResult = Reg.exec(bString)){
-                            resultArrB.unshift(regResult);
-                        }
-                        for(i = 0; i < resultArrB.length; i++){
-                            tag[resultArrB[i][2]] = tag[resultArrB[i][2]] || 0;
-                            if (resultArrB[i][1]==="/"){
-                                tag[resultArrB[i][2]]--;
-                            } else{
-                                tag[resultArrB[i][2]]++;
-                            }
-                            if(tag[resultArrB[i][2]]===1){
-                                tag[resultArrB[i][2]]=0;
-
-                                pushToAfter.unshift(resultArrB[i][0]);
-                            }
-                        }
-                        pushToAfter=pushToAfter.join('');
-
-                        //after
-                        tag = {};
-                        while (regResult = Reg.exec(aString)){
-                            resultArrA.push(regResult);
-                        }
-                        for(i = 0; i < resultArrA.length; i++){
-                            tag[resultArrA[i][2]] = tag[resultArrA[i][2]] || 0;
-
-                            if (resultArrA[i][1]==="/"){
-                                tag[resultArrA[i][2]]--;
-                            } else{
-                                tag[resultArrA[i][2]]++;
-                            }
-                            if(tag[resultArrA[i][2]]===-1){
-                                tag[resultArrA[i][2]]=0;
-                                pushToBefore.push(resultArrA[i][0]);
-                            }
-                        }
-                        pushToBefore=pushToBefore.join('');
-
-                        newString[0]= newString[0] + pushToBefore ;
-                        newString[1]=pushToAfter+ newString[1] ;
-                    }());
-                    thisP.innerHTML = newString[0];
-
-                    var newP = document.createElement('p');
-                    newP.innerHTML=newString[1] ;
-                    newP.setAttribute('contenteditable','true');
-                    Component.content.insertBefore(newP, thisP.nextElementSibling);
-                    newP.focus();
-                    newP.addEventListener('click', Handle.stopPro);
-                    newP.style.marginLeft="50px";
-                    var span = document.createElement('span');
-                    span.innerHTML="A";
-                    newP.insertBefore(span,newP.firstChild);
-                    span.classList.add('spanLevel');
                     break;
                 case 'toolBar_L':
+                    //Paragraph.mergeNextParagraph();
+
                     break;
                 case 'toolBar_R':
                     break;
@@ -505,24 +732,12 @@ Component.test2.addEventListener('click', Handle.stopPro);
             Component.chooseColor.style.display="none";
             //lastchild距离浏览器顶部距离。
             var lastY=Component.content.lastElementChild.offsetTop + Component.content.lastElementChild.offsetHeight
-                - document.body.scrollTop;
+                - (document.body.scrollTop||document.documentElement.scrollTop);
 
+            //新建段落
             if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //新建段落
 
-                var paragraph,
-                    i,
-                    childNodes = Component.content.childNodes;
-
-                for (i = 0; i < childNodes.length; i++){
-                    if (childNodes[i].nodeType===1 &&　!childNodes[i].innerHTML){
-                        Component.content.removeChild(childNodes[i]);
-                    }
-                }
-                paragraph = document.createElement("p");
-                paragraph.setAttribute('contenteditable','true');
-                Component.content.appendChild(paragraph);
-                paragraph.focus();
-                paragraph.addEventListener('click', Handle.stopPro);
+                Paragraph.createParagraph();
             }
 
             return;
@@ -591,4 +806,3 @@ Component.test2.addEventListener('click', Handle.stopPro);
         }
     }
 })();
-

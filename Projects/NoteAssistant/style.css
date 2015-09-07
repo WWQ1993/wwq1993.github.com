@@ -171,5 +171,13 @@ B{
 }
 .spanLevel{
     font-weight: 800;
-    margin: auto 7px auto -15px;
+    /*display: block;*/
+    padding: 5px;
+    margin: auto 10px auto -35px;
+}
+.h1{
+    font-size: 18px;
+}
+*:focus{
+    border: red solid thin;
 }
