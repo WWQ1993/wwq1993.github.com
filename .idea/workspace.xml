@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="230" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="227" />
     <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="273" />
     <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="325" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\万强\Documents\GitHub\wwq1993.github.com\Projects\NoteAssistant\tree.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -72,14 +73,11 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.33274958">
-                  <caret line="328" column="0" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.33211678">
+                  <caret line="324" column="87" selection-start-line="324" selection-start-column="87" selection-end-line="324" selection-end-column="87" />
                   <folding>
                     <element signature="e#1987#5886#0" expanded="false" />
-                    <element signature="e#8017#8054#0" expanded="false" />
-                    <element signature="e#8141#8306#0" expanded="false" />
-                    <element signature="e#8372#8679#0" expanded="false" />
-                    <element signature="e#10926#12918#0" expanded="false" />
+                    <element signature="e#10491#12483#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -109,7 +107,6 @@
     <setting file="file://$PROJECT_DIR$/ReadNotes/TheGoodPart/0.html" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/main.js" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Projects/NoteAssistant/tree.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -131,10 +128,10 @@
         <option value="$PROJECT_DIR$/Projects/HTMLTODOM/index.html" />
         <option value="$PROJECT_DIR$/Projects/HTMLTODOM/main.js" />
         <option value="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html" />
-        <option value="$PROJECT_DIR$/Projects/NoteAssistant/tree.js" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/include.postload.js" />
+        <option value="$PROJECT_DIR$/Projects/NoteAssistant/tree.js" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       </list>
     </option>
@@ -359,12 +356,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00005" summary="fg">
-      <created>1437121948546</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1437121948546</updated>
     </task>
     <task id="LOCAL-00006" summary="fg">
       <created>1439092606607</created>
@@ -654,7 +645,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441614363751</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="解决遍历函数问题">
+      <created>1441615682398</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1441615682398</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
@@ -717,7 +714,8 @@
     <MESSAGE value="101112" />
     <MESSAGE value="分段后特效问题" />
     <MESSAGE value="遍历函数问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="遍历函数问题" />
+    <MESSAGE value="解决遍历函数问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决遍历函数问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1026,6 +1024,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3323782">
           <caret line="978" column="0" selection-start-line="978" selection-start-column="0" selection-end-line="978" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,16 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/tree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9418182">
-          <caret line="95" column="5" selection-start-line="3" selection-start-column="0" selection-end-line="95" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,14 +1073,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33274958">
-          <caret line="328" column="0" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33211678">
+          <caret line="324" column="87" selection-start-line="324" selection-start-column="87" selection-end-line="324" selection-end-column="87" />
           <folding>
             <element signature="e#1987#5886#0" expanded="false" />
-            <element signature="e#8017#8054#0" expanded="false" />
-            <element signature="e#8141#8306#0" expanded="false" />
-            <element signature="e#8372#8679#0" expanded="false" />
-            <element signature="e#10926#12918#0" expanded="false" />
+            <element signature="e#10491#12483#0" expanded="false" />
           </folding>
         </state>
       </provider>

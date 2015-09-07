@@ -216,10 +216,7 @@ Paragraph={};   //段落相关
     (function(){
         rootNode = [], //根节点
             id = 0;
-        paragraph.result = {};
-        paragraph.result.arr=null; //保存节点的数组
-        paragraph.result.index=0; //节点在数组中的下标
-        paragraph.result.deepth=0;//节点的深度（等级）。
+
 
         paragraph.CreateOb = function(value){
             this.id = id;
@@ -228,16 +225,15 @@ Paragraph={};   //段落相关
         };
 
         //遍历传入id
-        paragraph.traversal =function(refId, arr){
-
+        paragraph.getNodeData =function(refId, arr){
+            var result = {},
+                deepthbuf=0
             if(!arr){  //第二个参数为空时，默认为根节点
                 arr=rootNode;
-                paragraph.result={};
             }
-            paragraph.result.deepthbuf = 0;
 
             (function innerFunction(){
-                paragraph.result.deepthbuf++;
+                deepthbuf++;
 
                 for(var i = 0; i < arr.length; i++){
                     if(Array.isArray(arr[i])){
@@ -248,9 +244,9 @@ Paragraph={};   //段落相关
                     else if(typeof arr[i]==="object"){
 
                         if(arr[i].id===refId){
-                            paragraph.result.arr=arr;
-                            paragraph.result.index = i;
-                            paragraph.result.deepth=paragraph.result.deepthbuf;
+                            result.arr=arr; //保存节点的数组
+                            result.index = i;//节点在数组中的下标
+                            result.deepth = deepthbuf;//节点的深度（等级）。
                             console.log("find")
                             return true;
                         }
@@ -260,6 +256,7 @@ Paragraph={};   //段落相关
                 paragraph. result.deepthbuf--;
             }());
 
+            return result;
         }
         //在节点后建立兄弟节点
         paragraph.createNode = function(refId,value,lowerLevel){
@@ -267,39 +264,37 @@ Paragraph={};   //段落相关
                 rootNode[0]=new paragraph.CreateOb(value);
                 return;
             }
+            var result = paragraph.getNodeData(refId);
             if (lowerLevel){
-                paragraph.traversal(refId);
-                paragraph.result.arr.splice(paragraph.result.index+1,0,[new paragraph.CreateOb(value)]);
+
+                result.arr.splice(result.index+1,0,[new paragraph.CreateOb(value)]);
             } else{
-                //console.log(paragraph.result.index);
-                paragraph.traversal(refId);
-                paragraph.result.arr.splice(paragraph.result.index+1,0,new paragraph.CreateOb(value));
+                //console.log(00.index);
+                paragraph.getNodeData(refId);
+                result.arr.splice(result.index+1,0,new paragraph.CreateOb(value));
             }
-            paragraph.result={};
         };
 
         //paragraph.createNode(5,"999",true);
         //paragraph.createNode(7,"9990");
 
         paragraph.deleteNode = function(id){
-            paragraph.traversal(id);
-            var deletedArr = paragraph.result.arr.splice(paragraph.result.index,1);
-            paragraph.result={};
+            var result= paragraph.getNodeData(id);
+            var deletedArr = result.arr.splice(result.index,1);
         };
 
         //合并下个兄弟节点
         paragraph.mergeNextNode=function(id){
-            paragraph.traversal(id);
-            if(Array.isArray(paragraph.result.arr[paragraph.result.index+1]) ){
+            var result= paragraph.getNodeData(id);
+            if(Array.isArray(result.arr[result.index+1]) ){
                 console.log("illage");
             } else{
-                paragraph.result.arr.splice(paragraph.result.index+1,1);
+                result.arr.splice(result.index+1,1);
             }
-            paragraph.result={};
         }
         //paragraph.mergeNextNode(5);
-        //paragraph.traversal(8);
-        //console.log(paragraph.result.arr[paragraph.result.index].value +" "+ paragraph.result.deepth);
+        //paragraph.getNodeData(8);
+        //console.log(00.arr[00.index].value +" "+ 00.deepth);
 
     })();
     //段落方法
@@ -325,9 +320,9 @@ Paragraph={};   //段落相关
 
             if (Component.content.lastElementChild.firstElementChild.id) {
                 var ref =Number(Component.content.lastElementChild.firstElementChild.id) ;
-                paragraph.traversal(ref);
 
-                 span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.result.deepth);
+
+                 span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
 
                 paragraph.createNode(ref,span.innerHTML);
 
