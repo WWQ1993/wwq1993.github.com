@@ -181,3 +181,7 @@ B{
 *:focus{
     border: red solid thin;
 }
+#content p p{
+    display: inline-block;
+    width: 500px;
+}

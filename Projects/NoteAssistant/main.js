@@ -1,6 +1,7 @@
 /**
  * Created by WWQ on 2015/9/1 0001.
- * TODO: firefox and IE can't get focus of new paragraph;
+ * TODO:  点分段样式时，会同时新建段
+ * 切割<a>乱码
  *
  * //
  //(function(){
@@ -61,9 +62,6 @@ WWQ.color={
     orange:'rgba(255, 120, 0,0.6)'
 };
 Paragraph={};   //段落相关
-
-
-
 
 //分级符号初始化
 (function(){
@@ -205,6 +203,10 @@ Paragraph={};   //段落相关
             return arr[arr.index-1];
         }
         return arr;
+    };
+    WWQ.levelSymbolsControl.resetSymbols=function(currentlevel) {
+        WWQ.currentSymbolsArr[currentlevel-1].index=0;
+        WWQ.currentSymbolsArr[currentlevel-1] = WWQ.allSymbolsArr[currentlevel-1];
     }
 }());
 
@@ -229,6 +231,7 @@ Paragraph={};   //段落相关
             var result = {},
                 deepthbuf=0
 
+            refId = Number(refId);
             if(!arr){  //第二个参数为空时，默认为根节点
                 arr=rootNode;
             }
@@ -252,7 +255,6 @@ Paragraph={};   //段落相关
                             return true;
                         }
                     }
-
                 }
                 deepthbuf--;
             }());
@@ -261,70 +263,64 @@ Paragraph={};   //段落相关
         }
         //在节点后建立兄弟节点
         paragraph.createNode = function(refId,value,lowerLevel){
-            if(!refId){
+            if(refId===null){
                 rootNode[0]=new paragraph.CreateOb(value);
                 return;
             }
             var result = paragraph.getNodeData(refId);
-            if (lowerLevel){
 
+
+            if (!result.arr){
+                console.log(refId+"  result is null");
+                return;
+            }
+            if (lowerLevel){
                 result.arr.splice(result.index+1,0,[new paragraph.CreateOb(value)]);
             } else{
                 //console.log(00.index);
-                paragraph.getNodeData(refId);
+                //paragraph.getNodeData(refId);
                 result.arr.splice(result.index+1,0,new paragraph.CreateOb(value));
             }
         };
 
-        //paragraph.createNode(5,"999",true);
-        //paragraph.createNode(7,"9990");
-
-        paragraph.deleteNode = function(id){
+   paragraph.deleteNode = function(id){
             var result= paragraph.getNodeData(id);
             var deletedArr = result.arr.splice(result.index,1);
         };
 
         //合并下个兄弟节点
         paragraph.mergeNextNode=function(id){
-            var result= paragraph.getNodeData(id);
+            var result = paragraph.getNodeData(id);
             if(Array.isArray(result.arr[result.index+1]) ){
                 console.log("illage");
             } else{
                 result.arr.splice(result.index+1,1);
             }
         }
-        //paragraph.mergeNextNode(5);
-        //paragraph.getNodeData(8);
-        //console.log(00.arr[00.index].value +" "+ 00.deepth);
-
     })();
     //段落方法
     (function(){
-        paragraph.currentLevel=1;
+        paragraph.currentLevel=1;   //当前等级，从1开始
 
+        //"点击文末下方"
         paragraph.createParagraph=function(){
             var newParagraph = document.createElement("p"),
                 i,
                 span,
                 textArea;
-            childNodes = Component.content.childNodes;
 
             paragraph.removeNullParagraph();
-            //newParagraph.setAttribute('contenteditable','true');
             newParagraph.style.marginLeft="50px";
             newParagraph.classList.add('h'+paragraph.currentLevel);
 
-            textArea= document.createElement('span');
+            textArea= document.createElement('p');
             textArea.setAttribute('contenteditable','true');
             span = document.createElement('span');
             span.classList.add('spanLevel');
 
-            if (Component.content.lastElementChild.firstElementChild.id) {
+            if (Component.content.lastElementChild) {
                 var ref =Number(Component.content.lastElementChild.firstElementChild.id) ;
-
-
-                 span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
-
+                span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
                 paragraph.createNode(ref,span.innerHTML);
 
             } else{
@@ -332,18 +328,17 @@ Paragraph={};   //段落相关
                 paragraph.createNode(null,span.innerHTML);
             }
             span.id=id-1;
-
-
             newParagraph.appendChild(span);
             newParagraph.appendChild(textArea);
             Component.content.appendChild(newParagraph);
             textArea.focus();
         };
 
+        //"↓"
         paragraph.newline=function(){
             document.execCommand('createlink',false,"mark");
-            var thisParagraph = document.activeElement;
-            var newString = thisParagraph.innerHTML.replace('<a href="mark">','<#>');
+            var thisTextArea = document.activeElement;
+            var newString = thisTextArea.innerHTML.replace('<a href="mark">','<#>');
             newString = newString.replace(/<a href="mark">/g,'');   //清除富文本自动<a>嵌套
             newString= newString.replace(/<\/a>/g,'');
             newString= newString.split('<#>');
@@ -403,29 +398,42 @@ Paragraph={};   //段落相关
                 newString[0]= newString[0] + pushToBefore ;
                 newString[1]=pushToAfter+ newString[1] ;
             }());
-            thisParagraph.innerHTML = newString[0];
-
-
-            var newParagraph = document.createElement('p');
-            newParagraph.innerHTML=newString[1] ;
-            newParagraph.setAttribute('contenteditable','true');
-            newParagraph.focus();
-            newParagraph.addEventListener('click', Handle.stopPro);
-            newParagraph.style.marginLeft="50px";
-            var span = document.createElement('span');
-            span.innerHTML="A";
-            newParagraph.insertBefore(span,newParagraph.firstChild);
-            span.classList.add('spanLevel');
-
-            Component.content.insertBefore(newParagraph, thisParagraph.nextElementSibling);
+            thisTextArea.innerHTML = newString[0];
 
             paragraph.removeNullParagraph();
+
+            var newParagraph = document.createElement("p"),
+                i,
+                span,
+                textArea;
+
+            newParagraph.style.marginLeft="50px";
+            newParagraph.classList.add('h'+paragraph.currentLevel);
+
+            textArea= document.createElement('p');
+            textArea.setAttribute('contenteditable','true');
+            textArea.innerHTML = newString[1];
+            span = document.createElement('span');
+            span.classList.add('spanLevel');
+
+            var ref = thisTextArea.previousElementSibling.id;
+            span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
+            paragraph.createNode(ref,span.innerHTML);
+
+            span.id=id-1;
+            newParagraph.appendChild(span);
+            newParagraph.appendChild(textArea);
+            Component.content.insertBefore(newParagraph,thisTextArea.parentNode.nextElementSibling);
+            textArea.focus();
+            Paragraph.updateThisLevelSymbols(ref);
+
         };
+        //TODO 删除节点，更新标号，更新树
         paragraph.removeNullParagraph =function(){    //移除空段
             var index,
                 childNodes = Component.content.childNodes;
             for (index = 0; index < childNodes.length; index++){
-                if (childNodes[index].nodeType===1 &&　!childNodes[index].innerHTML){
+                if (childNodes[index].nodeType===1 &&　!childNodes[index] .innerHTML){
                     Component.content.removeChild(childNodes[index]);
                 }
             }
@@ -450,7 +458,29 @@ Paragraph={};   //段落相关
         paragraph.levelDown = function () {
 
         };
+        //修改本级所有分段符号，并更新文本所有分段符号
+        paragraph.updateThisLevelSymbols = function(id){
+            var thisLevelarr =Paragraph.getNodeData(id).arr,
+                currentLevel = Paragraph.getNodeData(id).deepth;
 
+            WWQ.levelSymbolsControl.resetSymbols(currentLevel );
+
+            for(var i = 0; i < thisLevelarr.length; i++){
+                if(!Array.isArray(thisLevelarr[i])){
+                    thisLevelarr[i].value=WWQ.levelSymbolsControl.getSymbol(currentLevel);
+                }
+            }
+            //更新文本所有分段符号
+            //建议多使用querySelector。简化操作
+            var span= document.querySelectorAll('#content>p>span')
+
+            for(var j =0; j<span.length; j++) {
+                console.log(span[j].id)
+                var ob = Paragraph.getNodeData(span[j].id);
+                span[j].innerHTML = ob.arr[ob.index].value;
+            }
+
+        }
     })();
 
 
@@ -605,6 +635,7 @@ Handle.chooseNumfunc = function(event){
 
                     break;
                 case 'toolBar_R':
+                    Paragraph.levelDown();
                     break;
                 case 'toolBar_N':
                     break;
