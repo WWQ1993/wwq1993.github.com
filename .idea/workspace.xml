@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="229" />
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="645" mnemonic="R" />
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="273" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="232" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="666" mnemonic="R" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="276" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="解决代码耦合">
+    <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -37,7 +37,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.24588364">
+    <splitter split-orientation="horizontal" split-proportion="0.3227223">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
@@ -70,10 +70,10 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.50364965">
-                  <caret line="456" column="0" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.39051095">
+                  <caret line="258" column="25" selection-start-line="258" selection-start-column="25" selection-end-line="258" selection-end-column="25" />
                   <folding>
-                    <element signature="e#10614#12606#0" expanded="false" />
+                    <element signature="e#10697#12689#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -352,12 +352,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00010" summary="fg">
-      <created>1439886513581</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1439886513581</updated>
     </task>
     <task id="LOCAL-00011" summary="fgdf">
       <created>1439886624880</created>
@@ -647,7 +641,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441644179652</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="删除空行">
+      <created>1441647273289</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1441647273289</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">
@@ -715,11 +715,12 @@
     <MESSAGE value="修改遍历函数" />
     <MESSAGE value="平级换行编号更正" />
     <MESSAGE value="解决代码耦合" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决代码耦合" />
+    <MESSAGE value="删除空行" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除空行" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="22" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1080,10 +1081,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50364965">
-          <caret line="456" column="0" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.39051095">
+          <caret line="258" column="25" selection-start-line="258" selection-start-column="25" selection-end-line="258" selection-end-column="25" />
           <folding>
-            <element signature="e#10614#12606#0" expanded="false" />
+            <element signature="e#10697#12689#0" expanded="false" />
           </folding>
         </state>
       </provider>

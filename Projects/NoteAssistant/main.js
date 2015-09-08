@@ -53,6 +53,7 @@ WWQ.symbolsOneArr = ['一.','1.','(1)','○','■','□','○','■']; //显示�
 WWQ.allSymbolsArr = []; //按符号竖条顺序保存每个符号所有项数组
 WWQ.choosedLevel = 0;  //选中的等级
 WWQ.currentSymbolsArr=[]; //当前所需级别符号数组。按符号横栏顺序排。
+WWQ.choosedLevelBuf={};
 WWQ.mouseDown={};
 WWQ.seletedText = "";
 WWQ.color={
@@ -205,8 +206,10 @@ Paragraph={};   //段落相关
         return arr;
     };
     WWQ.levelSymbolsControl.resetSymbols=function(currentlevel) {
-        WWQ.currentSymbolsArr[currentlevel-1].index=0;
-        WWQ.currentSymbolsArr[currentlevel-1] = WWQ.allSymbolsArr[currentlevel-1];
+        if(Array.isArray(WWQ.currentSymbolsArr[currentlevel-1])){
+            WWQ.currentSymbolsArr[currentlevel-1].index=0;
+        }
+        WWQ.currentSymbolsArr[currentlevel-1] = WWQ.allSymbolsArr[WWQ.choosedLevelBuf[currentlevel-1]||(currentlevel-1)];
     }
 }());
 
@@ -320,7 +323,6 @@ Paragraph={};   //段落相关
             span = document.createElement('span');
             span.classList.add('spanLevel');
 
-            console.log(Component.content.lastElementChild)
             if (Component.content.lastElementChild) {
                 var ref =Number(Component.content.lastElementChild.firstElementChild.id) ;
                 span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
@@ -436,6 +438,7 @@ Paragraph={};   //段落相关
         };
         // 删除空段落，更新标号，更新树
         paragraph.removeNullParagraph =function(){    //移除空段
+
             var textArea = document.querySelectorAll('#content>p>p');
             for(var i = 0; i < textArea.length; i++){
                 if(textArea[i].innerHTML===''){
@@ -445,6 +448,8 @@ Paragraph={};   //段落相关
                 }
             }
         };
+
+
         paragraph.mergeNextParagraph = function(){
             var thisParagraph = document.activeElement;
             var nextP = thisParagraph.nextElementSibling;
@@ -465,7 +470,8 @@ Paragraph={};   //段落相关
         };
 
         //修改本级所有分段符号，并更新文本所有分段符号
-        paragraph.updateThisLevelSymbols = function(id,removeNullP){
+        paragraph.updateThisLevelSymbols = function(id,removeNullP){            console.log("up")
+
             var thisLevelarr =Paragraph.getNodeData(id).arr,
                 currentLevel = Paragraph.getNodeData(id).deepth;
 
@@ -484,7 +490,6 @@ Paragraph={};   //段落相关
             var span= document.querySelectorAll('#content>p>span')
 
             for(var j =0; j<span.length; j++) {
-                console.log(span[j].id)
                 var ob = Paragraph.getNodeData(span[j].id);
                 span[j].innerHTML = ob.arr[ob.index].value;
             }
@@ -586,16 +591,32 @@ Handle.chooseNumfunc = function(event){
 
                 WWQ.symbolsOneArr[WWQ.choosedLevel] = WWQ.symbolsLevel[this.ind];
                 Handle.updateLevelDisplay();
-                WWQ.currentSymbolsArr[WWQ.choosedLevel] = WWQ.allSymbolsArr[this.ind];
+                WWQ.choosedLevelBuf[WWQ.choosedLevel] = this.ind;
+                WWQ.currentSymbolsArr[WWQ.choosedLevel] = WWQ.allSymbolsArr[WWQ.choosedLevelBuf[WWQ.choosedLevel]];
 
-                for (var index = 0; index < WWQ.levelNum; index++){
-                    if(Array.isArray(WWQ.currentSymbolsArr[index])){
-                        console.log(WWQ.currentSymbolsArr[index][0]);
-                    }
-                    else{
-                        console.log(WWQ.currentSymbolsArr[index])
-                    }
+                //TODO 注意能否改其他等级
+                if (typeof getId()==='number'){
+                    Paragraph.updateThisLevelSymbols(getId());
                 }
+                function getId(){
+                    for(var i = 0; i<=id; i++){
+                        if(Paragraph.getNodeData(i).deepth==WWQ.choosedLevel+1){
+                            return i;
+                        }
+                    }
+                    return;
+                }
+
+
+                //Paragraph.updateThisLevelSymbols(WWQ.choosedLevelBuf[WWQ.choosedLevel] );
+                //for (var index = 0; index < WWQ.levelNum; index++){
+                //    if(Array.isArray(WWQ.currentSymbolsArr[index])){
+                //        console.log(WWQ.currentSymbolsArr[index][0]);
+                //    }
+                //    else{
+                //        console.log(WWQ.currentSymbolsArr[index])
+                //    }
+                //}
             });
             j++;
 
