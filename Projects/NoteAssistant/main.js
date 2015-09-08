@@ -470,7 +470,7 @@ Paragraph={};   //段落相关
         };
 
         //修改本级所有分段符号，并更新文本所有分段符号
-        paragraph.updateThisLevelSymbols = function(id,removeNullP){            console.log("up")
+        paragraph.updateThisLevelSymbols = function(id,removeNullP){
 
             var thisLevelarr =Paragraph.getNodeData(id).arr,
                 currentLevel = Paragraph.getNodeData(id).deepth;
