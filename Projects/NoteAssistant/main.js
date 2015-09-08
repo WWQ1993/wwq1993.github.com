@@ -238,8 +238,7 @@ Paragraph={};   //段落相关
             if(!arr){  //第二个参数为空时，默认为根节点
                 arr=rootNode;
             }
-
-            (function innerFunction(){
+            function innerFunction(refId,arr){
                 deepthbuf++;
 
                 for(var i = 0; i < arr.length; i++){
@@ -254,16 +253,21 @@ Paragraph={};   //段落相关
                             result.arr=arr; //保存节点的数组
                             result.index = i;//节点在数组中的下标
                             result.deepth = deepthbuf;//节点的深度（等级）。
-                            console.log("find")
+                            //console.log("find")
                             return true;
                         }
                     }
                 }
                 deepthbuf--;
-            }());
+            };
+
+            innerFunction(refId,arr);
 
             return result;
         }
+
+
+
         //在节点后建立兄弟节点
         paragraph.createNode = function(refId,value,lowerLevel){
             if(refId===null){
@@ -271,7 +275,6 @@ Paragraph={};   //段落相关
                 return;
             }
             var result = paragraph.getNodeData(refId);
-
 
             if (!result.arr){
                 console.log(refId+"  result is null");
@@ -285,8 +288,8 @@ Paragraph={};   //段落相关
                 result.arr.splice(result.index+1,0,new paragraph.CreateOb(value));
             }
         };
-
-   paragraph.deleteNode = function(id){
+         //删除id对应节点
+        paragraph.deleteNode = function(id){
             var result= paragraph.getNodeData(id);
             return result.arr.splice(result.index,1);
 
@@ -308,6 +311,7 @@ Paragraph={};   //段落相关
 
         //"点击文末下方"
         paragraph.createParagraph=function(){
+
             paragraph.removeNullParagraph(); //点击文本下方也能移除空行
 
             var newParagraph = document.createElement("p"),
@@ -315,7 +319,7 @@ Paragraph={};   //段落相关
                 span,
                 textArea;
 
-            newParagraph.style.marginLeft="50px";
+            newParagraph.style.marginLeft=(50*paragraph.currentLevel) +"px";
             newParagraph.classList.add('h'+paragraph.currentLevel);
 
             textArea= document.createElement('p');
@@ -343,6 +347,8 @@ Paragraph={};   //段落相关
             }
 
         };
+
+
 
         //"↓"
         paragraph.newline=function(){
@@ -415,7 +421,10 @@ Paragraph={};   //段落相关
                 span,
                 textArea;
 
-            newParagraph.style.marginLeft="50px";
+            newParagraph.style.marginLeft=(50*paragraph.currentLevel) +"px";
+
+            paragraph.currentLevel=paragraph.getNodeData(document.activeElement.previousElementSibling.id).deepth;
+
             newParagraph.classList.add('h'+paragraph.currentLevel);
 
             textArea= document.createElement('p');
@@ -433,9 +442,10 @@ Paragraph={};   //段落相关
             newParagraph.appendChild(textArea);
             Component.content.insertBefore(newParagraph,thisTextArea.parentNode.nextElementSibling);
             textArea.focus();
-            Paragraph.updateThisLevelSymbols(ref);
-
+            Paragraph.updateThisLevelSymbols(id-1);
         };
+
+
         // 删除空段落，更新标号，更新树
         paragraph.removeNullParagraph =function(){    //移除空段
 
@@ -465,19 +475,46 @@ Paragraph={};   //段落相关
         paragraph.levelUp=function(){
 
         };
-        paragraph.levelDown = function () {
 
+        paragraph.levelDown = function () {
+            var thisTextArea = document.activeElement;
+            var thisString = thisTextArea.innerHTML;
+
+            paragraph.currentLevel=paragraph.getNodeData(document.activeElement.previousElementSibling.id).deepth;
+            paragraph.currentLevel++;
+
+            thisTextArea.parentNode.style.marginLeft= (50*paragraph.currentLevel) +"px";
+
+            thisTextArea.parentNode.classList.add('h'+paragraph.currentLevel);
+
+            var span =thisTextArea.previousElementSibling;
+            var ref = span.id; //本段id
+            console.log(paragraph.getNodeData(ref).deepth);
+
+            span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.currentLevel);
+            paragraph.createNode(ref,span.innerHTML,true);
+            span.id = id -1;
+            paragraph.deleteNode(ref)
+
+            thisTextArea.focus();
+            console.log('    '+(id-1)+'  '+Paragraph.getNodeData(id-1).deepth)
+            Paragraph.updateThisLevelSymbols(id-1);
         };
 
         //修改本级所有分段符号，并更新文本所有分段符号
+        //对传入的节点所附数组的所有项进行分段符号重置
         paragraph.updateThisLevelSymbols = function(id,removeNullP){
 
             var thisLevelarr =Paragraph.getNodeData(id).arr,
-                currentLevel = Paragraph.getNodeData(id).deepth;
+                 currentLevel=paragraph.getNodeData(document.activeElement.previousElementSibling.id).deepth;
 
             if(removeNullP){
+                //本级使用下标减一
+                WWQ.currentSymbolsArr[Paragraph.getNodeData(id).deepth-1].index--;
                 Paragraph.deleteNode(id);
+
             }
+            //本级别使用下标置零
             WWQ.levelSymbolsControl.resetSymbols(currentLevel );
 
             for(var i = 0; i < thisLevelarr.length; i++){
@@ -854,3 +891,10 @@ Handle.chooseNumfunc = function(event){
         }
     }
 })();
+
+var nums = [];
+for(var i = 0;i<100;++i){
+    nums[i]=i+1;
+    console.log(i)
+
+}
