@@ -1,6 +1,6 @@
 /**
  * Created by WWQ on 2015/9/1 0001.
- * TODO:  点分段样式时，会同时新建段
+ * TODO:
  * 切割<a>乱码
  *
  * //
@@ -381,7 +381,7 @@ Paragraph={};   //段落相关
                 newNode = createNodeAfterId(thisParagraph[i].previousElementSibling.id,thisParagraph[i]);
                 removeNodeById(thisParagraph[i].id);
                 newNode.domNode.id=newNode.id;
-                var node = getNodeById(thisParagraph[i].id);
+                node = getNodeById(thisParagraph[i].id);
             }
 
             // 去除数组节点对同级编号的影响
@@ -422,7 +422,7 @@ Paragraph={};   //段落相关
             newNode;
 
 
-        newParagraph.style.marginLeft=(50*currentLevel) +"px";
+        newParagraph.style.marginLeft=(25*currentLevel) +"px";
         newParagraph.className = 'h'+currentLevel;
 
         textArea.setAttribute('contenteditable','true');
@@ -524,7 +524,7 @@ Paragraph={};   //段落相关
             textArea=document.createElement('p'),
             newNode;
 
-        newParagraph.style.marginLeft=(50*currentLevel) +"px";
+        newParagraph.style.marginLeft=(25*currentLevel) +"px";
         newParagraph.className = 'h'+currentLevel;
 
         textArea.setAttribute('contenteditable','true');
@@ -558,7 +558,7 @@ Paragraph={};   //段落相关
             newNode;
 
         currentLevel--;
-        thisParagraph.style.marginLeft=(50*currentLevel) +"px";
+        thisParagraph.style.marginLeft=(25*currentLevel) +"px";
         thisParagraph.className = 'h'+currentLevel;
         newNode =createNodeAfterId(thisParagraph.id,thisParagraph,false,true);
 
@@ -574,7 +574,7 @@ Paragraph={};   //段落相关
             newNode;
 
         currentLevel++;
-        thisParagraph.style.marginLeft=(50*currentLevel) +"px";
+        thisParagraph.style.marginLeft=(25*currentLevel) +"px";
         thisParagraph.className = 'h'+currentLevel;
 
         newNode =createNodeAfterId(thisParagraph.id,thisParagraph,true);

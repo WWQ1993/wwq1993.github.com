@@ -1,6 +1,5 @@
 body{
-    font: 12px/1.5em Tahoma;
-    line-height: 2em;
+    font: 12px/2em Tahoma;
 }
 
 
@@ -173,16 +172,31 @@ B{
     font-weight: 800;
     vertical-align: top;
     /*display: block;*/
-    padding: 5px;
-    margin: auto 10px auto -35px;
+    padding: 15px;
+    margin: auto 0px auto -35px;
 }
 .h1{
+    font-size: 26px;
+    line-height: 1.5em;
+}
+.h2{
+    font-size: 22px;
+    line-height: 1.5em;
+}
+.h3{
     font-size: 18px;
+    line-height: 1.5em;
 }
-*:focus{
-    border: red solid thin;
+.h4{
+    font-size: 14px;
+    line-height: 1.5em;
 }
+.h5{
+    font-size: 10px;
+    line-height: 1.5em;
+}
+
 #content p p{
     display: inline-block;
-    width: 500px;
+    width: 75%;
 }
