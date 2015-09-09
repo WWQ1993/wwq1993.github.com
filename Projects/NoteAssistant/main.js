@@ -213,373 +213,380 @@ Paragraph={};   //段落相关
     }
 }());
 
-//段落相关方法初始化
+//段落模型
 (function(){
     var rootNode = [], //根节点
         id = 0; //分配标准，不能重置。
 
     rootNode.domNode = Component.content;
 
-    (function(){
+    //接口
+    Paragraph.interface = function (func) {
+        switch (func){
+            case 'updateSymbols':updateSymbols();
+                break;
+            case 'newline':newline();
+                break;
+            case 'levelUp':levelUp();
+                break;
+            case 'levelDown':levelDown();
+                break;
+            case 'createParagraph':createParagraph();
+                break;
+        }
+    }
 
-        //创建树节点
-        Paragraph.CreateTreeNode = function(domNode){
-            this.id = id;
-            id++;
-            this.index = 0; //节点处于父数组下的位置
-            this.level = 0; //节点层级
-            this.parentArr = []; //当前节点的父数组
-            this.domNode = domNode; //指向一个DOM节点。
+    //创建树节点
+    var CreateTreeNode = function(domNode){
+        this.id = id;
+        id++;
+        this.index = 0; //节点处于父数组下的位置
+        this.level = 0; //节点层级
+        this.parentArr = []; //当前节点的父数组
+        this.domNode = domNode; //指向一个DOM节点。
+    };
+
+    //rootNode[0]=[{id:0},{id:1}];
+    //rootNode[1]={id:2};
+
+    //返回id对应节点
+    var getNodeById =function(refId){
+        var deepthbuf=0;
+
+        function innerFunction(refId,arr){
+            deepthbuf++;
+
+            for(var i = 0; i < arr.length; i++){
+                if(Array.isArray(arr[i])){
+                    var node;
+                    if( node = arguments.callee(refId,arr[i])){
+                        return node;
+                    }
+                } else if(arr[i].id==refId){
+                    arr[i].index = i;
+                    arr[i].level = deepthbuf;
+                    arr[i].parentArr = arr;
+                    return arr[i];
+                }
+            }
+            deepthbuf--;
         };
 
-        //rootNode[0]=[{id:0},{id:1}];
-        //rootNode[1]={id:2};
+        return innerFunction(refId,rootNode);
+    };
+    //获得传入数组的信息（其父数组、下标索引）
+    var getArrData = function(array){
 
-        //返回id对应节点
-        Paragraph.getNodeById =function(refId){
-            var deepthbuf=0;
-
-            function innerFunction(refId,arr){
-                deepthbuf++;
-
-                for(var i = 0; i < arr.length; i++){
-                    if(Array.isArray(arr[i])){
-                        var node;
-                        if( node = arguments.callee(refId,arr[i])){
-                            return node;
-                        }
-                    } else if(arr[i].id==refId){
-                        arr[i].index = i;
-                        arr[i].level = deepthbuf;
+        function innerFunction(inputArray,arr){
+            for(var i = 0; i < arr.length; i++){
+                if(Array.isArray(arr[i])){
+                    if(arr[i]===inputArray){
+                        arr[i].inde = i;
                         arr[i].parentArr = arr;
                         return arr[i];
                     }
-                }
-                deepthbuf--;
-            };
-
-            return innerFunction(refId,rootNode);
-        };
-
-        Paragraph.getArrData = function(array){
-
-
-            function innerFunction(inputArray,arr){
-                console.log(arr.length+'///');
-                for(var i = 0; i < arr.length; i++){
-                    if(Array.isArray(arr[i])){
-                        if(arr[i]===inputArray){
-                            arr[i].inde = i;
-                            arr[i].parentArr = arr;
-                            console.log(inputArray)
-                            return arr[i];
-                        }
-                        else{
-                            //TODO to be or not to be return;
-                            var node;
-                            if(node= arguments.callee(inputArray,arr[i])){
-                                return node;
-                            }
+                    else{
+                        //  to be or not to be return——> 递归的关键细节。错误示例：
+                        //  arguments.callee(inputArray,arr[i])； 导致最终返回值可能为空（即使找到了）
+                        //  return arguments.callee(inputArray,arr[i])； 循环失效
+                        var node;
+                        if(node= arguments.callee(inputArray,arr[i])){
+                            return node;
                         }
                     }
                 }
-            };
-
-            var node = innerFunction(array,rootNode);
-            console.log(node.parentArr)
-
-            return node;
-        }
-
-        //在节点后建立兄弟(子)节点
-        Paragraph.createNodeAfterId = function(refId,domNode,lowerLevel,higherLevel){
-
-            var newNode = new Paragraph.CreateTreeNode(domNode);
-
-            if(refId===null){
-                rootNode.push(newNode);
-                Paragraph.getNodeById(newNode.id);
-                return newNode;
             }
-            var result = Paragraph.getNodeById(refId);
+        };
+        return innerFunction(array,rootNode);
+    }
 
-            if (!result){
-                console.log(refId+"  result is null");
-                return false;
-            }
-            if (lowerLevel){
-                result.parentArr.splice(result.index+1,0,[newNode]);
-            } else if(higherLevel){
+    //在（本级、上级、下级）建立节点
+    var createNodeAfterId = function(refId,domNode,lowerLevel,higherLevel){
 
-                var itsParent = Paragraph.getArrData(result.parentArr),
-                    nodesAfterthisArr = [];
-                //console.log(itsParent + "  "+ refId);
+        var newNode = new CreateTreeNode(domNode);
 
-                for(var j = result.index+1; j<itsParent.length; j++){
-                    nodesAfterthisArr.push(itsParent[j]);
-                }
-                console.log(nodesAfterthisArr.length+"  "+result.index)
-
-                if(nodesAfterthisArr.length>0){
-                    itsParent.parentArr.splice(itsParent.inde+1,0,newNode,nodesAfterthisArr);
-
-                } else {
-                    itsParent.parentArr.splice(itsParent.inde+1,0,newNode);
-                }
-
-                Paragraph.removeNodeById(refId);
-
-                Paragraph.getNodeById(newNode.id);
-                itsParent.length=result.index;
-
-                if(!itsParent.length){
-                    itsParent.parentArr.splice(itsParent.inde,1);
-                }
-                for(var m = 0; m < rootNode.length;m++){
-                    console.log(rootNode[m]===itsParent.parentArr[itsParent.inde+2]);
-                }
-            }
-
-            else{
-                result.parentArr.splice(result.index+1,0,newNode);
-            }
-            Paragraph.getNodeById(newNode.id);
-
+        if(refId===null){   //建立rootNode下第一个节点
+            rootNode.push(newNode);
+            getNodeById(newNode.id);
             return newNode;
-        };
-
-        //删除id对应节点
-        Paragraph.removeNodeById = function(id){
-            var result= Paragraph.getNodeById(id);
-            return result.parentArr.splice(result.index,1);
-        };
-    })();
-
-    //段落方法
-    (function(){
-
-        //更新所有符号
-        Paragraph.updateSymbols=function(){
-            var allParagraph = document.querySelectorAll('#content>p');
-            for(var i = 0; i < allParagraph.length; i++){
-                var node = Paragraph.getNodeById(allParagraph[i].id);
-
-                if(allParagraph[i].previousElementSibling &&
-                    Paragraph.getNodeById(allParagraph[i].previousElementSibling.id).level===
-                    node.level ) {
-
-                    newNode = Paragraph.createNodeAfterId(allParagraph[i].previousElementSibling.id,allParagraph[i]);
-                    Paragraph.removeNodeById(allParagraph[i].id);
-                    newNode.domNode.id=newNode.id;
-                    var node = Paragraph.getNodeById(allParagraph[i].id);
-                }
-
-                // 去除数组节点
-                var  realIndex = 0;
-                node.parentArr.forEach(function(childNode,index){
-                    if(!Array.isArray(childNode)) {
-                        childNode.realIndex = realIndex++;
-                    }
-                });
-
-
-                allParagraph[i].firstElementChild.innerHTML=WWQ.currentSymbolsArr[node.level-1][node.realIndex]||
-                    WWQ.currentSymbolsArr[node.level-1];
-
-            }
-        };
-
-        Paragraph.removeNullParagraph=function(){
-            var textContent = document.querySelectorAll('#content>p>p');
-            for(var i = 0; i < textContent.length; i++){
-                if(textContent[i].innerHTML===''){
-                    Paragraph.removeNodeById(textContent[i].parentNode.id);
-                    Component.content.removeChild(textContent[i].parentNode) ;
-                }
-            }
-        };
-
-        //"点击文末下方"，新建平级段
-        Paragraph.createParagraph=function(){
-            Paragraph.removeNullParagraph();
-
-            var newParagraph = document.createElement("p"),
-                lastParagraph = Component.content.lastElementChild||null,
-                currentLevel =lastParagraph&&Paragraph.getNodeById(lastParagraph.id).level|| 1,
-                span,
-                textArea=document.createElement('p'),
-                newNode;
-
-
-            newParagraph.style.marginLeft=(50*currentLevel) +"px";
-            newParagraph.className = 'h'+currentLevel;
-
-            textArea.setAttribute('contenteditable','true');
-            span = document.createElement('span');
-            span.classList.add('spanLevel');
-
-            newParagraph.appendChild(span);
-            newParagraph.appendChild(textArea);
-
-            if (lastParagraph) {
-                newNode = Paragraph.createNodeAfterId(lastParagraph.id,newParagraph);
-            } else{
-                newNode = Paragraph.createNodeAfterId(null,newParagraph);
-            }
-            newNode.domNode.id=newNode.id;
-
-            Component.content.appendChild(newNode.domNode);
-
-            textArea.focus();
-            Paragraph.updateSymbols();
-
-
-            //获取焦点时移除空行
-            textArea.onfocus=function(){
-                Paragraph.removeNullParagraph();
-            }
-
-        };
-
-        //"↓"  切割某段至新建的平级段
-        Paragraph.newline=function(){
-            document.execCommand('createlink',false,"mark");
-            var thisTextArea = document.activeElement;
-            var newString = thisTextArea.innerHTML.replace('<a href="mark">','<#>');
-            newString = newString.replace(/<a href="mark">/g,'');   //清除富文本自动<a>嵌套
-            newString= newString.replace(/<\/a>/g,'');
-            newString= newString.split('<#>');
-
-            //解决切割后的特效消失问题
-            (function dealTheString(){
-                var bString = newString[0],
-                    aString = newString[1],
-                    Reg = /<(\/)?([^\s>]+)[^>]*>/g,
-                    resultArrB = [],
-                    resultArrA = [],
-                    tag = {},
-                    i = 0,
-                    pushToAfter = [],
-                    pushToBefore = [],
-                    regResult
-
-                //before
-                while (regResult = Reg.exec(bString)){
-                    resultArrB.unshift(regResult);
-                }
-                for(i = 0; i < resultArrB.length; i++){
-                    tag[resultArrB[i][2]] = tag[resultArrB[i][2]] || 0;
-                    if (resultArrB[i][1]==="/"){
-                        tag[resultArrB[i][2]]--;
-                    } else{
-                        tag[resultArrB[i][2]]++;
-                    }
-                    if(tag[resultArrB[i][2]]===1){
-                        tag[resultArrB[i][2]]=0;
-
-                        pushToAfter.unshift(resultArrB[i][0]);
-                    }
-                }
-                pushToAfter=pushToAfter.join('');
-
-                //after
-                tag = {};
-                while (regResult = Reg.exec(aString)){
-                    resultArrA.push(regResult);
-                }
-                for(i = 0; i < resultArrA.length; i++){
-                    tag[resultArrA[i][2]] = tag[resultArrA[i][2]] || 0;
-
-                    if (resultArrA[i][1]==="/"){
-                        tag[resultArrA[i][2]]--;
-                    } else{
-                        tag[resultArrA[i][2]]++;
-                    }
-                    if(tag[resultArrA[i][2]]===-1){
-                        tag[resultArrA[i][2]]=0;
-                        pushToBefore.push(resultArrA[i][0]);
-                    }
-                }
-                pushToBefore=pushToBefore.join('');
-
-                newString[0]= newString[0] + pushToBefore ;
-                newString[1]=pushToAfter+ newString[1] ;
-            }());
-            thisTextArea.innerHTML = newString[0];
-
-            var newParagraph = document.createElement("p"),
-                thisParagraph = thisTextArea.parentNode,
-                currentLevel =Paragraph.getNodeById(thisParagraph.id).level,
-                span,
-                textArea=document.createElement('p'),
-                newNode;
-
-            newParagraph.style.marginLeft=(50*currentLevel) +"px";
-            newParagraph.className = 'h'+currentLevel;
-
-            textArea.setAttribute('contenteditable','true');
-            span = document.createElement('span');
-            span.classList.add('spanLevel');
-
-            newParagraph.appendChild(span);
-            newParagraph.appendChild(textArea);
-
-            newNode = Paragraph.createNodeAfterId(thisParagraph.id,newParagraph);
-
-            newNode.domNode.id=newNode.id;
-
-            Component.content.insertBefore(newNode.domNode,thisParagraph.nextElementSibling);
-
-            textArea.focus();
-            Paragraph.updateSymbols();
-
-            textArea.innerHTML = newString[1];
-
-            //获取焦点时移除空行
-            textArea.onfocus=function(){
-                Paragraph.removeNullParagraph();
-            }
-        };
-        //<-
-        Paragraph.levelUp=function(){
-            var thisTextArea = document.activeElement,
-                thisParagraph = thisTextArea.parentNode,
-                currentLevel =Paragraph.getNodeById(thisParagraph.id).level,
-                newNode;
-
-            currentLevel--;
-            thisParagraph.style.marginLeft=(50*currentLevel) +"px";
-            thisParagraph.className = 'h'+currentLevel;
-            newNode = Paragraph.createNodeAfterId(thisParagraph.id,thisParagraph,false,true);
-
-            newNode.domNode.id=newNode.id;
-            Paragraph.updateSymbols();
-
-        };
-        //->
-        Paragraph.levelDown = function () {
-            var thisTextArea = document.activeElement,
-                thisParagraph = thisTextArea.parentNode,
-                currentLevel =Paragraph.getNodeById(thisParagraph.id).level,
-                newNode;
-
-            currentLevel++;
-            thisParagraph.style.marginLeft=(50*currentLevel) +"px";
-            thisParagraph.className = 'h'+currentLevel;
-
-            newNode = Paragraph.createNodeAfterId(thisParagraph.id,thisParagraph,true);
-
-            Paragraph.removeNodeById(thisParagraph.id);
-            newNode.domNode.id=newNode.id;
-            Paragraph.updateSymbols();
-
-        };
-
-        //更新文本所有分段符号
-        Paragraph.updateThisLevelSymbols = function(){
         }
-    })();
+
+        var result = getNodeById(refId);
+
+        if (!result){   //传入id无效
+            console.log(refId+"  ：传入id无效");
+            return false;
+        }
+        if (lowerLevel){    //在参考节点后建立下层节点
+
+            result.parentArr.splice(result.index+1,0,[newNode]);
+
+        } else if(higherLevel){ //将元素、元素后的兄弟节点构成的数组 移至其父数组后
+
+            var itsParent = getArrData(result.parentArr),
+                nodesAfterthisArr = [];
+
+            for(var j = result.index+1; j<itsParent.length; j++){
+                nodesAfterthisArr.push(itsParent[j]);
+            }
+
+            if(nodesAfterthisArr.length>0){
+                itsParent.parentArr.splice(itsParent.inde+1,0,newNode,nodesAfterthisArr);
+
+            } else {
+                itsParent.parentArr.splice(itsParent.inde+1,0,newNode);
+            }
+
+            removeNodeById(refId);
+
+            getNodeById(newNode.id);
+
+            //如果移动后数组为空则删除原数组
+            itsParent.length=result.index;
+            if(!itsParent.length){
+                itsParent.parentArr.splice(itsParent.inde,1);
+            }
+        }
+
+        else{ //在参考节点后建立兄弟节点
+            result.parentArr.splice(result.index+1,0,newNode);
+        }
+
+        getNodeById(newNode.id);
+        return newNode;
+    };
+
+    //删除id对应节点
+    var removeNodeById = function(id){
+        var result= getNodeById(id);
+        return result.parentArr.splice(result.index,1);
+    };
+
+    //更新所有符号
+    var updateSymbols=function(){
+        var thisParagraph = document.querySelectorAll('#content>p');
+        for(var i = 0; i < thisParagraph.length; i++){
+            var node = getNodeById(thisParagraph[i].id);
+
+            //如果和前一个节点处于同级，合并两个节点
+            if(thisParagraph[i].previousElementSibling &&
+                getNodeById(thisParagraph[i].previousElementSibling.id).level===
+                node.level ) {
+
+                newNode = createNodeAfterId(thisParagraph[i].previousElementSibling.id,thisParagraph[i]);
+                removeNodeById(thisParagraph[i].id);
+                newNode.domNode.id=newNode.id;
+                var node = getNodeById(thisParagraph[i].id);
+            }
+
+            // 去除数组节点对同级编号的影响
+            var  realIndex = 0;
+            node.parentArr.forEach(function(childNode,index){
+                if(!Array.isArray(childNode)) {
+                    childNode.realIndex = realIndex++;
+                }
+            });
+
+            //设置编号样式
+            thisParagraph[i].firstElementChild.innerHTML=WWQ.currentSymbolsArr[node.level-1][node.realIndex]||
+                WWQ.currentSymbolsArr[node.level-1];
+
+        }
+    };
+
+    //删除空行
+    var removeNullParagraph=function(){
+        var textContent = document.querySelectorAll('#content>p>p');
+        for(var i = 0; i < textContent.length; i++){
+            if(textContent[i].innerHTML===''){
+                removeNodeById(textContent[i].parentNode.id);
+                Component.content.removeChild(textContent[i].parentNode) ;
+            }
+        }
+    };
+
+    //"点击文末下方"，新建平级段
+    var createParagraph=function(){
+        removeNullParagraph();
+
+        var newParagraph = document.createElement("p"),
+            lastParagraph = Component.content.lastElementChild||null,
+            currentLevel =lastParagraph&&getNodeById(lastParagraph.id).level|| 1,
+            span,
+            textArea=document.createElement('p'),
+            newNode;
+
+
+        newParagraph.style.marginLeft=(50*currentLevel) +"px";
+        newParagraph.className = 'h'+currentLevel;
+
+        textArea.setAttribute('contenteditable','true');
+        span = document.createElement('span');
+        span.classList.add('spanLevel');
+
+        newParagraph.appendChild(span);
+        newParagraph.appendChild(textArea);
+
+        if (lastParagraph) {
+            newNode = createNodeAfterId(lastParagraph.id,newParagraph);
+        } else{
+            newNode = createNodeAfterId(null,newParagraph);
+        }
+        newNode.domNode.id=newNode.id;
+
+        Component.content.appendChild(newNode.domNode);
+
+        textArea.focus();
+        updateSymbols();
+
+        //获取焦点时移除空行
+        textArea.onfocus=function(){
+            removeNullParagraph();
+        }
+
+    };
+
+    //"↓"  切割某段至新建的平级段
+    var newline=function(){
+        document.execCommand('createlink',false,"mark");
+        var thisTextArea = document.activeElement;
+        var newString = thisTextArea.innerHTML.replace('<a href="mark">','<#>');
+        newString = newString.replace(/<a href="mark">/g,'');   //清除富文本自动<a>嵌套
+        newString= newString.replace(/<\/a>/g,'');
+        newString= newString.split('<#>');
+
+        //解决切割后的特效消失问题
+        (function dealTheString(){
+            var bString = newString[0],
+                aString = newString[1],
+                Reg = /<(\/)?([^\s>]+)[^>]*>/g,
+                resultArrB = [],
+                resultArrA = [],
+                tag = {},
+                i = 0,
+                pushToAfter = [],
+                pushToBefore = [],
+                regResult
+
+            //before
+            while (regResult = Reg.exec(bString)){
+                resultArrB.unshift(regResult);
+            }
+            for(i = 0; i < resultArrB.length; i++){
+                tag[resultArrB[i][2]] = tag[resultArrB[i][2]] || 0;
+                if (resultArrB[i][1]==="/"){
+                    tag[resultArrB[i][2]]--;
+                } else{
+                    tag[resultArrB[i][2]]++;
+                }
+                if(tag[resultArrB[i][2]]===1){
+                    tag[resultArrB[i][2]]=0;
+
+                    pushToAfter.unshift(resultArrB[i][0]);
+                }
+            }
+            pushToAfter=pushToAfter.join('');
+
+            //after
+            tag = {};
+            while (regResult = Reg.exec(aString)){
+                resultArrA.push(regResult);
+            }
+            for(i = 0; i < resultArrA.length; i++){
+                tag[resultArrA[i][2]] = tag[resultArrA[i][2]] || 0;
+
+                if (resultArrA[i][1]==="/"){
+                    tag[resultArrA[i][2]]--;
+                } else{
+                    tag[resultArrA[i][2]]++;
+                }
+                if(tag[resultArrA[i][2]]===-1){
+                    tag[resultArrA[i][2]]=0;
+                    pushToBefore.push(resultArrA[i][0]);
+                }
+            }
+            pushToBefore=pushToBefore.join('');
+
+            newString[0]= newString[0] + pushToBefore ;
+            newString[1]=pushToAfter+ newString[1] ;
+        }());
+        thisTextArea.innerHTML = newString[0];
+
+        var newParagraph = document.createElement("p"),
+            thisParagraph = thisTextArea.parentNode,
+            currentLevel =getNodeById(thisParagraph.id).level,
+            span,
+            textArea=document.createElement('p'),
+            newNode;
+
+        newParagraph.style.marginLeft=(50*currentLevel) +"px";
+        newParagraph.className = 'h'+currentLevel;
+
+        textArea.setAttribute('contenteditable','true');
+        span = document.createElement('span');
+        span.classList.add('spanLevel');
+
+        newParagraph.appendChild(span);
+        newParagraph.appendChild(textArea);
+
+        newNode = createNodeAfterId(thisParagraph.id,newParagraph);
+
+        newNode.domNode.id=newNode.id;
+
+        Component.content.insertBefore(newNode.domNode,thisParagraph.nextElementSibling);
+
+        textArea.focus();
+       updateSymbols();
+
+        textArea.innerHTML = newString[1];
+
+        //获取焦点时移除空行
+        textArea.onfocus=function(){
+           removeNullParagraph();
+        }
+    };
+    //<- 本段级别提升
+    var levelUp=function(){
+        var thisTextArea = document.activeElement,
+            thisParagraph = thisTextArea.parentNode,
+            currentLevel = getNodeById(thisParagraph.id).level,
+            newNode;
+
+        currentLevel--;
+        thisParagraph.style.marginLeft=(50*currentLevel) +"px";
+        thisParagraph.className = 'h'+currentLevel;
+        newNode =createNodeAfterId(thisParagraph.id,thisParagraph,false,true);
+
+        newNode.domNode.id=newNode.id;
+       updateSymbols();
+
+    };
+    //-> 本段级别下降
+    var levelDown = function () {
+        var thisTextArea = document.activeElement,
+            thisParagraph = thisTextArea.parentNode,
+            currentLevel = getNodeById(thisParagraph.id).level,
+            newNode;
+
+        currentLevel++;
+        thisParagraph.style.marginLeft=(50*currentLevel) +"px";
+        thisParagraph.className = 'h'+currentLevel;
+
+        newNode =createNodeAfterId(thisParagraph.id,thisParagraph,true);
+
+       removeNodeById(thisParagraph.id);
+        newNode.domNode.id=newNode.id;
+       updateSymbols();
+
+    };
+
+    //更新文本所有分段符号
+    var updateThisLevelSymbols = function(){
+    }
+
 }());
+
+//符号横栏每项点击事件
 Handle.levelList = function(event ){
     WWQ.choosedLevel = this.j;
 
@@ -592,21 +599,22 @@ Handle.levelList = function(event ){
     }
 };
 
+//按下按钮事件的处理方法
 Handle.toolsBtnMouseDown = function(event ){
     this.style.background="darkgrey";
     event.preventDefault();
 };
+
+//鼠标从按下的按钮内移出 的处理方法
 Handle.toolsBtnMouseOut = function( ){
+
     this.style.background="#ced3d7";
 };
+
 //点击选择分级数目按钮时调用
 Handle.chooseNumfunc = function(event){
 
-    if(this === Component.chooseLevelNum &&$('chooseLevel').style.backgroundPositionY==='-18px'){
-        $('chooseLevel').style.backgroundPositionY = $('chooseLevel').style.backgroundPositionY=="-18px"?"10px":"-18px"
-
-        return;
-    }
+    //图标切换
     $('chooseLevel').style.backgroundPositionY = $('chooseLevel').style.backgroundPositionY=="-18px"?"10px":"-18px"
 
     $('numberList').style.display = "block";
@@ -628,12 +636,13 @@ Handle.chooseNumfunc = function(event){
     $('chooseLevel').style.backgroundPositionY = "10px"
     Component.symbolList.style.display = "none";
 
+    //横条每项：
     for(i = 0, j = 0; i < childNodes.length; i++) {
+        //隐藏每项
         if (childNodes[i].nodeType === 1 ) {
             childNodes[i].style.display="none";
         }
-    }
-    for(i = 0, j = 0; i < childNodes.length; i++) {
+        //设置要显示的项
         if (childNodes[i].nodeType === 1 && j<WWQ.levelNum) {
             childNodes[i].style.display="inline-block";
             childNodes[i].innerHTML=WWQ.symbolsOneArr[j];
@@ -643,30 +652,32 @@ Handle.chooseNumfunc = function(event){
             childNodes[i].j = j;
             childNodes[i].addEventListener('click', Handle.levelList);
             j++;
-
         }
     }
 })();
-
-
 
 //符号竖条
 (function(){
     var i,
         j,
         childNodes = Component.symbolList.childNodes;
+    //符号竖条每一项
     for(i = 0, j = 0; i < childNodes.length; i++) {
         if (childNodes[i].nodeType === 1 ) {
-            WWQ.symbolsLevel.push(childNodes[i].innerHTML);
+
+            //保存字条的每一项
+            WWQ.symbolsLevel.push(childNodes[0].innerHTML);
+            //按下鼠标事件
             childNodes[i].addEventListener('mousedown', function (event) {
                 WWQ.underChooseS=true;
                 this.style.background="darkgrey";
                 event.preventDefault();
             });
+            //鼠标移除事件
             childNodes[i].addEventListener('mouseout',Handle.toolsBtnMouseOut);
-            childNodes[i].ind= j;
 
             //选好某一级符号后触发
+            childNodes[i].ind= j;
             childNodes[i].addEventListener('click',function(event ){
                 this.style.background="#ced3d7";
                 WWQ.underChooseS=false;
@@ -675,20 +686,7 @@ Handle.chooseNumfunc = function(event){
                 Handle.updateLevelDisplay();
                 WWQ.choosedLevelBuf[WWQ.choosedLevel] = this.ind;
                 WWQ.currentSymbolsArr[WWQ.choosedLevel] = WWQ.allSymbolsArr[WWQ.choosedLevelBuf[WWQ.choosedLevel]];
-                Paragraph.updateSymbols();
-                ////TODO 注意能否改其他等级
-                //if (typeof getId()==='number'){
-                //    Paragraph.updateThisLevelSymbols(getId());
-                //}
-                //function getId(){
-                //    for(var i = 0; i<=id; i++){
-                //        if(Paragraph.getNodeById(i).deepth==WWQ.choosedLevel+1){
-                //            return i;
-                //        }
-                //    }
-                //    return;
-                //}
-
+                Paragraph.interface('updateSymbols') ;
             });
             j++;
 
@@ -729,15 +727,16 @@ Handle.chooseNumfunc = function(event){
                     }
                     break;
                 case 'toolBar_E':
-                    Paragraph.newline();
+                    Paragraph.interface('newline') ;
 
                     break;
                 case 'toolBar_L':
-                    Paragraph.levelUp();
+                    Paragraph.interface('levelUp') ;
+
 
                     break;
                 case 'toolBar_R':
-                    Paragraph.levelDown();
+                    Paragraph.interface('levelDown') ;
                     break;
                 case 'toolBar_N':
                     break;
@@ -812,10 +811,12 @@ Handle.chooseNumfunc = function(event){
         }
         WWQ.mouseDown.clientY=event.clientY;
 
-        if(!WWQ.underChooseN&&!WWQ.underChooseS&&
+        if(!WWQ.underChooseN && !WWQ.underChooseS &&
             (
             $('numberList').style.display === "block"||
-            Component.symbolList.style.display === "block")){ //没点数字条或者符号竖条
+            Component.symbolList.style.display === "block"
+            )
+        ){ //没点数字条或者符号竖条
             Handle.updateLevelDisplay();
             event.preventDefault()
         }
@@ -856,8 +857,7 @@ Handle.chooseNumfunc = function(event){
 
             //新建段落
             if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //新建段落
-
-                Paragraph.createParagraph();
+                Paragraph.interface('createParagraph') ;
             }
 
             return;
