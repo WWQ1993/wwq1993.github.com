@@ -6,16 +6,16 @@
  * //
  //(function(){
         //    rootNode[0]=[];
-        //    rootNode[0][0]=new paragraph.CreateOb("00");
+        //    rootNode[0][0]=new Paragraph.CreateTreeNode("00");
         //    rootNode[0][1]=[];
-        //    rootNode[0][1][0]=new paragraph.CreateOb("010");
-        //    rootNode[0][1][1]=new paragraph.CreateOb("011");
-        //    rootNode[1]=new paragraph.CreateOb("1");
+        //    rootNode[0][1][0]=new Paragraph.CreateTreeNode("010");
+        //    rootNode[0][1][1]=new Paragraph.CreateTreeNode("011");
+        //    rootNode[1]=new Paragraph.CreateTreeNode("1");
         //    rootNode[2]=[];
-        //    rootNode[2][0]=new paragraph.CreateOb("20");
+        //    rootNode[2][0]=new Paragraph.CreateTreeNode("20");
         //    rootNode[2][1]=[];
-        //    rootNode[2][1][0]=new paragraph.CreateOb("210");
-        //    rootNode[2][1][1]=new paragraph.CreateOb("211");
+        //    rootNode[2][1][0]=new Paragraph.CreateTreeNode("210");
+        //    rootNode[2][1][1]=new Paragraph.CreateTreeNode("211");
         //
         //}());
  *
@@ -215,143 +215,209 @@ Paragraph={};   //段落相关
 
 //段落相关方法初始化
 (function(){
-    var paragraph={};
+    var rootNode = [], //根节点
+        id = 0; //分配标准，不能重置。
 
-//样式树
+    rootNode.domNode = Component.content;
+
     (function(){
-        rootNode = [], //根节点
-            id = 0;
 
-
-        paragraph.CreateOb = function(value){
+        //创建树节点
+        Paragraph.CreateTreeNode = function(domNode){
             this.id = id;
             id++;
-            this.value = value;
+            this.index = 0; //节点处于父数组下的位置
+            this.level = 0; //节点层级
+            this.parentArr = []; //当前节点的父数组
+            this.domNode = domNode; //指向一个DOM节点。
         };
 
-        //遍历传入id
-        paragraph.getNodeData =function(refId, arr){
-            var result = {},
-                deepthbuf=0
+        //rootNode[0]=[{id:0},{id:1}];
+        //rootNode[1]={id:2};
 
-            refId = Number(refId);
-            if(!arr){  //第二个参数为空时，默认为根节点
-                arr=rootNode;
-            }
+        //返回id对应节点
+        Paragraph.getNodeById =function(refId){
+            var deepthbuf=0;
+
             function innerFunction(refId,arr){
                 deepthbuf++;
 
                 for(var i = 0; i < arr.length; i++){
                     if(Array.isArray(arr[i])){
-
-                        arguments.callee(refId,arr[i]);
-
-                    }
-                    else if(typeof arr[i]==="object"){
-
-                        if(arr[i].id===refId){
-                            result.arr=arr; //保存节点的数组
-                            result.index = i;//节点在数组中的下标
-                            result.deepth = deepthbuf;//节点的深度（等级）。
-                            //console.log("find")
-                            return true;
+                        var node;
+                        if( node = arguments.callee(refId,arr[i])){
+                            return node;
                         }
+                    } else if(arr[i].id==refId){
+                        arr[i].index = i;
+                        arr[i].level = deepthbuf;
+                        arr[i].parentArr = arr;
+                        return arr[i];
                     }
                 }
                 deepthbuf--;
             };
 
-            innerFunction(refId,arr);
+            return innerFunction(refId,rootNode);
+        };
 
-            return result;
+        Paragraph.getArrData = function(array){
+
+            function innerFunction(inputArray,arr){
+                for(var i = 0; i < arr.length; i++){
+                    if(Array.isArray(arr[i])){
+                        if(arr[i]===inputArray){
+                            console.log('get')
+                            arr[i].inde = i;
+                            arr[i].parentArr = arr;
+                            return arr[i];
+                        }
+                        else{
+                            return arguments.callee(inputArray,arr[i]);
+                        }
+                    }
+                }
+            };
+
+            return innerFunction(array,rootNode);
         }
 
+        //在节点后建立兄弟(子)节点
+        Paragraph.createNodeAfterId = function(refId,domNode,lowerLevel,higherLevel){
 
+            var newNode = new Paragraph.CreateTreeNode(domNode);
 
-        //在节点后建立兄弟节点
-        paragraph.createNode = function(refId,value,lowerLevel){
             if(refId===null){
-                rootNode[0]=new paragraph.CreateOb(value);
-                return;
+                rootNode.push(newNode);
+                Paragraph.getNodeById(newNode.id);
+                return newNode;
             }
-            var result = paragraph.getNodeData(refId);
+            var result = Paragraph.getNodeById(refId);
 
-            if (!result.arr){
+            if (!result){
                 console.log(refId+"  result is null");
-                return;
+                return false;
             }
             if (lowerLevel){
-                result.arr.splice(result.index+1,0,[new paragraph.CreateOb(value)]);
-            } else{
-                //console.log(00.index);
-                //paragraph.getNodeData(refId);
-                result.arr.splice(result.index+1,0,new paragraph.CreateOb(value));
-            }
-        };
-         //删除id对应节点
-        paragraph.deleteNode = function(id){
-            var result= paragraph.getNodeData(id);
-            return result.arr.splice(result.index,1);
+                result.parentArr.splice(result.index+1,0,[newNode]);
+            } else if(higherLevel){
+                var res = Paragraph.getArrData(result.parentArr);
+                if(!res){
+                    console.log('null');
+                    //res = Paragraph.getArrData(res.parentArr);
+                }
+                res.parentArr.splice(res.inde+1,0,newNode);
+                Paragraph.removeNodeById(refId);
+                Paragraph.getNodeById(newNode.id);
 
+                console.log( res  )
+                if(!res.length){
+                    console.log('dele');
+                    res.parentArr.splice(res.inde,1);
+                }
+            } else{
+                result.parentArr.splice(result.index+1,0,newNode);
+            }
+            Paragraph.getNodeById(newNode.id);
+
+            return newNode;
         };
 
-        //合并下个兄弟节点
-        paragraph.mergeNextNode=function(id){
-            var result = paragraph.getNodeData(id);
-            if(Array.isArray(result.arr[result.index+1]) ){
-                console.log("illage");
-            } else{
-                result.arr.splice(result.index+1,1);
-            }
-        }
+        //删除id对应节点
+        Paragraph.removeNodeById = function(id){
+            var result= Paragraph.getNodeById(id);
+            return result.parentArr.splice(result.index,1);
+        };
     })();
+    
     //段落方法
     (function(){
-        paragraph.currentLevel=1;   //当前等级，从1开始
 
-        //"点击文末下方"
-        paragraph.createParagraph=function(){
+        //更新所有符号
+        Paragraph.updateSymbols=function(){
+            var allParagraph = document.querySelectorAll('#content>p');
+            for(var i = 0; i < allParagraph.length; i++){
+                var node = Paragraph.getNodeById(allParagraph[i].id);
 
-            paragraph.removeNullParagraph(); //点击文本下方也能移除空行
+                if(allParagraph[i].previousElementSibling &&
+                    Paragraph.getNodeById(allParagraph[i].previousElementSibling.id).level===
+                    node.level ) {
+
+                    newNode = Paragraph.createNodeAfterId(allParagraph[i].previousElementSibling.id,allParagraph[i]);
+                    Paragraph.removeNodeById(allParagraph[i].id);
+                    newNode.domNode.id=newNode.id;
+                    var node = Paragraph.getNodeById(allParagraph[i].id);
+                }
+
+                // 去除数组节点
+                var  realIndex = 0;
+                node.parentArr.forEach(function(childNode,index){
+                   if(!Array.isArray(childNode)) {
+                       childNode.realIndex = realIndex++;
+                   }
+                });
+
+
+                allParagraph[i].firstElementChild.innerHTML=WWQ.currentSymbolsArr[node.level-1][node.realIndex]||
+                    WWQ.currentSymbolsArr[node.level-1];
+
+            }
+        };
+
+        Paragraph.removeNullParagraph=function(){
+            var textContent = document.querySelectorAll('#content>p>p');
+            for(var i = 0; i < textContent.length; i++){
+               if(textContent[i].innerHTML===''){
+                   Paragraph.removeNodeById(textContent[i].parentNode.id);
+                   Component.content.removeChild(textContent[i].parentNode) ;
+               }
+            }
+        };
+
+        //"点击文末下方"，新建平级段
+        Paragraph.createParagraph=function(){
+            Paragraph.removeNullParagraph();
 
             var newParagraph = document.createElement("p"),
-                i,
+                lastParagraph = Component.content.lastElementChild||null,
+                currentLevel =lastParagraph&&Paragraph.getNodeById(lastParagraph.id).level|| 1,
                 span,
-                textArea;
+                textArea=document.createElement('p'),
+                newNode;
 
-            newParagraph.style.marginLeft=(50*paragraph.currentLevel) +"px";
-            newParagraph.classList.add('h'+paragraph.currentLevel);
 
-            textArea= document.createElement('p');
+            newParagraph.style.marginLeft=(50*currentLevel) +"px";
+            newParagraph.className = 'h'+currentLevel;
+
             textArea.setAttribute('contenteditable','true');
             span = document.createElement('span');
             span.classList.add('spanLevel');
 
-            if (Component.content.lastElementChild) {
-                var ref =Number(Component.content.lastElementChild.firstElementChild.id) ;
-                span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
-                paragraph.createNode(ref,span.innerHTML);
-
-            } else{
-                span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.currentLevel);
-                paragraph.createNode(null,span.innerHTML);
-            }
-            span.id=id-1;
             newParagraph.appendChild(span);
             newParagraph.appendChild(textArea);
-            Component.content.appendChild(newParagraph);
+
+            if (lastParagraph) {
+                newNode = Paragraph.createNodeAfterId(lastParagraph.id,newParagraph);
+            } else{
+                newNode = Paragraph.createNodeAfterId(null,newParagraph);
+            }
+            newNode.domNode.id=newNode.id;
+
+            Component.content.appendChild(newNode.domNode);
+
             textArea.focus();
+            Paragraph.updateSymbols();
+
+
             //获取焦点时移除空行
             textArea.onfocus=function(){
                 Paragraph.removeNullParagraph();
             }
 
         };
-
-
-
-        //"↓"
-        paragraph.newline=function(){
+        
+        //"↓"  切割某段至新建的平级段
+        Paragraph.newline=function(){
             document.execCommand('createlink',false,"mark");
             var thisTextArea = document.activeElement;
             var newString = thisTextArea.innerHTML.replace('<a href="mark">','<#>');
@@ -417,125 +483,78 @@ Paragraph={};   //段落相关
             thisTextArea.innerHTML = newString[0];
 
             var newParagraph = document.createElement("p"),
-                i,
+                thisParagraph = thisTextArea.parentNode,
+                currentLevel =Paragraph.getNodeById(thisParagraph.id).level,
                 span,
-                textArea;
+                textArea=document.createElement('p'),
+                newNode;
 
-            newParagraph.style.marginLeft=(50*paragraph.currentLevel) +"px";
+            newParagraph.style.marginLeft=(50*currentLevel) +"px";
+            newParagraph.className = 'h'+currentLevel;
 
-            paragraph.currentLevel=paragraph.getNodeData(document.activeElement.previousElementSibling.id).deepth;
-
-            newParagraph.classList.add('h'+paragraph.currentLevel);
-
-            textArea= document.createElement('p');
             textArea.setAttribute('contenteditable','true');
-            textArea.innerHTML = newString[1];
             span = document.createElement('span');
             span.classList.add('spanLevel');
 
-            var ref = thisTextArea.previousElementSibling.id;
-            span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.getNodeData(ref).deepth);
-            paragraph.createNode(ref,span.innerHTML);
-
-            span.id=id-1;
             newParagraph.appendChild(span);
             newParagraph.appendChild(textArea);
-            Component.content.insertBefore(newParagraph,thisTextArea.parentNode.nextElementSibling);
+
+            newNode = Paragraph.createNodeAfterId(thisParagraph.id,newParagraph);
+
+            newNode.domNode.id=newNode.id;
+
+            Component.content.insertBefore(newNode.domNode,thisParagraph.nextElementSibling);
+
             textArea.focus();
-            Paragraph.updateThisLevelSymbols(id-1);
-        };
+            Paragraph.updateSymbols();
 
+            textArea.innerHTML = newString[1];
 
-        // 删除空段落，更新标号，更新树
-        paragraph.removeNullParagraph =function(){    //移除空段
-
-            var textArea = document.querySelectorAll('#content>p>p');
-            for(var i = 0; i < textArea.length; i++){
-                if(textArea[i].innerHTML===''){
-                    var id = textArea[i].previousElementSibling.id;
-                    Component.content.removeChild(textArea[i].parentNode);
-                    Paragraph.updateThisLevelSymbols(id,true)
-                }
+            //获取焦点时移除空行
+            textArea.onfocus=function(){
+                Paragraph.removeNullParagraph();
             }
         };
+        //<-
+        Paragraph.levelUp=function(){
+            var thisTextArea = document.activeElement,
+                thisParagraph = thisTextArea.parentNode,
+                currentLevel =Paragraph.getNodeById(thisParagraph.id).level,
+                newNode;
 
+            currentLevel--;
+            thisParagraph.style.marginLeft=(50*currentLevel) +"px";
+            thisParagraph.className = 'h'+currentLevel;
+            console.log(thisParagraph.id)
+            newNode = Paragraph.createNodeAfterId(thisParagraph.id,thisParagraph,false,true);
 
-        paragraph.mergeNextParagraph = function(){
-            var thisParagraph = document.activeElement;
-            var nextP = thisParagraph.nextElementSibling;
-            //for(var m = 0; m < thisParagraph.childNodes.length; m++){
-            //    console.log(thisParagraph.childNodes[m].nodeName)
-            //}
-            nextP.removeChild(nextP.firstElementChild);
+            newNode.domNode.id=newNode.id;
+            Paragraph.updateSymbols();
 
-            thisParagraph.innerHTML += nextP.innerHTML;
-
-            nextP.innerHTML='';
         };
-        paragraph.levelUp=function(){
+        //->
+        Paragraph.levelDown = function () {
+            var thisTextArea = document.activeElement,
+                thisParagraph = thisTextArea.parentNode,
+                currentLevel =Paragraph.getNodeById(thisParagraph.id).level,
+                newNode;
 
-        };
+            currentLevel++;
+            thisParagraph.style.marginLeft=(50*currentLevel) +"px";
+            thisParagraph.className = 'h'+currentLevel;
 
-        paragraph.levelDown = function () {
-            var thisTextArea = document.activeElement;
-            var thisString = thisTextArea.innerHTML;
+            newNode = Paragraph.createNodeAfterId(thisParagraph.id,thisParagraph,true);
 
-            paragraph.currentLevel=paragraph.getNodeData(document.activeElement.previousElementSibling.id).deepth;
-            paragraph.currentLevel++;
+            Paragraph.removeNodeById(thisParagraph.id);
+            newNode.domNode.id=newNode.id;
+            Paragraph.updateSymbols();
 
-            thisTextArea.parentNode.style.marginLeft= (50*paragraph.currentLevel) +"px";
-
-            thisTextArea.parentNode.classList.add('h'+paragraph.currentLevel);
-
-            var span =thisTextArea.previousElementSibling;
-            var ref = span.id; //本段id
-            console.log(paragraph.getNodeData(ref).deepth);
-
-            span.innerHTML=WWQ.levelSymbolsControl.getSymbol(paragraph.currentLevel);
-            paragraph.createNode(ref,span.innerHTML,true);
-            span.id = id -1;
-            paragraph.deleteNode(ref)
-
-            thisTextArea.focus();
-            console.log('    '+(id-1)+'  '+Paragraph.getNodeData(id-1).deepth)
-            Paragraph.updateThisLevelSymbols(id-1);
         };
 
-        //修改本级所有分段符号，并更新文本所有分段符号
-        //对传入的节点所附数组的所有项进行分段符号重置
-        paragraph.updateThisLevelSymbols = function(id,removeNullP){
-
-            var thisLevelarr =Paragraph.getNodeData(id).arr,
-                 currentLevel=paragraph.getNodeData(document.activeElement.previousElementSibling.id).deepth;
-
-            if(removeNullP){
-                //本级使用下标减一
-                WWQ.currentSymbolsArr[Paragraph.getNodeData(id).deepth-1].index--;
-                Paragraph.deleteNode(id);
-
-            }
-            //本级别使用下标置零
-            WWQ.levelSymbolsControl.resetSymbols(currentLevel );
-
-            for(var i = 0; i < thisLevelarr.length; i++){
-                if(!Array.isArray(thisLevelarr[i])){
-                    thisLevelarr[i].value=WWQ.levelSymbolsControl.getSymbol(currentLevel);
-                }
-            }
-            //更新文本所有分段符号
-            //建议多使用querySelector。简化操作
-            var span= document.querySelectorAll('#content>p>span')
-
-            for(var j =0; j<span.length; j++) {
-                var ob = Paragraph.getNodeData(span[j].id);
-                span[j].innerHTML = ob.arr[ob.index].value;
-            }
-
+        //更新文本所有分段符号
+        Paragraph.updateThisLevelSymbols = function(){
         }
     })();
-
-
-    Paragraph=paragraph;
 }());
 Handle.levelList = function(event ){
     WWQ.choosedLevel = this.j;
@@ -622,6 +641,8 @@ Handle.chooseNumfunc = function(event){
             });
             childNodes[i].addEventListener('mouseout',Handle.toolsBtnMouseOut);
             childNodes[i].ind= j;
+            
+            //选好某一级符号后触发
             childNodes[i].addEventListener('click',function(event ){
                 this.style.background="#ced3d7";
                 WWQ.underChooseS=false;
@@ -630,30 +651,20 @@ Handle.chooseNumfunc = function(event){
                 Handle.updateLevelDisplay();
                 WWQ.choosedLevelBuf[WWQ.choosedLevel] = this.ind;
                 WWQ.currentSymbolsArr[WWQ.choosedLevel] = WWQ.allSymbolsArr[WWQ.choosedLevelBuf[WWQ.choosedLevel]];
-
-                //TODO 注意能否改其他等级
-                if (typeof getId()==='number'){
-                    Paragraph.updateThisLevelSymbols(getId());
-                }
-                function getId(){
-                    for(var i = 0; i<=id; i++){
-                        if(Paragraph.getNodeData(i).deepth==WWQ.choosedLevel+1){
-                            return i;
-                        }
-                    }
-                    return;
-                }
-
-
-                //Paragraph.updateThisLevelSymbols(WWQ.choosedLevelBuf[WWQ.choosedLevel] );
-                //for (var index = 0; index < WWQ.levelNum; index++){
-                //    if(Array.isArray(WWQ.currentSymbolsArr[index])){
-                //        console.log(WWQ.currentSymbolsArr[index][0]);
-                //    }
-                //    else{
-                //        console.log(WWQ.currentSymbolsArr[index])
-                //    }
+                Paragraph.updateSymbols();
+                ////TODO 注意能否改其他等级
+                //if (typeof getId()==='number'){
+                //    Paragraph.updateThisLevelSymbols(getId());
                 //}
+                //function getId(){
+                //    for(var i = 0; i<=id; i++){
+                //        if(Paragraph.getNodeById(i).deepth==WWQ.choosedLevel+1){
+                //            return i;
+                //        }
+                //    }
+                //    return;
+                //}
+
             });
             j++;
 
@@ -698,7 +709,7 @@ Handle.chooseNumfunc = function(event){
 
                     break;
                 case 'toolBar_L':
-                    //Paragraph.mergeNextParagraph();
+                    Paragraph.levelUp();
 
                     break;
                 case 'toolBar_R':
@@ -892,9 +903,9 @@ Handle.chooseNumfunc = function(event){
     }
 })();
 
-var nums = [];
-for(var i = 0;i<100;++i){
-    nums[i]=i+1;
-    console.log(i)
-
-}
+//var f=function(s){
+//    s.id =99;
+//};
+//b={};
+//f(b);
+//console.log(b.id);
