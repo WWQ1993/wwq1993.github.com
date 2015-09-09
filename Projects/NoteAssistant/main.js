@@ -213,7 +213,7 @@ Paragraph={};   //段落相关
     }
 }());
 
-//段落模型
+//Paragraph模型
 (function(){
     var rootNode = [], //根节点
         id = 0; //分配标准，不能重置。
@@ -223,15 +223,20 @@ Paragraph={};   //段落相关
     //接口
     Paragraph.interface = function (func) {
         switch (func){
-            case 'updateSymbols':updateSymbols();
+            case 'updateSymbols':
+                updateSymbols();
                 break;
-            case 'newline':newline();
+            case 'newline':
+                newline();
                 break;
-            case 'levelUp':levelUp();
+            case 'levelUp':
+                levelUp();
                 break;
-            case 'levelDown':levelDown();
+            case 'levelDown':
+                levelDown();
                 break;
-            case 'createParagraph':createParagraph();
+            case 'createParagraph':
+                createParagraph();
                 break;
         }
     }
@@ -590,7 +595,7 @@ Paragraph={};   //段落相关
 Handle.levelList = function(event ){
     WWQ.choosedLevel = this.j;
 
-    this.style.background="#ced3d7";
+    this.style.background="rgba(212, 212, 212, 0.6)";
     Component.symbolList.style.display = "block";
 
     Component.symbolList.style.left=this.offsetLeft +'px';
@@ -601,14 +606,14 @@ Handle.levelList = function(event ){
 
 //按下按钮事件的处理方法
 Handle.toolsBtnMouseDown = function(event ){
-    this.style.background="darkgrey";
+    this.style.background="#CACACA";
     event.preventDefault();
 };
 
 //鼠标从按下的按钮内移出 的处理方法
 Handle.toolsBtnMouseOut = function( ){
 
-    this.style.background="#ced3d7";
+    this.style.background="rgba(212, 212, 212, 0.6)";
 };
 
 //点击选择分级数目按钮时调用
@@ -623,7 +628,7 @@ Handle.chooseNumfunc = function(event){
         $('numberList').style.left=(Component.chooseLevelNum.offsetLeft-5) +'px';
 
     }
-    this.style.border = 'outset thin rgba(212, 212, 212, 0.41)';
+    this.style.border = 'outset thin rgba(212, 212, 212, 0.6)';
 };
 
 //符号横条更新
@@ -666,11 +671,11 @@ Handle.chooseNumfunc = function(event){
         if (childNodes[i].nodeType === 1 ) {
 
             //保存字条的每一项
-            WWQ.symbolsLevel.push(childNodes[0].innerHTML);
+            WWQ.symbolsLevel.push(childNodes[i].innerHTML);
             //按下鼠标事件
             childNodes[i].addEventListener('mousedown', function (event) {
                 WWQ.underChooseS=true;
-                this.style.background="darkgrey";
+                this.style.background="#CACACA";
                 event.preventDefault();
             });
             //鼠标移除事件
@@ -679,7 +684,7 @@ Handle.chooseNumfunc = function(event){
             //选好某一级符号后触发
             childNodes[i].ind= j;
             childNodes[i].addEventListener('click',function(event ){
-                this.style.background="#ced3d7";
+                this.style.background="rgba(212, 212, 212, 0.6)";
                 WWQ.underChooseS=false;
 
                 WWQ.symbolsOneArr[WWQ.choosedLevel] = WWQ.symbolsLevel[this.ind];
@@ -698,16 +703,25 @@ Handle.chooseNumfunc = function(event){
 //bar点击相关
 (function(){
 
+    WWQ.showColorSelector = function(){
+        Component.chooseColor.style.display="block";
+        if(parseInt(Component.toolBar.style.top,10) + Component.toolBar.offsetHeight >=
+            document.documentElement.clientHeight)
+        {
+            Component.toolBar.style.top=(document.documentElement.clientHeight-
+                Component.toolBar.offsetHeight)+ "px";
+        }
+    }
 
-    Component.toolBarMouseDown = function(event) {
+    Handle.toolBarMouseDown = function(event) {
         if(event.button === 0){
-            this.style.backgroundColor="grey";
+            this.style.backgroundColor="#CACACA";
             Component.chooseColor.style.display="none";
         }
         event.preventDefault(); //使按钮文字不可选,已选的文本不失焦
-
     };
-    Component.toolBarMouseUp = function(event){
+
+    Handle.toolBarMouseUp = function(event){
         if(event.button === 0){
             switch (this.id){
                 case 'toolBar_B':
@@ -720,20 +734,13 @@ Handle.chooseNumfunc = function(event){
                     document.execCommand('underline',false,null);
                     break;
                 case 'toolBar_C':  //弹出选色菜单
-                    Component.chooseColor.style.display="block";
-                    if(parseInt(Component.toolBar.style.top,10) + Component.toolBar.offsetHeight >=document.documentElement.clientHeight)
-                    {
-                        Component.toolBar.style.top=(document.documentElement.clientHeight-Component.toolBar.offsetHeight)+ "px";
-                    }
+                    WWQ.showColorSelector();
                     break;
                 case 'toolBar_E':
                     Paragraph.interface('newline') ;
-
                     break;
                 case 'toolBar_L':
                     Paragraph.interface('levelUp') ;
-
-
                     break;
                 case 'toolBar_R':
                     Paragraph.interface('levelDown') ;
@@ -744,17 +751,18 @@ Handle.chooseNumfunc = function(event){
         }
         event.stopPropagation(); //避免隐藏bar。
 
-        this.style.backgroundColor="rgba(212, 212, 212, 0.41)";
+        this.style.backgroundColor="rgba(212, 212, 212, 0.6)";
     };
-    Component.toolBarMouseout=function(){
-        this.style.backgroundColor="rgba(212, 212, 212, 0.41)";
+    Handle.toolBarMouseout=function(){
+        this.style.backgroundColor="rgba(212, 212, 212, 0.6)";
     };
 
     function addListener(target){
-        target.addEventListener("mousedown",Component.toolBarMouseDown);
-        target.addEventListener("mouseup",Component.toolBarMouseUp);;
-        target.addEventListener("mouseout",Component.toolBarMouseout);
+        target.addEventListener("mousedown",Handle.toolBarMouseDown);
+        target.addEventListener("mouseup",Handle.toolBarMouseUp);;
+        target.addEventListener("mouseout",Handle.toolBarMouseout);
     };
+
     addListener(Component.toolBar_B);
     addListener(Component.toolBar_I);
     addListener(Component.toolBar_U);
@@ -901,7 +909,7 @@ Handle.chooseNumfunc = function(event){
 
 }());
 
-//数字条事件
+//数字条
 (function () {
     var childNodes = $('numberList').childNodes,
         arr = [],
@@ -912,7 +920,7 @@ Handle.chooseNumfunc = function(event){
             j++;
             childNodes[i].ind = j;
             childNodes[i].addEventListener('mousedown',function(event){
-                this.style.background="darkgrey";
+                this.style.background="#CACACA";
                 event.preventDefault();
                 WWQ.underChooseN=true;
             });
@@ -921,27 +929,9 @@ Handle.chooseNumfunc = function(event){
                 WWQ.levelNum=this.ind;
                 Handle.updateLevelDisplay();
                 WWQ.underChooseN=false;
-                this.style.background="#ced3d7";
+                this.style.background="rgba(212, 212, 212, 0.6)";
             });
         }
     }
 })();
 
-//var f=function(s){
-//    s.id =99;
-//};
-//b={};
-//f(b);
-//console.log(b.id);
-//
-//var arr = new Array(6)
-//arr[0] = "George"
-//arr[1] = "John"
-//arr[2] = "Thomas"
-//arr[3] = "James"
-//arr[4] = "Adrew"
-//arr[5] = "Martin"
-//var a =["William",'dfsdfsdf'];
-//console.log(arr + "<br />")
-//arr.splice(2,0,a)
-//console.log(arr[2])

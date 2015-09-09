@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="629" mnemonic="R" />
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="550" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="555" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/index.html" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/style.css" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -36,17 +37,17 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.2998833">
+    <splitter split-orientation="horizontal" split-proportion="0.4169381">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.19861831">
-                  <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+                <state vertical-scroll-proportion="0.18987341">
+                  <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
                   <folding>
                     <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -55,8 +56,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+                <state vertical-scroll-proportion="-2.1836734">
+                  <caret line="137" column="27" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -69,24 +70,21 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4918919">
-                  <caret line="859" column="0" selection-start-line="859" selection-start-column="0" selection-end-line="859" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.390991">
+                  <caret line="719" column="9" selection-start-line="719" selection-start-column="9" selection-end-line="719" selection-end-column="9" />
                   <folding>
                     <element signature="e#2027#6256#0" expanded="false" />
-                    <element signature="e#6868#7065#0" expanded="false" />
-                    <element signature="e#7181#7851#0" expanded="false" />
-                    <element signature="e#7916#8800#0" expanded="false" />
-                    <element signature="e#8898#10349#0" expanded="false" />
-                    <element signature="e#10404#10504#0" expanded="false" />
-                    <element signature="e#10552#11686#0" expanded="false" />
-                    <element signature="e#11738#12075#0" expanded="false" />
-                    <element signature="e#12133#13256#0" expanded="false" />
-                    <element signature="e#13308#16591#0" expanded="false" />
-                    <element signature="e#16635#17116#0" expanded="false" />
-                    <element signature="e#17166#17683#0" expanded="false" />
-                    <element signature="e#17746#17753#0" expanded="false" />
-                    <element signature="e#27842#27871#0" expanded="false" />
-                    <element signature="e#28135#28954#0" expanded="false" />
+                    <element signature="e#6442#6904#0" expanded="false" />
+                    <element signature="e#6960#7157#0" expanded="false" />
+                    <element signature="e#7273#7943#0" expanded="false" />
+                    <element signature="e#8008#8892#0" expanded="false" />
+                    <element signature="e#10496#10596#0" expanded="false" />
+                    <element signature="e#10644#11778#0" expanded="false" />
+                    <element signature="e#11830#12167#0" expanded="false" />
+                    <element signature="e#12225#13348#0" expanded="false" />
+                    <element signature="e#16727#17208#0" expanded="false" />
+                    <element signature="e#17258#17775#0" expanded="false" />
+                    <element signature="e#17838#17845#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -145,11 +143,11 @@
         <option value="$PROJECT_DIR$/Projects/HTMLTODOM/main.js" />
         <option value="$PROJECT_DIR$/ReadNotes/ProJavaScriptForWebDev/101112.html" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/tree.js" />
-        <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
-        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/include.postload.js" />
         <option value="vm:52" />
+        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
+        <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
       </list>
     </option>
   </component>
@@ -316,12 +314,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00015" summary="fgdf">
-      <created>1440402627787</created>
-      <option name="number" value="00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1440402627787</updated>
     </task>
     <task id="LOCAL-00016" summary="new&#10;">
       <created>1440403320259</created>
@@ -611,7 +603,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441806571016</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="模型化paragraph">
+      <created>1441811005552</created>
+      <option name="number" value="00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1441811005553</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TodoView">
@@ -659,7 +657,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="daili" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
     <MESSAGE value="fg" />
     <MESSAGE value="fgdf" />
@@ -684,14 +681,15 @@
     <MESSAGE value="使段落符号靠顶部" />
     <MESSAGE value="back0" />
     <MESSAGE value="debug段落" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug段落" />
+    <MESSAGE value="模型化paragraph" />
+    <option name="LAST_COMMIT_MESSAGE" value="模型化paragraph" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="35" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -702,20 +700,17 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#2027#6256#0" expanded="false" />
-            <element signature="e#6868#7065#0" expanded="false" />
-            <element signature="e#7181#7851#0" expanded="false" />
-            <element signature="e#7916#8800#0" expanded="false" />
-            <element signature="e#8898#10349#0" expanded="false" />
-            <element signature="e#10404#10504#0" expanded="false" />
-            <element signature="e#10552#11686#0" expanded="false" />
-            <element signature="e#11738#12075#0" expanded="false" />
-            <element signature="e#12133#13256#0" expanded="false" />
-            <element signature="e#13308#16591#0" expanded="false" />
-            <element signature="e#16635#17116#0" expanded="false" />
-            <element signature="e#17166#17683#0" expanded="false" />
-            <element signature="e#17746#17753#0" expanded="false" />
-            <element signature="e#27842#27871#0" expanded="false" />
-            <element signature="e#28135#28954#0" expanded="false" />
+            <element signature="e#6442#6904#0" expanded="false" />
+            <element signature="e#6960#7157#0" expanded="false" />
+            <element signature="e#7273#7943#0" expanded="false" />
+            <element signature="e#8008#8892#0" expanded="false" />
+            <element signature="e#10496#10596#0" expanded="false" />
+            <element signature="e#10644#11778#0" expanded="false" />
+            <element signature="e#11830#12167#0" expanded="false" />
+            <element signature="e#12225#13348#0" expanded="false" />
+            <element signature="e#16727#17208#0" expanded="false" />
+            <element signature="e#17258#17775#0" expanded="false" />
+            <element signature="e#17838#17845#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1044,45 +1039,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.390991">
+          <caret line="719" column="9" selection-start-line="719" selection-start-column="9" selection-end-line="719" selection-end-column="9" />
+          <folding>
+            <element signature="e#2027#6256#0" expanded="false" />
+            <element signature="e#6442#6904#0" expanded="false" />
+            <element signature="e#6960#7157#0" expanded="false" />
+            <element signature="e#7273#7943#0" expanded="false" />
+            <element signature="e#8008#8892#0" expanded="false" />
+            <element signature="e#10496#10596#0" expanded="false" />
+            <element signature="e#10644#11778#0" expanded="false" />
+            <element signature="e#11830#12167#0" expanded="false" />
+            <element signature="e#12225#13348#0" expanded="false" />
+            <element signature="e#16727#17208#0" expanded="false" />
+            <element signature="e#17258#17775#0" expanded="false" />
+            <element signature="e#17838#17845#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+        <state vertical-scroll-proportion="-2.1836734">
+          <caret line="137" column="27" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19861831">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.18987341">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4918919">
-          <caret line="859" column="0" selection-start-line="859" selection-start-column="0" selection-end-line="859" selection-end-column="0" />
-          <folding>
-            <element signature="e#2027#6256#0" expanded="false" />
-            <element signature="e#6868#7065#0" expanded="false" />
-            <element signature="e#7181#7851#0" expanded="false" />
-            <element signature="e#7916#8800#0" expanded="false" />
-            <element signature="e#8898#10349#0" expanded="false" />
-            <element signature="e#10404#10504#0" expanded="false" />
-            <element signature="e#10552#11686#0" expanded="false" />
-            <element signature="e#11738#12075#0" expanded="false" />
-            <element signature="e#12133#13256#0" expanded="false" />
-            <element signature="e#13308#16591#0" expanded="false" />
-            <element signature="e#16635#17116#0" expanded="false" />
-            <element signature="e#17166#17683#0" expanded="false" />
-            <element signature="e#17746#17753#0" expanded="false" />
-            <element signature="e#27842#27871#0" expanded="false" />
-            <element signature="e#28135#28954#0" expanded="false" />
+            <element signature="n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
