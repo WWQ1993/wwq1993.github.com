@@ -560,6 +560,9 @@ Paragraph={};   //段落相关
             newNode;
 
         currentLevel--;
+        if(currentLevel<1){
+            return;
+        }
         thisParagraph.style.marginLeft=(25*currentLevel) +"px";
         thisParagraph.className = 'h'+currentLevel;
         newNode =createNodeAfterId(thisParagraph.id,thisParagraph,false,true);
@@ -576,6 +579,9 @@ Paragraph={};   //段落相关
             newNode;
 
         currentLevel++;
+        if(currentLevel>WWQ.levelNum){
+            return;
+        }
         thisParagraph.style.marginLeft=(25*currentLevel) +"px";
         thisParagraph.className = 'h'+currentLevel;
 
@@ -594,7 +600,7 @@ Paragraph={};   //段落相关
     var center =function(){
         var thisTextArea = document.activeElement;
         thisTextArea.style.textAlign = thisTextArea.style.textAlign==="center"?'left':'center';
-
+        Component.toolBar_N.style.textAlign= Component.toolBar_N.style.textAlign==="left"?'center':'left';
     }
 }());
 

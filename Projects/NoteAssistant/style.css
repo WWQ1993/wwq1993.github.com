@@ -11,6 +11,7 @@ body{
     margin-right: auto;
     margin-left: auto;
     width: 80%;
+    min-width: 300px;
     height: 50px;
     box-sizing: border-box;
     /*border: solid medium #61bdfa;*/
@@ -22,6 +23,8 @@ body{
 #content{
     width: 80%;
     min-height: 500px;
+    min-width: 250px;
+
     margin: 50px auto 200px auto;
     border:6px #e0e0e0 solid;
     border-top: none;
@@ -196,7 +199,7 @@ B{
     line-height: 1.5em;
 }
 
-#content p p{
+#content>p>p{
     display: inline-block;
-    width: 75%;
+    width: 80%;
 }
