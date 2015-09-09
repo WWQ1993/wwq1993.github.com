@@ -238,6 +238,8 @@ Paragraph={};   //段落相关
             case 'createParagraph':
                 createParagraph();
                 break;
+            case 'center':
+                center();
         }
     }
 
@@ -589,6 +591,11 @@ Paragraph={};   //段落相关
     var updateThisLevelSymbols = function(){
     }
 
+    var center =function(){
+        var thisTextArea = document.activeElement;
+        thisTextArea.style.textAlign = thisTextArea.style.textAlign==="center"?'left':'center';
+
+    }
 }());
 
 //符号横栏每项点击事件
@@ -746,6 +753,7 @@ Handle.chooseNumfunc = function(event){
                     Paragraph.interface('levelDown') ;
                     break;
                 case 'toolBar_N':
+                    Paragraph.interface('center');
                     break;
             }
         }
