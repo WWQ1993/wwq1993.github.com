@@ -263,23 +263,32 @@ Paragraph={};   //段落相关
 
         Paragraph.getArrData = function(array){
 
+
             function innerFunction(inputArray,arr){
+                console.log(arr.length+'///');
                 for(var i = 0; i < arr.length; i++){
                     if(Array.isArray(arr[i])){
                         if(arr[i]===inputArray){
-                            console.log('get')
                             arr[i].inde = i;
                             arr[i].parentArr = arr;
+                            console.log(inputArray)
                             return arr[i];
                         }
                         else{
-                            return arguments.callee(inputArray,arr[i]);
+                            //TODO to be or not to be return;
+                            var node;
+                            if(node= arguments.callee(inputArray,arr[i])){
+                                return node;
+                            }
                         }
                     }
                 }
             };
 
-            return innerFunction(array,rootNode);
+            var node = innerFunction(array,rootNode);
+            console.log(node.parentArr)
+
+            return node;
         }
 
         //在节点后建立兄弟(子)节点
@@ -301,21 +310,37 @@ Paragraph={};   //段落相关
             if (lowerLevel){
                 result.parentArr.splice(result.index+1,0,[newNode]);
             } else if(higherLevel){
-                var res = Paragraph.getArrData(result.parentArr);
-                if(!res){
-                    console.log('null');
-                    //res = Paragraph.getArrData(res.parentArr);
-                }
-                res.parentArr.splice(res.inde+1,0,newNode);
-                Paragraph.removeNodeById(refId);
-                Paragraph.getNodeById(newNode.id);
 
-                console.log( res  )
-                if(!res.length){
-                    console.log('dele');
-                    res.parentArr.splice(res.inde,1);
+                var itsParent = Paragraph.getArrData(result.parentArr),
+                    nodesAfterthisArr = [];
+                //console.log(itsParent + "  "+ refId);
+
+                for(var j = result.index+1; j<itsParent.length; j++){
+                    nodesAfterthisArr.push(itsParent[j]);
                 }
-            } else{
+                console.log(nodesAfterthisArr.length+"  "+result.index)
+
+                if(nodesAfterthisArr.length>0){
+                    itsParent.parentArr.splice(itsParent.inde+1,0,newNode,nodesAfterthisArr);
+
+                } else {
+                    itsParent.parentArr.splice(itsParent.inde+1,0,newNode);
+                }
+
+                Paragraph.removeNodeById(refId);
+
+                Paragraph.getNodeById(newNode.id);
+                itsParent.length=result.index;
+
+                if(!itsParent.length){
+                    itsParent.parentArr.splice(itsParent.inde,1);
+                }
+                for(var m = 0; m < rootNode.length;m++){
+                    console.log(rootNode[m]===itsParent.parentArr[itsParent.inde+2]);
+                }
+            }
+
+            else{
                 result.parentArr.splice(result.index+1,0,newNode);
             }
             Paragraph.getNodeById(newNode.id);
@@ -329,7 +354,7 @@ Paragraph={};   //段落相关
             return result.parentArr.splice(result.index,1);
         };
     })();
-    
+
     //段落方法
     (function(){
 
@@ -352,9 +377,9 @@ Paragraph={};   //段落相关
                 // 去除数组节点
                 var  realIndex = 0;
                 node.parentArr.forEach(function(childNode,index){
-                   if(!Array.isArray(childNode)) {
-                       childNode.realIndex = realIndex++;
-                   }
+                    if(!Array.isArray(childNode)) {
+                        childNode.realIndex = realIndex++;
+                    }
                 });
 
 
@@ -367,10 +392,10 @@ Paragraph={};   //段落相关
         Paragraph.removeNullParagraph=function(){
             var textContent = document.querySelectorAll('#content>p>p');
             for(var i = 0; i < textContent.length; i++){
-               if(textContent[i].innerHTML===''){
-                   Paragraph.removeNodeById(textContent[i].parentNode.id);
-                   Component.content.removeChild(textContent[i].parentNode) ;
-               }
+                if(textContent[i].innerHTML===''){
+                    Paragraph.removeNodeById(textContent[i].parentNode.id);
+                    Component.content.removeChild(textContent[i].parentNode) ;
+                }
             }
         };
 
@@ -415,7 +440,7 @@ Paragraph={};   //段落相关
             }
 
         };
-        
+
         //"↓"  切割某段至新建的平级段
         Paragraph.newline=function(){
             document.execCommand('createlink',false,"mark");
@@ -525,7 +550,6 @@ Paragraph={};   //段落相关
             currentLevel--;
             thisParagraph.style.marginLeft=(50*currentLevel) +"px";
             thisParagraph.className = 'h'+currentLevel;
-            console.log(thisParagraph.id)
             newNode = Paragraph.createNodeAfterId(thisParagraph.id,thisParagraph,false,true);
 
             newNode.domNode.id=newNode.id;
@@ -641,7 +665,7 @@ Handle.chooseNumfunc = function(event){
             });
             childNodes[i].addEventListener('mouseout',Handle.toolsBtnMouseOut);
             childNodes[i].ind= j;
-            
+
             //选好某一级符号后触发
             childNodes[i].addEventListener('click',function(event ){
                 this.style.background="#ced3d7";
@@ -909,3 +933,15 @@ Handle.chooseNumfunc = function(event){
 //b={};
 //f(b);
 //console.log(b.id);
+//
+//var arr = new Array(6)
+//arr[0] = "George"
+//arr[1] = "John"
+//arr[2] = "Thomas"
+//arr[3] = "James"
+//arr[4] = "Adrew"
+//arr[5] = "Martin"
+//var a =["William",'dfsdfsdf'];
+//console.log(arr + "<br />")
+//arr.splice(2,0,a)
+//console.log(arr[2])
