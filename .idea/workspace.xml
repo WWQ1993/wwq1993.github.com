@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -34,7 +35,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4350153">
+    <splitter split-orientation="horizontal" split-proportion="0.4031465">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
@@ -64,8 +65,8 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.571192">
-                  <caret line="759" column="51" selection-start-line="759" selection-start-column="51" selection-end-line="759" selection-end-column="51" />
+                <state vertical-scroll-proportion="0.33278146">
+                  <caret line="921" column="17" selection-start-line="921" selection-start-column="17" selection-end-line="921" selection-end-column="17" />
                   <folding>
                     <element signature="e#13682#15482#0" expanded="false" />
                     <element signature="e#16698#17273#0" expanded="false" />
@@ -295,12 +296,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00025" summary="htmlTODOM">
-      <created>1440939704947</created>
-      <option name="number" value="00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1440939704947</updated>
     </task>
     <task id="LOCAL-00026" summary="fix the null string outputing">
       <created>1440940928798</created>
@@ -590,7 +585,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441879617701</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="debug&amp;shortCut">
+      <created>1441879852553</created>
+      <option name="number" value="00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1441879852555</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TodoView">
@@ -604,7 +605,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="3" width="1324" height="738" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12401264" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26442307" sideWeight="0.49320242" order="5" side_tool="false" content_ui="tabs" />
@@ -660,10 +661,10 @@
     <MESSAGE value="居中" />
     <MESSAGE value="段落居中状态键" />
     <MESSAGE value="debug&#10;" />
-    <MESSAGE value="back" />
     <MESSAGE value="颜色按钮" />
     <MESSAGE value="debug&amp;shortCut" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug&amp;shortCut" />
+    <MESSAGE value="back" />
+    <option name="LAST_COMMIT_MESSAGE" value="back" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1029,8 +1030,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.571192">
-          <caret line="759" column="51" selection-start-line="759" selection-start-column="51" selection-end-line="759" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.33278146">
+          <caret line="921" column="17" selection-start-line="921" selection-start-column="17" selection-end-line="921" selection-end-column="17" />
           <folding>
             <element signature="e#13682#15482#0" expanded="false" />
             <element signature="e#16698#17273#0" expanded="false" />

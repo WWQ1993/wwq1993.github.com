@@ -919,7 +919,6 @@ Handle.chooseNumfunc = function(event){
         {
             WWQ.seletedText=document.selection.createRange().text.toString();
         }
-        console.log(WWQ.seletedText)
         Component.chooseColor.style.display="none";
         WWQ.cache.secClick=false;
         Component.symbolList.style.display="none";
