@@ -42,6 +42,7 @@ B{
 }
 
 #toolBar{
+    padding-left: 25px;
     margin: auto;
     width: auto;
     height: auto;
@@ -203,6 +204,8 @@ B{
 }
 
 #content>p>p{
+    font-family:  Tahoma;
+
     display: inline-block;
     width: 80%;
 }

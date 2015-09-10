@@ -918,9 +918,7 @@ Handle.chooseNumfunc = function(event){
     Component.chooseLevelNum.addEventListener('mousedown',function(e){
         this.style.border = 'outset thin black';
     });
-
     Component.chooseLevelNum.addEventListener('click',Handle.chooseNumfunc);
-
 }());
 
 //数字条
