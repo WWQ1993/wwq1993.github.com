@@ -395,8 +395,10 @@ Paragraph={};   //段落相关
     //删除空行
     var removeNullParagraph=function(){
         var textContent = document.querySelectorAll('#content>p>p');
+        if(textContent[0])
+
         for(var i = 0; i < textContent.length; i++){
-            if(textContent[i].innerHTML===''){
+            if(textContent[i].innerHTML===''||  textContent[i].innerHTML.toLowerCase()=== '<br>'){
                 removeNodeById(textContent[i].parentNode.id);
                 Component.content.removeChild(textContent[i].parentNode) ;
             }
@@ -429,18 +431,25 @@ Paragraph={};   //段落相关
         } else{
             newNode = createNodeAfterId(null,newParagraph);
         }
-        newNode.domNode.id=newNode.id;
-
         Component.content.appendChild(newNode.domNode);
-
         textArea.focus();
-        updateSymbols();
 
-        //获取焦点时移除空行
-        textArea.onfocus=function(){
-            removeNullParagraph();
-            Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
-        }
+        newNode.domNode.id=newNode.id;
+        updateSymbols();
+        console.log('00')
+
+        //获取焦点时移除空行;setTimeout解决iE兼容性问题
+        setTimeout(function () {
+            textArea.addEventListener('focus',function(){
+                console.log('0')
+                removeNullParagraph();
+                Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
+            });
+        },100)
+
+
+
+
 
     };
 
@@ -546,11 +555,14 @@ Paragraph={};   //段落相关
             thisTextArea.innerHTML = newString[0];
             textArea.innerHTML = newString[1];
 
-        //获取焦点时移除空行
-        textArea.onfocus=function(){
-            removeNullParagraph();
-            Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
-        }
+        //获取焦点时移除空行;setTimeout解决iE兼容性问题
+        setTimeout(function () {
+            textArea.addEventListener('focus',function(){
+                console.log('0')
+                removeNullParagraph();
+                Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
+            });
+        },100)
 
     };
     //<- 本段级别提升
@@ -871,6 +883,7 @@ Handle.chooseNumfunc = function(event){
 (function () {
     //mousedown
     document.addEventListener('mousedown',function(event){
+
         if(event.button!==0){
             return;
         }
