@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -298,12 +297,6 @@
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
     </task>
-    <task id="LOCAL-00031" summary="ok">
-      <created>1441357350814</created>
-      <option name="number" value="00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1441357350814</updated>
-    </task>
     <task id="LOCAL-00032" summary="ok">
       <created>1441357497314</created>
       <option name="number" value="00032" />
@@ -592,7 +585,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441898056410</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="back">
+      <created>1441898885635</created>
+      <option name="number" value="00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1441898885635</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TodoView">
@@ -660,12 +659,12 @@
     <MESSAGE value="debug&#10;" />
     <MESSAGE value="颜色按钮" />
     <MESSAGE value="debug&amp;shortCut" />
-    <MESSAGE value="back" />
     <MESSAGE value="updown function" />
     <MESSAGE value="optimize and debug" />
     <MESSAGE value="deal with IE compatibility" />
     <MESSAGE value="a难以解决" />
-    <option name="LAST_COMMIT_MESSAGE" value="a难以解决" />
+    <MESSAGE value="back" />
+    <option name="LAST_COMMIT_MESSAGE" value="back" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
