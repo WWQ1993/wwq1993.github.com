@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="744" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="745" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
@@ -41,8 +41,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6925859">
-                  <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.20072332">
+                  <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -65,12 +65,11 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.9205298">
-                  <caret line="1183" column="14" selection-start-line="1183" selection-start-column="14" selection-end-line="1183" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.33217993">
+                  <caret line="516" column="0" selection-start-line="516" selection-start-column="0" selection-end-line="516" selection-end-column="0" />
                   <folding>
-                    <element signature="e#13682#15482#0" expanded="false" />
-                    <element signature="e#16698#17273#0" expanded="false" />
-                    <element signature="e#17323#17946#0" expanded="false" />
+                    <element signature="e#19619#20534#0" expanded="false" />
+                    <element signature="e#20558#21821#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -296,12 +295,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00027" summary="submit button style">
-      <created>1440943671490</created>
-      <option name="number" value="00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1440943671490</updated>
     </task>
     <task id="LOCAL-00028" summary="deal with add p postion problem">
       <created>1441356952491</created>
@@ -591,7 +584,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441889711844</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="updown function">
+      <created>1441890661721</created>
+      <option name="number" value="00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1441890661721</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView">
@@ -639,7 +638,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deal with add p postion problem" />
     <MESSAGE value="ok" />
     <MESSAGE value="gbk" />
     <MESSAGE value="utf-8" />
@@ -664,7 +662,8 @@
     <MESSAGE value="颜色按钮" />
     <MESSAGE value="debug&amp;shortCut" />
     <MESSAGE value="back" />
-    <option name="LAST_COMMIT_MESSAGE" value="back" />
+    <MESSAGE value="updown function" />
+    <option name="LAST_COMMIT_MESSAGE" value="updown function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -681,9 +680,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#13682#15482#0" expanded="false" />
-            <element signature="e#16698#17273#0" expanded="false" />
-            <element signature="e#17323#17946#0" expanded="false" />
+            <element signature="e#19619#20534#0" expanded="false" />
+            <element signature="e#20558#21821#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1022,20 +1020,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6925859">
-          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.20072332">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9205298">
-          <caret line="1183" column="14" selection-start-line="1183" selection-start-column="14" selection-end-line="1183" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.33217993">
+          <caret line="516" column="0" selection-start-line="516" selection-start-column="0" selection-end-line="516" selection-end-column="0" />
           <folding>
-            <element signature="e#13682#15482#0" expanded="false" />
-            <element signature="e#16698#17273#0" expanded="false" />
-            <element signature="e#17323#17946#0" expanded="false" />
+            <element signature="e#19619#20534#0" expanded="false" />
+            <element signature="e#20558#21821#0" expanded="false" />
           </folding>
         </state>
       </provider>
