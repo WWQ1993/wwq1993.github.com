@@ -206,11 +206,11 @@ Paragraph={};   //段落相关
 //Paragraph模型
 (function(){
     var rootNode = [], //根节点
-        id = 0; //分配标准，不能重置。
+        id = 0; //唯一标识符，只加不减。
 
     rootNode.domNode = Component.content;
 
-    //接口
+    //模块接口
     Paragraph.interface = function (func) {
         switch (func){
             case 'updateSymbols':
@@ -243,9 +243,6 @@ Paragraph={};   //段落相关
         this.parentArr = []; //当前节点的父数组
         this.domNode = domNode; //指向一个DOM节点。
     };
-
-    //rootNode[0]=[{id:0},{id:1}];
-    //rootNode[1]={id:2};
 
     //返回id对应节点
     var getNodeById =function(refId){
@@ -312,7 +309,7 @@ Paragraph={};   //段落相关
         var result = getNodeById(refId);
 
         if (!result){   //传入id无效
-            console.log(refId+"  ：传入id无效");
+            console.log(refId+" ：传入id无效");
             return false;
         }
         if (lowerLevel){    //在参考节点后建立下层节点
@@ -388,7 +385,6 @@ Paragraph={};   //段落相关
             //设置编号样式
             thisParagraph[i].firstElementChild.innerHTML=WWQ.currentSymbolsArr[node.level-1][node.realIndex]||
                 WWQ.currentSymbolsArr[node.level-1];
-
         }
     };
 
@@ -450,10 +446,7 @@ Paragraph={};   //段落相关
 
     //"↓"  切割某段至新建的平级段
     var newline=function(){
-        //if(!WWQ.selectedText){
-        //    createParagraph();
-        //    return;
-        //}
+
         var thisTextArea = document.activeElement;
         var oriText = thisTextArea.innerHTML+'';
         document.execCommand('createlink',false,"mark");
@@ -868,6 +861,19 @@ Handle.chooseNumfunc = function(event){
 
 //文档点击事件
 (function () {
+    //获取选中的文本
+    WWQ.getSelectedText = function () {
+        WWQ.selectedText = "";
+        if(window.getSelection)
+        {
+            WWQ.selectedText=window.getSelection().toString();
+        }
+        else
+        {
+            WWQ.selectedText=document.selection.createRange().text.toString();
+        }
+    }
+
     //mousedown
     document.addEventListener('mousedown',function(event){
 
@@ -876,12 +882,12 @@ Handle.chooseNumfunc = function(event){
         }
         WWQ.mouseDown.clientY=event.clientY;
 
-        if(!WWQ.underChooseN && !WWQ.underChooseS &&
+        if(!WWQ.underChooseN && !WWQ.underChooseS &&   //没点数字条或者符号竖条
             (
                 Component.numberList.style.display === "block"||
                 Component.symbolList.style.display === "block"
             )
-        ){ //没点数字条或者符号竖条
+        ){
             Handle.updateLevelDisplay();
             event.preventDefault()
         }
@@ -891,11 +897,11 @@ Handle.chooseNumfunc = function(event){
     document.addEventListener('mouseup',function(event){
 
         event.preventDefault();
+
         if(event.button!==0){   //忽略非左击操作
             return;
         }
 
-        //获取选择的文本
         WWQ.getSelectedText();
 
         Component.chooseColor.style.display="none";
@@ -962,193 +968,174 @@ Handle.chooseNumfunc = function(event){
         }
     }
 })();
-WWQ.tId = 0;
-WWQ.ntId = 0;
-WWQ.showMessage = function(str){
-    Component.message.style.display = 'block';
-    Component.message.style.opacity = 0;
-    Component.message.innerHTML = str
-    clearTimeout(WWQ.tId);
-    clearTimeout(WWQ.ntId);
-    var opacity = 0,
-        showOut = false;
-    var tid = setTimeout(function(){
-        if (!showOut){
 
-            if(opacity<1.5)
-            {
-                opacity+=0.02;
-                Component.message.style.opacity = opacity;
+//通知窗
+(function () {
+    var tId = 0;
+    var ntId = 0;
+    WWQ.showMessage = function(str){
+        Component.message.style.display = 'block';
+        Component.message.style.opacity = 0;
+        Component.message.innerHTML = str
+        clearTimeout( tId);
+        clearTimeout( ntId);
+        var opacity = 0,
+            showOut = false;
+
+        (function(){
+            if (!showOut){
+                if(opacity<1.5)
+                {
+                    opacity+=0.02;
+                    Component.message.style.opacity = opacity;
+                }
+                else{
+                    showOut=true;
+                }
+                 ntId = setTimeout(arguments.callee,10);
             }
             else{
-                showOut=true;
+                opacity-=0.02;
+                Component.message.style.opacity = opacity;
+                 ntId = setTimeout(arguments.callee,10);
             }
-            WWQ.ntId = setTimeout(arguments.callee,10);
-        }
-        else{
-            opacity-=0.02;
-            Component.message.style.opacity = opacity;
-            WWQ.ntId = setTimeout(arguments.callee,10);
-        }
-    },0)
+        }());
 
-    WWQ.tId = setTimeout(function(){
-        Component.message.style.display = 'none';
-    },1500)
-}
-
-Handle.shortcutDown = function (event) {
-    if(event.ctrlKey){
-        WWQ.getSelectedText();
-
-        switch (event.keyCode){
-            case 66 :   //加粗
-            Component.toolBar_B.style.backgroundColor="#CACACA";
-
-                event.preventDefault();
-                break;
-            case 73 :  //倾斜
-                Component.toolBar_I.style.backgroundColor="#CACACA";
-
-                event.preventDefault();
-                break;
-            case 85 :  //下划线
-                Component.toolBar_U.style.backgroundColor="#CACACA";
-
-                event.preventDefault();
-                break;
-            case  81:  //选色
-                Component.toolBar_C.style.opacity='0.7';
-                event.preventDefault();
-                break;
-            case 40 :  //下
-                if(!WWQ.selectedText){
-                    var thisParagraph = document.activeElement.parentNode;
-                    if(thisParagraph.nextElementSibling) {
-                        thisParagraph.nextElementSibling.firstElementChild.nextElementSibling.focus();
-                    }
-                    else{
-                        Paragraph.interface('createParagraph') ;
-                    }
-                }
-                event.preventDefault();
-                break;
-            case 37 :  //左
-                Component.toolBar_L.style.backgroundColor="#CACACA";
-
-                event.preventDefault();
-                break;
-            case 39 :  //右
-                Component.toolBar_R.style.backgroundColor="#CACACA";
-
-                event.preventDefault();
-                break;
-            case 69 :  //居中
-                Component.toolBar_N.style.backgroundColor="#CACACA";
-
-                event.preventDefault();
-                break;
-            case 38:    //上
-                var thisParagraph = document.activeElement.parentNode;
-                if(thisParagraph.previousElementSibling){
-                    thisParagraph.previousElementSibling.firstElementChild.nextElementSibling.focus();
-                }
-                break;
-        }
+        tId = setTimeout(function(){
+            Component.message.style.display = 'none';
+        },1500)
     }
-}
+}());
 
-Handle.shortcutUp = function(event){
-    if(event.ctrlKey){
+//快捷键
+(function () {
 
-        WWQ.getSelectedText();
-        if(WWQ.selectedText){
-            switch (event.keyCode) {
+    //变对应实体键颜色
+    Handle.shortcutDown = function (event) {
+        if(event.ctrlKey){
+            WWQ.getSelectedText();
+
+            switch (event.keyCode){
                 case 66 :   //加粗
-                    document.execCommand('bold', false, null);
-                    Component.toolBar_B.style.backgroundColor = "rgba(212, 212, 212, 1)";
+                    Component.toolBar_B.style.backgroundColor="#CACACA";
+
                     event.preventDefault();
                     break;
                 case 73 :  //倾斜
-                    document.execCommand('italic', false, null);
-                    Component.toolBar_I.style.backgroundColor = "rgba(212, 212, 212, 1)";
+                    Component.toolBar_I.style.backgroundColor="#CACACA";
+
                     event.preventDefault();
                     break;
                 case 85 :  //下划线
-                    document.execCommand('underline', false, null);
-                    Component.toolBar_U.style.backgroundColor = "rgba(212, 212, 212, 1)";
+                    Component.toolBar_U.style.backgroundColor="#CACACA";
+
                     event.preventDefault();
                     break;
                 case  81:  //选色
-                    document.execCommand('backcolor', false, WWQ.choosedColor);
-                    Component.toolBar_C.style.opacity = "1";
+                    Component.toolBar_C.style.opacity='0.7';
                     event.preventDefault();
                     break;
                 case 40 :  //下
+                    if(!WWQ.selectedText){
+                        var thisParagraph = document.activeElement.parentNode;
+                        if(thisParagraph.nextElementSibling) {
+                            thisParagraph.nextElementSibling.firstElementChild.nextElementSibling.focus();
+                        } else{
+                            Paragraph.interface('createParagraph') ;
+                        }
+                    }
+                    event.preventDefault();
+                    break;
+                case 37 :  //左
+                    Component.toolBar_L.style.backgroundColor="#CACACA";
 
-                    Paragraph.interface('newline') ;
-                    Component.toolBar_E.style.backgroundColor="rgba(212, 212, 212, 1)";
+                    event.preventDefault();
+                    break;
+                case 39 :  //右
+                    Component.toolBar_R.style.backgroundColor="#CACACA";
+
+                    event.preventDefault();
+                    break;
+                case 69 :  //居中
+                    Component.toolBar_N.style.backgroundColor="#CACACA";
+
+                    event.preventDefault();
+                    break;
+                case 38:    //上
+                    var thisParagraph = document.activeElement.parentNode;
+                    if(thisParagraph.previousElementSibling){
+                        thisParagraph.previousElementSibling.firstElementChild.nextElementSibling.focus();
+                    }
+                    break;
+            }
+        }
+    }
+
+    Handle.shortcutUp = function(event){
+        if(event.ctrlKey){
+
+            WWQ.getSelectedText();
+            if(WWQ.selectedText){
+                switch (event.keyCode) {
+                    case 66 :   //加粗
+                        document.execCommand('bold', false, null);
+                        Component.toolBar_B.style.backgroundColor = "rgba(212, 212, 212, 1)";
+                        event.preventDefault();
+                        break;
+                    case 73 :  //倾斜
+                        document.execCommand('italic', false, null);
+                        Component.toolBar_I.style.backgroundColor = "rgba(212, 212, 212, 1)";
+                        event.preventDefault();
+                        break;
+                    case 85 :  //下划线
+                        document.execCommand('underline', false, null);
+                        Component.toolBar_U.style.backgroundColor = "rgba(212, 212, 212, 1)";
+                        event.preventDefault();
+                        break;
+                    case  81:  //选色
+                        document.execCommand('backcolor', false, WWQ.choosedColor);
+                        Component.toolBar_C.style.opacity = "1";
+                        event.preventDefault();
+                        break;
+                    case 40 :  //下
+
+                        Paragraph.interface('newline') ;
+                        Component.toolBar_E.style.backgroundColor="rgba(212, 212, 212, 1)";
+                        event.preventDefault();
+                        break;
+                }
+            }
+            else{
+                switch (event.keyCode){
+                    case 66:
+                    case 73:
+                    case 85:
+                    case 81:
+                        WWQ.showMessage('请选取文字');
+                        break;
+                }
+            }
+            switch (event.keyCode){
+
+                case 37 :  //左
+                    Paragraph.interface('levelUp') ;
+                    Component.toolBar_L.style.backgroundColor="rgba(212, 212, 212, 1)";
+                    event.preventDefault();
+                    break;
+                case 39 :  //右
+                    Paragraph.interface('levelDown') ;
+                    Component.toolBar_R.style.backgroundColor="rgba(212, 212, 212, 1)";
+                    event.preventDefault();
+                    break;
+                case 69 :  //居中
+                    Paragraph.interface('center');
+                    Component.toolBar_N.style.backgroundColor="rgba(212, 212, 212, 1)";
                     event.preventDefault();
                     break;
             }
         }
-        else{
-            switch (event.keyCode){
-                //case 40 :  //下
-                //    var thisParagraph = document.activeElement.parentNode;
-                //    if(thisParagraph.nextElementSibling) {
-                //        thisParagraph.nextElementSibling.firstElementChild.nextElementSibling.focus();
-                //    }
-                //    else{
-                //        Paragraph.interface('createParagraph') ;
-                //    }
-                //    Component.toolBar_E.style.backgroundColor="rgba(212, 212, 212, 1)";
-                //    event.preventDefault();
-                //    break;
-                case 66:
-                case 73:
-                case 85:
-                case 81:
-                    WWQ.showMessage('请选取文字');
-                    break;
-            }
-        }
+    };
+    document.addEventListener('keydown',Handle.shortcutDown);
+    document.addEventListener('keyup',Handle.shortcutUp);
 
-        switch (event.keyCode){
-
-
-            case 37 :  //左
-                Paragraph.interface('levelUp') ;
-                Component.toolBar_L.style.backgroundColor="rgba(212, 212, 212, 1)";
-                event.preventDefault();
-                break;
-            case 39 :  //右
-                Paragraph.interface('levelDown') ;
-                Component.toolBar_R.style.backgroundColor="rgba(212, 212, 212, 1)";
-                event.preventDefault();
-                break;
-            case 69 :  //居中
-                Paragraph.interface('center');
-                Component.toolBar_N.style.backgroundColor="rgba(212, 212, 212, 1)";
-                event.preventDefault();
-                break;
-        }
-
-
-    }
-};
-
-document.addEventListener('keydown',Handle.shortcutDown);
-document.addEventListener('keyup',Handle.shortcutUp);
-
-WWQ.getSelectedText = function () {
-    WWQ.selectedText = "";
-    if(window.getSelection)
-    {
-        WWQ.selectedText=window.getSelection().toString();
-    }
-    else
-    {
-        WWQ.selectedText=document.selection.createRange().text.toString();
-    }
-}
+}());
