@@ -11,8 +11,8 @@ body{
     margin-right: auto;
     margin-left: auto;
     width: 80%;
-    min-width: 300px;
-    height: 50px;
+    min-width: 350px;
+    height: auto;
     box-sizing: border-box;
     /*border: solid medium #61bdfa;*/
     background: #EEF1F2;
@@ -23,9 +23,9 @@ body{
 #content{
     width: 80%;
     min-height: 500px;
-    min-width: 250px;
+    min-width: 300px;
 
-    margin: 50px auto 200px auto;
+    margin: 70px auto 200px auto;
     border:6px #e0e0e0 solid;
     border-top: none;
     padding: 0px 0px 100px 0px;
@@ -215,6 +215,7 @@ B{
     font-size: 20px;
     display: none;
     width: 20%;
+    min-width: 150px;
     left:0px;
     right:0px;
     margin-right: auto;

@@ -52,7 +52,30 @@ Component.toolBar_C.style.backgroundColor=WWQ.choosedColor;
 
 Component.toolBar_N.style.textAlign= 'left';
 
-Paragraph={};   //段落相关
+//窗口变化大小时调用
+(function(){
+    var tid ;
+    Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+    //停止拖动窗口100ms后执行
+    window.onresize = function(){
+        clearTimeout(tid);
+        tid = setTimeout(function(){
+            console.log(window.innerWidth)
+            Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+            var paragraph = document.querySelectorAll('#content>p>p');
+            for(var i = 0; i < paragraph.length; i++){
+                if(window.innerWidth<400){
+                    paragraph[i].style.width = '60%';
+                }
+                else{
+                    paragraph[i].style.width = '80%';
+                }
+            }
+
+        },100);
+    };
+
+})();
 
 //分级符号初始化
 (function(){

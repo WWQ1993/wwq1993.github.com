@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="744" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="760" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/style.css" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -34,24 +36,24 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.21825023">
+    <splitter split-orientation="horizontal" split-proportion="0.4534337">
       <split-first>
         <leaf>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2513181">
-                  <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+                <state vertical-scroll-proportion="-0.92156863">
+                  <caret line="42" column="63" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-17.307692">
-                  <caret line="229" column="31" selection-start-line="229" selection-start-column="31" selection-end-line="229" selection-end-column="31" />
+                <state vertical-scroll-proportion="0.53872055">
+                  <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -64,13 +66,11 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.1582491">
-                  <caret line="404" column="9" selection-start-line="404" selection-start-column="9" selection-end-line="404" selection-end-column="9" />
+                <state vertical-scroll-proportion="0.8265993">
+                  <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
                   <folding>
-                    <element signature="e#10124#10224#0" expanded="false" />
-                    <element signature="e#13930#15814#0" expanded="false" />
-                    <element signature="e#19918#20833#0" expanded="false" />
-                    <element signature="e#20857#22120#0" expanded="false" />
+                    <element signature="e#32218#34442#0" expanded="false" />
+                    <element signature="e#34483#37103#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -125,9 +125,9 @@
         <option value="chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/include.postload.js" />
         <option value="vm:52" />
         <option value="/" />
-        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
+        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
       </list>
     </option>
   </component>
@@ -296,18 +296,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00032" summary="ok">
-      <created>1441357497314</created>
-      <option name="number" value="00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1441357497315</updated>
-    </task>
-    <task id="LOCAL-00033" summary="ok">
-      <created>1441358599931</created>
-      <option name="number" value="00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1441358599931</updated>
     </task>
     <task id="LOCAL-00034" summary="ok">
       <created>1441359078714</created>
@@ -591,7 +579,19 @@
       <option name="project" value="LOCAL" />
       <updated>1441898885635</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="back">
+      <created>1441898908305</created>
+      <option name="number" value="00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1441898908305</updated>
+    </task>
+    <task id="LOCAL-00082" summary="格式化">
+      <created>1441900043529</created>
+      <option name="number" value="00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1441900043530</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TodoView">
@@ -639,7 +639,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="101112" />
     <MESSAGE value="分段后特效问题" />
     <MESSAGE value="遍历函数问题" />
     <MESSAGE value="解决遍历函数问题" />
@@ -664,7 +663,8 @@
     <MESSAGE value="deal with IE compatibility" />
     <MESSAGE value="a难以解决" />
     <MESSAGE value="back" />
-    <option name="LAST_COMMIT_MESSAGE" value="back" />
+    <MESSAGE value="格式化" />
+    <option name="LAST_COMMIT_MESSAGE" value="格式化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -681,10 +681,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#10124#10224#0" expanded="false" />
-            <element signature="e#13930#15814#0" expanded="false" />
-            <element signature="e#19918#20833#0" expanded="false" />
-            <element signature="e#20857#22120#0" expanded="false" />
+            <element signature="e#32218#34442#0" expanded="false" />
+            <element signature="e#34483#37103#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1013,32 +1011,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.307692">
-          <caret line="229" column="31" selection-start-line="229" selection-start-column="31" selection-end-line="229" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2513181">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+        <state vertical-scroll-proportion="-0.92156863">
+          <caret line="42" column="63" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1582491">
-          <caret line="404" column="9" selection-start-line="404" selection-start-column="9" selection-end-line="404" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.8265993">
+          <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
           <folding>
-            <element signature="e#10124#10224#0" expanded="false" />
-            <element signature="e#13930#15814#0" expanded="false" />
-            <element signature="e#19918#20833#0" expanded="false" />
-            <element signature="e#20857#22120#0" expanded="false" />
+            <element signature="e#32218#34442#0" expanded="false" />
+            <element signature="e#34483#37103#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53872055">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
