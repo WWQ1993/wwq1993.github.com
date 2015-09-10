@@ -65,13 +65,12 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.64141417">
-                  <caret line="894" column="51" selection-start-line="894" selection-start-column="51" selection-end-line="894" selection-end-column="51" />
+                <state vertical-scroll-proportion="0.026936026">
+                  <caret line="467" column="44" selection-start-line="467" selection-start-column="44" selection-end-line="467" selection-end-column="44" />
                   <folding>
                     <element signature="e#10272#11402#0" expanded="false" />
-                    <element signature="e#13937#15821#0" expanded="false" />
-                    <element signature="e#20000#20915#0" expanded="false" />
-                    <element signature="e#20939#22202#0" expanded="false" />
+                    <element signature="e#19999#20914#0" expanded="false" />
+                    <element signature="e#20938#22201#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -297,12 +296,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00029" summary="ok">
-      <created>1441357071965</created>
-      <option name="number" value="00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1441357071965</updated>
     </task>
     <task id="LOCAL-00030" summary="ok">
       <created>1441357211861</created>
@@ -592,7 +585,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441893737537</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="deal with IE compatibility">
+      <created>1441897202305</created>
+      <option name="number" value="00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1441897202307</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TodoView">
@@ -640,7 +639,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gbk" />
     <MESSAGE value="utf-8" />
     <MESSAGE value="101112" />
     <MESSAGE value="分段后特效问题" />
@@ -665,7 +663,8 @@
     <MESSAGE value="back" />
     <MESSAGE value="updown function" />
     <MESSAGE value="optimize and debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize and debug" />
+    <MESSAGE value="deal with IE compatibility" />
+    <option name="LAST_COMMIT_MESSAGE" value="deal with IE compatibility" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -683,9 +682,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#10272#11402#0" expanded="false" />
-            <element signature="e#13937#15821#0" expanded="false" />
-            <element signature="e#20000#20915#0" expanded="false" />
-            <element signature="e#20939#22202#0" expanded="false" />
+            <element signature="e#19999#20914#0" expanded="false" />
+            <element signature="e#20938#22201#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1032,13 +1030,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64141417">
-          <caret line="894" column="51" selection-start-line="894" selection-start-column="51" selection-end-line="894" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.026936026">
+          <caret line="467" column="44" selection-start-line="467" selection-start-column="44" selection-end-line="467" selection-end-column="44" />
           <folding>
             <element signature="e#10272#11402#0" expanded="false" />
-            <element signature="e#13937#15821#0" expanded="false" />
-            <element signature="e#20000#20915#0" expanded="false" />
-            <element signature="e#20939#22202#0" expanded="false" />
+            <element signature="e#19999#20914#0" expanded="false" />
+            <element signature="e#20938#22201#0" expanded="false" />
           </folding>
         </state>
       </provider>

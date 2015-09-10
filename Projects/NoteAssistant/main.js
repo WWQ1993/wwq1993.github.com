@@ -465,7 +465,7 @@ Paragraph={};   //段落相关
 
         var newString = thisTextArea.innerHTML.replace('<a href="mark">','<#>');
         newString = newString.replace(/<a href="mark">/g,'');   //清除富文本自动<a>嵌套
-        newString= newString.replace(/<\/a>/g,'');
+        newString= newString.replace(/<\/a>/,'');
         newString= newString.split('<#>');
 
         //解决切割后的特效消失问题
