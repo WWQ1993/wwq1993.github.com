@@ -1156,3 +1156,29 @@ Handle.shortcutUp = function(event){
 
 document.addEventListener('keydown',Handle.shortcutDown);
 document.addEventListener('keyup',Handle.shortcutUp);
+
+Handle.UpDown = function (event) {
+
+    var thisParagraph;
+
+    switch (event.keyCode){
+        case 38:
+            thisParagraph = document.activeElement.parentNode;
+            if(thisParagraph.previousElementSibling){
+                thisParagraph.previousElementSibling.firstElementChild.nextElementSibling.focus();
+            }
+            event.preventDefault();
+            break;
+        case 40:
+            thisParagraph = document.activeElement.parentNode;
+            if(thisParagraph.nextElementSibling){
+                thisParagraph.nextElementSibling.firstElementChild.nextElementSibling.focus();
+            } else if(!event.ctrlKey){
+                Paragraph.interface('newline') ;
+                Component.toolBar_E.style.backgroundColor="rgba(212, 212, 212, 1)";
+            }
+            event.preventDefault();
+            break;
+    }
+}
+document.addEventListener('keydown',Handle.UpDown);
