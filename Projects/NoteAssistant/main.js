@@ -2,24 +2,6 @@
  * Created by WWQ on 2015/9/1 0001.
  * TODO:
  * 切割<a>乱码
- *
- * //
- //(function(){
-        //    rootNode[0]=[];
-        //    rootNode[0][0]=new Paragraph.CreateTreeNode("00");
-        //    rootNode[0][1]=[];
-        //    rootNode[0][1][0]=new Paragraph.CreateTreeNode("010");
-        //    rootNode[0][1][1]=new Paragraph.CreateTreeNode("011");
-        //    rootNode[1]=new Paragraph.CreateTreeNode("1");
-        //    rootNode[2]=[];
-        //    rootNode[2][0]=new Paragraph.CreateTreeNode("20");
-        //    rootNode[2][1]=[];
-        //    rootNode[2][1][0]=new Paragraph.CreateTreeNode("210");
-        //    rootNode[2][1][1]=new Paragraph.CreateTreeNode("211");
-        //
-        //}());
- *
- *
  */
 
 var WWQ={};
@@ -47,6 +29,7 @@ Component.chooseLevelNum = $('chooseLevel');
 Component.test1=$('test');
 Component.test2=$('test2');
 Component.symbolList = $('symbols');//符号竖条控件
+Component.message = $('message');
 WWQ.levelNum = 5;
 WWQ.symbolsLevel=[]; //符号竖条字符
 WWQ.symbolsOneArr = ['一.','1.','(1)','○','■','□','○','■']; //显示符号横栏字符
@@ -575,7 +558,7 @@ Paragraph={};   //段落相关
 
         currentLevel--;
         if(currentLevel<1){
-            console.log('到头了')
+            WWQ.showMessage('到头了')
             return;
         }
         thisParagraph.style.marginLeft=(25*currentLevel) +"px";
@@ -595,7 +578,7 @@ Paragraph={};   //段落相关
 
         currentLevel++;
         if(currentLevel>WWQ.levelNum){
-            console.log('到尾了')
+            WWQ.showMessage('到尾了')
             return;
         }
         thisParagraph.style.marginLeft=(25*currentLevel) +"px";
@@ -625,7 +608,7 @@ Paragraph={};   //段落相关
 Handle.levelList = function(event ){
     WWQ.choosedLevel = this.j;
 
-    this.style.background="rgba(212, 212, 212, 0.6)";
+    this.style.background="rgba(212, 212, 212, 1)";
     Component.symbolList.style.display = "block";
 
     Component.symbolList.style.left=this.offsetLeft +'px';
@@ -643,7 +626,7 @@ Handle.toolsBtnMouseDown = function(event ){
 //鼠标从按下的按钮内移出 的处理方法
 Handle.toolsBtnMouseOut = function( ){
 
-    this.style.background="rgba(212, 212, 212, 0.6)";
+    this.style.background="rgba(212, 212, 212, 1)";
 };
 
 //点击选择分级数目按钮时调用
@@ -658,7 +641,7 @@ Handle.chooseNumfunc = function(event){
         $('numberList').style.left=(Component.chooseLevelNum.offsetLeft-5) +'px';
 
     }
-    this.style.border = 'outset thin rgba(212, 212, 212, 0.6)';
+    this.style.border = 'outset thin rgba(212, 212, 212, 1)';
 };
 
 //符号横条更新
@@ -714,7 +697,7 @@ Handle.chooseNumfunc = function(event){
             //选好某一级符号后触发
             childNodes[i].ind= j;
             childNodes[i].addEventListener('click',function(event ){
-                this.style.background="rgba(212, 212, 212, 0.6)";
+                this.style.background="rgba(212, 212, 212, 1)";
                 WWQ.underChooseS=false;
 
                 WWQ.symbolsOneArr[WWQ.choosedLevel] = WWQ.symbolsLevel[this.ind];
@@ -751,7 +734,7 @@ Handle.chooseNumfunc = function(event){
 
     Handle.toolBarMouseUp = function(event){
         if(document.activeElement.nodeName!=='P'){
-            console.log("请选中文本")
+            WWQ.showMessage("请选中文本")
             return;
         }
 
@@ -772,7 +755,7 @@ Handle.chooseNumfunc = function(event){
                     case 'toolBar_N':
                         Paragraph.interface('center');
                         break;
-                    default :console.log('请选取文字');
+                    default :WWQ.showMessage('请选取文字');
                         break;
                 }
             }
@@ -808,10 +791,10 @@ Handle.chooseNumfunc = function(event){
         }
         event.stopPropagation(); //避免隐藏bar。
 
-        this.style.backgroundColor="rgba(212, 212, 212, 0.6)";
+        this.style.backgroundColor="rgba(212, 212, 212, 1)";
     };
     Handle.toolBarMouseout=function(){
-        this.style.backgroundColor="rgba(212, 212, 212, 0.6)";
+        this.style.backgroundColor="rgba(212, 212, 212, 1)";
     };
 
     function addListener(target){
@@ -890,10 +873,6 @@ Handle.chooseNumfunc = function(event){
     //mouseup
     document.addEventListener('mouseup',function(event){
 
-        //if(document.activeElement.nodeName==='P'){
-        //    console.log(document.activeElement.style.textAlign+'1111');
-        //    Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
-        //}
         event.preventDefault();
 
         WWQ.seletedText = "";
@@ -910,28 +889,22 @@ Handle.chooseNumfunc = function(event){
         {
             WWQ.seletedText=document.selection.createRange().text.toString();
         }
-
-        if (!WWQ.seletedText || WWQ.mouseDown.clientY < Component.content.offsetTop)    //未选取文字时隐藏
-        {
-            //Component.toolBar.style.display="none";
-            Component.chooseColor.style.display="none";
-            //lastchild距离浏览器顶部距离。
-            var lastY = 0;
-            if(Component.content.lastElementChild){
-                lastY=Component.content.lastElementChild.offsetTop + Component.content.lastElementChild.offsetHeight
-                    - (document.body.scrollTop||document.documentElement.scrollTop);
-            } else{
-                lastY=$('tools').offsetHeight;
-            }
-
-            //新建段落
-            if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //新建段落
-                Component.toolBar_N.style.textAlign =  'left';
-                Paragraph.interface('createParagraph') ;
-            }
-
+        //Component.toolBar.style.display="none";
+        Component.chooseColor.style.display="none";
+        //lastchild距离浏览器顶部距离。
+        var lastY = 0;
+        if(Component.content.lastElementChild){
+            lastY=Component.content.lastElementChild.offsetTop + Component.content.lastElementChild.offsetHeight
+                - (document.body.scrollTop||document.documentElement.scrollTop);
+        } else{
+            lastY=$('tools').offsetHeight;
         }
-        return;
+
+        //新建段落
+        if ( WWQ.mouseDown.clientY>=lastY && event.clientY>=lastY){            //新建段落
+            Component.toolBar_N.style.textAlign =  'left';
+            Paragraph.interface('createParagraph') ;
+        }
     });
 
     //屏蔽右击
@@ -970,9 +943,42 @@ Handle.chooseNumfunc = function(event){
                 WWQ.levelNum=this.ind;
                 Handle.updateLevelDisplay();
                 WWQ.underChooseN=false;
-                this.style.background="rgba(212, 212, 212, 0.6)";
+                this.style.background="rgba(212, 212, 212, 1)";
             });
         }
     }
 })();
+WWQ.tId = 0;
+WWQ.ntId = 0;
+WWQ.showMessage = function(str){
+    Component.message.style.display = 'block';
+    Component.message.style.opacity = 0;
+    Component.message.innerHTML = str
+    clearTimeout(WWQ.tId);
+    clearTimeout(WWQ.ntId);
+    var opacity = 0,
+        showOut = false;
+    var tid = setTimeout(function(){
+        if (!showOut){
 
+            if(opacity<1.5)
+            {
+                opacity+=0.02;
+                Component.message.style.opacity = opacity;
+            }
+            else{
+                showOut=true;
+            }
+            WWQ.ntId = setTimeout(arguments.callee,10);
+        }
+        else{
+            opacity-=0.02;
+            Component.message.style.opacity = opacity;
+            WWQ.ntId = setTimeout(arguments.callee,10);
+        }
+    },0)
+
+    WWQ.tId = setTimeout(function(){
+        Component.message.style.display = 'none';
+    },1500)
+}

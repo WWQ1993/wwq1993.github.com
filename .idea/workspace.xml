@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="619" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="602" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
@@ -37,15 +37,17 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.3325688">
+    <splitter split-orientation="horizontal" split-proportion="0.50076455">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.6078432">
-                  <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
-                  <folding />
+                <state vertical-scroll-proportion="-12.16">
+                  <caret line="124" column="19" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
+                  <folding>
+                    <element signature="n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -53,8 +55,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.61937714">
-                  <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+                <state vertical-scroll-proportion="0.4139073">
+                  <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -67,20 +69,9 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.33217993">
-                  <caret line="454" column="21" selection-start-line="454" selection-start-column="21" selection-end-line="454" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#2060#6289#0" expanded="false" />
-                    <element signature="e#7360#8030#0" expanded="false" />
-                    <element signature="e#8095#8979#0" expanded="false" />
-                    <element signature="e#9077#10528#0" expanded="false" />
-                    <element signature="e#10583#10683#0" expanded="false" />
-                    <element signature="e#10731#11861#0" expanded="false" />
-                    <element signature="e#11913#12250#0" expanded="false" />
-                    <element signature="e#14052#15852#0" expanded="false" />
-                    <element signature="e#18504#18511#0" expanded="false" />
-                    <element signature="e#29382#29592#0" expanded="false" />
-                  </folding>
+                <state vertical-scroll-proportion="0.81125826">
+                  <caret line="907" column="0" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -133,8 +124,8 @@
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/tree.js" />
         <option value="chrome-extension://cfhdojbkjhnklbpkdaibdccddilifddb/include.postload.js" />
         <option value="vm:52" />
-        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
+        <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       </list>
     </option>
@@ -147,6 +138,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="20" />
+    <option name="y" value="3" />
     <option name="width" value="1324" />
     <option name="height" value="738" />
   </component>
@@ -302,12 +295,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00020" summary="new&#10;">
-      <created>1440404281520</created>
-      <option name="number" value="00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1440404281520</updated>
     </task>
     <task id="LOCAL-00021" summary="new&#10;">
       <created>1440404340439</created>
@@ -597,7 +584,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441818969447</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="段落居中状态键">
+      <created>1441852347630</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1441852347669</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView">
@@ -610,12 +603,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1324" height="738" extended-state="0" />
+    <frame x="20" y="3" width="1324" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12401264" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26442307" sideWeight="0.49320242" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1473851" sideWeight="0.5030211" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09350238" sideWeight="0.5030211" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53044873" sideWeight="0.47734138" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3141994" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -645,7 +638,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new&#10;" />
     <MESSAGE value="htmlTODOM" />
     <MESSAGE value="fix the null string outputing" />
     <MESSAGE value="submit button style" />
@@ -670,7 +662,8 @@
     <MESSAGE value="微调" />
     <MESSAGE value="居中" />
     <MESSAGE value="back" />
-    <option name="LAST_COMMIT_MESSAGE" value="back" />
+    <MESSAGE value="段落居中状态键" />
+    <option name="LAST_COMMIT_MESSAGE" value="段落居中状态键" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -686,18 +679,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2060#6289#0" expanded="false" />
-            <element signature="e#7360#8030#0" expanded="false" />
-            <element signature="e#8095#8979#0" expanded="false" />
-            <element signature="e#9077#10528#0" expanded="false" />
-            <element signature="e#10583#10683#0" expanded="false" />
-            <element signature="e#10731#11861#0" expanded="false" />
-            <element signature="e#11913#12250#0" expanded="false" />
-            <element signature="e#14052#15852#0" expanded="false" />
-            <element signature="e#18504#18511#0" expanded="false" />
-            <element signature="e#29382#29592#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1027,36 +1009,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6078432">
-          <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
-          <folding />
+        <state vertical-scroll-proportion="-12.16">
+          <caret line="124" column="19" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
+          <folding>
+            <element signature="n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61937714">
-          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.4139073">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33217993">
-          <caret line="454" column="21" selection-start-line="454" selection-start-column="21" selection-end-line="454" selection-end-column="21" />
-          <folding>
-            <element signature="e#2060#6289#0" expanded="false" />
-            <element signature="e#7360#8030#0" expanded="false" />
-            <element signature="e#8095#8979#0" expanded="false" />
-            <element signature="e#9077#10528#0" expanded="false" />
-            <element signature="e#10583#10683#0" expanded="false" />
-            <element signature="e#10731#11861#0" expanded="false" />
-            <element signature="e#11913#12250#0" expanded="false" />
-            <element signature="e#14052#15852#0" expanded="false" />
-            <element signature="e#18504#18511#0" expanded="false" />
-            <element signature="e#29382#29592#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.81125826">
+          <caret line="907" column="0" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

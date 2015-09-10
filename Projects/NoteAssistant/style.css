@@ -6,7 +6,7 @@ body{
 #tools{
     position: fixed;
     top: 0px;
-    left:0 ;
+    left:0px;
     right:0px;
     margin-right: auto;
     margin-left: auto;
@@ -66,7 +66,7 @@ B{
     font-size: 12px;
     font-weight: 700;
     border-radius: 4px;
-    background-color: rgba(212, 212, 212, 0.41);
+    background-color: rgba(212, 212, 212, 1);
     border: outset thin rgba(135, 135, 135, 0.41);
     cursor: pointer ;
     box-sizing: border-box;
@@ -83,8 +83,6 @@ B{
 
     width:24px ;
     height:24px ;
-    /*background-color: rgba(191, 191, 191, 0.41);*/
-    /*border: outset thin rgba(135, 135, 135, 0.41);*/
     border-radius: 4px;
     margin: 2px 0px;
     box-sizing: border-box;
@@ -116,9 +114,9 @@ B{
     width: 24px;
     height: 24px;
     padding: 0px;
-    background: rgba(212, 212, 212, 0.6) url("ico.gif") no-repeat 7px 10px;
+    background: rgba(212, 212, 212, 1) url("ico.gif") no-repeat 7px 10px;
     border-radius: 3px;
-    border: outset thin rgba(212, 212, 212, 0.41);
+    border: outset thin rgba(212, 212, 212, 1);
     cursor: pointer ;
     vertical-align: middle;
     box-sizing: border-box;
@@ -138,7 +136,7 @@ B{
 
     width:24px ;
     height:24px ;
-    background-color: rgba(212, 212, 212, 0.6);
+    background-color: rgba(212, 212, 212, 1);
     border: outset thin rgba(135, 135, 135, 0.41);
     border-radius: 4px;
     margin: 2px 0px;
@@ -150,7 +148,7 @@ B{
     display: inline-block;
     width:24px ;
     height:24px ;
-    background-color: rgba(212, 212, 212, 0.6);
+    background-color: rgba(212, 212, 212, 1);
     border: outset thin rgba(135, 135, 135, 0.41);
     border-radius: 4px;
     margin: 2px 1px;
@@ -168,7 +166,7 @@ B{
     display: block;
     width:24px ;
     height:24px ;
-    background-color: rgba(212, 212, 212, 0.6);
+    background-color: rgba(212, 212, 212, 1);
     border: outset thin rgba(135, 135, 135, 0.41);
     border-radius: 4px;
     margin: 1px 0px;
@@ -207,4 +205,23 @@ B{
 #content>p>p{
     display: inline-block;
     width: 80%;
+}
+
+#message{
+    opacity: 0.1;
+    position: fixed;
+    text-align: center;
+    line-height:50px;
+    font-size: 20px;
+    display: none;
+    width: 20%;
+    left:0px;
+    right:0px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 50px;
+    top: 400px;
+    background-color: #d3d6d7;
+    box-sizing: border-box;
+
 }
