@@ -403,6 +403,7 @@ Paragraph={};   //段落相关
                 Component.content.removeChild(textContent[i].parentNode) ;
             }
         }
+        updateSymbols();
     };
 
     //"点击文末下方"，新建平级段
@@ -436,7 +437,6 @@ Paragraph={};   //段落相关
 
         newNode.domNode.id=newNode.id;
         updateSymbols();
-        console.log('00')
 
         //获取焦点时移除空行;setTimeout解决iE兼容性问题
         setTimeout(function () {
@@ -446,11 +446,6 @@ Paragraph={};   //段落相关
                 Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
             });
         },100)
-
-
-
-
-
     };
 
     //"↓"  切割某段至新建的平级段
@@ -549,11 +544,8 @@ Paragraph={};   //段落相关
         Component.content.insertBefore(newNode.domNode,thisParagraph.nextElementSibling);
 
         textArea.focus();
-        updateSymbols();
-
-
-            thisTextArea.innerHTML = newString[0];
-            textArea.innerHTML = newString[1];
+        thisTextArea.innerHTML = newString[0];
+        textArea.innerHTML = newString[1];
 
         //获取焦点时移除空行;setTimeout解决iE兼容性问题
         setTimeout(function () {
@@ -563,7 +555,7 @@ Paragraph={};   //段落相关
                 Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
             });
         },100)
-
+        removeNullParagraph();
     };
     //<- 本段级别提升
     var levelUp=function(){
@@ -583,7 +575,6 @@ Paragraph={};   //段落相关
 
         newNode.domNode.id=newNode.id;
         updateSymbols();
-
     };
     //-> 本段级别下降
     var levelDown = function () {
@@ -607,10 +598,6 @@ Paragraph={};   //段落相关
         updateSymbols();
 
     };
-
-    //更新文本所有分段符号
-    var updateThisLevelSymbols = function(){
-    }
 
     var center =function(){
         var thisTextArea = document.activeElement;

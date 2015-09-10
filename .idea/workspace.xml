@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="757" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="744" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
@@ -35,7 +35,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.12388664">
+    <splitter split-orientation="horizontal" split-proportion="0.21825023">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
@@ -65,12 +65,13 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.026936026">
-                  <caret line="467" column="44" selection-start-line="467" selection-start-column="44" selection-end-line="467" selection-end-column="44" />
+                <state vertical-scroll-proportion="1.1582491">
+                  <caret line="404" column="9" selection-start-line="404" selection-start-column="9" selection-end-line="404" selection-end-column="9" />
                   <folding>
-                    <element signature="e#10272#11402#0" expanded="false" />
-                    <element signature="e#19999#20914#0" expanded="false" />
-                    <element signature="e#20938#22201#0" expanded="false" />
+                    <element signature="e#10124#10224#0" expanded="false" />
+                    <element signature="e#13930#15814#0" expanded="false" />
+                    <element signature="e#19918#20833#0" expanded="false" />
+                    <element signature="e#20857#22120#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -296,12 +297,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00030" summary="ok">
-      <created>1441357211861</created>
-      <option name="number" value="00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1441357211861</updated>
     </task>
     <task id="LOCAL-00031" summary="ok">
       <created>1441357350814</created>
@@ -591,7 +586,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441897202307</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="a难以解决">
+      <created>1441898056409</created>
+      <option name="number" value="00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1441898056410</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TodoView">
@@ -639,7 +640,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="utf-8" />
     <MESSAGE value="101112" />
     <MESSAGE value="分段后特效问题" />
     <MESSAGE value="遍历函数问题" />
@@ -664,7 +664,8 @@
     <MESSAGE value="updown function" />
     <MESSAGE value="optimize and debug" />
     <MESSAGE value="deal with IE compatibility" />
-    <option name="LAST_COMMIT_MESSAGE" value="deal with IE compatibility" />
+    <MESSAGE value="a难以解决" />
+    <option name="LAST_COMMIT_MESSAGE" value="a难以解决" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -681,9 +682,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#10272#11402#0" expanded="false" />
-            <element signature="e#19999#20914#0" expanded="false" />
-            <element signature="e#20938#22201#0" expanded="false" />
+            <element signature="e#10124#10224#0" expanded="false" />
+            <element signature="e#13930#15814#0" expanded="false" />
+            <element signature="e#19918#20833#0" expanded="false" />
+            <element signature="e#20857#22120#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,12 +1032,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.026936026">
-          <caret line="467" column="44" selection-start-line="467" selection-start-column="44" selection-end-line="467" selection-end-column="44" />
+        <state vertical-scroll-proportion="1.1582491">
+          <caret line="404" column="9" selection-start-line="404" selection-start-column="9" selection-end-line="404" selection-end-column="9" />
           <folding>
-            <element signature="e#10272#11402#0" expanded="false" />
-            <element signature="e#19999#20914#0" expanded="false" />
-            <element signature="e#20938#22201#0" expanded="false" />
+            <element signature="e#10124#10224#0" expanded="false" />
+            <element signature="e#13930#15814#0" expanded="false" />
+            <element signature="e#19918#20833#0" expanded="false" />
+            <element signature="e#20857#22120#0" expanded="false" />
           </folding>
         </state>
       </provider>
