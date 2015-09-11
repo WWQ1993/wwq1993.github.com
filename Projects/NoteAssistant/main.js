@@ -52,7 +52,7 @@ Component.toolBar_C.style.backgroundColor=WWQ.choosedColor;
 
 Component.toolBar_N.style.textAlign= 'left';
 
-//窗口变化大小时调用
+//窗口变化大小相关
 (function(){
     var tid ;
     Component.content.style.marginTop=$('tools').offsetHeight + 'px';
@@ -783,7 +783,18 @@ Handle.chooseNumfunc = function(event){
             }
             switch (this.id) {
                 case 'toolBar_E':
-                    Paragraph.interface('newline');
+                    if(!WWQ.selectedText){
+                        var thisParagraph = document.activeElement.parentNode;
+                        if(thisParagraph.nextElementSibling) {
+                            thisParagraph.nextElementSibling.firstElementChild.nextElementSibling.focus();
+                        } else{
+                            Paragraph.interface('createParagraph') ;
+                        }
+                    }
+                    else{
+                        Paragraph.interface('newline');
+                        WWQ.showMessage('切割文本成功')
+                    }
                     break;
                 case 'toolBar_L':
                     Paragraph.interface('levelUp');
@@ -1121,8 +1132,8 @@ Handle.chooseNumfunc = function(event){
                         event.preventDefault();
                         break;
                     case 40 :  //下
-
                         Paragraph.interface('newline') ;
+                        WWQ.showMessage('切割文本成功')
                         Component.toolBar_E.style.backgroundColor="rgba(212, 212, 212, 1)";
                         event.preventDefault();
                         break;
