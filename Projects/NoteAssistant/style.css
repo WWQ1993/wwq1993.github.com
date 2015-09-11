@@ -120,7 +120,7 @@ B{
     box-sizing: border-box;
 }
 #numberList{
-    position: relative;
+    position: absolute;
     display: none;
     text-align: center;
     font-size: 15px;
@@ -155,7 +155,7 @@ B{
     text-align: center;
 }
 #symbols{
-    position: relative;
+    position: absolute;
     display: none;
 
 }
