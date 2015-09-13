@@ -55,13 +55,17 @@ Component.toolBar_N.style.textAlign= 'left';
 //窗口变化大小相关
 (function(){
     var tid ;
-    Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+
+
+    setTimeout(function () {
+        Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+    },100);
     //停止拖动窗口100ms后执行
     window.onresize = function(){
         clearTimeout(tid);
         tid = setTimeout(function(){
-            console.log(window.innerWidth)
             Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+
             var paragraph = document.querySelectorAll('#content>p>p');
             for(var i = 0; i < paragraph.length; i++){
                 if(window.innerWidth<400){
@@ -460,7 +464,6 @@ Component.toolBar_N.style.textAlign= 'left';
         //获取焦点时移除空行;setTimeout解决iE兼容性问题
         setTimeout(function () {
             textArea.addEventListener('focus',function(){
-                console.log('0')
                 removeNullParagraph();
                 Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
             });
@@ -566,7 +569,6 @@ Component.toolBar_N.style.textAlign= 'left';
         //获取焦点时移除空行;setTimeout解决iE兼容性问题
         setTimeout(function () {
             textArea.addEventListener('focus',function(){
-                console.log('0')
                 removeNullParagraph();
                 Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
             });
