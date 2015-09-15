@@ -48,14 +48,18 @@ WWQ.color={
     orange:'rgba(255, 120, 0,0.6)'
 };
 WWQ.cache={};
+
+WWQ.storage = {};
+
 Component.toolBar_C.style.backgroundColor=WWQ.choosedColor;
 
 Component.toolBar_N.style.textAlign= 'left';
 
+
+
 //窗口变化大小相关
 (function(){
     var tid ;
-
 
     setTimeout(function () {
         Component.content.style.marginTop=$('tools').offsetHeight + 'px';
@@ -76,7 +80,7 @@ Component.toolBar_N.style.textAlign= 'left';
                 }
             }
 
-        },100);
+        },50);
     };
 
 })();
@@ -237,10 +241,22 @@ Component.toolBar_N.style.textAlign= 'left';
 
     rootNode.domNode = Component.content;
 
+    function setFocusEvent(textArea){
+        //获取焦点时移除空行;setTimeout解决iE兼容性问题
+        setTimeout(function () {
+            textArea.addEventListener('focus',function(){
+                removeNullParagraph();
+                Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
+
+            });
+        },100);
+    };
+
+
     //模块接口
-    Paragraph.interface = function (func) {
-        switch (func){
-            case 'updateSymbols':
+    Paragraph.interface = function (func,args) {
+        switch (func)  {
+        case 'updateSymbols':
                 updateSymbols();
                 break;
             case 'newline':
@@ -254,12 +270,59 @@ Component.toolBar_N.style.textAlign= 'left';
                 levelDown();
                 break;
             case 'createParagraph':
-                createParagraph();
+                createParagraph(args);
                 break;
             case 'center':
                 center();
+            case 'tree':
+                return rootNode;
+            case 'restore':
+                restore.apply(this,args);
         }
     }
+
+    var restore = function (html,level,index) {
+        //console.log(html+' '+level+ ' ' +index);
+
+        var newParagraph = document.createElement("p"),
+            span,
+            textArea=document.createElement('p');
+
+        newParagraph.style.marginLeft=(25* level) +"px";
+        newParagraph.className = 'h'+ level;
+
+        textArea.setAttribute('contenteditable','true');
+        textArea.innerHTML = html;
+        span = document.createElement('span');
+        span.classList.add('spanLevel');
+
+        newParagraph.appendChild(span);
+        newParagraph.appendChild(textArea);
+
+        var fatherNode = null,
+            newNode = new CreateTreeNode(newParagraph);
+
+        var innerFunction = function (faNode,lev) {
+            if(lev === 1){
+                faNode.push(newNode);
+            }
+            else {
+                lev--;
+                faNode.push([]);
+                arguments.callee(faNode[faNode.length-1],lev);
+            }
+        };
+        innerFunction(rootNode,level);
+        getNodeById(newNode.id);
+
+        Component.content.appendChild(newNode.domNode);
+
+        newNode.domNode.id=newNode.id;
+        newNode.level = level;
+        updateSymbols();
+
+        setFocusEvent(textArea);
+    };
 
     //创建树节点
     var CreateTreeNode = function(domNode){
@@ -430,7 +493,7 @@ Component.toolBar_N.style.textAlign= 'left';
     };
 
     //"点击文末下方"，新建平级段
-    var createParagraph=function(){
+    var createParagraph = function(domNode){
         removeNullParagraph();
 
         var newParagraph = document.createElement("p"),
@@ -455,19 +518,17 @@ Component.toolBar_N.style.textAlign= 'left';
         } else{
             newNode = createNodeAfterId(null,newParagraph);
         }
-        Component.content.appendChild(newNode.domNode);
+        if(domNode){
+            Component.content.appendChild(domNode);
+        } else{
+            Component.content.appendChild(newNode.domNode);
+        }
         textArea.focus();
 
         newNode.domNode.id=newNode.id;
         updateSymbols();
 
-        //获取焦点时移除空行;setTimeout解决iE兼容性问题
-        setTimeout(function () {
-            textArea.addEventListener('focus',function(){
-                removeNullParagraph();
-                Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
-            });
-        },100)
+        setFocusEvent(textArea);
     };
 
     //"↓"  切割某段至新建的平级段
@@ -493,7 +554,7 @@ Component.toolBar_N.style.textAlign= 'left';
                 i = 0,
                 pushToAfter = [],
                 pushToBefore = [],
-                regResult
+                regResult;
 
             //before
             while (regResult = Reg.exec(bString)){
@@ -566,13 +627,8 @@ Component.toolBar_N.style.textAlign= 'left';
         thisTextArea.innerHTML = newString[0];
         textArea.innerHTML = newString[1];
 
-        //获取焦点时移除空行;setTimeout解决iE兼容性问题
-        setTimeout(function () {
-            textArea.addEventListener('focus',function(){
-                removeNullParagraph();
-                Component.toolBar_N.style.textAlign = document.activeElement.style.textAlign||'left';
-            });
-        },100)
+
+        setFocusEvent(textArea);
         removeNullParagraph();
     };
     //<- 本段级别提升
@@ -622,7 +678,9 @@ Component.toolBar_N.style.textAlign= 'left';
         thisTextArea.style.textAlign = thisTextArea.style.textAlign==="center"?'left':'center';
 
         Component.toolBar_N.style.textAlign= Component.toolBar_N.style.textAlign==="left"?'center':'left';
-    }
+    };
+
+
 }());
 
 //符号横栏每项点击事件
@@ -1173,5 +1231,69 @@ Handle.chooseNumfunc = function(event){
     };
     document.addEventListener('keydown',Handle.shortcutDown);
     document.addEventListener('keyup',Handle.shortcutUp);
+
+}());
+
+
+document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey ){
+        if(event.keyCode===77){
+            localStorage.Note =null;
+            WWQ.showMessage('已清除当前缓存');
+            event.preventDefault();
+        }
+    }
+});
+
+function getNodeCopy(){
+
+    var tree = Paragraph.interface('tree'),
+        result = [];
+
+    Paragraph.interface('updateSymbols') ;
+
+    function innerFunction(arr){
+
+        for(var i = 0; i < arr.length; i++){
+            if(Array.isArray(arr[i])){
+                arguments.callee(arr[i]);
+
+            } else {
+                result.push({
+                    html:arr[i].domNode.firstElementChild.nextElementSibling.innerHTML,
+                    level:arr[i].level,
+                    index:arr[i].index
+                });
+            }
+        }
+    };
+
+    innerFunction(tree);
+    return result;
+}
+
+(function(){
+
+    if( localStorage.getItem('Note') ){
+
+        var Note = JSON.parse(localStorage.Note);
+
+        if(Note.length>0){
+            for(var i = 0; i < Note.length; i++){
+                Paragraph.interface('restore',[Note[i].html,
+                    Note[i].level,Note[i].index])
+
+            }
+        }
+    }
+
+    WWQ.showMessage('按Ctrl+M 以清除缓存');
+
+    //可能存在性能问题
+    document.addEventListener('keydown', function () {
+        console.log('dfdfdssf');
+        localStorage.Note = JSON.stringify(getNodeCopy());
+
+    });
 
 }());
