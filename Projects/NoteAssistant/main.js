@@ -19,6 +19,8 @@ Component.toolBar_E=$("toolBar_E");
 Component.toolBar_L=$("toolBar_L");
 Component.toolBar_R=$("toolBar_R");
 Component.toolBar_N=$("toolBar_N");
+Component.toolBar_S=$("toolBar_S");
+Component.toolBar_M=$("toolBar_M");
 
 Component.chooseColor=$('chooseColor');
 Component.yellowColorBtn=$('yellow');
@@ -47,9 +49,10 @@ WWQ.color={
     pink:'rgba(255, 0, 255,0.4)',
     orange:'rgba(255, 120, 0,0.6)'
 };
-WWQ.cache={};
 
-WWQ.storage = {};
+WWQ.buf = {};
+
+WWQ.storage = {};//缓存本地数据
 
 Component.toolBar_C.style.backgroundColor=WWQ.choosedColor;
 
@@ -64,8 +67,10 @@ Component.toolBar_N.style.textAlign= 'left';
     setTimeout(function () {
         Component.content.style.marginTop=$('tools').offsetHeight + 'px';
     },100);
+
     //停止拖动窗口100ms后执行
     window.onresize = function(){
+
         clearTimeout(tid);
         tid = setTimeout(function(){
             Component.content.style.marginTop=$('tools').offsetHeight + 'px';
@@ -84,6 +89,130 @@ Component.toolBar_N.style.textAlign= 'left';
     };
 
 })();
+
+
+
+//缓存相关
+(function(){
+    WWQ.storage.save = function () {
+        localStorage.Note = JSON.stringify(getNodeCopy());
+        localStorage.symbols = JSON.stringify(getSymbols());
+        localStorage.levelNum = JSON.stringify(WWQ.levelNum);
+
+        WWQ.showMessage('已保存到本地缓存');
+    };
+
+    WWQ.storage.clear = function () {
+        delete localStorage.Note;
+        delete localStorage.symbols;
+        delete localStorage.levelNum;
+
+        WWQ.showMessage('已清除当前缓存');
+        setTimeout(function () {
+            location.reload();
+        },1000);
+    };
+
+    function getSymbols () {
+        var symbols = [];
+        for(var i = 0; i < 8; i++){
+            symbols.push(WWQ.currentSymbolsArr[i]);
+        }
+        return symbols;
+    };
+
+    //对内容节点的拷贝（避免对parentArr循环引用）
+    function getNodeCopy(){
+
+        var tree = Paragraph.interface('tree'),
+            result = [];
+
+        Paragraph.interface('updateSymbols') ;
+
+        function innerFunction(arr){
+
+            for(var i = 0; i < arr.length; i++){
+                if(Array.isArray(arr[i])){
+                    arguments.callee(arr[i]);
+
+                } else {
+
+                    result.push({
+                        html:arr[i].domNode.firstElementChild.nextElementSibling.innerHTML,
+                        level:arr[i].level,
+                        index:arr[i].index,
+                        center:arr[i].domNode.firstElementChild.nextElementSibling.style.textAlign||
+                        'left'
+                    });
+                }
+            }
+        };
+
+        innerFunction(tree);
+        return result;
+    };
+
+    window.onload = function () {
+       if( localStorage.Note ){
+
+           var Note = JSON.parse(localStorage.Note);
+
+           if(Note.length>0){
+               for(var i = 0; i < Note.length; i++){
+                   Paragraph.interface('restore',[Note[i].html,
+                       Note[i].level,Note[i].index,Note[i].center])
+
+               }
+           }
+       };
+    };
+
+    if(!localStorage.levelNum){
+        localStorage.levelNum  = WWQ.levelNum;
+    }
+
+    if(localStorage.symbols ) {
+        var symbols = JSON.parse(localStorage.symbols);
+        WWQ.levelNum = JSON.parse(localStorage.levelNum);
+
+        for (var i = 0; i < symbols.length; i++) {
+            WWQ.currentSymbolsArr[i]=symbols[i];
+            console.log(WWQ.currentSymbolsArr[i][0])
+            WWQ.symbolsOneArr[i] = WWQ.currentSymbolsArr[i][0];
+
+        }
+        //setTimeout(function () {
+        //    Handle.updateLevelDisplay();
+        //},100);
+    } else{
+        //按照横栏初始值初始化符号等级
+        WWQ.currentSymbolsArr[0] = WWQ.allSymbolsArr[0];
+        WWQ.currentSymbolsArr[1] = WWQ.allSymbolsArr[1];
+        WWQ.currentSymbolsArr[2] = WWQ.allSymbolsArr[2];
+        WWQ.currentSymbolsArr[3] = WWQ.allSymbolsArr[6];
+        WWQ.currentSymbolsArr[4] = WWQ.allSymbolsArr[9];
+        WWQ.currentSymbolsArr[5] = WWQ.allSymbolsArr[8];
+        WWQ.currentSymbolsArr[6] = WWQ.allSymbolsArr[6];
+        WWQ.currentSymbolsArr[7] = WWQ.allSymbolsArr[9];
+    }
+
+    //ctrl s
+    document.addEventListener('keydown', function (event) {
+        if(event.keyCode===83 && event.ctrlKey){
+            WWQ.storage.save();
+            event.preventDefault();
+        }
+    });
+    // ctrl m
+    document.addEventListener('keydown', function (event) {
+        if (event.ctrlKey ){
+            if(event.keyCode===77){
+                WWQ.storage.clear();
+                event.preventDefault();
+            }
+        }
+    });
+}());
 
 //分级符号初始化
 (function(){
@@ -206,17 +335,10 @@ Component.toolBar_N.style.textAlign= 'left';
     WWQ.allSymbolsArr[9]='■';
     WWQ.allSymbolsArr[10]='';
 
-    //按照横栏初始值初始化符号等级
-    WWQ.currentSymbolsArr[0] = WWQ.allSymbolsArr[0];
-    WWQ.currentSymbolsArr[1] = WWQ.allSymbolsArr[1];
-    WWQ.currentSymbolsArr[2] = WWQ.allSymbolsArr[2];
-    WWQ.currentSymbolsArr[3] = WWQ.allSymbolsArr[6];
-    WWQ.currentSymbolsArr[4] = WWQ.allSymbolsArr[9];
-    WWQ.currentSymbolsArr[5] = WWQ.allSymbolsArr[8];
-    WWQ.currentSymbolsArr[6] = WWQ.allSymbolsArr[6];
-    WWQ.currentSymbolsArr[7] = WWQ.allSymbolsArr[9];
+
 
     WWQ.levelSymbolsControl={};
+
     WWQ.levelSymbolsControl.getSymbol=function(currentlevel){
         var arr = WWQ.currentSymbolsArr[currentlevel-1];
         if(Array.isArray(arr)){
@@ -734,6 +856,10 @@ Handle.chooseNumfunc = function(event){
     Component.chooseLevelNum.style.backgroundPositionY = "10px"
     Component.symbolList.style.display = "none";
 
+    setTimeout(function () {
+        Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+    },100)
+
     //横条每项：
     for(i = 0, j = 0; i < childNodes.length; i++) {
         //隐藏每项
@@ -808,7 +934,7 @@ Handle.chooseNumfunc = function(event){
         if(event.button === 0){
             this.style.backgroundColor="#CACACA";
             Component.chooseColor.style.display="none";
-            WWQ.cache.secClick=false;
+            WWQ.buf.secClick=false;
         }
         event.preventDefault(); //使按钮文字不可选,已选的文本不失焦
     };
@@ -816,6 +942,14 @@ Handle.chooseNumfunc = function(event){
     Handle.toolBarMouseUp = function(event){
 
         this.style.backgroundColor="rgba(212, 212, 212, 1)";
+
+        if(this.id==='toolBar_S'){
+            WWQ.storage.save();
+            return;
+        } else if(this.id==='toolBar_M'){
+            WWQ.showMessage('按Ctrl M以确定删除')
+            return;
+        }
 
         if(document.activeElement.nodeName!=='P'){
             WWQ.showMessage("请选中文本")
@@ -891,6 +1025,8 @@ Handle.chooseNumfunc = function(event){
     addListener(Component.toolBar_L);
     addListener(Component.toolBar_R);
     addListener(Component.toolBar_N);
+    addListener(Component.toolBar_S);
+    addListener(Component.toolBar_M);
 
     Component.toolBar_C.addEventListener('mousedown', function (event) {
         this.style.opacity='0.6';
@@ -899,16 +1035,16 @@ Handle.chooseNumfunc = function(event){
 
     });
     Component.toolBar_C.addEventListener('mouseup', function (event) {
-        if(!WWQ.cache.secClick){
+        if(!WWQ.buf.secClick){
             this.style.opacity='1';
 
             //弹出选色菜单
             WWQ.showColorSelector.call(this);
             event.stopPropagation(); //避免隐藏bar。
-            WWQ.cache.secClick=true;
+            WWQ.buf.secClick=true;
         }
         else {
-            WWQ.cache.secClick=false;
+            WWQ.buf.secClick=false;
             this.style.opacity='1';
             Component.chooseColor.style.display="none";
         }
@@ -921,7 +1057,7 @@ Handle.chooseNumfunc = function(event){
         var i = 0;
         WWQ.choosedColor=WWQ.color[this.id];
         Component.chooseColor.style.display="none";
-        WWQ.cache.secClick=false;
+        WWQ.buf.secClick=false;
 
         Component.toolBar_C.style.backgroundColor=WWQ.choosedColor;
         if(WWQ.selectedText){
@@ -1002,7 +1138,7 @@ Handle.chooseNumfunc = function(event){
         WWQ.getSelectedText();
 
         Component.chooseColor.style.display="none";
-        WWQ.cache.secClick=false;
+        WWQ.buf.secClick=false;
         Component.symbolList.style.display="none";
         Component.numberList.style.display = "none";
         Component.chooseLevelNum.style.backgroundPositionY = "10px"
@@ -1035,9 +1171,7 @@ Handle.chooseNumfunc = function(event){
         this.style.border = 'outset thin black';
     });
     Component.chooseLevelNum.addEventListener('click',Handle.chooseNumfunc);
-    Component.chooseLevelNum.addEventListener('mouseout',function(){
-        this.style.border = 'none'
-    });
+  
 }());
 
 //数字条
@@ -1238,80 +1372,3 @@ Handle.chooseNumfunc = function(event){
 }());
 
 
-document.addEventListener('keydown', function (event) {
-    if (event.ctrlKey ){
-        if(event.keyCode===77){
-            delete localStorage.Note  ;
-            WWQ.showMessage('已清除当前缓存');
-            setTimeout(function () {
-                location.reload();
-            },1000)
-            event.preventDefault();
-        }
-    }
-});
-
-//对内容节点的拷贝（避免对parentArr循环引用）
-function getNodeCopy(){
-
-    var tree = Paragraph.interface('tree'),
-        result = [];
-
-    Paragraph.interface('updateSymbols') ;
-
-    function innerFunction(arr){
-
-        for(var i = 0; i < arr.length; i++){
-            if(Array.isArray(arr[i])){
-                arguments.callee(arr[i]);
-
-            } else {
-
-                result.push({
-                    html:arr[i].domNode.firstElementChild.nextElementSibling.innerHTML,
-                    level:arr[i].level,
-                    index:arr[i].index,
-                    center:arr[i].domNode.firstElementChild.nextElementSibling.style.textAlign||
-                        'left'
-                });
-            }
-        }
-    };
-
-    innerFunction(tree);
-    return result;
-}
-
-(function(){
-
-    if( localStorage.Note ){
-
-        var Note = JSON.parse(localStorage.Note);
-
-        if(Note.length>0){
-            for(var i = 0; i < Note.length; i++){
-                Paragraph.interface('restore',[Note[i].html,
-                    Note[i].level,Note[i].index,Note[i].center])
-
-            }
-        }
-    }
-
-    WWQ.showMessage('按Ctrl+M 以清除缓存');
-    //setTimeout(function () {
-    //    WWQ.showMessage('按Ctrl+S 以保存');
-    //},2000)
-
-    //可能存在性能问题
-    document.addEventListener('keydown', function (event) {
-        if(event.keyCode===83 && event.ctrlKey){
-            localStorage.Note = JSON.stringify(getNodeCopy());
-            WWQ.showMessage('已保存');
-            event.preventDefault();
-        }
-
-    });
-
-}());
-
-//TODO 居中缓存问题；符号缓存；点特效按钮也缓存（加缓存键和清除键）
