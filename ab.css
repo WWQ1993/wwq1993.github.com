@@ -66,6 +66,7 @@ aside {
 article{
     display: table-cell;
     vertical-align: top;
+
 }
 #table{
     display: table;
@@ -99,4 +100,14 @@ footer{
 }
 .focus{
     color: #0000FF;
+}
+
+.book{
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    border: thick grey solid;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
 }
