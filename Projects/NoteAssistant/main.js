@@ -92,127 +92,6 @@ Component.toolBar_N.style.textAlign= 'left';
 
 
 
-//缓存相关
-(function(){
-    WWQ.storage.save = function () {
-        localStorage.Note = JSON.stringify(getNodeCopy());
-        localStorage.symbols = JSON.stringify(getSymbols());
-        localStorage.levelNum = JSON.stringify(WWQ.levelNum);
-
-        WWQ.showMessage('已保存到本地缓存');
-    };
-
-    WWQ.storage.clear = function () {
-        delete localStorage.Note;
-        delete localStorage.symbols;
-        delete localStorage.levelNum;
-
-        WWQ.showMessage('已清除当前缓存');
-        setTimeout(function () {
-            location.reload();
-        },1000);
-    };
-
-    function getSymbols () {
-        var symbols = [];
-        for(var i = 0; i < 8; i++){
-            symbols.push(WWQ.currentSymbolsArr[i]);
-        }
-        return symbols;
-    };
-
-    //对内容节点的拷贝（避免对parentArr循环引用）
-    function getNodeCopy(){
-
-        var tree = Paragraph.interface('tree'),
-            result = [];
-
-        Paragraph.interface('updateSymbols') ;
-
-        function innerFunction(arr){
-
-            for(var i = 0; i < arr.length; i++){
-                if(Array.isArray(arr[i])){
-                    arguments.callee(arr[i]);
-
-                } else {
-
-                    result.push({
-                        html:arr[i].domNode.firstElementChild.nextElementSibling.innerHTML,
-                        level:arr[i].level,
-                        index:arr[i].index,
-                        center:arr[i].domNode.firstElementChild.nextElementSibling.style.textAlign||
-                        'left'
-                    });
-                }
-            }
-        };
-
-        innerFunction(tree);
-        return result;
-    };
-
-    window.onload = function () {
-       if( localStorage.Note ){
-
-           var Note = JSON.parse(localStorage.Note);
-
-           if(Note.length>0){
-               for(var i = 0; i < Note.length; i++){
-                   Paragraph.interface('restore',[Note[i].html,
-                       Note[i].level,Note[i].index,Note[i].center])
-
-               }
-           }
-       };
-    };
-
-    if(!localStorage.levelNum){
-        localStorage.levelNum  = WWQ.levelNum;
-    }
-
-    if(localStorage.symbols ) {
-        var symbols = JSON.parse(localStorage.symbols);
-        WWQ.levelNum = JSON.parse(localStorage.levelNum);
-
-        for (var i = 0; i < symbols.length; i++) {
-            WWQ.currentSymbolsArr[i]=symbols[i];
-            console.log(WWQ.currentSymbolsArr[i][0])
-            WWQ.symbolsOneArr[i] = WWQ.currentSymbolsArr[i][0];
-
-        }
-        //setTimeout(function () {
-        //    Handle.updateLevelDisplay();
-        //},100);
-    } else{
-        //按照横栏初始值初始化符号等级
-        WWQ.currentSymbolsArr[0] = WWQ.allSymbolsArr[0];
-        WWQ.currentSymbolsArr[1] = WWQ.allSymbolsArr[1];
-        WWQ.currentSymbolsArr[2] = WWQ.allSymbolsArr[2];
-        WWQ.currentSymbolsArr[3] = WWQ.allSymbolsArr[6];
-        WWQ.currentSymbolsArr[4] = WWQ.allSymbolsArr[9];
-        WWQ.currentSymbolsArr[5] = WWQ.allSymbolsArr[8];
-        WWQ.currentSymbolsArr[6] = WWQ.allSymbolsArr[6];
-        WWQ.currentSymbolsArr[7] = WWQ.allSymbolsArr[9];
-    }
-
-    //ctrl s
-    document.addEventListener('keydown', function (event) {
-        if(event.keyCode===83 && event.ctrlKey){
-            WWQ.storage.save();
-            event.preventDefault();
-        }
-    });
-    // ctrl m
-    document.addEventListener('keydown', function (event) {
-        if (event.ctrlKey ){
-            if(event.keyCode===77){
-                WWQ.storage.clear();
-                event.preventDefault();
-            }
-        }
-    });
-}());
 
 //分级符号初始化
 (function(){
@@ -354,6 +233,129 @@ Component.toolBar_N.style.textAlign= 'left';
         }
         WWQ.currentSymbolsArr[currentlevel-1] = WWQ.allSymbolsArr[WWQ.choosedLevelBuf[currentlevel-1]||(currentlevel-1)];
     }
+}());
+
+
+//缓存相关
+(function(){
+    WWQ.storage.save = function () {
+        localStorage.Note = JSON.stringify(getNodeCopy());
+        localStorage.symbols = JSON.stringify(getSymbols());
+        localStorage.levelNum = JSON.stringify(WWQ.levelNum);
+
+        WWQ.showMessage('已保存到本地缓存');
+    };
+
+    WWQ.storage.clear = function () {
+        delete localStorage.Note;
+        delete localStorage.symbols;
+        delete localStorage.levelNum;
+
+        WWQ.showMessage('已清除当前缓存');
+        setTimeout(function () {
+            location.reload();
+        },1000);
+    };
+
+    function getSymbols () {
+        var symbols = [];
+        for(var i = 0; i < 8; i++){
+            symbols.push(WWQ.currentSymbolsArr[i]);
+        }
+        return symbols;
+    };
+
+    //对内容节点的拷贝（避免对parentArr循环引用）
+    function getNodeCopy(){
+
+        var tree = Paragraph.interface('tree'),
+            result = [];
+
+        Paragraph.interface('updateSymbols') ;
+
+        function innerFunction(arr){
+
+            for(var i = 0; i < arr.length; i++){
+                if(Array.isArray(arr[i])){
+                    arguments.callee(arr[i]);
+
+                } else {
+
+                    result.push({
+                        html:arr[i].domNode.firstElementChild.nextElementSibling.innerHTML,
+                        level:arr[i].level,
+                        index:arr[i].index,
+                        center:arr[i].domNode.firstElementChild.nextElementSibling.style.textAlign||
+                        'left'
+                    });
+                }
+            }
+        };
+
+        innerFunction(tree);
+        return result;
+    };
+
+    window.onload = function () {
+        if( localStorage.Note ){
+
+            var Note = JSON.parse(localStorage.Note);
+
+            if(Note.length>0){
+                for(var i = 0; i < Note.length; i++){
+                    Paragraph.interface('restore',[Note[i].html,
+                        Note[i].level,Note[i].index,Note[i].center])
+
+                }
+            }
+        };
+    };
+
+    if(!localStorage.levelNum){
+        localStorage.levelNum  = WWQ.levelNum;
+    }
+
+    if(localStorage.symbols ) {
+        var symbols = JSON.parse(localStorage.symbols);
+        WWQ.levelNum = JSON.parse(localStorage.levelNum);
+
+        for (var i = 0; i < symbols.length; i++) {
+            WWQ.currentSymbolsArr[i]=symbols[i];
+            console.log(WWQ.currentSymbolsArr[i][0])
+            WWQ.symbolsOneArr[i] = WWQ.currentSymbolsArr[i][0];
+
+        }
+        //setTimeout(function () {
+        //    Handle.updateLevelDisplay();
+        //},100);
+    } else{
+        //按照横栏初始值初始化符号等级
+        WWQ.currentSymbolsArr[0] = WWQ.allSymbolsArr[0];
+        WWQ.currentSymbolsArr[1] = WWQ.allSymbolsArr[1];
+        WWQ.currentSymbolsArr[2] = WWQ.allSymbolsArr[2];
+        WWQ.currentSymbolsArr[3] = WWQ.allSymbolsArr[6];
+        WWQ.currentSymbolsArr[4] = WWQ.allSymbolsArr[9];
+        WWQ.currentSymbolsArr[5] = WWQ.allSymbolsArr[8];
+        WWQ.currentSymbolsArr[6] = WWQ.allSymbolsArr[6];
+        WWQ.currentSymbolsArr[7] = WWQ.allSymbolsArr[9];
+    }
+
+    //ctrl s
+    document.addEventListener('keydown', function (event) {
+        if(event.keyCode===83 && event.ctrlKey){
+            WWQ.storage.save();
+            event.preventDefault();
+        }
+    });
+    // ctrl m
+    document.addEventListener('keydown', function (event) {
+        if (event.ctrlKey ){
+            if(event.keyCode===77){
+                WWQ.storage.clear();
+                event.preventDefault();
+            }
+        }
+    });
 }());
 
 //Paragraph模型
