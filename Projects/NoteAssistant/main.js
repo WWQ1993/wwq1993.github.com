@@ -325,7 +325,7 @@ Component.toolBar_N.style.textAlign= 'left';
             WWQ.symbolsOneArr[i] = WWQ.currentSymbolsArr[i][0];
 
         }
-        //setTimeout(function () {
+         //setTimeout(function () {
         //    Handle.updateLevelDisplay();
         //},100);
     } else{

@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -59,18 +60,18 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25045046">
-              <caret line="334" column="37" selection-start-line="334" selection-start-column="37" selection-end-line="334" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.30810812">
+              <caret line="327" column="9" selection-start-line="327" selection-start-column="9" selection-end-line="327" selection-end-column="9" />
               <folding>
                 <element signature="e#6795#6950#0" expanded="false" />
                 <element signature="e#7012#7811#0" expanded="false" />
-                <element signature="e#10989#12226#0" expanded="false" />
-                <element signature="e#11718#11960#0" expanded="false" />
-                <element signature="e#12283#12480#0" expanded="false" />
-                <element signature="e#13269#14153#0" expanded="false" />
-                <element signature="e#14251#15701#0" expanded="false" />
-                <element signature="e#17594#18748#0" expanded="false" />
-                <element signature="e#18800#22157#0" expanded="false" />
+                <element signature="e#10990#12227#0" expanded="false" />
+                <element signature="e#11719#11961#0" expanded="false" />
+                <element signature="e#12284#12481#0" expanded="false" />
+                <element signature="e#13270#14154#0" expanded="false" />
+                <element signature="e#14252#15702#0" expanded="false" />
+                <element signature="e#17595#18749#0" expanded="false" />
+                <element signature="e#18801#22158#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -124,8 +125,8 @@
         <option value="/" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
-        <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
         <option value="wwq1993.github.io/Projects/NoteAssistant/main.js" />
+        <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       </list>
     </option>
   </component>
@@ -348,12 +349,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00043" summary="gbk">
-      <created>1441360198021</created>
-      <option name="number" value="00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1441360198021</updated>
     </task>
     <task id="LOCAL-00044" summary="utf-8">
       <created>1441360540363</created>
@@ -643,7 +638,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442378542060</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="debug&#10;">
+      <created>1442378835587</created>
+      <option name="number" value="00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1442378835587</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TodoView">
@@ -659,7 +660,7 @@
     <frame x="683" y="0" width="683" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09201214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26442307" sideWeight="0.49320242" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.49320242" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09350238" sideWeight="0.5030211" order="6" side_tool="true" content_ui="tabs" />
@@ -1079,18 +1080,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25045046">
-          <caret line="334" column="37" selection-start-line="334" selection-start-column="37" selection-end-line="334" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.30810812">
+          <caret line="327" column="9" selection-start-line="327" selection-start-column="9" selection-end-line="327" selection-end-column="9" />
           <folding>
             <element signature="e#6795#6950#0" expanded="false" />
             <element signature="e#7012#7811#0" expanded="false" />
-            <element signature="e#10989#12226#0" expanded="false" />
-            <element signature="e#11718#11960#0" expanded="false" />
-            <element signature="e#12283#12480#0" expanded="false" />
-            <element signature="e#13269#14153#0" expanded="false" />
-            <element signature="e#14251#15701#0" expanded="false" />
-            <element signature="e#17594#18748#0" expanded="false" />
-            <element signature="e#18800#22157#0" expanded="false" />
+            <element signature="e#10990#12227#0" expanded="false" />
+            <element signature="e#11719#11961#0" expanded="false" />
+            <element signature="e#12284#12481#0" expanded="false" />
+            <element signature="e#13270#14154#0" expanded="false" />
+            <element signature="e#14252#15702#0" expanded="false" />
+            <element signature="e#17595#18749#0" expanded="false" />
+            <element signature="e#18801#22158#0" expanded="false" />
           </folding>
         </state>
       </provider>
