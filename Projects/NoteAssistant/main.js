@@ -241,6 +241,7 @@ Component.toolBar_N.style.textAlign= 'left';
 
     rootNode.domNode = Component.content;
 
+    //设置段落获取焦点时触发事件
     function setFocusEvent(textArea){
         //获取焦点时移除空行;setTimeout解决iE兼容性问题
         setTimeout(function () {
@@ -281,7 +282,7 @@ Component.toolBar_N.style.textAlign= 'left';
         }
     }
 
-    var restore = function (html,level,index) {
+    var restore = function (html,level,index,center) {
         //console.log(html+' '+level+ ' ' +index);
 
         var newParagraph = document.createElement("p"),
@@ -293,6 +294,7 @@ Component.toolBar_N.style.textAlign= 'left';
 
         textArea.setAttribute('contenteditable','true');
         textArea.innerHTML = html;
+        textArea.style.textAlign = center;
         span = document.createElement('span');
         span.classList.add('spanLevel');
 
@@ -676,7 +678,6 @@ Component.toolBar_N.style.textAlign= 'left';
     var center =function(){
         var thisTextArea = document.activeElement;
         thisTextArea.style.textAlign = thisTextArea.style.textAlign==="center"?'left':'center';
-
         Component.toolBar_N.style.textAlign= Component.toolBar_N.style.textAlign==="left"?'center':'left';
     };
 
@@ -813,6 +814,9 @@ Handle.chooseNumfunc = function(event){
     };
 
     Handle.toolBarMouseUp = function(event){
+
+        this.style.backgroundColor="rgba(212, 212, 212, 1)";
+
         if(document.activeElement.nodeName!=='P'){
             WWQ.showMessage("请选中文本")
             return;
@@ -869,7 +873,6 @@ Handle.chooseNumfunc = function(event){
         }
         event.stopPropagation(); //避免隐藏bar。
 
-        this.style.backgroundColor="rgba(212, 212, 212, 1)";
     };
     Handle.toolBarMouseout=function(){
         this.style.backgroundColor="rgba(212, 212, 212, 1)";
@@ -1238,13 +1241,17 @@ Handle.chooseNumfunc = function(event){
 document.addEventListener('keydown', function (event) {
     if (event.ctrlKey ){
         if(event.keyCode===77){
-            localStorage.Note =null;
+            delete localStorage.Note  ;
             WWQ.showMessage('已清除当前缓存');
+            setTimeout(function () {
+                location.reload();
+            },1000)
             event.preventDefault();
         }
     }
 });
 
+//对内容节点的拷贝（避免对parentArr循环引用）
 function getNodeCopy(){
 
     var tree = Paragraph.interface('tree'),
@@ -1259,10 +1266,13 @@ function getNodeCopy(){
                 arguments.callee(arr[i]);
 
             } else {
+
                 result.push({
                     html:arr[i].domNode.firstElementChild.nextElementSibling.innerHTML,
                     level:arr[i].level,
-                    index:arr[i].index
+                    index:arr[i].index,
+                    center:arr[i].domNode.firstElementChild.nextElementSibling.style.textAlign||
+                        'left'
                 });
             }
         }
@@ -1274,26 +1284,34 @@ function getNodeCopy(){
 
 (function(){
 
-    if( localStorage.getItem('Note') ){
+    if( localStorage.Note ){
 
         var Note = JSON.parse(localStorage.Note);
 
         if(Note.length>0){
             for(var i = 0; i < Note.length; i++){
                 Paragraph.interface('restore',[Note[i].html,
-                    Note[i].level,Note[i].index])
+                    Note[i].level,Note[i].index,Note[i].center])
 
             }
         }
     }
 
     WWQ.showMessage('按Ctrl+M 以清除缓存');
+    //setTimeout(function () {
+    //    WWQ.showMessage('按Ctrl+S 以保存');
+    //},2000)
 
     //可能存在性能问题
-    document.addEventListener('keydown', function () {
-        console.log('dfdfdssf');
-        localStorage.Note = JSON.stringify(getNodeCopy());
+    document.addEventListener('keydown', function (event) {
+        if(event.keyCode===83 && event.ctrlKey){
+            localStorage.Note = JSON.stringify(getNodeCopy());
+            WWQ.showMessage('已保存');
+            event.preventDefault();
+        }
 
     });
 
 }());
+
+//TODO 居中缓存问题；符号缓存；点特效按钮也缓存（加缓存键和清除键）
