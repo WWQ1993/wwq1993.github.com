@@ -1,6 +1,6 @@
 /**
  * Created by WWQ on 2015/9/1 0001.
- * TODO:
+ * TODO: bugs： 从前往后的序号重排问题
  * 切割<a>乱码
  */
 
