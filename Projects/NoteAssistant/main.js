@@ -322,7 +322,6 @@ Component.toolBar_N.style.textAlign= 'left';
 
         for (var i = 0; i < symbols.length; i++) {
             WWQ.currentSymbolsArr[i]=symbols[i];
-            console.log(WWQ.currentSymbolsArr[i][0])
             WWQ.symbolsOneArr[i] = WWQ.currentSymbolsArr[i][0];
             if(!WWQ.symbolsOneArr[i]){
                 WWQ.symbolsOneArr[i] = '×';
