@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="1026" />
+    <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="1027" />
     <bookmark url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" line="949" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="jquery">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadNotes/jQuery/0.html" afterPath="$PROJECT_DIR$/ReadNotes/jQuery/0.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/index.html" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" afterPath="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
     <ignored path="homePage.iws" />
@@ -40,36 +42,36 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+            <state vertical-scroll-proportion="-11.52">
+              <caret line="71" column="46" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="324" column="0" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.50448835">
+              <caret line="963" column="21" selection-start-line="963" selection-start-column="21" selection-end-line="963" selection-end-column="21" />
               <folding>
-                <element signature="e#6849#7004#0" expanded="false" />
-                <element signature="e#7066#7865#0" expanded="false" />
-                <element signature="e#11088#12325#0" expanded="false" />
-                <element signature="e#11817#12059#0" expanded="false" />
-                <element signature="e#12382#12579#0" expanded="false" />
-                <element signature="e#13368#14252#0" expanded="false" />
-                <element signature="e#14350#15800#0" expanded="false" />
+                <element signature="e#6851#7006#0" expanded="false" />
+                <element signature="e#7068#7867#0" expanded="false" />
+                <element signature="e#11090#12327#0" expanded="false" />
+                <element signature="e#11819#12061#0" expanded="false" />
+                <element signature="e#12384#12581#0" expanded="false" />
+                <element signature="e#13370#14254#0" expanded="false" />
+                <element signature="e#14352#15802#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20609319">
-              <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+            <state vertical-scroll-proportion="-18.04">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -142,9 +144,9 @@
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/style.css" />
         <option value="wwq1993.github.io/Projects/NoteAssistant/main.js" />
         <option value="$PROJECT_DIR$/ab.css" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/index.html" />
         <option value="$PROJECT_DIR$/Projects/NoteAssistant/main.js" />
-        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -156,9 +158,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="288" />
-    <option name="y" value="3" />
-    <option name="width" value="987" />
+    <option name="x" value="87" />
+    <option name="width" value="1228" />
     <option name="height" value="738" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -209,7 +210,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -277,6 +277,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -382,12 +383,6 @@
       <created>1436164050640</created>
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
-    </task>
-    <task id="LOCAL-00049" summary="101112">
-      <created>1441379723575</created>
-      <option name="number" value="00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1441379723575</updated>
     </task>
     <task id="LOCAL-00050" summary="101112">
       <created>1441387107443</created>
@@ -677,7 +672,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442856959502</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="jquery">
+      <created>1442857143091</created>
+      <option name="number" value="00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1442857143091</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView">
@@ -690,27 +691,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="288" y="3" width="987" height="738" extended-state="0" />
-    <editor active="false" />
+    <frame x="87" y="0" width="1228" height="738" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2034188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26442307" sideWeight="0.49320242" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09350238" sideWeight="0.5030211" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52960527" sideWeight="0.47734138" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3141994" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24931881" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730263" sideWeight="0.49229288" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20683761" sideWeight="0.47434944" order="3" side_tool="false" content_ui="tabs" x="0" y="-5" width="310" height="461" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.49320242" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3141994" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14473684" sideWeight="0.49697885" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20748988" sideWeight="0.47434944" order="3" side_tool="false" content_ui="tabs" x="0" y="-5" width="310" height="461" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -983,10 +984,10 @@
       </provider>
     </entry>
     <entry file="http://wwq1993.github.io/favicon.ico">
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="httpFileEditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="httpFileEditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
     </entry>
@@ -1076,7 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4130809">
           <caret line="15" column="27" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1096,35 +1096,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.04">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+        <state vertical-scroll-proportion="-11.52">
+          <caret line="71" column="46" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="324" column="0" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.50448835">
+          <caret line="963" column="21" selection-start-line="963" selection-start-column="21" selection-end-line="963" selection-end-column="21" />
           <folding>
-            <element signature="e#6849#7004#0" expanded="false" />
-            <element signature="e#7066#7865#0" expanded="false" />
-            <element signature="e#11088#12325#0" expanded="false" />
-            <element signature="e#11817#12059#0" expanded="false" />
-            <element signature="e#12382#12579#0" expanded="false" />
-            <element signature="e#13368#14252#0" expanded="false" />
-            <element signature="e#14350#15800#0" expanded="false" />
+            <element signature="e#6851#7006#0" expanded="false" />
+            <element signature="e#7068#7867#0" expanded="false" />
+            <element signature="e#11090#12327#0" expanded="false" />
+            <element signature="e#11819#12061#0" expanded="false" />
+            <element signature="e#12384#12581#0" expanded="false" />
+            <element signature="e#13370#14254#0" expanded="false" />
+            <element signature="e#14352#15802#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20609319">
-          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>

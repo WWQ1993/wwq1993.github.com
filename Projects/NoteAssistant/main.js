@@ -21,7 +21,7 @@ Component.toolBar_R=$("toolBar_R");
 Component.toolBar_N=$("toolBar_N");
 Component.toolBar_S=$("toolBar_S");
 Component.toolBar_M=$("toolBar_M");
-Component.toolBar_D=$("toolBar_D");
+//Component.toolBar_D=$("toolBar_D");
 
 Component.chooseColor=$('chooseColor');
 Component.yellowColorBtn=$('yellow');
@@ -954,14 +954,15 @@ Handle.chooseNumfunc = function(event){
         } else if(this.id==='toolBar_M'){
             WWQ.showMessage('按Ctrl M以确定删除')
             return;
-        } else if(this.id==='toolBar_D'){
-            var textArea = document.querySelectorAll('p[contenteditable]');
-            for(var i = 0; i < textArea.length; i++){
-                textArea[i].setAttribute('contenteditable',false);
-            }
-            WWQ.showMessage('转化成功'+textArea.length);
-            return;
         }
+        //else if(this.id==='toolBar_D'){
+        //    var textArea = document.querySelectorAll('p[contenteditable]');
+        //    for(var i = 0; i < textArea.length; i++){
+        //        textArea[i].setAttribute('contenteditable',false);
+        //    }
+        //    WWQ.showMessage('转化成功'+textArea.length);
+        //    return;
+        //}
 
         if(document.activeElement.nodeName!=='P'){
             WWQ.showMessage("请选中文本")
@@ -1039,7 +1040,7 @@ Handle.chooseNumfunc = function(event){
     addListener(Component.toolBar_N);
     addListener(Component.toolBar_S);
     addListener(Component.toolBar_M);
-    addListener(Component.toolBar_D);
+  //  addListener(Component.toolBar_D);
 
     Component.toolBar_C.addEventListener('mousedown', function (event) {
         this.style.opacity='0.6';
@@ -1239,6 +1240,9 @@ Handle.chooseNumfunc = function(event){
                  ntId = setTimeout(arguments.callee,10);
             }
             else{
+			if(opacity<0){
+				return;
+			}
                 opacity-=0.02;
                 Component.message.style.opacity = opacity;
                  ntId = setTimeout(arguments.callee,10);
