@@ -85,10 +85,18 @@ Component.toolBar_N.style.textAlign= 'left';
                     paragraph[i].style.width = '80%';
                 }
             }
+            if(Component.toolBar.offsetTop>20){
+                Component.toolBar.style.paddingLeft = '3px';
+                Component.toolBar.style.paddingRight = '22px';
+            }
+            else{
+                Component.toolBar.style.paddingLeft = '25px';
+                Component.toolBar.style.paddingRight = '0';
+            }
 
         },50);
     };
-
+    window.onresize();
 })();
 
 
@@ -111,7 +119,6 @@ Component.toolBar_N.style.textAlign= 'left';
 
     for(i = 0; i < 9; i++){
         WWQ.allSymbolsArr[i]=[];
-
     }
 
     for(i = 1; i < 100; i++){
@@ -243,8 +250,8 @@ Component.toolBar_N.style.textAlign= 'left';
         localStorage.Note = JSON.stringify(getNodeCopy());
         localStorage.symbols = JSON.stringify(getSymbols());
         localStorage.levelNum = JSON.stringify(WWQ.levelNum);
-
         WWQ.showMessage('已保存到本地缓存');
+        console.log(getNodeCopy());
     };
 
     WWQ.storage.clear = function () {
@@ -410,7 +417,6 @@ Component.toolBar_N.style.textAlign= 'left';
     }
 
     var restore = function (html,level,index,center) {
-        //console.log(html+' '+level+ ' ' +index);
 
         var newParagraph = document.createElement("p"),
             span,
@@ -578,6 +584,7 @@ Component.toolBar_N.style.textAlign= 'left';
 
     //更新所有符号
     var updateSymbols=function(){
+        console.log('update');
         var thisParagraph = document.querySelectorAll('#content>p');
         for(var i = 0; i < thisParagraph.length; i++){
             var node = getNodeById(thisParagraph[i].id);
@@ -952,7 +959,7 @@ Handle.chooseNumfunc = function(event){
             WWQ.storage.save();
             return;
         } else if(this.id==='toolBar_M'){
-            WWQ.showMessage('按Ctrl M以确定删除')
+            WWQ.showMessage('按Ctrl M以清除本地缓存')
             return;
         }
         //else if(this.id==='toolBar_D'){

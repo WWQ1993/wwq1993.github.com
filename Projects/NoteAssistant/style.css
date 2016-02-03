@@ -1,5 +1,5 @@
 body{
-    font: 12px/2em Tahoma;
+    font: 12px/2em Microsoft YaHei, Helvetica, Tahoma;
 }
 
 
@@ -56,6 +56,7 @@ B{
 }
 
 #toolBarButtonArea div {
+    margin: 1px auto 1px auto;
     display: inline-block;
     width: 24px;
     height: 24px;
