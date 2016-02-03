@@ -10,7 +10,7 @@ var Handle ={}; //事件处理函数命名空间
 var Paragraph = {}; //段落相关命名空间
 
 Component.toolBar=$('toolBar');
-Component.content=$('content');
+Component.content=$('innerContent');
 Component.toolBar_B = $("toolBar_B");
 Component.toolBar_I = $("toolBar_I");
 Component.toolBar_U=$("toolBar_U");
@@ -66,7 +66,7 @@ Component.toolBar_N.style.textAlign= 'left';
     var tid ;
 
     setTimeout(function () {
-        Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+        $('content').style.marginTop=$('tools').offsetHeight + 'px';
     },100);
 
     //停止拖动窗口100ms后执行
@@ -75,14 +75,15 @@ Component.toolBar_N.style.textAlign= 'left';
         clearTimeout(tid);
         tid = setTimeout(function(){
             Component.content.style.marginTop=$('tools').offsetHeight + 'px';
+            $('content').style.marginTop=$('tools').offsetHeight + 'px';
 
-            var paragraph = document.querySelectorAll('#content>p>p');
+            var paragraph = document.querySelectorAll('#innerContent>p>p');
             for(var i = 0; i < paragraph.length; i++){
                 if(window.innerWidth<400){
-                    paragraph[i].style.width = '60%';
+                    paragraph[i].style.width = '87%';
                 }
                 else{
-                    paragraph[i].style.width = '80%';
+                    paragraph[i].style.width = '87%';
                 }
             }
             if(Component.toolBar.offsetTop>20){
@@ -585,7 +586,7 @@ Component.toolBar_N.style.textAlign= 'left';
     //更新所有符号
     var updateSymbols=function(){
         console.log('update');
-        var thisParagraph = document.querySelectorAll('#content>p');
+        var thisParagraph = document.querySelectorAll('#innerContent>p');
         for(var i = 0; i < thisParagraph.length; i++){
             var node = getNodeById(thisParagraph[i].id);
 
@@ -616,7 +617,7 @@ Component.toolBar_N.style.textAlign= 'left';
 
     //删除空行
     var removeNullParagraph=function(){
-        var textContent = document.querySelectorAll('#content>p>p');
+        var textContent = document.querySelectorAll('#innerContent>p>p');
         if(textContent[0])
 
         for(var i = 0; i < textContent.length; i++){

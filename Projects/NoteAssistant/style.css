@@ -33,12 +33,13 @@ body{
     /*box-sizing: border-box;*/
     background: ghostwhite;
 }
-#content p{
-    margin: 0px 10px;
+#innerContent p{
+    margin: 0px 0 0 10px;
 }
-
-B{
-    /*color: red;*/
+#innerContent{
+    width: 90%;
+    height: 100%;
+    margin: auto;
 }
 
 #toolBar{
@@ -201,7 +202,7 @@ B{
     line-height: 1.5em;
 }
 
-#content>p>p{
+#innerContent>p>p{
     font-family:  Tahoma;
 
     display: inline-block;
