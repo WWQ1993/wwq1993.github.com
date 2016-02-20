@@ -3,87 +3,132 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>myPage</title>
-
-    <link rel="stylesheet" href="ab.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
 
 </head>
 <body>
-
 <header>
-    <img src="27.jpg" height="200px"  >
 </header>
-<div class="nav">
+
+<div class="content">
     <nav>
-        <ul >
-            <li  class="select">
-                <a href="index.html">
-                    主页
-                </a>
-            </li>
-            <li>
-                <a href="work.html">
-                    工作
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    专业
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    关于
-                </a>
-            </li>
-        </ul>
+        <a href="#readingNotes" class="item">读书笔记</a>
+        <a href="#project" class="item">原创项目</a>
+        <a href="#article" class="item">原创文章</a>
+        <a href="#about" class="item">关于我</a>
     </nav>
+    <div class="part" id="readingNotes">
+        <div class="title">
 
-</div>
+            <a target="_blank" href="javascript:;">读书笔记</a>
+        </div>
 
-<div id="table">
-    <div id="row" >
-        <aside >
-            <p>推荐列表：</p>
-            <ul>
-                <li>
-                    <a href="ReadNotes/ProJavaScriptForWebDev/0.html">《JavaScript高级程序设计》读书笔记</a>
-                </li>
-                <li>
-                    <a href="ReadNotes/TheGoodPart/0.html">JavaScript语言精粹<sub>（修订版）</sub>》读书笔记</a>
-                </li>
-                <li>
-                    <a href="https://www.zybuluo.com/wwq1993/note/190196">JQuery读书笔记</a>
-                </li>
-                <li>
-                    <a href="Projects/HTMLTODOM/index.html">实例：HTMLToDOM</a>
-                </li>
-                <li>
-                    <a href="Projects/NoteAssistant/index.html">实例:笔记助手</a>
-                </li>
+        <div>
+            <a  target="_blank" href="ReadNotes/ProJavaScriptForWebDev/0.html">《JavaScript高级程序设计（第三版）》</a>
+        </div>
+        <div>
+            <a target="_blank" href="ReadNotes/TheGoodPart/0.html">《JavaScript语言精粹（修订版）》</a>
+        </div>
+        <div>
+            <a target="_blank" href="https://www.zybuluo.com/wwq1993/note/190196">JQuery读书笔记</a>
+        </div>
+    </div>
 
-            </ul>
+    <div class="part" id="project">
+        <div class="title">
 
-        </aside>
+            <a target="_blank" href="javascript:;">原创项目</a>
+        </div>
 
-        <article>
-            <div class="book">
-                《JavaScript高级程序设计（第三版）》读书笔记
-            </div>
-            <div class="book">
-                《JavaScript语言精粹（修订版）》读书笔记
-            </div>
-            <p></p>
-        </article>
+        <div>
+            <a target="_blank" href="Projects/HTMLTODOM/index.html">HTMLToDOM</a>
+        </div>
+        <div>
+            <a target="_blank" href="Projects/NoteAssistant/index.html">笔记助手</a>
+        </div>
+
+    </div>
+    <div class="part" id="article">
+        <div class="title">
+
+            <a target="_blank" href="javascript:;">原创文章</a>
+        </div>
+
+        <div>
+            <a target="_blank" href="javascript:;">待续</a>
+        </div>
+        <div>
+            <a target="_blank" href="javascript:;">待续</a>
+        </div>
+
+    </div>
+    <div class="part" id="about">
+        <div class="title">
+
+            <a href="javascript:;">关于我</a>
+        </div>
+
+        <canvas class="timeLine"></canvas>
     </div>
 </div>
+    <footer>
 
-<footer>
-    <p  id="foot">
-        信息技术的发展日新月异，现在炙手可热的领域可能几年之后就会被行业冷落，同样来讲，现在少人问津的领域也有可能成为以后的大热趋势。
-        现如今全球已经有了许多IT行业的认证，当然所有的这些认证不可能永远继续下去，但我们还是可以判断出哪些认证在相当长的一段时间内可以保持巨大的行业影响力。以下是世界领先的IT培训服务企业：全球知识（Global Knowledge）总结出的十大最具影响力的IT认证，其中CISSP和Security+为信息安全领域的培训，谨供参考。
-    </p>
-</footer>
-<script src="main.js"></script>
+    </footer>
 
+    <!--<div id="table">-->
+    <!--<div id="row">-->
+    <!--<aside>-->
+    <!--<p>推荐列表：</p>-->
+    <!--<ul>-->
+    <!--<li>-->
+    <!--<a href="ReadNotes/ProJavaScriptForWebDev/0.html">《JavaScript高级程序设计》读书笔记</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="ReadNotes/TheGoodPart/0.html">JavaScript语言精粹<sub>（修订版）</sub>》读书笔记</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="https://www.zybuluo.com/wwq1993/note/190196">JQuery读书笔记</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="Projects/HTMLTODOM/index.html">实例：HTMLToDOM</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="Projects/NoteAssistant/index.html">实例:笔记助手</a>-->
+    <!--</li>-->
+
+    <!--</ul>-->
+
+    <!--</aside>-->
+
+    <!--<article>-->
+    <!--<div class="book">-->
+    <!--《JavaScript高级程序设计（第三版）》读书笔记-->
+    <!--</div>-->
+    <!--<div class="book">-->
+    <!--《JavaScript语言精粹（修订版）》读书笔记-->
+    <!--</div>-->
+    <!--<p></p>-->
+    <!--</article>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<footer>-->
+    <!--<p id="foot">-->
+    <!--信息技术的发展日新月异，现在炙手可热的领域可能几年之后就会被行业冷落，同样来讲，现在少人问津的领域也有可能成为以后的大热趋势。-->
+    <!--现如今全球已经有了许多IT行业的认证，当然所有的这些认证不可能永远继续下去，但我们还是可以判断出哪些认证在相当长的一段时间内可以保持巨大的行业影响力。以下是世界领先的IT培训服务企业：全球知识（Global-->
+    <!--Knowledge）总结出的十大最具影响力的IT认证，其中CISSP和Security+为信息安全领域的培训，谨供参考。-->
+    <!--</p>-->
+    <!--</footer>-->
+
+    <script src="js/sea.js"></script>
+    <script src="js/sea-config.js"></script>
+    <script>
+        seajs.use(['./js/common.js', './js/index.js'], function (i, j) {
+
+            i.init();
+            j.init();
+        })
+    </script>
 </body>
 </html>

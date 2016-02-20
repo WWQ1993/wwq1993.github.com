@@ -1,17 +1,18 @@
 /**
  * Created by WWQ on 2015/9/1 0001.
  * TODO: bugs： 从前往后的序号重排问题
+ * 切割<a>乱码
  */
-var $=function(id){
-    return document.getElementById(id);
-}
+
 var WWQ={};
 var Component = {}; //GUI控件命名空间
 var Handle ={}; //事件处理函数命名空间
 var Paragraph = {}; //段落相关命名空间
-
+var $=function(id){
+    return document.getElementById(id);
+}
 Component.toolBar=$('toolBar');
-Component.content=$('innerContent');
+Component.content=$('content');
 Component.toolBar_B = $("toolBar_B");
 Component.toolBar_I = $("toolBar_I");
 Component.toolBar_U=$("toolBar_U");
@@ -67,7 +68,7 @@ Component.toolBar_N.style.textAlign= 'left';
     var tid ;
 
     setTimeout(function () {
-        $('content').style.marginTop=$('tools').offsetHeight + 'px';
+        Component.content.style.marginTop=$('tools').offsetHeight + 'px';
     },100);
 
     //停止拖动窗口100ms后执行
@@ -76,29 +77,20 @@ Component.toolBar_N.style.textAlign= 'left';
         clearTimeout(tid);
         tid = setTimeout(function(){
             Component.content.style.marginTop=$('tools').offsetHeight + 'px';
-            $('content').style.marginTop=$('tools').offsetHeight + 'px';
 
-            var paragraph = document.querySelectorAll('#innerContent>p>p');
+            var paragraph = document.querySelectorAll('#content>p>p');
             for(var i = 0; i < paragraph.length; i++){
                 if(window.innerWidth<400){
-                    paragraph[i].style.width = '87%';
+                    paragraph[i].style.width = '60%';
                 }
                 else{
-                    paragraph[i].style.width = '87%';
+                    paragraph[i].style.width = '80%';
                 }
-            }
-            if(Component.toolBar.offsetTop>20){
-                Component.toolBar.style.paddingLeft = '3px';
-                Component.toolBar.style.paddingRight = '22px';
-            }
-            else{
-                Component.toolBar.style.paddingLeft = '25px';
-                Component.toolBar.style.paddingRight = '0';
             }
 
         },50);
     };
-    window.onresize();
+
 })();
 
 
@@ -121,6 +113,7 @@ Component.toolBar_N.style.textAlign= 'left';
 
     for(i = 0; i < 9; i++){
         WWQ.allSymbolsArr[i]=[];
+
     }
 
     for(i = 1; i < 100; i++){
@@ -252,8 +245,8 @@ Component.toolBar_N.style.textAlign= 'left';
         localStorage.Note = JSON.stringify(getNodeCopy());
         localStorage.symbols = JSON.stringify(getSymbols());
         localStorage.levelNum = JSON.stringify(WWQ.levelNum);
+
         WWQ.showMessage('已保存到本地缓存');
-        console.log(getNodeCopy());
     };
 
     WWQ.storage.clear = function () {
@@ -419,6 +412,7 @@ Component.toolBar_N.style.textAlign= 'left';
     }
 
     var restore = function (html,level,index,center) {
+        //console.log(html+' '+level+ ' ' +index);
 
         var newParagraph = document.createElement("p"),
             span,
@@ -586,8 +580,7 @@ Component.toolBar_N.style.textAlign= 'left';
 
     //更新所有符号
     var updateSymbols=function(){
-        console.log('update');
-        var thisParagraph = document.querySelectorAll('#innerContent>p');
+        var thisParagraph = document.querySelectorAll('#content>p');
         for(var i = 0; i < thisParagraph.length; i++){
             var node = getNodeById(thisParagraph[i].id);
 
@@ -618,7 +611,7 @@ Component.toolBar_N.style.textAlign= 'left';
 
     //删除空行
     var removeNullParagraph=function(){
-        var textContent = document.querySelectorAll('#innerContent>p>p');
+        var textContent = document.querySelectorAll('#content>p>p');
         if(textContent[0])
 
         for(var i = 0; i < textContent.length; i++){
@@ -961,7 +954,7 @@ Handle.chooseNumfunc = function(event){
             WWQ.storage.save();
             return;
         } else if(this.id==='toolBar_M'){
-            WWQ.showMessage('按Ctrl M以清除本地缓存')
+            WWQ.showMessage('按Ctrl M以确定删除')
             return;
         }
         //else if(this.id==='toolBar_D'){

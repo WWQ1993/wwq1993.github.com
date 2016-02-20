@@ -24,13 +24,10 @@ body{
     width: 80%;
     min-height: 500px;
     min-width: 300px;
-
     margin: 70px auto 200px auto;
     border:6px #e0e0e0 solid;
     border-top: none;
     padding: 0px 0px 100px 0px;
-
-    /*box-sizing: border-box;*/
     background: ghostwhite;
 }
 #innerContent p{
@@ -177,7 +174,7 @@ body{
 .spanLevel{
     font-weight: 800;
     vertical-align: top;
-    /*display: block;*/
+    
     padding: 15px;
     margin: auto 0px auto -35px;
 }
