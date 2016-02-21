@@ -28,7 +28,7 @@ define(function (require, exports, module) {
             }
         }
         if(!flag){
-            flag = Math.min($(window).width(), $(window).height())>=768?true:false;
+            flag = Math.min($(window).width(), $(window).height())>=600?true:false;
         }
         return flag;
     }
@@ -36,7 +36,7 @@ define(function (require, exports, module) {
     function setHtmlFontSize() {
         $(window).bind('resize', function () {
             $('html').css('font-size', Math.min($(window).width(), $(window).height()) /(IsPC()?25:15) );
-            $('title').text(Math.min($(window).width(), $(window).height()));
+            //$('title').text(Math.min($(window).width(), $(window).height()));
         });
         $(window).trigger('resize');
     };
