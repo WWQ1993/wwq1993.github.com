@@ -24,7 +24,7 @@ nav {
     position: absolute;
     top: 0;
     background: #ff8261;
-    display: flex;
+
     box-orient: horizontal;
     height: 2rem;
     width: 100%;
@@ -41,7 +41,9 @@ nav {
 
 
 nav .item {
-    flex: 1;
+    width:25%;
+    display: inline-block;
+    margin: 0;
     line-height: 2rem;
     text-align: center;
     font-size: .8rem;
