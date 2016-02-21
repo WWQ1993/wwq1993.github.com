@@ -15,11 +15,24 @@ define(function (require, exports, module) {
 
     };
 
-
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
 
     function setHtmlFontSize() {
         $(window).bind('resize', function () {
-            $('html').css('font-size', Math.min($(window).width(), $(window).height()) / 25);
+            $('html').css('font-size', Math.min($(window).width(), $(window).height()) /(IsPC()?25:15) );
             //$(window).scroll();
         });
         $(window).trigger('resize');
