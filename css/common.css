@@ -58,6 +58,6 @@ footer {
     background: #9f9f9f;
     display: flex;
     box-orient: horizontal;
-    height: 3rem;
+    /*height: 3rem;*/
     min-height: 24px;
 }
