@@ -30,14 +30,13 @@ define(function (require, exports, module) {
         if(!flag){
             flag = Math.min($(window).width(), $(window).height())>=768?true:false;
         }
-        console.log(flag)
         return flag;
     }
 
     function setHtmlFontSize() {
         $(window).bind('resize', function () {
             $('html').css('font-size', Math.min($(window).width(), $(window).height()) /(IsPC()?25:15) );
-            //$(window).scroll();
+            $('title').text((IsPC()?25:15));
         });
         $(window).trigger('resize');
     };
