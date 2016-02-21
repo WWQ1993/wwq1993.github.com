@@ -28,8 +28,9 @@ define(function (require, exports, module) {
             }
         }
         if(!flag){
-            flag = Math.min($(window).width(), $(window).height())>1000?true:false;
+            flag = Math.min($(window).width(), $(window).height())>=768?true:false;
         }
+        console.log(flag)
         return flag;
     }
 
