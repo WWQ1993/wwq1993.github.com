@@ -36,7 +36,7 @@ define(function (require, exports, module) {
     function setHtmlFontSize() {
         $(window).bind('resize', function () {
             $('html').css('font-size', Math.min($(window).width(), $(window).height()) /(IsPC()?25:15) );
-            $('title').text((IsPC()?25:15));
+            $('title').text(Math.min($(window).width(), $(window).height()));
         });
         $(window).trigger('resize');
     };
