@@ -43,8 +43,8 @@ define(function (require, exports, module) {
     }
 
     var initShare = function () {
-        var imgUrl = 'http://#http://imgs.chinahr.com/images/photo/201512/14508340548518455679f8861e8af.png';
-        var lineLink = 'http://#www.jakehu.me/904';
+        var imgUrl = 'http://wwq1993.github.io/img/0.jpg';
+        var lineLink = 'http://www.jakehu.me/904';
         var descContent = "这是晨曦的博客";
         var shareTitle = '晨曦';
         var appid = '';
