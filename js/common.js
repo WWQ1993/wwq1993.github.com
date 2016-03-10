@@ -34,7 +34,7 @@ define(function (require, exports, module) {
             return flag;
         }
         $(window).bind('resize', function () {
-            $('html').css('font-size', Math.min($(window).width(), $(window).height()) / (IsPC() ? 25 : 15));
+            $('html').css('font-size', (Math.min($(window).width(), $(window).height())>600?600:Math.min($(window).width(), $(window).height()) )/ (IsPC() ? 25 : 15));
         });
         $(window).trigger('resize');
     };
