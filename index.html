@@ -2,7 +2,8 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <meta name="viewport"
+          content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="吴万强的技术博客">
@@ -19,78 +20,89 @@
 <header>
 </header>
 
-<div class="content">
-    <nav>
-        <a href="#readingNotes" class="item">读书笔记</a><a href="#project" class="item">原创项目</a><a href="#article" class="item">原创文章</a><a href="#about" class="item">关于我</a>
-    </nav>
-    <div class="part" id="readingNotes">
-        <div class="title">
+<textarea style="display: none;" id="totalDoc">
+    <div class="content">
+        <nav>
+            <a href="#readingNotes" class="item">读书笔记</a><a href="#project" class="item">原创项目</a><a href="#article"
+                                                                                                    class="item">原创文章</a><a
+                href="#about" class="item">关于我</a>
+        </nav>
+        <div class="part" id="readingNotes">
+            <div class="title">
 
-            <a target="_blank" href="javascript:;">读书笔记</a>
+                <a target="_blank" href="javascript:;">读书笔记</a>
+            </div>
+
+            <div>
+                <a target="_blank" href="ReadNotes/ProJavaScriptForWebDev/0.html">《JavaScript高级程序设计（第三版）》</a>
+            </div>
+            <div>
+                <a target="_blank" href="ReadNotes/TheGoodPart/0.html">《JavaScript语言精粹（修订版）》</a>
+            </div>
+            <div>
+                <a target="_blank" href="https://www.zybuluo.com/wwq1993/note/190196">JQuery读书笔记</a>
+            </div>
         </div>
 
-        <div>
-            <a  target="_blank" href="ReadNotes/ProJavaScriptForWebDev/0.html">《JavaScript高级程序设计（第三版）》</a>
+        <div class="part" id="project">
+            <div class="title">
+
+                <a target="_blank" href="javascript:;">原创项目</a>
+            </div>
+
+            <div>
+                <a target="_blank" href="Projects/HTMLTODOM/index.html">HTMLToDOM</a>
+            </div>
+            <div>
+                <a target="_blank" href="Projects/NoteAssistant/index.html">笔记助手</a>
+            </div>
+
         </div>
-        <div>
-            <a target="_blank" href="ReadNotes/TheGoodPart/0.html">《JavaScript语言精粹（修订版）》</a>
+        <div class="part" id="article">
+            <div class="title">
+
+                <a target="_blank" href="javascript:;">原创文章</a>
+            </div>
+
+            <div>
+                <a target="_blank" href="javascript:;">待续</a>
+            </div>
+            <div>
+                <a target="_blank" href="javascript:;">待续</a>
+            </div>
+
         </div>
-        <div>
-            <a target="_blank" href="https://www.zybuluo.com/wwq1993/note/190196">JQuery读书笔记</a>
+        <div class="part" id="about">
+            <div class="title">
+
+                <a href="javascript:;">关于我</a>
+            </div>
+
+            <canvas class="timeLine"></canvas>
         </div>
     </div>
-
-    <div class="part" id="project">
-        <div class="title">
-
-            <a target="_blank" href="javascript:;">原创项目</a>
-        </div>
-
-        <div>
-            <a target="_blank" href="Projects/HTMLTODOM/index.html">HTMLToDOM</a>
-        </div>
-        <div>
-            <a target="_blank" href="Projects/NoteAssistant/index.html">笔记助手</a>
-        </div>
-
-    </div>
-    <div class="part" id="article">
-        <div class="title">
-
-            <a target="_blank" href="javascript:;">原创文章</a>
-        </div>
-
-        <div>
-            <a target="_blank" href="javascript:;">待续</a>
-        </div>
-        <div>
-            <a target="_blank" href="javascript:;">待续</a>
-        </div>
-
-    </div>
-    <div class="part" id="about">
-        <div class="title">
-
-            <a href="javascript:;">关于我</a>
-        </div>
-
-        <canvas class="timeLine"></canvas>
-    </div>
-</div>
  <!--todo-->
     <!--<footer>-->
         <!--<div class="title">分类</div>-->
     <!--</footer>-->
 
+</textarea>
 
-    <script src="js/sea.js"></script>
-    <script src="js/sea-config.js"></script>
-    <script>
+
+<script src="js/sea.js"></script>
+<script src="js/sea-config.js"></script>
+<script>
+    window.onload = (function () {
+        var str = document.getElementById('totalDoc').innerText;
+        var node = document.createElement('div');
+        document.body.appendChild(node);
+        node.outerHTML = str;
         seajs.use(['./js/common.js', './js/index.js'], function (i, j) {
 
             i.init();
             j.init();
         })
-    </script>
+    })
+</script>
 </body>
 </html>
