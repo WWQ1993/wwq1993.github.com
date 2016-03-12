@@ -55,7 +55,6 @@
         }, 10);
         component.silk.bind('touchstart', function (e) {
             e.preventDefault();
-
             startX = e.touches[0].clientX;
             silkStartLeft = parseFloat($(this).css('left'));
         });
@@ -77,7 +76,6 @@
 
         component.silk.bind('touchend', function (e) {
             e.preventDefault();
-
             var arr = [],
                     minValue = 0,
                     minVal = {
@@ -95,8 +93,7 @@
                     minVal.val = distanceAbs;
                 }
             });
-//            component.silk.css('left',component.silk.css('left'));
-            component.silk.animate({'left': parseFloat(component.silk.css('left')) - (imgs.eq(minVal.index).offset().left - mainOffsetLeft)}, 200);
+            component.silk.animate({'left':  '-='+(imgs.eq(minVal.index).offset().left - mainOffsetLeft)}, 200);
 
         });
         component.silk.trigger('touchend');
