@@ -93,7 +93,7 @@
                     minVal.val = distanceAbs;
                 }
             });
-            component.silk.animate({'left':  '-='+(imgs.eq(minVal.index).offset().left - mainOffsetLeft)}, 200);
+            component.silk.animate({'left': parseFloat(component.silk.css('left')) - (imgs.eq(minVal.index).offset().left - mainOffsetLeft)}, 200);
 
         });
         component.silk.trigger('touchend');
