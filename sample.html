@@ -45,10 +45,6 @@
                 windowWidth = 0,
                 imgWidth =0
 
-
-
-
-
         imgs.each(function () {
             $(this).width(component.main.width())
         })
@@ -58,10 +54,13 @@
                     imgWidth = imgs.width()
         }, 10);
         component.silk.bind('touchstart', function (e) {
+            e.preventDefault();
+
             startX = e.touches[0].clientX;
             silkStartLeft = parseFloat($(this).css('left'));
         });
         component.silk.bind('touchmove', function (e) {
+            e.preventDefault();
             var left;
             currentX = e.touches[0].clientX;
             changeX = startX - currentX;
@@ -76,7 +75,9 @@
             $(this).css('left', left);
         });
 
-        component.silk.bind('touchend', function () {
+        component.silk.bind('touchend', function (e) {
+            e.preventDefault();
+
             var arr = [],
                     minValue = 0,
                     minVal = {
