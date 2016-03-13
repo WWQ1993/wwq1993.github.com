@@ -41,6 +41,7 @@ define(function (require, exports, module) {
 
     function scroll() {
         $(window).scroll(function (e) {
+            e.preventDefault();
             var scrollTop = $(document).scrollTop();
             setNavPos(scrollTop);
         })
