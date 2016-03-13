@@ -14,90 +14,101 @@
 
 </head>
 <body>
-
-
-<script src="js/zepto.min.js"></script>
+<input type="text"/>
+<input type="text"/>
+<input type="text"/>
+<button>submit</button>
+<script src="js/jquery.min.js"></script>
 <script>
-
-    !function setImgCarousel(imgUrlArr, parentSeletor,margin) {   //传入图片数组、插入节点位置
-        var jsStr = '<div class="W_carousel"><a href="" class="leftArea"></a><div class="main"><div class="silk"></div></div><a href="" class="rightArea"></a></div>'
-        $('head').append($('<style>.W_carousel{width:100%;height:15rem;}.W_carousel .main{width:60%;height:100%;margin:auto;position:relative;overflow:hidden;background-color:white;}.W_carousel .main .silk{white-space:nowrap;height:100%;position:absolute;padding-bottom:0rem;overflow:auto;left:0;}.W_carousel .silk img{margin:0 '+margin+';height:100%;display:inline-block;}</style>'))
-        $(parentSeletor).append($(jsStr));
-
-        var component = {
-            main: $('.W_carousel .main'),
-            silk: $('.W_carousel .main .silk')
-        };
-
-        var i = 0,
-                str = '';
-        for (; i < imgUrlArr.length; i++) {
-            str += '<img src=' + imgUrlArr[i] + '>'
+    !function () {
+        var static = {
+            base: {
+                year: 2000,
+                month: 1,
+                day: 1,
+                week: 6
+            },
+            week: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            monthDayCount: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         }
-        component.silk.append($(str));
 
-        var imgs = $('.W_carousel .silk img'),
-                startX = 0,
-                currentX = 0,
-                changeX = 0,
-                silkStartLeft = 0,
-                silkWidth = 0,
-                windowWidth = 0,
-                imgWidth =0
 
-        imgs.each(function () {
-            $(this).width(component.main.width())
-        })
-        setTimeout(function () {
-            silkWidth = component.silk.width();
-            windowWidth = $(window).width(),
-                    imgWidth = imgs.width()
-        }, 10);
-        component.silk.bind('touchstart', function (e) {
-            e.preventDefault();
-            startX = e.touches[0].clientX;
-            silkStartLeft = parseFloat($(this).css('left'));
-        });
-        component.silk.bind('touchmove', function (e) {
-            e.preventDefault();
-            var left;
-            currentX = e.touches[0].clientX;
-            changeX = startX - currentX;
-            left = silkStartLeft - changeX
+        $('button').click(function () {
+            var inputYear = $('input').eq(0).val(),
+                    inputMonth = $('input').eq(1).val(),
+                    inputDay = $('input').eq(2).val(),
+                    leapyear = (inputYear % 400 === 0 || (inputYear % 4 === 0 && inputYear % 100 !== 0)) ? true : false,
+                    yearGap = 0,
+                    monthGap = 0,
+                    dayGap = 0,
+                    leapNum = 0,
+                    total = 0,
+                    result = null
 
-            if (left > windowWidth/5) {
-                left = windowWidth/5;
-            }
-            else if (left < -(silkWidth-imgWidth+  windowWidth/5)) {
-                left = -(silkWidth-imgWidth +  windowWidth/5)
-            }
-            $(this).css('left', left);
-        });
+            //判断输入是否合法。。
 
-        component.silk.bind('touchend', function (e) {
-            e.preventDefault();
-            var arr = [],
-                    minValue = 0,
-                    minVal = {
-                        index: 0,
-                        val: Infinity
-                    },
-                    mainOffsetLeft = component.main.offset().left;
-            changeX = 0;
-            startX = 0;
-            //设置弹性效果
-            imgs.each(function (index) {
-                var distanceAbs = Math.abs($(this).offset().left - mainOffsetLeft);
-                if (distanceAbs < minVal.val) {
-                    minVal.index = index;
-                    minVal.val = distanceAbs;
+            yearGap = Math.abs(inputYear - static.base.year);
+            monthGap = inputMonth - static.base.month;
+            dayGap = inputDay - static.base.day;
+
+            if (inputYear >= static.base.year) {
+                if (yearGap % 4 !== 0) {
+                    leapNum = parseInt(yearGap / 4) + 1;
                 }
-            });
-            component.silk.animate({'left': parseFloat(component.silk.css('left')) - (imgs.eq(minVal.index).offset().left - mainOffsetLeft)}, 200);
+                else {
+                    if ((inputMonth > 2 || (inputMonth === 2 && inputDay === 29)) && (yearGap % 100 !== 0 || yearGap % 400 === 0)) {
 
+                        leapNum = parseInt(yearGap / 4) + 1;
+                    }
+                    else {
+                        leapNum = parseInt(yearGap / 4);
+                    }
+                }
+                for (var i = 0; i < monthGap; i++) {
+                    total += static.monthDayCount[i];
+                }
+                total += dayGap + leapNum + yearGap;
+                result = {
+                    week: static.week[(total % 7 + 5) % 7],
+                    numWeek: (total % 7 + 6) % 7
+                }
+                console.log(' ' + total + 'result:  ' + result.numWeek);
+            }
+            else {
+                if (yearGap % 4 !== 0) {
+                    leapNum = parseInt(yearGap / 4);
+                }
+                else {
+                    if (yearGap === 0) {
+                        leapNum = parseInt(yearGap / 4);
+                    }
+                    if ((inputMonth <= 2 ) && (yearGap % 100 !== 0 || yearGap % 400 === 0)) {
+
+                        if ((inputMonth === 2 && inputDay === 29)) {
+                            leapNum = parseInt(yearGap / 4) + 1;
+
+                        } else {
+                            leapNum = parseInt(yearGap / 4);
+
+                        }
+                    }
+                    else {
+                        leapNum = parseInt(yearGap / 4) - 1;
+                    }
+                }
+                for (var i = 0; i < monthGap; i++) {
+                    total += static.monthDayCount[i];
+                }
+                total += dayGap - leapNum - yearGap;
+                result = {
+                    week: static.week[(total % 7 + 5) % 7],
+                    numWeek: (total % 7 + 6) % 7
+                }
+                console.log(yearGap + '  ' + (yearGap % 100 !== 0 || yearGap % 400 === 0) + 'result:  ' + result.numWeek);
+            }
         });
-        component.silk.trigger('touchend');
-    }(["img/4.jpg", "img/5.jpg", "img/6.jpg"], 'body','1rem');
+    }();
+
 
 </script>
 </body>
