@@ -3,6 +3,9 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Projects/HTMLTODOM/main.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Projects/NoteAssistant/main.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/arrow_left.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/arrow_right.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/calendar.js" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
