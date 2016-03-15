@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport"
           content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
@@ -11,105 +12,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>中华英才网</title>
+    <style>
+        .outer {
+            width: 150px;
+            height: 170px;
+            font-size: 10px;
+        }
 
+    </style>
 </head>
 <body>
 <input type="text"/>
 <input type="text"/>
 <input type="text"/>
 <button>submit</button>
+
+<div class="outer">
+</div>
+
 <script src="js/jquery.min.js"></script>
-<script>
-    !function () {
-        var static = {
-            base: {
-                year: 2000,
-                month: 1,
-                day: 1,
-                week: 6
-            },
-            week: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            monthDayCount: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-        }
-
-
-        $('button').click(function () {
-            var inputYear = $('input').eq(0).val(),
-                    inputMonth = $('input').eq(1).val(),
-                    inputDay = $('input').eq(2).val(),
-                    leapyear = (inputYear % 400 === 0 || (inputYear % 4 === 0 && inputYear % 100 !== 0)) ? true : false,
-                    yearGap = 0,
-                    monthGap = 0,
-                    dayGap = 0,
-                    leapNum = 0,
-                    total = 0,
-                    result = null
-
-            //判断输入是否合法。。
-
-            yearGap = Math.abs(inputYear - static.base.year);
-            monthGap = inputMonth - static.base.month;
-            dayGap = inputDay - static.base.day;
-
-            if (inputYear >= static.base.year) {
-                if (yearGap % 4 !== 0) {
-                    leapNum = parseInt(yearGap / 4) + 1;
-                }
-                else {
-                    if ((inputMonth > 2 || (inputMonth === 2 && inputDay === 29)) && (yearGap % 100 !== 0 || yearGap % 400 === 0)) {
-
-                        leapNum = parseInt(yearGap / 4) + 1;
-                    }
-                    else {
-                        leapNum = parseInt(yearGap / 4);
-                    }
-                }
-                for (var i = 0; i < monthGap; i++) {
-                    total += static.monthDayCount[i];
-                }
-                total += dayGap + leapNum + yearGap;
-                result = {
-                    week: static.week[(total % 7 + 5) % 7],
-                    numWeek: (total % 7 + 6) % 7
-                }
-                console.log(' ' + total + 'result:  ' + result.numWeek);
-            }
-            else {
-                if (yearGap % 4 !== 0) {
-                    leapNum = parseInt(yearGap / 4);
-                }
-                else {
-                    if (yearGap === 0) {
-                        leapNum = parseInt(yearGap / 4);
-                    }
-                    if ((inputMonth <= 2 ) && (yearGap % 100 !== 0 || yearGap % 400 === 0)) {
-
-                        if ((inputMonth === 2 && inputDay === 29)) {
-                            leapNum = parseInt(yearGap / 4) + 1;
-
-                        } else {
-                            leapNum = parseInt(yearGap / 4);
-
-                        }
-                    }
-                    else {
-                        leapNum = parseInt(yearGap / 4) - 1;
-                    }
-                }
-                for (var i = 0; i < monthGap; i++) {
-                    total += static.monthDayCount[i];
-                }
-                total += dayGap - leapNum - yearGap;
-                result = {
-                    week: static.week[(total % 7 + 5) % 7],
-                    numWeek: (total % 7 + 6) % 7
-                }
-                console.log(yearGap + '  ' + (yearGap % 100 !== 0 || yearGap % 400 === 0) + 'result:  ' + result.numWeek);
-            }
-        });
-    }();
-
-
-</script>
+<script src='js/calendar.js'></script>
 </body>
 </html>
