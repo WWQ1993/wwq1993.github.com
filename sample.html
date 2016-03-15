@@ -72,7 +72,6 @@
                     week: static.week[(total % 7 + 5) % 7],
                     numWeek: (total % 7 + 6) % 7
                 }
-                console.log(' ' + total + 'result:  ' + result.numWeek);
             }
             else {
                 if (yearGap % 4 !== 0) {
@@ -104,8 +103,9 @@
                     week: static.week[(total % 7 + 5) % 7],
                     numWeek: (total % 7 + 6) % 7
                 }
-                console.log(yearGap + '  ' + (yearGap % 100 !== 0 || yearGap % 400 === 0) + 'result:  ' + result.numWeek);
             }
+            console.log(yearGap + '  ' + (yearGap % 100 !== 0 || yearGap % 400 === 0) + 'result:  ' + result.numWeek);
+
         });
     }();
 
