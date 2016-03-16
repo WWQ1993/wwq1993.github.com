@@ -91,7 +91,7 @@ define(function (require, exports, module) {
                 nowYear: $('.w_year', this.main),
                 nowMonth: $('.w_month', this.main)
             },
-            monthDayCount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+            monthDayCount =(inputYear % 400 === 0 || (inputYear % 4 === 0 && inputYear % 100 !== 0)) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]:[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
             thisDate = new Date(),
             nowDate = {
                 year: thisDate.getFullYear(),
