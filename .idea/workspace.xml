@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="日期选择插件">
+    <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/calendar.js" afterPath="$PROJECT_DIR$/js/calendar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6334587">
-              <caret line="127" column="85" selection-start-line="127" selection-start-column="85" selection-end-line="127" selection-end-column="85" />
+              <caret line="127" column="186" selection-start-line="127" selection-start-column="186" selection-end-line="127" selection-end-column="186" />
               <folding>
                 <element signature="e#304#3189#0" expanded="false" />
               </folding>
@@ -494,12 +494,6 @@
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
     </task>
-    <task id="LOCAL-00086" summary="debug">
-      <created>1441951996666</created>
-      <option name="number" value="00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1441951996666</updated>
-    </task>
     <task id="LOCAL-00087" summary="debug the offsetTop of content">
       <created>1442148346780</created>
       <option name="number" value="00087" />
@@ -788,7 +782,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458100213997</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="日期选择插件">
+      <created>1458101027366</created>
+      <option name="number" value="00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1458101027366</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1222,7 +1222,7 @@
     <entry file="file://$PROJECT_DIR$/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6334587">
-          <caret line="127" column="85" selection-start-line="127" selection-start-column="85" selection-end-line="127" selection-end-column="85" />
+          <caret line="127" column="186" selection-start-line="127" selection-start-column="186" selection-end-line="127" selection-end-column="186" />
           <folding>
             <element signature="e#304#3189#0" expanded="false" />
           </folding>

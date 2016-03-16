@@ -125,8 +125,7 @@ define(function (require, exports, module) {
             }
 
             //设置日期块
-            monthDayCount =(year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]:[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-
+            monthDayCount =(year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]:[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
             for (var i = 0; i < monthDayCount[month - 1]; i++) {
                 strMain += '<div class="w_day">' + (i + 1) + '</div>';
             }
