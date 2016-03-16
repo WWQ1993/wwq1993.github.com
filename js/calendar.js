@@ -91,7 +91,7 @@ define(function (require, exports, module) {
                 nowYear: $('.w_year', this.main),
                 nowMonth: $('.w_month', this.main)
             },
-            monthDayCount =(inputYear % 400 === 0 || (inputYear % 4 === 0 && inputYear % 100 !== 0)) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]:[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+            monthDayCount =[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
             thisDate = new Date(),
             nowDate = {
                 year: thisDate.getFullYear(),
@@ -125,6 +125,8 @@ define(function (require, exports, module) {
             }
 
             //设置日期块
+            monthDayCount =(year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]:[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+
             for (var i = 0; i < monthDayCount[month - 1]; i++) {
                 strMain += '<div class="w_day">' + (i + 1) + '</div>';
             }
