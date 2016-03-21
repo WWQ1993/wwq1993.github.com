@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cafe778b-79cb-4acc-b56c-87487aeb5522" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/calendar.js" afterPath="$PROJECT_DIR$/js/calendar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cfaedfc6-7c89-4c3a-9358-dbc56609b573" name="Rejected commit: Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;main.js&#10;" />
@@ -58,8 +57,8 @@
       <file leaf-file-name="calendar.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33272058">
-              <caret line="237" column="53" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.80330884">
+              <caret line="253" column="39" selection-start-line="253" selection-start-column="39" selection-end-line="253" selection-end-column="39" />
               <folding>
                 <element signature="e#304#3189#0" expanded="false" />
                 <element signature="e#3505#3654#0" expanded="false" />
@@ -436,12 +435,6 @@
       <option name="number" value="Default" />
       <updated>1436164050640</updated>
     </task>
-    <task id="LOCAL-00089" summary="cache">
-      <created>1442367578364</created>
-      <option name="number" value="00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1442367578365</updated>
-    </task>
     <task id="LOCAL-00090" summary="cache">
       <created>1442377881277</created>
       <option name="number" value="00090" />
@@ -730,7 +723,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458532456669</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="debug 日期选择控件">
+      <created>1458539421303</created>
+      <option name="number" value="00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1458539421303</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TodoView">
@@ -778,7 +777,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updown function" />
     <MESSAGE value="optimize and debug" />
     <MESSAGE value="deal with IE compatibility" />
     <MESSAGE value="a难以解决" />
@@ -803,7 +801,8 @@
     <MESSAGE value="轮播" />
     <MESSAGE value="日期选择插件" />
     <MESSAGE value="hack" />
-    <option name="LAST_COMMIT_MESSAGE" value="hack" />
+    <MESSAGE value="debug 日期选择控件" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug 日期选择控件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1169,8 +1168,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33272058">
-          <caret line="237" column="53" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.80330884">
+          <caret line="253" column="39" selection-start-line="253" selection-start-column="39" selection-end-line="253" selection-end-column="39" />
           <folding>
             <element signature="e#304#3189#0" expanded="false" />
             <element signature="e#3505#3654#0" expanded="false" />
