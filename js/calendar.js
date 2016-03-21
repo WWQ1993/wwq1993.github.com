@@ -91,7 +91,7 @@ define(function (require, exports, module) {
                 nowYear: $('.w_year', this.main),
                 nowMonth: $('.w_month', this.main)
             },
-            monthDayCount =[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+            monthDayCount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
             thisDate = new Date(),
             nowDate = {
                 year: thisDate.getFullYear(),
@@ -125,7 +125,7 @@ define(function (require, exports, module) {
             }
 
             //设置日期块
-            monthDayCount =(year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]:[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            monthDayCount = (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) ? [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
             for (var i = 0; i < monthDayCount[month - 1]; i++) {
                 strMain += '<div class="w_day">' + (i + 1) + '</div>';
             }
@@ -143,7 +143,7 @@ define(function (require, exports, module) {
             strAfter = strAfter1 + popYearStr + strAfter2;
 
             if ($('.w_main').length < 1) {  //没有日历组件则新建
-                $('head').append('<style>.w_main{width:100%;height:100%;position:relative}.w_main *{margin:0;padding:0}.w_main .chooser{width:100%;height:15%}.w_main .chooser div{ display:inline-block; *zoom:1;*display:inline;}.w_main .chooser>div{width:50%;height:100%}.w_main .chooser>div .before,.w_main .chooser>div .after{width:30%;height:100%;vertical-align:middle;cursor:pointer}.w_main .chooser>div .before:hover,.w_main .chooser>div .after:hover{background-color:#4cccc4}.w_main .chooser>div .before:active,.w_main .chooser>div .after:active{cursor:inherit}.w_main .chooser>div .before{background:url("' + leftImgUrl + '") center no-repeat}.w_main .chooser>div .after{background:url("' + rightImgUrl + '") center no-repeat}.w_main .chooser .w_year,.w_main .chooser .w_month{width:40%;line-height:100%;text-align:center;vertical-align:text-bottom;cursor:pointer}.w_main .chooser .w_year:active,.w_main .chooser .w_month:active{cursor:inherit}.w_main .weekNames{width:95%;line-height:2em;text-align:center;margin:auto;border-bottom:solid 1px #4cccc4}.w_main .weekNames .weekname{ display:inline-block; *zoom:1;*display:inline;width:14.25%;*width:14%;line-height:100%;color:#4cccc4}.w_main .w_days{width:95%;height:60%;margin:auto}.w_main .w_days .w_day{width:14.28%;*width:16.6%;height:17%; display:inline-block; *zoom:1;*display:inline;text-align:center;vertical-align:middle;cursor:pointer}.w_main .w_days .not_day{width:14.28%;*width:16.6%;height:17%;display:inline-block;*zoom:1;*display:inline;vertical-align: middle;}.w_main .w_days .w_day:hover{background-color:#4cccc4}.w_main .w_days .w_day:active{cursor:inherit}.w_main .w_days .w_day:before{content:" "; display:inline-block; *zoom:1;*display:inline;vertical-align:middle;width:0;height:100%}.w_main .w_days .choose{background-color:#ffeb3b}.w_main .w_btns{width:65%;text-align:center;height:13%;float:right}.w_main .w_btns>a{ display:inline-block; *zoom:1;*display:inline;color:#4cccc4;text-decoration:none;width:33%;height:100%;vertical-align:middle}.w_main .w_btns>.w_btn0{color:#66cc91}.w_main .w_btns>a:before{content:" "; display:inline-block; *zoom:1;*display:inline;vertical-align:middle;width:0;height:100%}.w_main .w_btns>a:hover{text-decoration:underline}.w_main .w_btns>a:active{cursor:inherit}.w_main .pop{display:none;background-color:white;box-sizing:border-box;width:20%;height:85%;border:solid 1px #dbdbdb;position:absolute;top:15%}.w_main .popYear{overflow-y:auto;left:15%}.w_main .popMonth{overflow-y:hidden;right:15%}.w_main .upArrow{display:none;position:absolute;top:12%;border-style:solid;border-width:6px;border-color:transparent transparent #dbdbdb transparent;height:0;width:0;font-size:0}.w_main .yearArrow{left:23%}.w_main .monthArrow{right:23%}.w_main .pop .item{width:100%;height:8.34%;box-sizing:border-box;border:solid 1px #dbdbdb;text-align:center;font-size:.7em;vertical-align:text-bottom}.w_main .pop .item:before{content:" "; display:inline-block; *zoom:1;*display:inline;vertical-align:text-bottom;width:0;height:100%}.w_main .pop .item:hover{cursor:pointer;background:#e8e8e8}.w_main .pop .item.choose{background-color:#dbdbdb}</style>')
+                $('head').append('<style>.w_main{width:100%;height:100%;position:relative}.w_main *{margin:0;padding:0}.w_main .chooser{width:100%;height:15%}.w_main .chooser div{ display:inline-block; *zoom:1;*display:inline;}.w_main .chooser>div{width:50%;height:100%}.w_main .chooser>div .before,.w_main .chooser>div .after{width:30%;height:100%;vertical-align:middle;cursor:pointer}.w_main .chooser>div .before:hover,.w_main .chooser>div .after:hover{background-color:#4cccc4}.w_main .chooser>div .before:active,.w_main .chooser>div .after:active{cursor:inherit}.w_main .chooser>div .before{background:url("' + leftImgUrl + '") center no-repeat}.w_main .chooser>div .after{background:url("' + rightImgUrl + '") center no-repeat}.w_main .chooser .w_year,.w_main .chooser .w_month{width:40%;line-height:100%;text-align:center;vertical-align:middle;cursor:pointer}.w_main .chooser .w_year:active,.w_main .chooser .w_month:active{cursor:inherit}.w_main .weekNames{width:95%;line-height:2em;text-align:center;margin:auto;border-bottom:solid 1px #4cccc4}.w_main .weekNames .weekname{ display:inline-block; *zoom:1;*display:inline;width:14.25%;*width:14%;line-height:100%;color:#4cccc4}.w_main .w_days{width:95%;height:60%;margin:auto}.w_main .w_days .w_day{width:14.28%;*width:16.6%;height:17%; display:inline-block; *zoom:1;*display:inline;text-align:center;vertical-align:middle;cursor:pointer}.w_main .w_days .not_day{width:14.28%;*width:16.6%;height:17%;display:inline-block;*zoom:1;*display:inline;vertical-align: middle;}.w_main .w_days .w_day:hover{background-color:#4cccc4}.w_main .w_days .w_day:active{cursor:inherit}.w_main .w_days .w_day:before{content:" "; display:inline-block; *zoom:1;*display:inline;vertical-align:middle;width:0;height:100%}.w_main .w_days .choose{background-color:#ffeb3b}.w_main .w_btns{width:65%;text-align:center;height:13%;float:right}.w_main .w_btns>a{ display:inline-block; *zoom:1;*display:inline;color:#4cccc4;text-decoration:none;width:33%;height:100%;vertical-align:middle}.w_main .w_btns>.w_btn0{color:#66cc91}.w_main .w_btns>a:before{content:" "; display:inline-block; *zoom:1;*display:inline;vertical-align:middle;width:0;height:100%}.w_main .w_btns>a:hover{text-decoration:underline}.w_main .w_btns>a:active{cursor:inherit}.w_main .pop{display:none;background-color:white;box-sizing:border-box;width:20%;height:85%;border:solid 1px #dbdbdb;position:absolute;top:15%}.w_main .popYear{overflow-y:auto;left:15%}.w_main .popMonth{overflow-y:hidden;right:15%}.w_main .upArrow{display:none;position:absolute;top:12%;border-style:solid;border-width:6px;border-color:transparent transparent #dbdbdb transparent;height:0;width:0;font-size:0}.w_main .yearArrow{left:23%}.w_main .monthArrow{right:23%}.w_main .pop .item{width:100%;height:8.34%;box-sizing:border-box;border:solid 1px #dbdbdb;text-align:center;font-size:.7em;vertical-align:middle}.w_main .pop .item:before{content:" "; display:inline-block; *zoom:1;*display:inline;vertical-align:middle;width:0;height:100%}.w_main .pop .item:hover{cursor:pointer;background:#e8e8e8}.w_main .pop .item.choose{background-color:#dbdbdb}</style>')
                 parentNode.append(strBefore + strMain + strAfter);
                 component = {
                     main: $('.w_main'),
@@ -256,6 +256,16 @@ define(function (require, exports, module) {
                 var popYear = $(' .popYear', component.main);
                 popYear.toggle();
                 $('.yearArrow').toggle();
+
+                $('.popYear .item', component.main).each(function () {
+                    if ($(this).text() == choosedDate.year) {
+                        $(this).siblings().removeClass('choose');
+                        $(this).addClass('choose');
+                        return false;
+                    }
+
+                });
+
                 popYear.scrollTop($('.choose', popYear).position().top + popYear.scrollTop() - popYear.height() / 2);
 
             });
@@ -265,13 +275,19 @@ define(function (require, exports, module) {
                 e.stopPropagation();
                 $(' .popMonth', component.main).toggle();
                 $('.monthArrow').toggle();
+                $('.popMonth .item', component.main).each(function () {
+                    if ($(this).text() == choosedDate.month) {
+                        $(this).siblings().removeClass('choose');
+                        $(this).addClass('choose');
+                        return false;
+                    }
+                });
             });
             //点击弹出的年份
             $('.popYear', component.main).click(function (e) {
                 var target = $(e.target);
                 if (target.hasClass('item')) {
-                    target.siblings().removeClass('choose');
-                    target.addClass('choose');
+
                     choosedDate.year = parseInt(target.text());
                     component.nowYear.text(choosedDate.year);
                     updateCalendar(choosedDate.year, choosedDate.month);
@@ -282,15 +298,14 @@ define(function (require, exports, module) {
             $('.popMonth', component.main).click(function (e) {
                 var target = $(e.target);
                 if (target.hasClass('item')) {
-                    target.siblings().removeClass('choose');
-                    target.addClass('choose');
+
                     choosedDate.month = parseInt(target.text());
                     component.nowMonth.text(choosedDate.month);
                     updateCalendar(choosedDate.year, choosedDate.month);
                 }
             });
             //点击其他地方时，隐藏弹出层
-            component.main.click(function () {
+            $(window).click(function () {
                 $('.pop').each(function () {
                     $(this).hide();
                 });
