@@ -1,0 +1,418 @@
+[
+  {
+    "id": "head-image",
+    "imgs": [
+      "https://aquadiction.world/img/profile/570-banded-gourami-best1.webp"
+    ]
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "intro",
+    "text": [
+      "Banded Gouramis (Trichogaster fasciata) bring an air of tranquillity and grace to any peaceful community aquarium. These shy and peaceful creatures make excellent companions, although their peaceful demeanour can turn assertive during spawning. However, male conflicts are typically limited to their own kind or similarly coloured fish. For optimal harmony, keeping Banded Gouramis in pairs is advisable, although a small group of five or six can also thrive in a suitably spacious aquarium.",
+      "When selecting tankmates, rest assured that Banded Gouramis coexist harmoniously with Barbs, Danios, Rasboras, Loaches, and Catfish. In larger aquariums, they can even share the waters with other Gourami species, although caution must be exercised to prevent hybridization with Thick Lipped Gouramis. As these Gouramis are timid and take time to acclimate to their environment, they should consider their tank mates carefully.",
+      "Creating an ideal habitat for Banded Gouramis involves providing a tranquil, dimly lit environment with abundant vegetation and floating plants that offer comforting shade. Sandy substrates, fine dark gravel, and strategically placed driftwood branches and roots provide ample hiding spots for these delicate fish. In addition, bright lighting and strong currents should be minimized, offering just enough light for plant growth while maintaining gentle water movement.",
+      "While Banded Gouramis favour slightly acidic water, they exhibit remarkable adaptability to various water conditions. Male Banded Gouramis boast vibrant orange bodies adorned with iridescent blue stripes. Their caudal fins feature beautiful blue spots at the base and vivid red spots towards the tips. Iridescent blue anal fins with red-edged spines further enhance their enchanting appearance, while adult males develop pronounced pointed anal and dorsal fins. It is worth noting that geographical variations may result in distinct colour variations among these captivating creatures.",
+      "Females of the Banded Gourami species share the same underlying colour patterns as males but exhibit a more subdued greyish hue. In addition, their fins possess a rounded contour, contrasting with the pointed fins of their male counterparts. Together, these captivating characteristics and subtle distinctions add to the allure of these remarkable aquatic beings, captivating the hearts and eyes of aquarists worldwide."
+    ],
+    "title": "Introduction",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "photos",
+    "text": [],
+    "title": "Banded Gourami Photos",
+    "facts": [],
+    "imgs": [
+      "https://aquadiction.world/img/profile/320-banded-gourami.webp",
+      "https://aquadiction.world/img/profile/320-banded-gourami-2.webp",
+      "https://aquadiction.world/img/profile/320-banded-gourami-best1.webp"
+    ],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "sexual-dimorphism",
+    "text": [
+      "Distinguishing between male and female Banded Gouramis is a relatively simple task. Male specimens exhibit a striking array of vibrant colours, showcasing their maturity. Notably, as males mature, they develop pointed anal and dorsal fins, contributing to their distinguishable appearance. Furthermore, males tend to be slightly larger in size compared to females. In contrast, females display a more subdued colouration, appearing duller than their male counterparts. Additionally, females typically have smaller body proportions and possess rounded fins, providing a discernible contrast to the pointed fins observed in males."
+    ],
+    "title": "Sexual Dimorphism",
+    "facts": [],
+    "imgs": [
+      "https://aquadiction.world/img/profile/banded-gourami-best1.webp",
+      "https://aquadiction.world/img/profile/banded-gourami-2.webp"
+    ],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "quick-facts",
+    "text": [],
+    "title": "Quick Facts",
+    "facts": [
+      {
+        "label": "Scientific Name",
+        "value": "Trichogaster fasciata"
+      },
+      {
+        "label": "Year Described",
+        "value": "1999"
+      },
+      {
+        "label": "Other Names",
+        "value": "Striped Gourami"
+      },
+      {
+        "label": "Kingdom",
+        "value": "Animalia"
+      },
+      {
+        "label": "Classification",
+        "value": "Actinopterygii"
+      },
+      {
+        "label": "Order",
+        "value": "Anabantiformes"
+      },
+      {
+        "label": "Family",
+        "value": "Osphronemidae"
+      },
+      {
+        "label": "Genus",
+        "value": "Trichogaster"
+      },
+      {
+        "label": "Origins",
+        "value": "Pakistan,Nepal,Bangladesh,Myanmar"
+      },
+      {
+        "label": "Max Size",
+        "value": "10 cm"
+      },
+      {
+        "label": "Temperament",
+        "value": "Peaceful"
+      },
+      {
+        "label": "Aquarium Level",
+        "value": "Middle"
+      },
+      {
+        "label": "Difficulty",
+        "value": "Beginner - Intermediate"
+      },
+      {
+        "label": "Shoaling",
+        "value": "No"
+      },
+      {
+        "label": "Best kept as",
+        "value": "Pairs"
+      },
+      {
+        "label": "Diet & Feeding",
+        "value": "Omnivore"
+      },
+      {
+        "label": "Reproduction",
+        "value": "Bubble Nester"
+      },
+      {
+        "label": "Average Lifespan",
+        "value": "Up to 5 Years"
+      }
+    ],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "water-parameters",
+    "text": [],
+    "title": "Water Parameters",
+    "facts": [
+      {
+        "label": "Water Type",
+        "value": "Freshwater"
+      },
+      {
+        "label": "pH",
+        "value": "6.0 - 7.5"
+      },
+      {
+        "label": "GH",
+        "value": "5 - 15"
+      },
+      {
+        "label": "℉",
+        "value": "73 - 82"
+      },
+      {
+        "label": "℃",
+        "value": "23 - 28"
+      }
+    ],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "natural-habitat",
+    "text": [
+      "Banded Gouramis, known for their captivating presence, are native to the picturesque regions of Pakistan, Assam, Burma, Nepal, Bangladesh, and Myanmar in Northern India. These enchanting gouramis find solace in the tranquil waters of ponds, ditches, lakes, and expansive rivers adorned with abundant vegetation. Notably, in certain locales of India and Pakistan, Banded Gouramis are cultivated in rice paddies, serving as a valuable source of sustenance and supplementary income for local farmers. The harmonious coexistence of these fish and the agricultural landscape creates a unique symbiotic relationship, adding further depth to their significance in the region."
+    ],
+    "title": "Natural Habitat",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "breeding",
+    "text": [
+      "Breeding Banded Gouramis requires careful attention, but with proper preparation, it can be a rewarding endeavour. Establishing a separate breeding tank with a reduced water level is recommended. While standard water parameters are sufficient, slightly raising the temperature can promote breeding conditions. Incorporating a soft sponge filter or peat filter, fine-leaved plants like Hornwort or Milfoil, and floating plants like Ricca create an environment where the Gouramis feel secure. In addition, these plants serve as essential retreats for females, preventing aggression from males during courtship and nest building.",
+      "To initiate successful breeding, ensure that both the male and female Gouramis are well-conditioned with frequent feedings of frozen and live foods. The females should exhibit a rounded appearance, indicating their readiness to spawn. Introduce one or more females into the breeding tank several days ahead of the male, ideally in low-light conditions, and continue providing conditioning foods. Once the male is added, he will proceed to construct a bubble nest, a characteristic behaviour of this Gourami species. The nest, consisting of bubbles on the water's surface, serves as the focal point for courtship.",
+      "Courtship typically occurs in the afternoon or evening, with the male displaying raised dorsal fins and actively swimming around the female, inviting her to the nest. If the female is receptive, she will circle with the male, ultimately touching him with her mouth on the back or tail to initiate egg-laying. The male responds by embracing the female, aligning their bodies back-to-back, and the female releases a substantial quantity of clean eggs, typically around sixty. The male promptly fertilizes the eggs, and they float to the top due to their buoyancy. Any eggs outside the nest are diligently collected by the male and placed within the bubble nest. The spawning process can be repeated multiple times, resulting in a considerable number of eggs ranging from 300 to 800. In the presence of multiple females, the male may engage in breeding with each of them.",
+      "Once spawning is complete, removing the females from the breeding tank is crucial to prevent aggression from the male. He will assume responsibility for managing and guarding the eggs until they hatch. Within 12-24 hours, the fry will emerge from the protective bubble nest, becoming free-swimming. At this stage, removing the male from the tank is essential, as he may consume the fry. The newly hatched Banded Gourami fry are tiny and require infusoria or liquid fry food for the initial week or two. Subsequently, they can progress to consuming baby brine shrimp, microworms, and crushed flake food. Therefore, ensuring a well-covered tank during the early stages is crucial for adequately developing their labyrinth organ."
+    ],
+    "title": "Breeding",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "diet",
+    "text": [
+      "Providing Banded Gouramis with a diverse and balanced diet is advisable to promote their optimal health and overall well-being. While these gouramis thrive on a wide range of food options, incorporating various nutritional sources will help meet their dietary requirements and contribute to their overall contentment. High-quality dried food, such as tropical flakes, granules, or pellet food, should serve as the foundation of their diet. Additionally, supplementing their meals with fresh vegetables, algae wafers, and a selection of live, frozen, or freeze-dried fare such as bloodworm, mosquito larvae, brine shrimp, and daphnia will provide essential nutrients and enhance their feeding experience."
+    ],
+    "title": "Diet & Feeding",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "tank-mates",
+    "text": [
+      "Looking for some awesome tank mate ideas for your Banded Gourami? Look no further! Here are 10 of the most captivating & fascinating options that will liven up your aquarium!",
+      "Trichogaster lalius",
+      "Devario devario",
+      "Oreichthys crenuchoides",
+      "Botia dario",
+      "Parambassis ranga",
+      "Pethia Padamya",
+      "Botia almorhae",
+      "Oliotius oligolepis",
+      "Epalzeorhynchos Frenatum",
+      "Crossocheilus oblongus"
+    ],
+    "title": "10 tank mate ideas for the Banded GouramiDwarf GouramiBengal DanioDrape Fin BarbBengal LoachIndian Glass FishOdessa BarbYoyo LoachCheckered BarbRainbow SharkSiamese Algae Eater",
+    "facts": [],
+    "imgs": [
+      "https://aquadiction.world/img/profile/432-dwarf-gourami.webp",
+      "https://aquadiction.world/img/profile/432-4d218a8d-0ffa-4853-a8f8-ea19d7a9df5e_dwarft-female.webp",
+      "https://aquadiction.world/img/profile/432-bengal-danio-best.webp",
+      "https://aquadiction.world/img/profile/432-drape-fin-barb-oreichthys-crenuchoides.webp",
+      "https://aquadiction.world/img/profile/432-drape-fin-barb-oreichthys-crenuchoides-female.webp",
+      "https://aquadiction.world/img/profile/432-bfd47513-9f45-4b4c-a538-f2dc5296aedb_bengal-loach.webp",
+      "https://aquadiction.world/img/profile/432-indian-glass-fish-parambassis-ranga-2.webp",
+      "https://aquadiction.world/img/profile/432-odessa-barb1.webp",
+      "https://aquadiction.world/img/profile/432-a3e5b309-6627-4e23-b88d-3804643affc0_odessa-female.webp",
+      "https://aquadiction.world/img/profile/432-3464eb46-aee6-445a-a838-3838015d6914_yoyo-loach.webp",
+      "https://aquadiction.world/img/profile/432-Checker-barb1.webp",
+      "https://aquadiction.world/img/profile/432-female-checker-barb-fish.webp",
+      "https://aquadiction.world/img/profile/432-rainbow-shark1.webp",
+      "https://aquadiction.world/img/profile/432-siamese-algae-eater.webp"
+    ],
+    "speciesCards": [
+      {
+        "text": "Dwarf Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-dwarf-gourami.webp",
+          "https://aquadiction.world/img/profile/432-4d218a8d-0ffa-4853-a8f8-ea19d7a9df5e_dwarft-female.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/dwarf-gourami/"
+      },
+      {
+        "text": "Bengal Danio",
+        "images": [
+          "https://aquadiction.world/img/profile/432-bengal-danio-best.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/bengal-danio/"
+      },
+      {
+        "text": "Drape Fin Barb",
+        "images": [
+          "https://aquadiction.world/img/profile/432-drape-fin-barb-oreichthys-crenuchoides.webp",
+          "https://aquadiction.world/img/profile/432-drape-fin-barb-oreichthys-crenuchoides-female.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/drape-fin-barb/"
+      },
+      {
+        "text": "Bengal Loach",
+        "images": [
+          "https://aquadiction.world/img/profile/432-bfd47513-9f45-4b4c-a538-f2dc5296aedb_bengal-loach.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/bengal-loach/"
+      },
+      {
+        "text": "Indian Glass Fish",
+        "images": [
+          "https://aquadiction.world/img/profile/432-indian-glass-fish-parambassis-ranga-2.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/indian-glass-fish/"
+      },
+      {
+        "text": "Odessa Barb",
+        "images": [
+          "https://aquadiction.world/img/profile/432-odessa-barb1.webp",
+          "https://aquadiction.world/img/profile/432-a3e5b309-6627-4e23-b88d-3804643affc0_odessa-female.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/odessa-barb/"
+      },
+      {
+        "text": "Yoyo Loach",
+        "images": [
+          "https://aquadiction.world/img/profile/432-3464eb46-aee6-445a-a838-3838015d6914_yoyo-loach.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/yoyo-loach/"
+      },
+      {
+        "text": "Checkered Barb",
+        "images": [
+          "https://aquadiction.world/img/profile/432-Checker-barb1.webp",
+          "https://aquadiction.world/img/profile/432-female-checker-barb-fish.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/checkered-barb/"
+      },
+      {
+        "text": "Rainbow Shark",
+        "images": [
+          "https://aquadiction.world/img/profile/432-rainbow-shark1.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/rainbow-shark/"
+      },
+      {
+        "text": "Siamese Algae Eater",
+        "images": [
+          "https://aquadiction.world/img/profile/432-siamese-algae-eater.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/siamese-algae-eater/"
+      }
+    ]
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/banded-gourami/",
+    "id": "other-species",
+    "text": [
+      "Parosphromenus bintan",
+      "Sphaerichthys osphromenoides",
+      "Ctenopoma congicum",
+      "Microctenopoma nanum",
+      "Trichogaster lalius",
+      "Ctenops nobilis",
+      "Sphaerichthys acrostoma",
+      "Osphronemus goramy",
+      "Luciocephalus pulcher",
+      "Osphronemus laticlavius",
+      "19  More Gouramis Profiles"
+    ],
+    "title": "Other GouramisBintan Licorice GouramiChocolate GouramiCongo CtenopomaDwarf CtenopomaDwarf GouramiFrail GouramiGiant Chocolate GouramiGiant GouramiGiant PikeheadGiant Red Tail Gourami",
+    "facts": [],
+    "imgs": [
+      "https://aquadiction.world/img/profile/432-0470b03f-b481-4fdf-8eb3-f1109c4d30d7_gourami.webp",
+      "https://aquadiction.world/img/profile/432-chocolate-gourami-9.webp",
+      "https://aquadiction.world/img/profile/432-choc-gou1.webp",
+      "https://aquadiction.world/img/profile/432-congo-ctenopoma.webp",
+      "https://aquadiction.world/img/profile/432-dwarf-ctenopoma-microctenopoma-nanum.webp",
+      "https://aquadiction.world/img/profile/432-dwarf-gourami.webp",
+      "https://aquadiction.world/img/profile/432-4d218a8d-0ffa-4853-a8f8-ea19d7a9df5e_dwarft-female.webp",
+      "https://aquadiction.world/img/profile/432-frail-gourami.webp",
+      "https://aquadiction.world/img/profile/432-e3a04df7-c2f8-4a69-9d1e-7176fe938d19_frail.webp",
+      "https://aquadiction.world/img/profile/432-giant-chocolate-gourami.webp",
+      "https://aquadiction.world/img/profile/432-giant-gourami-1.webp",
+      "https://aquadiction.world/img/profile/432-d58a7c4e-e818-428d-b4de-61aa20a72a9b_gour.webp",
+      "https://aquadiction.world/img/profile/432-giant-red-tail-gourami1.webp"
+    ],
+    "speciesCards": [
+      {
+        "text": "Bintan Licorice Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-0470b03f-b481-4fdf-8eb3-f1109c4d30d7_gourami.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/bintan-licorice-gourami/"
+      },
+      {
+        "text": "Chocolate Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-chocolate-gourami-9.webp",
+          "https://aquadiction.world/img/profile/432-choc-gou1.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/chocolate-gourami/"
+      },
+      {
+        "text": "Congo Ctenopoma",
+        "images": [
+          "https://aquadiction.world/img/profile/432-congo-ctenopoma.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/congo-ctenopoma/"
+      },
+      {
+        "text": "Dwarf Ctenopoma",
+        "images": [
+          "https://aquadiction.world/img/profile/432-dwarf-ctenopoma-microctenopoma-nanum.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/dwarf-ctenopoma/"
+      },
+      {
+        "text": "Dwarf Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-dwarf-gourami.webp",
+          "https://aquadiction.world/img/profile/432-4d218a8d-0ffa-4853-a8f8-ea19d7a9df5e_dwarft-female.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/dwarf-gourami/"
+      },
+      {
+        "text": "Frail Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-frail-gourami.webp",
+          "https://aquadiction.world/img/profile/432-e3a04df7-c2f8-4a69-9d1e-7176fe938d19_frail.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/frail-gourami/"
+      },
+      {
+        "text": "Giant Chocolate Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-giant-chocolate-gourami.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/giant-chocolate-gourami/"
+      },
+      {
+        "text": "Giant Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-giant-gourami-1.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/giant-gourami/"
+      },
+      {
+        "text": "Giant Pikehead",
+        "images": [
+          "https://aquadiction.world/img/profile/432-d58a7c4e-e818-428d-b4de-61aa20a72a9b_gour.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/giant-pikehead/"
+      },
+      {
+        "text": "Giant Red Tail Gourami",
+        "images": [
+          "https://aquadiction.world/img/profile/432-giant-red-tail-gourami1.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/giant-red-tail-gourami/"
+      }
+    ]
+  }
+]
