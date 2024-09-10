@@ -1,0 +1,302 @@
+[
+  {
+    "id": "head-image",
+    "imgs": [
+      "https://aquadiction.world/img/profile/570-d73a0f7c-9dcd-4153-9816-f7ce5c8f601e_apisto.webp"
+    ]
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "intro",
+    "text": [
+      "Should your interest lean toward acquiring a visually arresting Apistogramma to enhance the aesthetic allure of your showcase tank, the Abacaxis Apistogramma (Apistogramma sp \"abacaxis\") presents an enticing prospect. Distinguished by its rare presence and vividly resplendent attributes, this species captivates with its remarkable hues and elaborately adorned fins. However, even seasoned Apistogramma enthusiasts may find the cultivation of this species in captivity, particularly with regard to fostering reproductive success, to be a complex endeavour due to their specific water requirements.",
+      "The choice of the minimum tank dimensions hinges upon your particular setup. For a 100-litre breeder tank, the inclusion of a solitary male is advisable. Conversely, in a community aquarium measuring 280 litres or more, an optimal introduction consists of three males paired with four to six females. Each female mandates a territorial expanse of no less than 12\" x 12\" to establish her domain. The males, manifesting polygamous tendencies, often exhibit territorial inclinations and may display aggression toward females. Hence, the recommended configuration is the maintenance of a harem arrangement comprising one male accompanied by a minimum of two females.",
+      "Within the native habitat of the Abacaxis Apistogramma, the presence of only a select few small Tetra species is observed due to distinct water chemistry prerequisites. Consequently, the creation of a species-dedicated enclosure housing a substantial school of these Tetras, complemented by vibrant live vegetation, yields a visually captivating milieu while enhancing the prospect of acquiring a compatible breeding pair.",
+      "In captive settings, they demonstrate adaptability to a broad spectrum of water hardness levels and, under certain conditions, may engage in spawning behaviour; however, the hatching success of their eggs notably diminishes in alkaline water environments. A prudent strategy involves the use of a RO/DI system coupled with the addition of a heightened quantity of catappa leaves and softwoods, thereby simulating conditions reminiscent of blackwater ecosystems. Based on outcome assessments, consideration may be given to the inclusion of a small mesh pouch filled with peat moss within the filtration system, an expedient measure for mineral filtration.",
+      "Recommendations include a substrate and background of dark hues. Given the inherent propensity for aggressive interactions, provisioning the desired territorial domains or concealment sites, realized through strategic vegetation or purpose-built Apistogramma retreats, assumes paramount importance in curbing stress levels. It is imperative that the chosen plant species can thrive in dim-light and blackwater habitats. Illumination should unquestionably be subdued, with the integration of floating plants to preserve the preferred subdued ambience.",
+      "Characterized by a distinct facial marking that often presents in shades of purple, the Abacaxis Apistogramma stands as a prime exemplar of captivating colouring. Males notably exhibit prominently darkened lips and throat regions, with colouration variations spanning from red to brown or black, although those with deep purple lips prevail. Notably, a diagnostic attribute resides in the broad lateral band, spanning two scales in width, extending along the body's length. This discernible band is equally conspicuous in females."
+    ],
+    "title": "Introduction",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "photos",
+    "text": [],
+    "title": "Abacaxis Apistogramma Photos",
+    "facts": [],
+    "imgs": [
+      "https://aquadiction.world/img/profile/320-d73a0f7c-9dcd-4153-9816-f7ce5c8f601e_apisto.webp"
+    ],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "sexual-dimorphism",
+    "text": [
+      "Distinguishing between male and female Abacaxis Apistogrammas is a straightforward process. Males exhibit a distinctive feature in the form of dark red lips. Conversely, mature females primed for spawning manifest a notable alteration in abdominal pigmentation, transitioning from brownish yellow to a vivid shade of yellow. Furthermore, the males exhibit a marginal size disparity alongside relatively elongated fins."
+    ],
+    "title": "Sexual Dimorphism",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "quick-facts",
+    "text": [],
+    "title": "Quick Facts",
+    "facts": [
+      {
+        "label": "Scientific Name",
+        "value": "Apistogramma sp \"Abacaxis\""
+      },
+      {
+        "label": "Year Described",
+        "value": "1999"
+      },
+      {
+        "label": "Other Names",
+        "value": "Wilhelm's Dwarf Cichlid, Rio Abacaxis Dwarf Cichlid"
+      },
+      {
+        "label": "Kingdom",
+        "value": "Animalia"
+      },
+      {
+        "label": "Classification",
+        "value": "Actinopterygii"
+      },
+      {
+        "label": "Order",
+        "value": "Cichliformes"
+      },
+      {
+        "label": "Family",
+        "value": "Cichlidae"
+      },
+      {
+        "label": "Genus",
+        "value": "Apistogramma"
+      },
+      {
+        "label": "Origins",
+        "value": "Brazil"
+      },
+      {
+        "label": "Max Size",
+        "value": "7 cm"
+      },
+      {
+        "label": "Temperament",
+        "value": "Semi-Aggressive"
+      },
+      {
+        "label": "Aquarium Level",
+        "value": "Bottom - Middle"
+      },
+      {
+        "label": "Difficulty",
+        "value": "Intermediate"
+      },
+      {
+        "label": "Shoaling",
+        "value": "No"
+      },
+      {
+        "label": "Best kept as",
+        "value": "2 Females per Male"
+      },
+      {
+        "label": "Diet & Feeding",
+        "value": "Omnivore"
+      },
+      {
+        "label": "Reproduction",
+        "value": "Cave Spawner"
+      },
+      {
+        "label": "Average Lifespan",
+        "value": "Up to 5 Years"
+      }
+    ],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "water-parameters",
+    "text": [],
+    "title": "Water Parameters",
+    "facts": [
+      {
+        "label": "Water Type",
+        "value": "Freshwater"
+      },
+      {
+        "label": "pH",
+        "value": "4.5 - 7.5"
+      },
+      {
+        "label": "GH",
+        "value": "1 - 6"
+      },
+      {
+        "label": "℉",
+        "value": "73 - 84"
+      },
+      {
+        "label": "℃",
+        "value": "22 - 28"
+      }
+    ],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "natural-habitat",
+    "text": [
+      "Abacaxis Apistogrammas trace their origins to Lago Glemende, a compact rainforest lake intricately linked to the Rio Abacaxis through a minor watercourse adjacent to the village of Walendo in the northwestern reaches of Brazil.",
+      "The Rio Abacaxis, in turn, constitutes a blackwater tributary contributing to the lower course of the Rio Madeira. The initial discovery of these Apistogrammas occurred within the leaf litter that adorns the perimeter of Lago Glemende's shoreline.",
+      "The prevailing aquatic milieu was characterized by mild turbidity, imparting a sombre brown hue to the water. Notably, the environmental conditions were characterized by elevated temperatures, profound softness, and a discernibly acidic pH level."
+    ],
+    "title": "Natural Habitat",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "breeding",
+    "text": [
+      "For those inclined towards cultivating a breeding endeavour involving Abacaxis Apistogrammas, there exist distinct methodologies to consider. The group method offers an avenue for attaining an established breeding pair, while an alternative avenue entails the procurement of an existing mating pair or trio from private breeders. Given the monetary investment and the species' proclivity for polygamous mating behaviour, the former approach aligns with a more economically judicious stance.",
+      "Upon securing the most aesthetically suitable pair or trio, the breeding process typically unfolds with relative ease. Acknowledging this secretive cave-spawning species' disposition, it becomes requisite to establish a dedicated breeding environment distinct from a communal tank setting. To bolster the prospect of successful outcomes, strategic steps encompass the implementation of a conditioning regimen featuring live dietary options in conjunction with the provision of ample hiding recesses and territorially delineated regions within the breeding enclosure.",
+      "A salient point of consideration resides in the Temperature-Dependent Sex Determination (TSD) phenomenon, prevalent across Apistogramma species, inclusive of the Abacaxis Apistogramma. The manipulation of temperature parameters facilitates gender selection; elevating temperatures yields a preponderance of males while lowering them favours the emergence of females.",
+      "The culmination of a successful spawning event can yield up to fifty eggs within the designated spawning cave. In their natural habitat, females typically deposit their eggs amidst leaf litter or beneath submerged wood. Within a breeding context, half coconut shells and ceramic plant pots serve as viable spawning substrates. Subsequent to egg deposition, an escalation in female aggression towards the male is observed, signifying his timely removal to avert the potential consumption of the eggs by the maternal fish.",
+      "Hatching of fish fry transpires within a span of three days, subsequently transitioning to a free-swimming state four days thereafter. During their early developmental phase, the fry necessitates nourishment with minute micro-food sources, encompassing options such as infusoria or vinegar eels, until their size becomes conducive to the ingestion of freshly hatched brine shrimp."
+    ],
+    "title": "Breeding",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "diet",
+    "text": [
+      "Abacaxis Apistogrammas, by nature, exhibit a predominantly carnivorous inclination, demonstrating a pronounced predilection for live nourishment within their native ecosystem. Inhabitants of an aquarium setting greatly benefit from a diet that closely emulates their natural feeding proclivities.",
+      "Catering to their nutritional needs necessitates the provision of a balanced assortment of live or frozen fare, encompassing options such as Artemia, Bloodworm, Tubifex worms, and Daphnia. Augmenting their dietary regimen with premium-quality pelleted and flake sustenance contributes to a comprehensive nutritional profile.",
+      "These fish, notable for their propensity to dwell near the substrate, engage actively in foraging activities throughout the sediment to secure sustenance."
+    ],
+    "title": "Diet & Feeding",
+    "facts": [],
+    "imgs": [],
+    "speciesCards": []
+  },
+  {
+    "originUrl": "https://aquadiction.world/species-spotlight/abacaxis-apistogramma/",
+    "id": "other-species",
+    "text": [
+      "Apistogramma macmasteri",
+      "Apistogramma agassizii",
+      "Apistogramma agassizii var. \"Fire Red\"",
+      "Apistogramma allpahuayo",
+      "Apistogramma pertensis",
+      "Apistogramma bitaeniata",
+      "Apistogramma Barlowi",
+      "Apistogramma eunotus",
+      "Apistogramma panduro, Apistogramma pandurini",
+      "Apistogramma cacatuoides",
+      "17 More Apistogramma Profiles"
+    ],
+    "title": "Other Apistogramma Macmasters Apistogramma - GoldAgassiz's ApistogrammaAgassiz's Apistogramma - Fire RedAllpahuayo Dwarf CichlidAmazon Dwarf CichlidBanded ApistogrammaBarlow's ApistogrammaBlue Cheek Dwarf CichlidBlue Panda ApistogrammaCockatoo Dwarf Cichlid",
+    "facts": [],
+    "imgs": [
+      "https://aquadiction.world/img/profile/432-a582e7ea-24ff-4cd6-b0eb-bd88c4effa57_mcmaster.webp",
+      "https://aquadiction.world/img/profile/432-6cb3d860-0cc4-402a-b60c-819d2fa82718_agazi.webp",
+      "https://aquadiction.world/img/profile/432-447f2e27-c98e-4a29-8fb1-ebb5c97aca36_fire-red.webp",
+      "https://aquadiction.world/img/profile/432-bc83ed21-dc2b-458e-90c2-e91d5dbbb5ff_apisto.webp",
+      "https://aquadiction.world/img/profile/432-bf015911-ff2c-4bf1-bfe7-5362dc4236bf_amazon-apisto.webp",
+      "https://aquadiction.world/img/profile/432-banded-apistogramma.webp",
+      "https://aquadiction.world/img/profile/432-8f8f6a41-06ed-4010-a0fe-4763be5a98d5_barlow.webp",
+      "https://aquadiction.world/img/profile/432-b1f386af-aad2-46eb-beb3-c1cfc2f113a6_apisto.webp",
+      "https://aquadiction.world/img/profile/432-blue-panda-apistogramma.webp",
+      "https://aquadiction.world/img/profile/432-cockatoo-dwarf-cichlid-1.webp"
+    ],
+    "speciesCards": [
+      {
+        "text": " Macmasters Apistogramma - Gold",
+        "images": [
+          "https://aquadiction.world/img/profile/432-a582e7ea-24ff-4cd6-b0eb-bd88c4effa57_mcmaster.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/macmasters-apistogramma-gold/"
+      },
+      {
+        "text": "Agassiz's Apistogramma",
+        "images": [
+          "https://aquadiction.world/img/profile/432-6cb3d860-0cc4-402a-b60c-819d2fa82718_agazi.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/agassizs-apistogramma/"
+      },
+      {
+        "text": "Agassiz's Apistogramma - Fire Red",
+        "images": [
+          "https://aquadiction.world/img/profile/432-447f2e27-c98e-4a29-8fb1-ebb5c97aca36_fire-red.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/agassizs-apistogramma-fire-red/"
+      },
+      {
+        "text": "Allpahuayo Dwarf Cichlid",
+        "images": [
+          "https://aquadiction.world/img/profile/432-bc83ed21-dc2b-458e-90c2-e91d5dbbb5ff_apisto.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/allpahuayo-dwarf-cichlid/"
+      },
+      {
+        "text": "Amazon Dwarf Cichlid",
+        "images": [
+          "https://aquadiction.world/img/profile/432-bf015911-ff2c-4bf1-bfe7-5362dc4236bf_amazon-apisto.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/amazon-dwarf-cichlid/"
+      },
+      {
+        "text": "Banded Apistogramma",
+        "images": [
+          "https://aquadiction.world/img/profile/432-banded-apistogramma.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/banded-apistogramma/"
+      },
+      {
+        "text": "Barlow's Apistogramma",
+        "images": [
+          "https://aquadiction.world/img/profile/432-8f8f6a41-06ed-4010-a0fe-4763be5a98d5_barlow.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/barlows-apistogramma/"
+      },
+      {
+        "text": "Blue Cheek Dwarf Cichlid",
+        "images": [
+          "https://aquadiction.world/img/profile/432-b1f386af-aad2-46eb-beb3-c1cfc2f113a6_apisto.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/blue-cheek-dwarf-cichlid/"
+      },
+      {
+        "text": "Blue Panda Apistogramma",
+        "images": [
+          "https://aquadiction.world/img/profile/432-blue-panda-apistogramma.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/blue-panda-apistogramma/"
+      },
+      {
+        "text": "Cockatoo Dwarf Cichlid",
+        "images": [
+          "https://aquadiction.world/img/profile/432-cockatoo-dwarf-cichlid-1.webp"
+        ],
+        "href": "https://aquadiction.world/species-spotlight/cockatoo-dwarf-cichlid/"
+      }
+    ]
+  }
+]
