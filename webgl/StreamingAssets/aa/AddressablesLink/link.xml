@@ -8,7 +8,6 @@
     <type fullname="Resource.Enemies.enemy0.Character" preserve="all" />
     <type fullname="Resource.Player.Player0.Character" preserve="all" />
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.WXAssetBundleProvider" preserve="all" />
-    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.WXBundledAssetProvider" preserve="all" />
     <type fullname="Watermelon.Joystick" preserve="all" />
     <type fullname="GameCore.SettingSystem.EnemyCharacterData" preserve="nothing" serialized="true" />
     <type fullname="GameCore.SettingSystem.PlayerCharacterData" preserve="nothing" serialized="true" />
