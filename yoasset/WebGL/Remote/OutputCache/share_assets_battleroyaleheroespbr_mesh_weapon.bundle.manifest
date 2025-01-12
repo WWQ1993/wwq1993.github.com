@@ -1,0 +1,58 @@
+ManifestFileVersion: 0
+CRC: 4037897702
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 66277a006436f031f549d0f50d17fe59
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b24632a371d717380c74e0f91007aa99
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 66277a006436f031f549d0f50d17fe59
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/RailGun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/Shotgun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/Grenade.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/SawGun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/SmokeGrenade.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/MiniGun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/GravityGun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/CrossBow.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/Pistol.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/AssaultRifle.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/ChemicalGun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/SniperRifle.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/SMG.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/FlameThrower.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/IceGun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/ElectricGun.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/Bazooka.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/Knife.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/HuntingRifle.fbx
+- Assets/BattleRoyaleHeroesPBR/Mesh/Weapon/HMG.fbx
+Dependencies:
+- D:/dev/unity_p/template game/Bundles/WebGL/Remote/OutputCache/share_packages_com_unity_render-pipelines_universal_runtime_materials.bundle

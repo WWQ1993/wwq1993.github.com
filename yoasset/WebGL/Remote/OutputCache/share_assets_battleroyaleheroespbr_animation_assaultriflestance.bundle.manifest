@@ -1,0 +1,58 @@
+ManifestFileVersion: 0
+CRC: 4249378605
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 930679b123d350ddcd0824495e14d40d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2f06d14b10a638e776285dcc4dbec75f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 930679b123d350ddcd0824495e14d40d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RollBWD_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RunRight_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RunFWD_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/Dizzy_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/DashBWD_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/DashFWD_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RunFWD_RM_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RunBWD_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/GetUp_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/GetHit02_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/PowerUP_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/IdleNormal01_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RollLeft_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/GetHit01_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/Reloading_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/Die_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/IdleNormal02_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RunLeft_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/VictoryNormal_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/DashRight_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RollFWD_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/RollRight_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/IdleBattle01_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/Jump_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/DashLeft_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/ShootAutoshot_AR_Anim.fbx
+- Assets/BattleRoyaleHeroesPBR/Animation/AssaultRifleStance/Knockdown_AR_Anim.fbx
+Dependencies:
+- D:/dev/unity_p/template game/Bundles/WebGL/Remote/OutputCache/share_assets_battleroyaleheroespbr_mesh.bundle
+- D:/dev/unity_p/template game/Bundles/WebGL/Remote/OutputCache/share_packages_com_unity_render-pipelines_universal_runtime_materials.bundle

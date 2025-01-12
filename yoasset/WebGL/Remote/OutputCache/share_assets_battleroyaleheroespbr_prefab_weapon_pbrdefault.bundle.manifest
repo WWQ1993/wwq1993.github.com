@@ -1,0 +1,60 @@
+ManifestFileVersion: 0
+CRC: 4132871833
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7503f8b54543f090c1bf2296e23d426b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cce081c9a91ac321d385fd7d62c9aef6
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7503f8b54543f090c1bf2296e23d426b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/SMGDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/SmokeGrenadeDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/AssaultRifleDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/IceGunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/HMGDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/CrossBowDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/RailGunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/MiniGunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/HuntingRifleDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/SawGunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/KnifeDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/ElectricGunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/FlameThrowerDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/GrenadeDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/ChemicalGunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/GravityGunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/PistolDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/BazookaDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/ShotgunDefault.prefab
+- Assets/BattleRoyaleHeroesPBR/Prefab/Weapon/PBRDefault/SniperRifleDefault.prefab
+Dependencies:
+- D:/dev/unity_p/template game/Bundles/WebGL/Remote/OutputCache/share_assets_battleroyaleheroespbr_animator_weaponanimator.bundle
+- D:/dev/unity_p/template game/Bundles/WebGL/Remote/OutputCache/share_assets_battleroyaleheroespbr_material_pbrdefault.bundle
+- D:/dev/unity_p/template game/Bundles/WebGL/Remote/OutputCache/share_assets_battleroyaleheroespbr_mesh_weapon.bundle

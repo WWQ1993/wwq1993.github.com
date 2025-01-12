@@ -1,0 +1,50 @@
+{
+    "FileVersion": "2.2.5",
+    "EnableAddressable": true,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 0,
+    "BuildBundleType": 1,
+    "BuildPipeline": "EditorSimulateBuildPipeline",
+    "PackageName": "Remote",
+    "PackageVersion": "Simulate",
+    "PackageNote": "2025/1/12 20:53:49",
+    "AssetList": [
+        {
+            "Address": "Enemy0",
+            "AssetPath": "Assets/Assets/Prefabs/Characters/Enemies/enemy0/Enemy0.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "Player0",
+            "AssetPath": "Assets/Assets/Prefabs/Characters/Players/Player0/Player0.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 1
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "assets_assets_prefabs_characters_enemies_enemy0.bundle",
+            "UnityCRC": 0,
+            "FileHash": "6a1a05181bf34081d0767e7e6aaf46be",
+            "FileCRC": "00000000",
+            "FileSize": 283488,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "assets_assets_prefabs_characters_players_player0.bundle",
+            "UnityCRC": 0,
+            "FileHash": "3ebb5cd7339f78c1b1df5220a349353e",
+            "FileCRC": "00000000",
+            "FileSize": 300023,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        }
+    ]
+}
