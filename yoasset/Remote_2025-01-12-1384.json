@@ -7,8 +7,8 @@
     "BuildBundleType": 2,
     "BuildPipeline": "BuiltinBuildPipeline",
     "PackageName": "Remote",
-    "PackageVersion": "2025-01-12-1343",
-    "PackageNote": "2025/1/12 22:29:13",
+    "PackageVersion": "2025-01-12-1384",
+    "PackageNote": "2025/1/12 23:04:19",
     "AssetList": [
         {
             "Address": "Enemy0",
@@ -123,10 +123,10 @@
         },
         {
             "BundleName": "share_assets_battleroyaleheroespbr_animator.bundle",
-            "UnityCRC": 298143155,
-            "FileHash": "0ca49bb7550507c326cb07a92fe4e273",
-            "FileCRC": "72365e81",
-            "FileSize": 9739,
+            "UnityCRC": 1228610195,
+            "FileHash": "0d536eaf9d6c7c612f5ea647928df295",
+            "FileCRC": "e0d713d6",
+            "FileSize": 9738,
             "Encrypted": false,
             "Tags": [],
             "DependIDs": [
