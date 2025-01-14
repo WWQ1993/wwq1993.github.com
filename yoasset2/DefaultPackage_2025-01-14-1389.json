@@ -7,8 +7,8 @@
     "BuildBundleType": 2,
     "BuildPipeline": "BuiltinBuildPipeline",
     "PackageName": "DefaultPackage",
-    "PackageVersion": "2025-01-14-1379",
-    "PackageNote": "2025/1/14 23:04:44",
+    "PackageVersion": "2025-01-14-1389",
+    "PackageNote": "2025/1/14 23:09:59",
     "AssetList": [
         {
             "Address": "Cube",
