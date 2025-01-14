@@ -1,15 +1,15 @@
 {
     "Summary": {
-        "YooVersion": "2.2.6-preview",
+        "YooVersion": "2.2.7-preview",
         "UnityVersion": "2022.3.10f1c1",
-        "BuildDate": "2025/1/14 8:52:22",
-        "BuildSeconds": 1,
+        "BuildDate": "2025/1/14 22:59:37",
+        "BuildSeconds": 4,
         "BuildTarget": 20,
         "BuildPipeline": "BuiltinBuildPipeline",
         "BuildBundleType": 2,
         "BuildPackageName": "DefaultPackage",
-        "BuildPackageVersion": "2025-01-14-525",
-        "BuildPackageNote": "2025/1/14 8:52:19",
+        "BuildPackageVersion": "2025-01-14-1379",
+        "BuildPackageNote": "2025/1/14 22:59:32",
         "UniqueBundleName": false,
         "EnableAddressable": true,
         "LocationToLower": false,
@@ -24,14 +24,26 @@
         "CompressOption": 2,
         "DisableWriteTypeTree": false,
         "IgnoreTypeTreeChanges": true,
-        "AssetFileTotalCount": 111,
-        "MainAssetTotalCount": 48,
-        "AllBundleTotalCount": 29,
-        "AllBundleTotalSize": 6150414,
+        "AssetFileTotalCount": 107,
+        "MainAssetTotalCount": 49,
+        "AllBundleTotalCount": 26,
+        "AllBundleTotalSize": 6205839,
         "EncryptedBundleTotalCount": 0,
         "EncryptedBundleTotalSize": 0
     },
     "AssetInfos": [
+        {
+            "Address": "Cube",
+            "AssetPath": "Assets/Samples/Space Shooter/Cube.prefab",
+            "AssetGUID": "faeda427e7335584393421a3810a76ab",
+            "AssetTags": [],
+            "MainBundleName": "assets_samples_space_shooter.bundle",
+            "MainBundleSize": 3246,
+            "DependAssets": [
+                "Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat",
+                "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader"
+            ]
+        },
         {
             "Address": "MyShaderVariants",
             "AssetPath": "Assets/Samples/Space Shooter/GameArt/ShaderVariants/MyShaderVariants.shadervariants",
@@ -186,13 +198,11 @@
             "MainBundleName": "assets_samples_space_shooter_gameres_entity.bundle",
             "MainBundleSize": 35927,
             "DependAssets": [
-                "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_01/Materials/prop_asteroid_01_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_01/prop_asteroid_01.FBX",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_01/prop_asteroid_01_dff.tif",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_01/prop_asteroid_01_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_01/prop_asteroid_01_nrm.tif",
-                "Assets/Samples/Space Shooter/GameArt/Shader/StandardMobile.shader",
-                "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader"
+                "Assets/Samples/Space Shooter/GameArt/Shader/StandardMobile.shader"
             ]
         },
         {
@@ -203,13 +213,11 @@
             "MainBundleName": "assets_samples_space_shooter_gameres_entity.bundle",
             "MainBundleSize": 35927,
             "DependAssets": [
-                "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_02/Materials/prop_asteroid_02_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_02/prop_asteroid_02.FBX",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_02/prop_asteroid_02_dff.tif",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_02/prop_asteroid_02_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_02/prop_asteroid_02_nrm.tif",
-                "Assets/Samples/Space Shooter/GameArt/Shader/StandardMobile.shader",
-                "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader"
+                "Assets/Samples/Space Shooter/GameArt/Shader/StandardMobile.shader"
             ]
         },
         {
@@ -220,13 +228,11 @@
             "MainBundleName": "assets_samples_space_shooter_gameres_entity.bundle",
             "MainBundleSize": 35927,
             "DependAssets": [
-                "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_03/Materials/prop_asteroid_03_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_03/prop_asteroid_03.FBX",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_03/prop_asteroid_03_dff.tif",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_03/prop_asteroid_03_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_03/prop_asteroid_03_nrm.tif",
-                "Assets/Samples/Space Shooter/GameArt/Shader/StandardMobile.shader",
-                "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader"
+                "Assets/Samples/Space Shooter/GameArt/Shader/StandardMobile.shader"
             ]
         },
         {
@@ -251,8 +257,6 @@
             "DependAssets": [
                 "Assets/Samples/Space Shooter/GameArt/Effect/fx_enemyShip_engines_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Effect/part_enginePulse_dff.tif",
-                "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/Materials/vehicle_enemyShip_glow_mat.mat",
-                "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/Materials/vehicle_enemyShip_metal_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/vehicle_enemyShip.FBX",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/vehicle_enemyShip_glow_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/vehicle_enemyShip_metal_mat.mat",
@@ -260,8 +264,7 @@
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/vehicle_enemyShip_purple_dff.tif",
                 "Assets/Samples/Space Shooter/GameArt/Scene/cube_junkyard_sharp.cubemap",
                 "Assets/Samples/Space Shooter/GameArt/Shader/StandardMobile.shader",
-                "Assets/Samples/Space Shooter/GameRes/Audio/sound_weapon_enemy.wav",
-                "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader"
+                "Assets/Samples/Space Shooter/GameRes/Audio/sound_weapon_enemy.wav"
             ]
         },
         {
@@ -615,6 +618,22 @@
     ],
     "BundleInfos": [
         {
+            "BundleName": "assets_samples_space_shooter.bundle",
+            "FileName": "8621228da66da7e02bf56f9301b69f24.bundle",
+            "FileHash": "8621228da66da7e02bf56f9301b69f24",
+            "FileCRC": "5c51322b",
+            "FileSize": 3246,
+            "Encrypted": false,
+            "Tags": [],
+            "DependBundles": [
+                "share_packages_com_unity_render-pipelines_universal_runtime_materials.bundle",
+                "unityshaders.bundle"
+            ],
+            "AllBuiltinAssets": [
+                "Assets/Samples/Space Shooter/Cube.prefab"
+            ]
+        },
+        {
             "BundleName": "assets_samples_space_shooter_gameres_audio.bundle",
             "FileName": "838291cb5b1bde39bed85c9eb974c66e.bundle",
             "FileHash": "838291cb5b1bde39bed85c9eb974c66e",
@@ -678,13 +697,9 @@
                 "assets_samples_space_shooter_gameres_audio.bundle",
                 "share_assets_samples_space_shooter_gameart_effect.bundle",
                 "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_01.bundle",
-                "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_01_materials.bundle",
                 "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_02.bundle",
-                "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_02_materials.bundle",
                 "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_03.bundle",
-                "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_03_materials.bundle",
                 "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_enemyship.bundle",
-                "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_enemyship_materials.bundle",
                 "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_playership.bundle",
                 "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_playership_materials.bundle",
                 "share_assets_samples_space_shooter_gameart_scene.bundle",
@@ -893,14 +908,13 @@
         },
         {
             "BundleName": "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_01.bundle",
-            "FileName": "1be8aa382ac8ee044369149c48c36871.bundle",
-            "FileHash": "1be8aa382ac8ee044369149c48c36871",
-            "FileCRC": "aa53b93e",
-            "FileSize": 161676,
+            "FileName": "2377ffa86f7343246f23889079fab836.bundle",
+            "FileHash": "2377ffa86f7343246f23889079fab836",
+            "FileCRC": "38dafc6b",
+            "FileSize": 161557,
             "Encrypted": false,
             "Tags": [],
             "DependBundles": [
-                "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_01_materials.bundle",
                 "unityshaders.bundle"
             ],
             "AllBuiltinAssets": [
@@ -911,30 +925,14 @@
             ]
         },
         {
-            "BundleName": "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_01_materials.bundle",
-            "FileName": "92e8388cbcc77bb849b089296b24f362.bundle",
-            "FileHash": "92e8388cbcc77bb849b089296b24f362",
-            "FileCRC": "bb1d44c1",
-            "FileSize": 2994,
-            "Encrypted": false,
-            "Tags": [],
-            "DependBundles": [
-                "unityshaders.bundle"
-            ],
-            "AllBuiltinAssets": [
-                "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_01/Materials/prop_asteroid_01_mat.mat"
-            ]
-        },
-        {
             "BundleName": "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_02.bundle",
-            "FileName": "c3fb797f0dc93711317662da4478b6a9.bundle",
-            "FileHash": "c3fb797f0dc93711317662da4478b6a9",
-            "FileCRC": "3b43a78c",
-            "FileSize": 147152,
+            "FileName": "44cfe9c50f9f46a5e86b268515ebf867.bundle",
+            "FileHash": "44cfe9c50f9f46a5e86b268515ebf867",
+            "FileCRC": "8b44c76d",
+            "FileSize": 147054,
             "Encrypted": false,
             "Tags": [],
             "DependBundles": [
-                "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_02_materials.bundle",
                 "unityshaders.bundle"
             ],
             "AllBuiltinAssets": [
@@ -945,30 +943,14 @@
             ]
         },
         {
-            "BundleName": "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_02_materials.bundle",
-            "FileName": "284ee8be44c6792251cb0eb6ec7d0da3.bundle",
-            "FileHash": "284ee8be44c6792251cb0eb6ec7d0da3",
-            "FileCRC": "d77de4b6",
-            "FileSize": 2993,
-            "Encrypted": false,
-            "Tags": [],
-            "DependBundles": [
-                "unityshaders.bundle"
-            ],
-            "AllBuiltinAssets": [
-                "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_02/Materials/prop_asteroid_02_mat.mat"
-            ]
-        },
-        {
             "BundleName": "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_03.bundle",
-            "FileName": "f2d6d17751514f905ddeef341ab4a421.bundle",
-            "FileHash": "f2d6d17751514f905ddeef341ab4a421",
-            "FileCRC": "a34dc5a9",
-            "FileSize": 134737,
+            "FileName": "71d080f32a6382f52c4cf9f171ca6c51.bundle",
+            "FileHash": "71d080f32a6382f52c4cf9f171ca6c51",
+            "FileCRC": "d6c71e1a",
+            "FileSize": 134657,
             "Encrypted": false,
             "Tags": [],
             "DependBundles": [
-                "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_03_materials.bundle",
                 "unityshaders.bundle"
             ],
             "AllBuiltinAssets": [
@@ -979,30 +961,14 @@
             ]
         },
         {
-            "BundleName": "share_assets_samples_space_shooter_gameart_entity_asteroid_prop_asteroid_03_materials.bundle",
-            "FileName": "2bbc00676496e0e25229d900217b5f51.bundle",
-            "FileHash": "2bbc00676496e0e25229d900217b5f51",
-            "FileCRC": "10902bd6",
-            "FileSize": 2994,
-            "Encrypted": false,
-            "Tags": [],
-            "DependBundles": [
-                "unityshaders.bundle"
-            ],
-            "AllBuiltinAssets": [
-                "Assets/Samples/Space Shooter/GameArt/Entity/Asteroid/prop_asteroid_03/Materials/prop_asteroid_03_mat.mat"
-            ]
-        },
-        {
             "BundleName": "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_enemyship.bundle",
-            "FileName": "7b994e591698414eb46b1ff2672523fc.bundle",
-            "FileHash": "7b994e591698414eb46b1ff2672523fc",
-            "FileCRC": "37a40170",
-            "FileSize": 644834,
+            "FileName": "0f9f0cd20e0ef3a97f1ecd01d97afd3c.bundle",
+            "FileHash": "0f9f0cd20e0ef3a97f1ecd01d97afd3c",
+            "FileCRC": "49f2eca5",
+            "FileSize": 644776,
             "Encrypted": false,
             "Tags": [],
             "DependBundles": [
-                "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_enemyship_materials.bundle",
                 "share_assets_samples_space_shooter_gameart_scene.bundle",
                 "unityshaders.bundle"
             ],
@@ -1012,22 +978,6 @@
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/vehicle_enemyShip_metal_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/vehicle_enemyShip_nrm.tif",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/vehicle_enemyShip_purple_dff.tif"
-            ]
-        },
-        {
-            "BundleName": "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_enemyship_materials.bundle",
-            "FileName": "74d2edd1e70dc080a8ef563285a3aadf.bundle",
-            "FileHash": "74d2edd1e70dc080a8ef563285a3aadf",
-            "FileCRC": "f38942b2",
-            "FileSize": 3061,
-            "Encrypted": false,
-            "Tags": [],
-            "DependBundles": [
-                "unityshaders.bundle"
-            ],
-            "AllBuiltinAssets": [
-                "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/Materials/vehicle_enemyShip_glow_mat.mat",
-                "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_enemyShip/Materials/vehicle_enemyShip_metal_mat.mat"
             ]
         },
         {
@@ -1055,15 +1005,13 @@
         },
         {
             "BundleName": "share_assets_samples_space_shooter_gameart_entity_vehicle_vehicle_playership_materials.bundle",
-            "FileName": "550ddb2fcc15a3f7b8113dc2fdc22a6b.bundle",
-            "FileHash": "550ddb2fcc15a3f7b8113dc2fdc22a6b",
-            "FileCRC": "500fb46f",
-            "FileSize": 3079,
+            "FileName": "25ff9a2acae487565b173c3346d28f95.bundle",
+            "FileHash": "25ff9a2acae487565b173c3346d28f95",
+            "FileCRC": "9bca47bc",
+            "FileSize": 67655,
             "Encrypted": false,
             "Tags": [],
-            "DependBundles": [
-                "unityshaders.bundle"
-            ],
+            "DependBundles": [],
             "AllBuiltinAssets": [
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_playerShip/Materials/vehicle_playerShip_glass_mat.mat",
                 "Assets/Samples/Space Shooter/GameArt/Entity/Vehicle/vehicle_playerShip/Materials/vehicle_playerShip_metal_mat.mat"
