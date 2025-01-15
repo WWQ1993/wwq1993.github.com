@@ -1,0 +1,58 @@
+{
+    "FileVersion": "2.2.5",
+    "EnableAddressable": true,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 0,
+    "BuildBundleType": 2,
+    "BuildPipeline": "BuiltinBuildPipeline",
+    "PackageName": "DefaultPackage",
+    "PackageVersion": "2025-01-15-1069",
+    "PackageNote": "1/15/2025 5:50:03 PM",
+    "AssetList": [
+        {
+            "Address": "Cube",
+            "AssetPath": "Assets/Prefabs/Cube.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "assets_prefabs.bundle",
+            "UnityCRC": 1646172878,
+            "FileHash": "77d9da1d1dde0d9927fd25f25131a5b5",
+            "FileCRC": "5204be09",
+            "FileSize": 3219,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                1,
+                2
+            ]
+        },
+        {
+            "BundleName": "share_packages_com_unity_render-pipelines_universal_runtime_materials.bundle",
+            "UnityCRC": 2185017780,
+            "FileHash": "747fa4ca580dd386a8c00063e900bcb9",
+            "FileCRC": "f4613530",
+            "FileSize": 3021,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                2
+            ]
+        },
+        {
+            "BundleName": "unityshaders.bundle",
+            "UnityCRC": 707929777,
+            "FileHash": "6fac3bb22f2f98366a9eaf0092825986",
+            "FileCRC": "68a5ecd9",
+            "FileSize": 97516,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        }
+    ]
+}
