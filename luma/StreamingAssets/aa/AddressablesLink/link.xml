@@ -59,6 +59,7 @@
     <type fullname="Runtime.View.BattleScene.Popup.SettingPopup.MoreGamePopupView" preserve="all" />
     <type fullname="Runtime.View.BattleScene.Popup.SettingPopup.PlayerIDView" preserve="all" />
     <type fullname="Runtime.View.BattleScene.Popup.SettingPopup.SettingPopupView" preserve="all" />
+    <type fullname="Runtime.View.BattleScene.Popup.SettingPopup.VersionCodeView" preserve="all" />
     <type fullname="Runtime.View.BattleScene.Popup.SkillPopup.SkillPopupCardView" preserve="all" />
     <type fullname="Runtime.View.BattleScene.Popup.SkillPopup.SkillPopupRefreshBtnView" preserve="all" />
     <type fullname="Runtime.View.BattleScene.Popup.SkillPopup.SkillPopupView" preserve="all" />
@@ -214,18 +215,18 @@
     <type fullname="SerializableDictionary`2/Ele" preserve="nothing" serialized="true" />
     <type fullname="cfg.ui.BattlePopupEnum" preserve="nothing" serialized="true" />
     <type fullname="cfg.ui.HomePopupEnum" preserve="nothing" serialized="true" />
+    <type fullname="Editor.AccountTool.AccountProfile" preserve="nothing" serialized="true" />
     <type fullname="Runtime.Typings.AudioClipNameEnum" preserve="nothing" serialized="true" />
     <type fullname="Runtime.Typings.AudioGroupType" preserve="nothing" serialized="true" />
-    <type fullname="cfg.skill.BehaviorNameEnum" preserve="nothing" serialized="true" />
-    <type fullname="Runtime.Typings.UiColorEnum" preserve="nothing" serialized="true" />
     <type fullname="Runtime.Typings.DropAnimation" preserve="nothing" serialized="true" />
-    <type fullname="Runtime.Typings.MapSetting" preserve="nothing" serialized="true" />
-    <type fullname="Runtime.Typings.PrefabSetting" preserve="nothing" serialized="true" />
     <type fullname="Runtime.Typings.EntityEnum" preserve="nothing" serialized="true" />
+    <type fullname="Runtime.Typings.MapSetting" preserve="nothing" serialized="true" />
     <type fullname="Runtime.Typings.ParticleEnum" preserve="nothing" serialized="true" />
+    <type fullname="Runtime.Typings.PrefabSetting" preserve="nothing" serialized="true" />
     <type fullname="Runtime.Typings.PrefabSetting`1" preserve="nothing" serialized="true" />
+    <type fullname="Runtime.Typings.UiColorEnum" preserve="nothing" serialized="true" />
     <type fullname="cfg.inLevel.DropType" preserve="nothing" serialized="true" />
-    <type fullname="Editor.AccountTool.AccountProfile" preserve="nothing" serialized="true" />
+    <type fullname="cfg.skill.BehaviorNameEnum" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
@@ -251,16 +252,16 @@
     <type fullname="Unity.Behavior.RunSubgraphDynamic" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.SequenceComposite" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.Start" preserve="nothing" serialized="true" />
-    <type fullname="Unity.Behavior.SelectorComposite" preserve="nothing" serialized="true" />
-    <type fullname="Unity.Behavior.SharedBlackboardVariable`1" preserve="nothing" serialized="true" />
-    <type fullname="Unity.Behavior.WaitAction" preserve="nothing" serialized="true" />
-    <type fullname="Unity.Behavior.SucceederModifier" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.ConditionOperator" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.ConditionalGuardAction" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.LogMessageToConsoleAction" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.LogMessageToConsoleAction/LogType" preserve="nothing" serialized="true" />
-    <type fullname="Unity.Behavior.VariableComparisonCondition" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.ParallelAllComposite" preserve="nothing" serialized="true" />
+    <type fullname="Unity.Behavior.SelectorComposite" preserve="nothing" serialized="true" />
+    <type fullname="Unity.Behavior.SharedBlackboardVariable`1" preserve="nothing" serialized="true" />
+    <type fullname="Unity.Behavior.SucceederModifier" preserve="nothing" serialized="true" />
+    <type fullname="Unity.Behavior.VariableComparisonCondition" preserve="nothing" serialized="true" />
+    <type fullname="Unity.Behavior.WaitAction" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.WaitForAllComposite" preserve="nothing" serialized="true" />
     <type fullname="Unity.Behavior.RepeatUntilFailModifier" preserve="nothing" serialized="true" />
   </assembly>
